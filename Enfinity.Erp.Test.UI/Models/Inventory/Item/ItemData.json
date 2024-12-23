@@ -1,0 +1,109 @@
+{
+  "new": [
+    {
+      "Name": "InventoryWeightage",
+      "ArabicName": "InventoryWeightage",
+      "Type": "Inventory",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Not Applicable",
+      "UOM": "Each"
+    },
+    {
+      "Name": "InventoryFifo",
+      "ArabicName": "InventoryFifo",
+      "Type": "Inventory",
+      "CostingMethod": "Fifo",
+      "TrackingMode": "Not Applicable",
+      "UOM": "Each"
+    },
+    {
+      "Name": "InventoryLifo",
+      "ArabicName": "InventoryLifo",
+      "Type": "Inventory",
+      "CostingMethod": "Lifo",
+      "TrackingMode": "Not Applicable",
+      "UOM": "Each"
+    },
+    {
+      "Name": "ServiceWeightage",
+      "ArabicName": "ServiceWeightage",
+      "Type": "Service",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Not Applicable",
+      "UOM": "Each"
+    },
+    {
+      "Name": "ServiceFifo",
+      "ArabicName": "ServiceFifo",
+      "Type": "Service",
+      "CostingMethod": "Fifo",
+      "TrackingMode": "Not Applicable",
+      "UOM": "Each"
+    },
+    {
+      "Name": "ServiceLifo",
+      "ArabicName": "ServiceLifo",
+      "Type": "Service",
+      "CostingMethod": "Lifo",
+      "TrackingMode": "Not Applicable",
+      "UOM": "Each"
+    },
+    {
+      "Name": "BOMWeightage",
+      "ArabicName": "BOMWeightage",
+      "Type": "Bill Of Material",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Not Applicable",
+      "UOM": "Each"
+    }
+  ],
+  "newbom": [
+    {
+      "Name": "BOMWeightagewithcomponent1",
+      "ArabicName": "BOMWeightagewithcomponent",
+      "Type": "Bill Of Material",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Not Applicable",
+      "UOM": "Each",
+      "SubItems": [
+        {
+          "Qty": "1",
+          "SubItem": "000002 | test",
+          "ExpectedName": "test 000002"
+        },
+        {
+          "Qty": "1",
+          "SubItem": "000004 | cable",
+          "ExpectedName": "test 000002"
+        }
+      ]
+    }
+  ],
+  "delete": [
+    {
+      "Name": "InventoryWeightage"
+    },
+    {
+      "Name": "InventoryFifo"
+    },
+    {
+      "Name": "InventoryLifo"
+    },
+    {
+      "Name": "ServiceWeightage"
+    },
+    {
+      "Name": "ServiceFifo"
+    },
+    {
+      "Name": "ServiceLifo"
+    },
+    {
+      "Name": "BOMWeightage"
+    },
+    {
+      "Name": "BOMWeightagewithcomponent"
+    }
+  ]
+}
+  

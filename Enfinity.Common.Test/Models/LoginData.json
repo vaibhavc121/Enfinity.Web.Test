@@ -1,0 +1,16 @@
+{
+  "hrms": [
+    {
+      "Url": "https://testhrms.onenfinity.com",
+      "Username": "admin@demo.com",
+      "Password": "123"
+    }
+  ],
+  "erp": [
+    {
+      "Url": "https://testerp.onenfinity.com",
+      "Username": "habid@demo.com",
+      "Password": "123"
+    }
+  ]
+}
