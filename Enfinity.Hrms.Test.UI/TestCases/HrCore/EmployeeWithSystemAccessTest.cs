@@ -29,18 +29,18 @@ namespace Enfinity.Hrms.Test.UI
                 Thread.Sleep(2000);
 
                 //PayrollEmployee page
-                DD_PayrollEmployeePage pe = new DD_PayrollEmployeePage(_driver);
+                EmployeePage pe = new EmployeePage(_driver);
                 pe.ClickNewBtn();
-                pe.SetWorkEmail(email);
-                pe.SetName(name);
+                pe.ProvideWorkEmail(email);
+                pe.ProvideName(name);
                 pe.ClickMgrDropdown();
                 pe.SelectMgr();
-                pe.SetMobileNumber(mbl);
-                pe.SetDOJ(doj);
-                pe.ClickDept();
-                pe.SelectDept(dept);
-                pe.ClickDesig();
-                pe.SelectDesig(desg);
+                pe.ProvideMobileNumber(mbl);
+                pe.ProvideDOJ(doj);
+                pe.ClickDepartment();
+                pe.SelectDepartment(dept);
+                pe.ClickDesignation();
+                pe.SelectDesignation(desg);
                 //pe.ClearPayrollSet();
                 pe.ClickPayrollSet();
                 pe.SelectPayrollSet(payrollset);
@@ -49,13 +49,13 @@ namespace Enfinity.Hrms.Test.UI
                 pe.ClickIndemnity();
                 pe.SelectIndemnity(indemnity);
                 pe.ClickGrade();
-                pe.SetGrade(grade);
+                pe.SelectGrade(grade);
                 pe.ClickGender();
-                pe.SetGender(gender);
+                pe.SelectGender(gender);
                 pe.ClickReligion();
-                pe.SetReligion(religion);
+                pe.SelectReligion(religion);
                 pe.ClickMaritalStatus();
-                pe.SetMaritalStatus(martitalStatus);
+                pe.SelectMaritalStatus(martitalStatus);
                 pe.ClickSystemAccessBtn();
                 //pe.ProvideUserName(username);
                 pe.ClickRoles();

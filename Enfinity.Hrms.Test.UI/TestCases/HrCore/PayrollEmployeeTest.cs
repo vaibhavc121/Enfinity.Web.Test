@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Enfinity.Hrms.Test.UI;
+using NUnit.Framework;
 using NUnit.Framework.Internal;
 using NUnit.Framework.Legacy;
 using System;
@@ -12,11 +13,12 @@ using System.Threading.Tasks;
 namespace Enfinity.Hrms.Test.UI
 {
     [TestFixture]
-    public class PayrollEmployeeTest:BaseTest
+    public class PayrollEmployeeTest : BaseTest
     {
 
         [Test]
-        public void VerifyPayrollEmployeeCreation()
+        [TestCaseSource(typeof(HRCoreDataProvider), nameof(HRCoreDataProvider.PayrollEmployee))]
+        public void VerifyPayrollEmployeeCreation(string email, string name, string mbl, string doj, string dept, string desg, string payrollset, string calendar,string indemnity, string grade, string gender, string religion, string martitalStatus)
         {
             try
             {
@@ -31,31 +33,36 @@ namespace Enfinity.Hrms.Test.UI
                 Thread.Sleep(2000);
 
                 //PayrollEmployee page
-                PayrollEmployeePage pe=new PayrollEmployeePage(_driver);
+                EmployeePage pe = new EmployeePage(_driver);
                 pe.ClickNewBtn();
-                pe.SetWorkEmail();
-                pe.SetName();
+                pe.ProvideWorkEmail(email);
+                pe.ProvideName(name);
                 pe.ClickMgrDropdown();
                 pe.SelectMgr();
-                pe.SetMobileNumber();
-                pe.SetDOJ();
-                pe.ClickDept();
-                pe.SelectDept();
-                pe.ClickDesig();
-                pe.SelectDesig();
+                pe.ProvideMobileNumber(mbl);
+                pe.ProvideDOJ(doj);
+                pe.ClickDepartment();
+                pe.SelectDepartment(dept);
+                pe.ClickDesignation();
+                pe.SelectDesignation(desg);
+                //pe.ClearPayrollSet();
+                pe.ClickPayrollSet();
+                pe.SelectPayrollSet(payrollset);
                 pe.ClickCalendar();
-                pe.SelectCalendar();
+                pe.SelectCalendar(calendar);
+                pe.ClickIndemnity();
+                pe.SelectIndemnity(indemnity);
                 pe.ClickGrade();
-                pe.SetGrade();
+                pe.SelectGrade(grade);
                 pe.ClickGender();
-                pe.SetGender();
+                pe.SelectGender(gender);
                 pe.ClickReligion();
-                pe.SetReligion();
+                pe.SelectReligion(religion);
                 pe.ClickMaritalStatus();
-                pe.SetMaritalStatus();
+                pe.SelectMaritalStatus(martitalStatus);                
                 pe.ClickSave();
-                
-                ClassicAssert.IsTrue(pe.IsEmployeeCreated());
+
+                ClassicAssert.IsTrue(pe.IsEmployeeCreated(name));
 
             }
             catch (Exception e)

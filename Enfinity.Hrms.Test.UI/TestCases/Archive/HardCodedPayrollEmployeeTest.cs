@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using NUnit.Framework.Internal;
 using NUnit.Framework.Legacy;
 using System;
 using System.Collections.Generic;
@@ -7,14 +8,16 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+
 namespace Enfinity.Hrms.Test.UI
 {
     [TestFixture]
-    public class NonPayrollEmployeeTest:BaseTest
+    public class HardCodedPayrollEmployeeTest:BaseTest
     {
+
         [Test]
-        [TestCaseSource(typeof(HRCoreDataProvider), nameof(HRCoreDataProvider.NonPayrollEmployee))]
-        public void VerifyNonPayrollEmployeeCreation(string email, string name, string mbl, string doj, string grade, string gender, string religion, string martitalStatus)
+        [Ignore("Ignored due to hard coded data")]
+        public void VerifyPayrollEmployeeCreation()
         {
             try
             {
@@ -29,26 +32,31 @@ namespace Enfinity.Hrms.Test.UI
                 Thread.Sleep(2000);
 
                 //PayrollEmployee page
-                EmployeePage pe = new EmployeePage(_driver);
+                HardCodedPayrollEmployeePage pe=new HardCodedPayrollEmployeePage(_driver);
                 pe.ClickNewBtn();
-                pe.ProvideWorkEmail(email);
-                pe.ProvideName(name);
+                pe.ProvideWorkEmail();
+                pe.SetName();
                 pe.ClickMgrDropdown();
                 pe.SelectMgr();
-                pe.ProvideMobileNumber(mbl);
-                pe.ProvideDOJ(doj);
-                pe.ClickNonPayrollBtn();    
+                pe.SetMobileNumber();
+                pe.SetDOJ();
+                pe.ClickDept();
+                pe.SelectDept();
+                pe.ClickDesig();
+                pe.SelectDesig();
+                pe.ClickCalendar();
+                pe.SelectCalendar();
                 pe.ClickGrade();
-                pe.SelectGrade(grade);
+                pe.SetGrade();
                 pe.ClickGender();
-                pe.SelectGender(gender);
+                pe.SetGender();
                 pe.ClickReligion();
-                pe.SelectReligion(religion);
+                pe.SetReligion();
                 pe.ClickMaritalStatus();
-                pe.SelectMaritalStatus(martitalStatus);
+                pe.SetMaritalStatus();
                 pe.ClickSave();
-
-                ClassicAssert.IsTrue(pe.IsEmployeeCreated(name));
+                
+                ClassicAssert.IsTrue(pe.IsEmployeeCreated());
 
             }
             catch (Exception e)
@@ -57,6 +65,5 @@ namespace Enfinity.Hrms.Test.UI
             }
 
         }
-
     }
 }
