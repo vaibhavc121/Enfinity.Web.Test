@@ -21,6 +21,7 @@ namespace Enfinity.Hrms.Test.UI
             _driver = driver;
         }
 
+        
         // Locators
         private readonly By newbtn = By.CssSelector("#MainMenu_DXI0_Img");
 
@@ -269,7 +270,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void ClickSave()
         {
-            CommonActions.ClickSave();
+            CommonActions.ClickSaveWithoutBack();
         }
 
         public bool IsEmployeeCreated(string empname)

@@ -17,6 +17,11 @@ namespace Enfinity.Hrms.Test.UI
             BaseTest._driver.Navigate().Back();
         }
 
+        public static void ClickSaveWithoutBack()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Save']")).Click();            
+        }
+
         // Method to click on View
         public static void ClickView()
         {
@@ -104,6 +109,30 @@ public static void SelectDropdownOption(string expectedValue)
                     "/html[1]/body[1]/div[6]/div[2]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/p[1]/span[1]/a[1]"))
                     .Text;
             return result;
+        }
+
+        public static string Result()
+        {
+            string result = BaseTest._driver.FindElement(By.XPath(
+                    "//td[@class='list-hyperlink dx-cell-focus-disabled']"))
+                    .Text;
+            return result;
+        }
+
+        public static bool IsTxnCreated()
+        {
+            string message = BaseTest._driver.FindElement(By.XPath("//div[@class='dx-toast-message']")).Text;
+            //return message;
+            if (message.Contains("created successfully"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+
+            }
+
         }
 
     }
