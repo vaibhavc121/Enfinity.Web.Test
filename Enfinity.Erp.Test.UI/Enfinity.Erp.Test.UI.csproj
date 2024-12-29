@@ -99,11 +99,11 @@
     <Compile Include="PageObjects\Inventory\CreatenewItemPage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestCases\Base\BaseTest.cs" />
     <Compile Include="TestCases\Inventory\CreatenewItemTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Models\Global\LoginData.json" />
     <None Include="packages.config" />
     <None Include="Models\Inventory\Item\ItemData.json" />
   </ItemGroup>
@@ -115,6 +115,7 @@
     <Folder Include="PageObjects\Sales\" />
     <Folder Include="PageObjects\Service\" />
     <Folder Include="TestCases\Accounting\" />
+    <Folder Include="TestCases\Base\" />
     <Folder Include="TestCases\FixedAssets\" />
     <Folder Include="TestCases\Purchase\" />
     <Folder Include="TestCases\Sales\" />

@@ -1,4 +1,4 @@
-﻿using Enfinity.Hrms.Test.UI.PageObjects.Archive;
+﻿using Enfinity.Hrms.Test.UI;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Enfinity.Hrms.Test.UI.TestCases.Archive
+namespace Enfinity.Hrms.Test.UI
 {
     [TestFixture]
     public class Test

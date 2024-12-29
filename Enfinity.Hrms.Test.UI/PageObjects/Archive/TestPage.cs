@@ -1,5 +1,5 @@
 ﻿using Bogus.DataSets;
-using Enfinity.Hrms.Test.UI.PageObjects.Base;
+using Enfinity.Hrms.Test.UI;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Enfinity.Hrms.Test.UI.PageObjects.Archive
+namespace Enfinity.Hrms.Test.UI
 {
     public class TestPage : BasePage
     {      

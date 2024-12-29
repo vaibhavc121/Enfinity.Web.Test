@@ -6,18 +6,21 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Enfinity.Common.Test;
 
 namespace Enfinity.Hrms.Test.UI
 {
-    internal class EmployeeWithSystemAccessTest:BaseTest
+    internal class EmployeeWithSystemAccessTest : BaseTest
     {
-
+        public string Product = "Hrms";
         [Test]
         [TestCaseSource(typeof(HRCoreDataProvider), nameof(HRCoreDataProvider.EmployeeWithSystemAccess))]
         public void ValidateEmployeeCreationWithValidAccess(string email, string name, string mbl, string doj, string dept, string desg, string payrollset, string calendar, string indemnity, string grade, string gender, string religion, string martitalStatus, string username, string roles)
         {
             try
             {
+                Login(Product);
+
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
                 hc.ClickHRCore();

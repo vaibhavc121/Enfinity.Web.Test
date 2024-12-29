@@ -29,7 +29,7 @@ namespace Enfinity.Erp.Test.UI
         private By backBtn = By.Id("pre-Button");
         private By bomTab = By.XPath("//span[contains(@class, 'dx-tab-text') and text()='Bill Of Material']");
         private By addBtn = By.ClassName("dx-icon-edit-button-addrow");
-        private By dropdownselectofItem = By.CssSelector(".dx-widget.dx-button-mode-contained.dx-button-normal.dx-dropdowneditor-button");
+        private By dropdownselectofItem = By.CssSelector(".dx-widget.dx-button-normal.dx-dropdowneditor-button");
         private By qtyField = By.XPath("//input[contains(@id, 'ComponentBaseQtyPerAssembledUnit')]");
         private By saveBtnofPopup = By.XPath("(//div[contains(@class, 'dx-widget') and contains(@class, 'dx-button') and contains(@class, 'dx-button-mode-contained') and contains(@class, 'dx-button-normal') and contains(@class, 'dx-button-has-text')])[3]");
         public CreatenewItemPage(IWebDriver driver)

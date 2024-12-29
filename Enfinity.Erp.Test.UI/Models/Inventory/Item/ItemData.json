@@ -68,13 +68,13 @@
       "SubItems": [
         {
           "Qty": "1",
-          "SubItem": "000002 | test",
-          "ExpectedName": "test 000002"
+          "SubItem": "000002 | HSS DRILL BIT 6MM 1",
+          "ExpectedName": "HSS DRILL BIT 6MM 1 000002"
         },
         {
           "Qty": "1",
-          "SubItem": "000004 | cable",
-          "ExpectedName": "test 000002"
+          "SubItem": "000004 | PLUM B 6MM",
+          "ExpectedName": "HSS DRILL BIT 6MM 1 000002"
         }
       ]
     }

@@ -1,4 +1,5 @@
-﻿using Enfinity.Hrms.Test.UI;
+﻿using Enfinity.Common.Test;
+using Enfinity.Hrms.Test.UI;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 using NUnit.Framework.Legacy;
@@ -15,13 +16,15 @@ namespace Enfinity.Hrms.Test.UI
     [TestFixture]
     public class PayrollEmployeeTest : BaseTest
     {
-
+        public string Product = "Hrms";
         [Test]
         [TestCaseSource(typeof(HRCoreDataProvider), nameof(HRCoreDataProvider.PayrollEmployee))]
         public void VerifyPayrollEmployeeCreation(string email, string name, string mbl, string doj, string dept, string desg, string payrollset, string calendar,string indemnity, string grade, string gender, string religion, string martitalStatus)
         {
             try
             {
+                Login(Product);
+
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
                 hc.ClickHRCore();

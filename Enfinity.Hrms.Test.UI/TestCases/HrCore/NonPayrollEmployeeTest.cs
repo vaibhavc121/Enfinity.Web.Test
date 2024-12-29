@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Enfinity.Common.Test;
+using NUnit.Framework;
 using NUnit.Framework.Legacy;
 using System;
 using System.Collections.Generic;
@@ -10,14 +11,17 @@ using System.Threading.Tasks;
 namespace Enfinity.Hrms.Test.UI
 {
     [TestFixture]
-    public class NonPayrollEmployeeTest:BaseTest
+    public class NonPayrollEmployeeTest : BaseTest
     {
+        public string Product = "Hrms";
         [Test]
         [TestCaseSource(typeof(HRCoreDataProvider), nameof(HRCoreDataProvider.NonPayrollEmployee))]
         public void VerifyNonPayrollEmployeeCreation(string email, string name, string mbl, string doj, string grade, string gender, string religion, string martitalStatus)
         {
             try
             {
+                Login(Product);
+
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
                 hc.ClickHRCore();
@@ -37,7 +41,7 @@ namespace Enfinity.Hrms.Test.UI
                 pe.SelectMgr();
                 pe.ProvideMobileNumber(mbl);
                 pe.ProvideDOJ(doj);
-                pe.ClickNonPayrollBtn();    
+                pe.ClickNonPayrollBtn();
                 pe.ClickGrade();
                 pe.SelectGrade(grade);
                 pe.ClickGender();

@@ -1,5 +1,6 @@
 ﻿using Bogus;
-using Enfinity.Hrms.Test.UI.PageObjects.Base;
+using Enfinity.Common.Test;
+using Enfinity.Hrms.Test.UI;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
+namespace Enfinity.Hrms.Test.UI
 {
     public class DepartmentPage : BasePage
     {
@@ -27,7 +28,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
 
         public void ClickNew()
         {
-            CommonActions.ClickNew();
+            CommonPageActions.ClickNew();
         }
 
         public string temp = BasePage.RandomString();
@@ -49,7 +50,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
         public void SelectDeptMgrName()
         {
             //Find(deptMgrDD).SendKeys("vaibhav chavan");
-            CommonActions.SelectDropdownValue("Mary Kom");
+            CommonPageActions.SelectDropdownValue("Mary Kom");
         }
 
         public void SelectDeptMgr()
@@ -59,13 +60,13 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
 
         public void ClickSave()
         {
-            //CommonActions.ClickSave();
-            Find(save).Click();
+            CommonPageActions.ClickSave();
+            //Find(save).Click();
         }       
 
         public bool IsDeptCreated()
         {
-            if (CommonActions.Result().Contains(temp))
+            if (CommonPageActions.Result().Contains(temp))
             {
                 return true;
             }

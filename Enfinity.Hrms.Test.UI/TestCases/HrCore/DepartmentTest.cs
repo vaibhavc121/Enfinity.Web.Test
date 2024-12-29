@@ -1,4 +1,5 @@
-﻿using Enfinity.Hrms.Test.UI.PageObjects.HrCore;
+﻿using Enfinity.Common.Test;
+using Enfinity.Hrms.Test.UI;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 using System;
@@ -9,16 +10,23 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Enfinity.Hrms.Test.UI.TestCases.HrCore
+namespace Enfinity.Hrms.Test.UI
 {
     [TestFixture]
-    public class DepartmentTest:BaseTest
+    public class DepartmentTest : BaseTest
     {
+        public string Product = "Hrms";
         [Test]
         public void VerifyDepartmentCreation()
         {
+
             try
             {
+                #region MyRegion
+                Login(Product);
+                #endregion
+
+
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
                 hc.ClickHRCore();
@@ -39,11 +47,11 @@ namespace Enfinity.Hrms.Test.UI.TestCases.HrCore
                 //dp.SelectDeptMgr();               
                 dp.ClickSave();
 
-                ClassicAssert.IsTrue(CommonActions.IsTxnCreated());
+                ClassicAssert.IsTrue(CommonPageActions.IsTxnCreated());
 
 
             }
-            catch (Exception e) 
+            catch (Exception e)
             {
                 ClassicAssert.Fail("Test case failed: " + e);
             }

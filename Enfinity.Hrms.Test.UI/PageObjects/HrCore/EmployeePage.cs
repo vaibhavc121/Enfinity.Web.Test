@@ -1,4 +1,5 @@
 ﻿//using Bogus;
+using Enfinity.Common.Test;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -9,20 +10,17 @@ using System.Threading.Tasks;
 
 namespace Enfinity.Hrms.Test.UI
 {
-    public class EmployeePage
+    public class EmployeePage:BasePage
     {
-        private readonly IWebDriver _driver;
-        //public static Faker faker = new Faker();
+        //private readonly IWebDriver _driver;
+        //public static Faker faker = new Faker();        
 
-
-        // Constructor
-        public EmployeePage(IWebDriver driver)
+        public EmployeePage(IWebDriver driver) : base(driver)
         {
-            _driver = driver;
         }
 
-        
-        // Locators
+
+        #region Create Page Objects
         private readonly By newbtn = By.CssSelector("#MainMenu_DXI0_Img");
 
         private readonly By workEmail = By.Name("Email");
@@ -84,174 +82,186 @@ namespace Enfinity.Hrms.Test.UI
         private readonly By result = By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/p[1]/span[1]/a[1]");
 
         private readonly By clkfilteredemp = By.XPath("//a[normalize-space()='001 | Vaibhav Chavan']");
+        #endregion
 
-        
+        #region Personal Tab
+        private By nameL2 = By.XPath("//input[@name='NameL2']");
+        private By displayName = By.Name("DisplayName");
+        private By displayNameL2 = By.Name("DisplayNameL2");
+        private By DOB = By.XPath("//input[@aria-haspopup='true']");
+        private By nationality = By.XPath("//input[@aria-expanded='true']");
+        private By bloodGroup = By.XPath("//input[contains(@id,'BloodGroup')]");
+        private By photoVisibility = By.XPath("//input[contains(@id,'PhotoVisibility')]");
+        private By mobileNumberVisibility = By.XPath("//input[contains(@id,'MobileNumberVisibility')]");
+        private By emailVisibility = By.XPath("//input[contains(@id,'EmailVisibility')]");
+        #endregion
 
         //string expname = faker.Name.FirstName();
         //string expname = "Suraj";
 
+        #region Create Action Methods
         public void ClickNewBtn()
         {
-            CommonActions.ClickNew();
+            CommonPageActions.ClickNew();
         }
 
         public void ProvideWorkEmail(string email)
         {
-            _driver.FindElement(workEmail).SendKeys(email);
+            Find(workEmail).SendKeys(email);
         }
 
 
 
         public void ProvideName(string empname)
         {
-            _driver.FindElement(name).SendKeys(empname);
+            Find(name).SendKeys(empname);
         }
 
         public void ClickMgrDropdown()
         {
-            _driver.FindElement(clkmgr).Click();
+            Find(clkmgr).Click();
             Thread.Sleep(1000);
         }
 
         public void SelectMgr()
         {
             //CommonActions.SelectDropdownOption("Vaibhav Chavan");
-            _driver.FindElement(slctmgr).Click();
+            Find(slctmgr).Click();
         }
 
         public void ProvideMobileNumber(string mbl)
         {
-            _driver.FindElement(mobileNumber).SendKeys(mbl);
+            Find(mobileNumber).SendKeys(mbl);
         }
 
         public void ProvideDOJ(string doj)
         {
-            _driver.FindElement(joiningDate).Clear();
-            _driver.FindElement(joiningDate).SendKeys(doj);
+            Find(joiningDate).Clear();
+            Find(joiningDate).SendKeys(doj);
 
         }
 
         public void ClickNonPayrollBtn()
         {
-            _driver.FindElement(nonpayroll).Click();
+            Find(nonpayroll).Click();
         }
 
         public void ClickDepartment()
         {
-            _driver.FindElement(clkdept).Click();
+            Find(clkdept).Click();
             Thread.Sleep(1000);
         }
 
         public void SelectDepartment(string dept)
         {
-            CommonActions.SelectDropdownOption(dept);
+            CommonPageActions.SelectDropdownOption(dept);
         }
 
         public void ClickDesignation()
         {
-            _driver.FindElement(clkdesg).Click();
+            Find(clkdesg).Click();
             Thread.Sleep(1000);
         }
 
         public void SelectDesignation(string desg)
         {
-            CommonActions.SelectDropdownOption(desg);
+            CommonPageActions.SelectDropdownOption(desg);
         }
 
         public void ClearPayrollSet()
         {
-            _driver.FindElement(clearpayrollSet).Click();
-            _driver.FindElement(clearpayrollSet).Clear();
+            Find(clearpayrollSet).Click();
+            Find(clearpayrollSet).Clear();
 
         }
         public void ClickPayrollSet()
         {
-            _driver.FindElement(payrollset).Click();
+            Find(payrollset).Click();
             Thread.Sleep(1000);
         }
 
         public void SelectPayrollSet(string payrollset)
         {
-            CommonActions.SelectDropdownOption(payrollset);
+            CommonPageActions.SelectDropdownOption(payrollset);
         }
 
         public void ClickCalendar()
         {
-            _driver.FindElement(clkcalendar).Click();
+            Find(clkcalendar).Click();
             Thread.Sleep(1000);
         }
 
         public void SelectCalendar(string calendar)
         {
-            CommonActions.SelectDropdownOption(calendar);
+            CommonPageActions.SelectDropdownOption(calendar);
         }
 
         public void ClickIndemnity()
         {
-            _driver.FindElement(clkindemnity).Click();
+            Find(clkindemnity).Click();
             Thread.Sleep(1000);
         }
 
         public void SelectIndemnity(string indemnity)
         {
-            CommonActions.SelectDropdownOption(indemnity);
+            CommonPageActions.SelectDropdownOption(indemnity);
         }
 
         public void ClickGrade()
         {
-            _driver.FindElement(clkgrade).Click();
+            Find(clkgrade).Click();
             Thread.Sleep(1000);
         }
 
         public void SelectGrade(string grade)
         {
-            CommonActions.SelectDropdownOption(grade);
+            CommonPageActions.SelectDropdownOption(grade);
         }
 
         public void ClickGender()
         {
-            _driver.FindElement(clkgender).Click();
+            Find(clkgender).Click();
             Thread.Sleep(1000);
         }
 
         public void SelectGender(string gender)
         {
-            CommonActions.SelectDropdownOption(gender);
+            CommonPageActions.SelectDropdownOption(gender);
         }
 
         public void ClickReligion()
         {
-            _driver.FindElement(clkreligion).Click();
+            Find(clkreligion).Click();
             Thread.Sleep(1000);
         }
 
         public void SelectReligion(string religion)
         {
-            CommonActions.SelectDropdownOption(religion);
+            CommonPageActions.SelectDropdownOption(religion);
         }
 
         public void ClickMaritalStatus()
         {
-            _driver.FindElement(clkmaritalstatus).Click();
+            Find(clkmaritalstatus).Click();
             Thread.Sleep(1000);
         }
 
         public void SelectMaritalStatus(string maritalStatus)
         {
-            CommonActions.SelectDropdownOption(maritalStatus);
+            CommonPageActions.SelectDropdownOption(maritalStatus);
         }
 
         public void ClickSystemAccessBtn()
         {
-            _driver.FindElement(systemaccess).Click();
+            Find(systemaccess).Click();
         }
 
         public void ProvideUserName(string actusername)
         {
-            //_driver.FindElement(username).SendKeys(actusername);
+            //Find(username).SendKeys(actusername);
 
             IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
-            IWebElement element = _driver.FindElement(By.Id("dx_dx-4d99a9bc-290c-2c0c-16c8-c7017645bb87_CustomUsername"));
+            IWebElement element = Find(By.Id("dx_dx-4d99a9bc-290c-2c0c-16c8-c7017645bb87_CustomUsername"));
             js.ExecuteScript("arguments[0].value='mohan@test.com';", element);
 
             Thread.Sleep(2000);
@@ -259,23 +269,23 @@ namespace Enfinity.Hrms.Test.UI
 
         public void ClickRoles()
         {
-            _driver.FindElement(roles).Click();
+            Find(roles).Click();
             Thread.Sleep(1000);
         }
 
         public void SelectRole(string role)
         {
-            CommonActions.SelectDropdownOption(role);
+            CommonPageActions.SelectDropdownOption(role);
         }
 
         public void ClickSave()
         {
-            CommonActions.ClickSaveWithoutBack();
+            CommonPageActions.ClickSaveAndBack();
         }
 
         public bool IsEmployeeCreated(string empname)
         {
-            if (CommonActions.ResultEmployee().Contains(empname))
+            if (CommonPageActions.ResultEmployee().Contains(empname))
             {
                 return true;
             }
@@ -285,7 +295,35 @@ namespace Enfinity.Hrms.Test.UI
             }
 
         }
+        #endregion
 
+        #region Personal Tab Action Methods
+        public void ProvideNameL2()
+        {
+            Find(nameL2).SendKeys("");
+        }
+
+        public void ProvideDisplayName()
+        {
+            Find(displayName).SendKeys("");
+        }
+
+        public void ProvideDisplayNameL2()
+        {
+            Find(displayNameL2).SendKeys("");
+        }
+
+        public void ProvideDOB()
+        {
+            Find(DOB).SendKeys("");
+        }
+
+        public void SelectNationality()
+        {
+            CommonPageActions.SelectDropdownOption("");
+            
+        }
+        #endregion
 
     }
 }

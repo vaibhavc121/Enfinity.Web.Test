@@ -17,15 +17,25 @@ namespace Enfinity.Erp.Test.UI
     [TestFixture]
     public class CreatenewItemTest : BaseTest
     {
+        private string Product = "Erp";
+        public CreatenewItemTest()
+        {
+          
+        }
         [Test, Category("Inventory"), Author("Baburao Adkane")]
         public void CreateNewItem()
         {
+            #region MyRegion
+            Login(Product);
+            #endregion
+
             var itemFile = FileHelper.GetDataFile("Erp","Inventory", "Item", "ItemData");
-            var items = JsonHelper.LoadJsonData<ItemModel>(itemFile, "new");
+            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "new");
             var createNewItemPage = new CreatenewItemPage(_driver);
 
             foreach(var item in items) {
-                //createNewItemPage.selectModule();
+                createNewItemPage.selectModule();
+                Thread.Sleep(1000);
                 createNewItemPage.navigateToItem();
                 createNewItemPage.clickNew();
                 createNewItemPage.createNewItem(item.Name, item.ArabicName);
@@ -53,12 +63,18 @@ namespace Enfinity.Erp.Test.UI
         [Test, Category("Inventory"), Author("Baburao Adkane")]
         public void CreateNewBOMItemWithComponent()
         {
+            #region MyRegion
+            Login(Product);
+            #endregion
+
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
-            var items = JsonHelper.LoadJsonData<ItemModel>(itemFile, "newbom");
+            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "newbom");
             var createNewItemPage = new CreatenewItemPage(_driver);
 
             foreach (var item in items)
             {
+                createNewItemPage.selectModule();
+                Thread.Sleep(1000);
                 createNewItemPage.navigateToItem();
                 createNewItemPage.clickNew();
                 createNewItemPage.createNewItem(item.Name, item.ArabicName);
@@ -82,7 +98,7 @@ namespace Enfinity.Erp.Test.UI
                     createNewItemPage.provideQty(subItem.Qty);
                     createNewItemPage.clickSavePopup();
                     // Validate the added sub-item
-                    IWebElement subItemName = _driver.FindElement(By.CssSelector("p[title='test']"));
+                    IWebElement subItemName = _driver.FindElement(By.CssSelector("p[title='HSS DRILL BIT 6MM 1']"));
                     string actualName = subItemName.Text;
                     ClassicAssert.AreEqual(subItem.ExpectedName, actualName);
                 }

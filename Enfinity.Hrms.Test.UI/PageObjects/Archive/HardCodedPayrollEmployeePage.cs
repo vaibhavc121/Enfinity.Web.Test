@@ -67,12 +67,14 @@ namespace Enfinity.Hrms.Test.UI
 
         private readonly By clkfilteredemp = By.XPath("//a[normalize-space()='001 | Vaibhav Chavan']");
 
+        /// <summary>
         //string expname = faker.Name.FirstName();
+        /// </summary>
         string expname = "Suraj";
 
         public void ClickNewBtn()
         {
-            CommonActions.ClickNew(); 
+            CommonPageActions.ClickNew(); 
             
             
             
@@ -136,7 +138,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectDesig()
         {
-            CommonActions.SelectDropdownOption("Systems Analyst");
+            CommonPageActions.SelectDropdownOption("Systems Analyst");
         }
 
         public void ClickCalendar()
@@ -147,7 +149,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectCalendar()
         {
-            CommonActions.SelectDropdownOption("for flipkart");
+            CommonPageActions.SelectDropdownOption("for flipkart");
         }
 
         public void ClickGrade()
@@ -158,7 +160,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SetGrade()
         {
-            CommonActions.SelectDropdownOption("Contributor");
+            CommonPageActions.SelectDropdownOption("Contributor");
         }
 
         public void ClickGender()
@@ -169,7 +171,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SetGender()
         {
-            CommonActions.SelectDropdownOption("Male");
+            CommonPageActions.SelectDropdownOption("Male");
         }
 
         public void ClickReligion()
@@ -180,7 +182,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SetReligion()
         {
-            CommonActions.SelectDropdownOption("Hindu");
+            CommonPageActions.SelectDropdownOption("Hindu");
         }
 
         public void ClickMaritalStatus()
@@ -191,17 +193,18 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SetMaritalStatus()
         {
-            CommonActions.SelectDropdownOption("Married");
+            CommonPageActions.SelectDropdownOption("Married");
         }
 
         public void ClickSave()
         {
-            CommonActions.ClickSave();
+            CommonPageActions.ClickSaveAndBack();
+            
         }
 
         public bool IsEmployeeCreated()
         {
-            if (CommonActions.ResultEmployee().Contains(expname))
+            if (CommonPageActions.ResultEmployee().Contains(expname))
             {
                 return true;
             }

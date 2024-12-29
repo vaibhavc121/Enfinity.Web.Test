@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Enfinity.Common.Test;
+using NUnit.Framework;
 using NUnit.Framework.Internal;
 using NUnit.Framework.Legacy;
 using System;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 namespace Enfinity.Hrms.Test.UI
 {
     [TestFixture]
-    public class HardCodedPayrollEmployeeTest:BaseTest
+    public class HardCodedPayrollEmployeeTest : BaseTest
     {
 
         [Test]
@@ -32,7 +33,7 @@ namespace Enfinity.Hrms.Test.UI
                 Thread.Sleep(2000);
 
                 //PayrollEmployee page
-                HardCodedPayrollEmployeePage pe=new HardCodedPayrollEmployeePage(_driver);
+                HardCodedPayrollEmployeePage pe = new HardCodedPayrollEmployeePage(_driver);
                 pe.ClickNewBtn();
                 pe.ProvideWorkEmail();
                 pe.SetName();
@@ -55,7 +56,7 @@ namespace Enfinity.Hrms.Test.UI
                 pe.ClickMaritalStatus();
                 pe.SetMaritalStatus();
                 pe.ClickSave();
-                
+
                 ClassicAssert.IsTrue(pe.IsEmployeeCreated());
 
             }

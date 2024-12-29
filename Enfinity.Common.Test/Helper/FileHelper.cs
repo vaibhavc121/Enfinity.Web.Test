@@ -12,11 +12,14 @@ namespace Enfinity.Common.Test
         public static string GetDataFile(string product, string module, string subFolder, string filename)
         {
             var fullFilePath = AppDomain.CurrentDomain.BaseDirectory.Substring(0, 1)
-                                            + @":\Enfinity.Online\Enfinity.Web.Test\Enfinity." + product + ".Test.UI"
+                                            + @":\Enfinity.Online\Enfinity.Web.Test\Enfinity." + product + ".Test.UI" + @"\Models\" + module + @"\";
+            if (!string.IsNullOrEmpty(subFolder))
+            {
+                fullFilePath += subFolder + @"\";
+            }
+            fullFilePath += filename + @".json";
 
-                + @"\Models\" + module + @"\" + subFolder + @"\" + filename + @".json";
-
-            return GetFile(fullFilePath);            
+            return GetFile(fullFilePath);
         }
 
         public static string GetFile(string filename)

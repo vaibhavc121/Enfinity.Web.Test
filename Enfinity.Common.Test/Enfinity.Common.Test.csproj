@@ -95,17 +95,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helper\CommonActions.cs" />
+    <Compile Include="Common\Base\BasePage.cs" />
     <Compile Include="Helper\FileHelper.cs" />
     <Compile Include="Helper\JsonHelper.cs" />
-    <Compile Include="Helper\LoginHelper.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCases\Base\BaseTest.cs" />
+    <Compile Include="Utilities\CommonPageActions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Models\LoginData.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

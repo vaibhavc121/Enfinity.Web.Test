@@ -1,4 +1,4 @@
-﻿using Enfinity.Hrms.Test.UI.PageObjects.Base;
+﻿using Enfinity.Hrms.Test.UI;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;

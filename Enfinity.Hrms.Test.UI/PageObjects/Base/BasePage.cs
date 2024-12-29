@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Enfinity.Hrms.Test.UI.PageObjects.Base
+namespace Enfinity.Hrms.Test.UI
 {
     public class BasePage
     {
