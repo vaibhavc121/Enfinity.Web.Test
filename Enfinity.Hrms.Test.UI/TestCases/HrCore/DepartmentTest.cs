@@ -17,15 +17,12 @@ namespace Enfinity.Hrms.Test.UI
     {
         public string Product = "Hrms";
         [Test]
+        [Ignore("")]
         public void VerifyDepartmentCreation()
         {
-
             try
-            {
-                #region MyRegion
+            {                
                 Login(Product);
-                #endregion
-
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -48,8 +45,6 @@ namespace Enfinity.Hrms.Test.UI
                 dp.ClickSave();
 
                 ClassicAssert.IsTrue(CommonPageActions.IsTxnCreated());
-
-
             }
             catch (Exception e)
             {

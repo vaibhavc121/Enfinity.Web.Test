@@ -95,12 +95,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\HRCore\Employee\EmployeeModel.cs" />
     <Compile Include="PageObjects\Archive\TestPage.cs" />
     <Compile Include="PageObjects\Base\BasePage.cs" />
     <Compile Include="PageObjects\HrCore\DepartmentPage.cs" />
     <Compile Include="PageObjects\HrCore\EmployeePage.cs" />
     <Compile Include="PageObjects\HrCore\HRCorePage.cs" />
     <Compile Include="PageObjects\Archive\HardCodedPayrollEmployeePage.cs" />
+    <Compile Include="TestCases\HrCore\JobTabTest.cs" />
+    <Compile Include="TestCases\HrCore\PayrollTabTest.cs" />
+    <Compile Include="TestCases\HrCore\PersonalTabTest.cs" />
     <Compile Include="PageObjects\HrCore\SetupPage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Models\HRCore\Employee\EmployeeData.json" />
     <None Include="Models\Global\LoginData.json" />
     <None Include="packages.config" />
   </ItemGroup>

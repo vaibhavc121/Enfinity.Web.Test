@@ -31,7 +31,7 @@ namespace Enfinity.Common.Test
             // Close the browser
             if (_driver != null)
             {
-                _driver.Quit();
+                //_driver.Quit();
             }
         }
 

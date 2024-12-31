@@ -1,0 +1,80 @@
+﻿{
+  "new": [
+    {
+      "email": "abc121@gmail.com",
+      "name": "Mohan",
+      "mobile": "7769765434",
+      "DOJ": "01-Jan-2024",
+      "department": "prod",
+      "designation": "Systems Analyst",
+      "payrollSet": "Test",
+      "calendar": "for flipkart",
+      "indemnity": "Indemnity2",
+      "grade": "Contributor",
+      "gender": "Male",
+      "religion": "Muslim",
+      "maritalStatus": "Married"
+    }
+  ],
+
+  "personal": [
+    {
+      "nameL2": "موهان",
+      "displayName": "Priti",
+      "displayNameL2": "موهان",
+      "DOB": "01-Jan-2000",
+      "nationality": "India",
+      "bloodGroup": "O+",
+      "photoVisibility": "Public",
+      "mobileNumberVisibility": "Public",
+      "emailVisibility": "Public"
+    }
+  ],
+
+  "job": [
+    {
+      "manager": "Rohit Chavan",
+      "substituteEmployee": "Mary Kom",
+      "category": "CAT 2",
+      "workLocation": "AfhXad",
+      "employmentType": "Part Time",
+      "probationPeriod": "50",
+      "noticePeriod": "50",
+      "priorCompany": "TCS",
+      "startDate": "01-Jan-2023",
+      "qualification": "BCA",
+      "university": "Pune",
+      "YearOfPassing": "2018"
+    }
+  ],
+
+  "payroll": [
+    {
+      "payrollset": "Test",
+      "paymentMode": "Bank",
+      "employeebank": "Ahli United Bank",
+      "bankAccountType": "Saving",
+      "govtRecruitmentContractLicense": "Demo Govt",
+      "salaryComponent": "Basic Salary",
+      "amount": "500",
+      "effectiveFromDate": "10-Nov-2024",
+      "overtimeType": "Weekend Overtime",
+      "relationshipType": "Spouse",
+      "description": "desc",
+      "ticketAccrual": "Four Ticket Per Year",
+      "ticketDestination": "Kolkata",
+      "ticketEffectiveFromDate": "10-Nov-2024",
+      "accrualType": "Education",
+      "accrualAmount": "500",
+      "resetAvailedDaysMethod": "On Calender Month",
+      "BSrelationshipType": "Children",
+      "benefitScheme": "Health Insurance",
+      "BSeffectiveFromDate": "10-Nov-2024",
+      "BSeffectiveToDate": "10-Nov-2025"
+      
+    }
+  ]
+
+
+
+}
