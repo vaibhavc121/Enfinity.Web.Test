@@ -161,19 +161,22 @@ namespace Enfinity.Hrms.Test.UI
         private By bankAccountType = By.XPath("//input[contains(@id,'BankAccountType')]");
         private By govtRecruitmentContractLicense = By.XPath("//input[contains(@id,'GovtRecruitmentContractLicenseId')]");
         private By addSalaryComponentsBtn = By.XPath("//p[normalize-space()='Salary Components']/../..//i[@class='dx-icon dx-icon-add']");
-        private By salaryComponent = By.XPath("//input[contains(@id,'SalaryComponentId')]");
+        //private By salaryComponent = By.XPath("//input[contains(@id,'SalaryComponentId')]");
+        private By salaryComponent = By.XPath("//span[normalize-space()='Salary Component']//following::input[contains(@id,'SalaryComponentId')]");
         private By amount = By.XPath("//input[contains(@id,'Amount')]");
         private By effectiveFromDate = By.XPath("//input[contains(@id,'EffectiveFromDate')]");
         private By saveSalComponent = By.XPath("//div[@id='SaveButton']//span[@class='dx-button-text'][normalize-space()='Save']");
         private By addOvertimeTypes = By.XPath("//p[normalize-space()='Overtime Types']//following::i[@class='dx-icon dx-icon-add']");
         private By overtimeType = By.XPath("//input[contains(@id,'OvertimeTypeId')]");
-        private By saveOvertimeType = By.XPath("//div[@id='SaveButton']//span[@class='dx-button-text'][normalize-space()='Save']");
+        private By saveOvertimeType = By.XPath("//div[@id='EmployeeOvertimeTypePopupForm']//span[@class='dx-button-text'][normalize-space()='Save']");
+        //private By saveOvertimeType = By.XPath("//div[@id='SaveButton']//span[@class='dx-button-text'][normalize-space()='Save']");
         private By addTicketsBtn = By.XPath("//div[@title='Add Ticket']//i[@class='dx-icon dx-icon-edit-button-addrow']");
         private By relationshipType = By.XPath("//input[contains(@id,'RelationshipType')]");
         private By description = By.XPath("//input[contains(@id,'Description')]");
         private By ticketAccrual = By.XPath("//input[contains(@id,'TicketAccrualId')]");
         private By ticketDestination = By.XPath("//input[contains(@id,'TicketDestinationId')]");
-        private By ticketEffectiveFromDate = By.XPath("//input[contains(@id,'EffectiveFromDate')]");
+        //private By ticketEffectiveFromDate = By.XPath("//input[contains(@id,'EffectiveFromDate')]");
+        private By ticketEffectiveFromDate = By.XPath("//span[normalize-space()='Effective From Date:']//following::input[contains(@id,'EffectiveFromDate')]");
         private By saveTicket = By.XPath("//div[@class='dx-widget dx-button dx-button-mode-contained dx-button-normal dx-button-has-text']//span[@class='dx-button-text'][normalize-space()='Save']");
         private By addMiscellaneousAccrual = By.XPath("//div[@title='Add Miscellaneous Accrual Earning']//i[@class='dx-icon dx-icon-edit-button-addrow']");
         private By accrualType = By.XPath("//input[contains(@id,'AccrualType')]");
@@ -186,6 +189,69 @@ namespace Enfinity.Hrms.Test.UI
         private By BSeffectiveFromDate = By.XPath("/html[1]/body[1]/div[12]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
         private By BSeffectiveToDate = By.XPath("/html[1]/body[1]/div[12]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
         private By BSsave = By.XPath("//div[@class='dx-overlay-content dx-popup-normal dx-popup-draggable dx-resizable']//span[@class='dx-button-text'][normalize-space()='Save']");
+
+        #endregion
+
+        #region TimeOff Tab Page Objects
+        private By assignLeaveType = By.XPath("//span[normalize-space()='Assign Leave Type']");
+        private By leaveType = By.XPath("//input[contains(@id,'NewLeaveTypeId')]");
+        private By LTeffectiveFromDate = By.XPath("//input[contains(@id,'EffectiveFromDate')]");
+
+
+        #endregion
+
+        #region Attendance Tab Page Objects
+        private By calendar = By.XPath("//input[contains(@id,'CalendarId')]");
+        private By presentByDefault = By.XPath("//div[@class='dx-switch-off']");
+        private By checkInType = By.XPath("//input[contains(@id,'CheckInType')]");
+        private By defaultShift = By.XPath("//input[contains(@id,'DefaultShiftId')]");
+        private By policy = By.XPath("//input[contains(@id,'PolicyGroupId')]");
+        private By shiftPreference = By.XPath("//input[contains(@id,'ShiftPreference')]");
+
+        #endregion
+
+        #region Documents Tab Page Objects
+        private By showActive = By.XPath("//div[@class='dx-switch-on']");
+        private By showAll = By.XPath("//div[@class='dx-switch-off']");
+        private By addDocuments = By.XPath("//i[@class='dx-icon dx-icon-edit-button-addrow']");
+        private By documentType = By.XPath("//input[contains(@id,'DocumentTypeId')]");
+        private By documentNumber = By.XPath("//input[contains(@id,'DocumentNumber')]");
+        private By dateOfExpiry = By.XPath("//input[contains(@id,'DateOfExpiry')]");
+        private By placeOfDocument = By.XPath("//input[contains(@id,'PlaceOfDocument')]");
+        //save
+
+        #endregion
+
+        #region Performance Tab Page Objects
+        //Key Result Areas
+        private By addKRABtn = By.XPath("//div[@title='Add Key Result Area']//i[@class='dx-icon dx-icon-edit-button-addrow']");
+        private By KeyResultAreaName = By.XPath("//input[contains(@id,'KeyResultAreaName')]");
+        private By weightage = By.XPath("//input[contains(@id,'Weightage')]");
+        private By KRAsave = By.XPath("//div[@class='dx-overlay-content dx-popup-normal dx-popup-draggable dx-resizable']//span[@class='dx-button-text'][normalize-space()='Save']");
+
+        //Competencies
+        private By addCompetencies = By.XPath("//div[@title='Add Competency']//i[@class='dx-icon dx-icon-edit-button-addrow']");
+        private By competencyName = By.XPath("//input[contains(@id,'CompetencyName')]");
+        private By competenciesWeightage = By.XPath("//input[contains(@id,'CompetencyName')]//following::input[contains(@id,'Weightage')]");
+        private By competenciesSave = By.XPath("//div[@class='dx-overlay-content dx-popup-normal dx-popup-draggable dx-resizable']//span[@class='dx-button-text'][normalize-space()='Save']");
+
+        //Skill Sets
+        private By addSkillSetBtn = By.XPath("//div[@title='Add Skill Set']//i[@class='dx-icon dx-icon-edit-button-addrow']");
+        private By skillSetName = By.XPath("//input[contains(@id,'SkillSetName')]");
+        private By level = By.XPath("//input[contains(@id,'Level')]");
+        private By skillSetWeightage = By.XPath("//input[contains(@id,'Level')]//following::input[//input[contains(@id,'Weightage')]][2]");
+        private By skillSetsave = By.XPath("//div[@class='dx-overlay-content dx-popup-normal dx-popup-draggable dx-resizable']//span[@class='dx-button-text'][normalize-space()='Save']");
+
+        //goals
+        private By addGoalsBtn = By.XPath("//div[@title='Add Goal']//i[@class='dx-icon dx-icon-edit-button-addrow']");
+        private By goalName = By.XPath("//span[contains(text(),'Goal (Arabic):')]//preceding::input[contains(@id,'GoalName')]");
+        private By startDate = By.XPath("//input[contains(@id,'StartDate')]");
+        private By dueDate = By.XPath("//input[contains(@id,'DueDate')]");
+        private By priority = By.XPath("//input[contains(@id,'Priority')]");
+        private By goalsWeightage = By.XPath("//input[contains(@id,'DescriptionL2')]//following::input[contains(@id,'Weightage')]");
+        private By goalSave = By.XPath("//div[@class='dx-overlay-content dx-popup-normal dx-popup-draggable dx-resizable']//span[@class='dx-button-text'][normalize-space()='Save']");
+
+
 
         #endregion
 
@@ -747,11 +813,13 @@ namespace Enfinity.Hrms.Test.UI
         public void ClickAddSalaryComponentBtn()
         {
             Find(addSalaryComponentsBtn).Click();
+            Thread.Sleep(2000);
         }
 
         public void ClickSalaryComponent()
         {
             Find(salaryComponent).Click();
+            Thread.Sleep(5000);
         }
         
         public void SelectSalComponent(string value)
@@ -765,7 +833,7 @@ namespace Enfinity.Hrms.Test.UI
             Find(amount).SendKeys(Keys.Control + "a");
             //Find(probationPeriod).SendKeys(Keys.Backspace);
             Find(amount).SendKeys(Keys.Delete);
-            Find(probationPeriod).SendKeys(value);
+            Find(amount).SendKeys(value);
             Thread.Sleep(1000);
         }
         public void ProvideEffectiveFromDate(string value)
@@ -775,12 +843,13 @@ namespace Enfinity.Hrms.Test.UI
             Find(effectiveFromDate).SendKeys(Keys.Control + "a");
             //Find(probationPeriod).SendKeys(Keys.Backspace);
             Find(effectiveFromDate).SendKeys(Keys.Delete);
-            Find(probationPeriod).SendKeys(value);
+            Find(effectiveFromDate).SendKeys(value);
             Thread.Sleep(1000);
         }
         public void SaveSalComponent()
         {
             Find(saveSalComponent).Click();
+
         }
         public void ClickOvertimeTypesBtn()
         {
@@ -789,106 +858,132 @@ namespace Enfinity.Hrms.Test.UI
         public void ClickOvertimeType()
         {
             Find(overtimeType).Click();
+            Thread.Sleep(1000);
         }
         public void SelectOvertimeType(string value)
         {
             CommonPageActions.SelectDropdownOption(value);
+            Thread.Sleep(1000);
         }
         public void SaveOvertimeType()
         {
             Find(saveOvertimeType).Click();
+            Thread.Sleep(1000);
         }
         public void AddTicketBtn()
         {
             Find(addTicketsBtn).Click();
+            Thread.Sleep(1000);
         }
         public void clickRelationshipType()
         {
             Find(relationshipType).Click();
+            Thread.Sleep(1000);
         }
         public void SelectRelationshipType(string value)
         {
             CommonPageActions.SelectDropdownOption(value);
+            Thread.Sleep(1000);
         }
         public void ProvideDesc(string value)
         {
             Find(description).SendKeys(value);
+            Thread.Sleep(1000);
         }
         public void ClickTicketAccrual()
         {
             Find(ticketAccrual).Click();
+            Thread.Sleep(1000);
         }
         public void SelectTicketAccrual(string value)
         {
             CommonPageActions.SelectDropdownOption(value);
+            Thread.Sleep(1000);
         }
         public void ClickTicketDestination()
         {
             Find(ticketDestination).Click();
+            Thread.Sleep(1000);
         }
         public void SelectTicketDestination(string value)
         {
             CommonPageActions.SelectDropdownOption(value);
+            Thread.Sleep(1000);
         }
         public void ProvideTicketEffectiveFromDate(string value)
         {
             Find(ticketEffectiveFromDate).SendKeys(value);
+            Thread.Sleep(1000);
         }
         public void ClickSaveTicket()
         {
             Find(saveTicket).Click();
+            Thread.Sleep(1000);
         }
         public void ClickAddMiscellaneousAccrualEarnings()
         {
             Find(addMiscellaneousAccrual).Click();
+            Thread.Sleep(1000);
         }
         public void ClickAccrualType()
         {
             Find(accrualType).Click();
+            Thread.Sleep(1000);
         }
         public void SelectAccrualType(string value)
         {
             CommonPageActions.SelectDropdownOption(value);
+            Thread.Sleep(1000);
         }
         public void ClickResetAvailedDaysMethod()
         {
             Find(resetAvailedDaysMethod).Click();
+            Thread.Sleep(1000);
         }
         public void SelectResetAvailedDaysMethod(string value)
         {
             CommonPageActions.SelectDropdownOption(value);
+            Thread.Sleep(1000);
         }
         public void SaveMiscellaneousAccrual()
         {
             Find(miscellaneousAccrualSave).Click();
+            Thread.Sleep(1000);
         }
         public void ClickBenefitSchemes()
         {
+            Thread.Sleep(1000);
             Find(addBenefitScheme).Click();
         }
         public void ClickRelationshipType()
         {
             Find(relationshipType).Click();
+            Thread.Sleep(1000);
         }
         public void BSSelectRelationshipType(string value)
         {
             CommonPageActions.SelectDropdownOption(value);
+            Thread.Sleep(1000);
         }
         public void ClickBenefitScheme()
         {
             Find(benefitScheme).Click();
+            Thread.Sleep(1000);
         }
         public void SelectBenefitScheme(string value)
         {
             CommonPageActions.SelectDropdownOption(value);
+            Thread.Sleep(1000);
         }
         public void ProvideBSEffectiveFromDate(string value)
         {
             Find(BSeffectiveFromDate).SendKeys(value);
+            Thread.Sleep(1000);
         }
         public void ProvideBSEffectiveToDate(string value)
         {
             Find(BSeffectiveToDate).SendKeys(value);
+            Thread.Sleep(1000);
         }
         public void BSSave()
         {
@@ -897,5 +992,267 @@ namespace Enfinity.Hrms.Test.UI
 
         #endregion
 
+        #region TimeOff Tab Action Methods
+        
+        public void ClickAssignLeaveType()
+        {
+            Find(assignLeaveType).Click();
+        }
+
+        public void ClickLeaveType()
+        {
+            Find(leaveType).Click();
+            Thread.Sleep(1000);
+        }
+
+        public void SelectLeaveType(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+
+        public void LTProvideEffectiveFromDate(string value)
+        {
+            Find(LTeffectiveFromDate).Click();
+            //Find(probationPeriod).Clear();
+            Find(LTeffectiveFromDate).SendKeys(Keys.Control + "a");
+            //Find(probationPeriod).SendKeys(Keys.Backspace);
+            Find(LTeffectiveFromDate).SendKeys(Keys.Delete);
+            Find(LTeffectiveFromDate).SendKeys(value);
+            Thread.Sleep(1000);
+        }
+        
+        public void LTClickSave()
+        {
+            CommonPageActions.ClickSave();
+        }
+
+
+
+        #endregion
+
+        #region Attendance Tab Action Methods
+        public void ClickAttendanceCalendar()
+        {
+            Find(calendar).Click();
+            Thread.Sleep(1000);
+        }
+
+        public void SelectAttendanceCalendar(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+            Thread.Sleep(1000);
+        }
+
+        public void EnablePresentByDefault()
+        {
+            Find(presentByDefault).Click();
+            Thread.Sleep(1000);
+        }
+
+        public void ClickCheckInType()
+        {
+            Find(checkInType).Click();
+            Thread.Sleep(1000);
+        }
+
+        public void SelectCheckInType(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+            Thread.Sleep(1000);
+        }
+
+        public void ClickDefaultShift()
+        {
+            Find(defaultShift).Click();
+            Thread.Sleep(1000);
+        }
+
+        public void SelectDefaultShift(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+            Thread.Sleep(1000);
+        }
+
+        public void ClickPolicy()
+        {
+            Find(policy).Click();
+            Thread.Sleep(1000);
+        }
+
+        public void SelectPolicy(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+            Thread.Sleep(1000);
+        }
+
+        public void ClickShiftPreference()
+        {
+            Find(shiftPreference).Click();
+            Thread.Sleep(1000);
+        }
+
+        public void SelectShiftPreference(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+
+
+        #endregion
+
+        #region Documents Tab Action Methods
+        public void ShowActiveDocs()
+        {
+            Find(showActive).Click();
+        }
+
+        public void ShowAllDocs()
+        {
+            Find(showAll).Click();
+        }
+
+        public void AddDocuments()
+        {
+            Find(addDocuments).Click();
+        }
+
+        public void ClickDocType()
+        {
+            Find(documentType).Click();
+        }
+
+        public void SelectDocType(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+
+        public void ProvideDocNumber()
+        {
+            Find(documentNumber).SendKeys(RandomNumber());
+        }
+
+        public void ProvideDateOfExpiry(string value)
+        {
+            Find(dateOfExpiry).SendKeys(value);
+        }
+
+        public void ClickPlaceOfDocument()
+        {
+            Find(placeOfDocument).Click();
+        }
+
+        public void SelectPlaceOfDocument(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+
+        public void EmpDocClickSave()
+        {
+            CommonPageActions.ClickSave();
+        }
+
+
+
+
+        #endregion
+
+        #region Performance Tab Action Methods
+        public void AddKRABtn()
+        {
+            Find(addKRABtn).Click();
+        }
+        public void ClickKeyResultAreaName()
+        {
+            Find(KeyResultAreaName).Click();
+        }
+        public void SelectResultAreaName(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ProvideWeightage(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ClickKRAsave()
+        {
+            Find(KRAsave).Click();
+        }
+        public void ClickAddCompetencies()
+        {
+            Find(addCompetencies).Click();
+        }
+        public void ClickCompetencyName()
+        {
+            Find(competencyName).Click();
+        }
+        public void ProvideCompetenciesWeightage(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ClickCompetenciesSave()
+        {
+            Find(competenciesSave).Click();
+        }
+        public void ClickaddSkillSetBtn()
+        {
+            Find(addSkillSetBtn).Click();
+        }
+        public void ClickSkillSetName()
+        {
+            Find(skillSetName).Click();
+        }
+        public void SelectSkillSetName(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ClickLevel()
+        {
+            Find(level).Click();
+        }
+        public void SelectLevel(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ProvideSkillSetWeightage(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ClickskillSetsave()
+        {
+            Find(skillSetsave).Click();
+        }
+        public void ClickaddGoalsBtn()
+        {
+            Find(addGoalsBtn).Click();
+        }
+        public void ProvideGoalName(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ProvideGoalsStartDate(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ProvideGoalsDueDate(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ClickPriority()
+        {
+            Find(priority).Click();
+        }
+        public void SelectPriority(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ProvideGoalsWeightage(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ClickGoalSave()
+        {
+            Find(goalSave).Click();
+        }
+
+        #endregion
     }
 }

@@ -71,7 +71,50 @@
       "benefitScheme": "Health Insurance",
       "BSeffectiveFromDate": "10-Nov-2024",
       "BSeffectiveToDate": "10-Nov-2025"
-      
+
+    }
+  ],
+
+  "timeOff": [
+    {
+      "leaveType": "Annual Leave",
+      "LTeffectiveFromDate": "01-Jan-2024"
+
+    }
+  ],
+
+  "attendance": [
+    {
+      "calendar": "cal1",
+      "checkInType": "Accept Always",
+      "defaultShift": "VRC",
+      "policy": "VRC",
+      "shiftPreference": "Two Shift"
+    }
+  ],
+
+  "documents": [
+    {
+      "documentType": "Agreement",
+      "dateOfExpiry": "01-Jan-2030",
+      "placeOfDocument": "Company"
+    }
+  ],
+
+  "performance": [
+    {
+      "KeyResultAreaName": "Market Insights",
+      "weightage": "100",
+      "competencyName": "Initiative",
+      "competenciesWeightage": "100",
+      "skillSetName": "Accounting Software",
+      "level": "Intermidiate",
+      "skillSetWeightage": "100",
+      "goalName": "HRMS Automation",
+      "startDate": "01-Jan-2024",
+      "dueDate": "01-Jan-2030",
+      "priority": "Medium",
+      "goalsWeightage": "100"
     }
   ]
 

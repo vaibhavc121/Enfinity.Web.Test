@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Enfinity.Hrms.Test.UI.TestCases.HrCore
+namespace Enfinity.Hrms.Test.UI
 {
     [TestFixture]
     public class PayrollTabTest: BaseTest
@@ -99,7 +99,7 @@ namespace Enfinity.Hrms.Test.UI.TestCases.HrCore
             }
             catch(Exception e)
             {
-
+                ClassicAssert.Fail("Test case failed: " + e);
             }
         }
     }

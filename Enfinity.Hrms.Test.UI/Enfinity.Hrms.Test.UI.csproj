@@ -102,6 +102,8 @@
     <Compile Include="PageObjects\HrCore\EmployeePage.cs" />
     <Compile Include="PageObjects\HrCore\HRCorePage.cs" />
     <Compile Include="PageObjects\Archive\HardCodedPayrollEmployeePage.cs" />
+    <Compile Include="TestCases\HrCore\AttendanceTabTest.cs" />
+    <Compile Include="TestCases\HrCore\DocumentsTabTest.cs" />
     <Compile Include="TestCases\HrCore\JobTabTest.cs" />
     <Compile Include="TestCases\HrCore\PayrollTabTest.cs" />
     <Compile Include="TestCases\HrCore\PersonalTabTest.cs" />
@@ -114,6 +116,7 @@
     <Compile Include="TestCases\HrCore\EmployeeWithSystemAccessTest.cs" />
     <Compile Include="TestCases\HrCore\NonPayrollEmployeeTest.cs" />
     <Compile Include="TestCases\Archive\HardCodedPayrollEmployeeTest.cs" />
+    <Compile Include="TestCases\HrCore\TimeOffTabTest.cs" />
     <Compile Include="TestData\DataProviders\HRCore\HRCoreDataProvider.cs" />
   </ItemGroup>
   <ItemGroup>

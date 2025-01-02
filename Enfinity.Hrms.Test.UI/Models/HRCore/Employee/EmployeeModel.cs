@@ -66,5 +66,46 @@ namespace Enfinity.Hrms.Test.UI.Models.Employee
        
     }
 
+    public class TimeOffTabModel
+    {
+        public string leaveType { get; set; }
+        public string LTeffectiveFromDate { get; set; }
+       
+    }
+
+    public class AttendanceTabModel
+    {
+        public string calendar { get; set; }
+        public string checkInType { get; set; }
+        public string defaultShift { get; set; }
+        public string policy { get; set; }
+        public string shiftPreference { get; set; }
+       
+    }
+
+    public class DocumentsTabModel
+    {
+        public string documentType { get; set; }
+        public string dateOfExpiry { get; set; }
+        public string placeOfDocument { get; set; }        
+
+    }
+
+    public class PerformanceTabModel
+    {
+        public string KeyResultAreaName { get; set; }
+        public string weightage { get; set; }
+        public string competencyName { get; set; }
+        public string competenciesWeightage { get; set; }
+        public string skillSetName { get; set; }
+        public string level { get; set; }
+        public string skillSetWeightage { get; set; }
+        public string goalName { get; set; }
+        public string startDate { get; set; }
+        public string dueDate { get; set; }
+        public string priority { get; set; }
+        public string goalsWeightage { get; set; }
+    }
+
 
 }
