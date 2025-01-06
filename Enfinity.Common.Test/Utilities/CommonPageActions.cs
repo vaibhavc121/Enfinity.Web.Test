@@ -1,5 +1,6 @@
 ﻿using Enfinity.Common.Test;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -189,7 +190,39 @@ namespace Enfinity.Common.Test
                 return false;
 
             }
+        }
 
+        public static void ScrollDownWebPage()
+        {
+            // Cast driver to IJavaScriptExecutor
+            //IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)BaseTest._driver;
+
+            // Scroll down by a specific number of pixels
+            //jsExecutor.ExecuteScript("window.scrollBy(0, 50);");
+            //Thread.Sleep(2000);
+
+            // Scroll to the bottom of the page
+            //jsExecutor.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
+
+            //If you want to scroll to a specific element, you can use:
+            //IWebElement element = driver.FindElement(By.Id("elementId"));
+            //jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
+
+            // Initialize Actions class
+            Actions actions = new Actions(BaseTest._driver);
+
+            // Perform Page Down key press
+            actions.SendKeys(Keys.PageDown).Perform();
+
+            // Wait for a few seconds to see the scroll effect
+            System.Threading.Thread.Sleep(2000);
+
+            // Perform multiple Arrow Down key presses
+            actions.SendKeys(Keys.ArrowDown).Perform();
+            actions.SendKeys(Keys.ArrowDown).Perform();
+
+            // Wait for a few seconds to see the scroll effect
+            System.Threading.Thread.Sleep(2000);
         }
 
     }

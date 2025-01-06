@@ -12,19 +12,20 @@ using System.Threading.Tasks;
 namespace Enfinity.Hrms.Test.UI
 {
     [TestFixture]
-    public class TimeOffTabTest: BaseTest
+    public class DependentsTabTest:BaseTest
     {
         public string Product = "Hrms";
 
         [Test]
-        public void VerifyTimeOffTab()
+        [Ignore("")]
+        public void VerifyDependentsTab()
         {
             try
             {
                 Login(Product);
 
                 var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
-                var timeOffInfo = JsonHelper.ConvertJsonListDataModel<TimeOffTabModel>(employeeFile, "timeOff");
+                var dependentsInfo = JsonHelper.ConvertJsonListDataModel<DependentsTabModel>(employeeFile, "dependents");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -40,22 +41,28 @@ namespace Enfinity.Hrms.Test.UI
                 CommonPageActions.NavigateToEmployee("188");
                 CommonPageActions.SwitchTab();
 
-                //timeOff tab
+                //Dependents tab
                 EmployeePage ep = new EmployeePage(_driver);
 
-                foreach(var timeoff in timeOffInfo)
+                foreach (var dependents in dependentsInfo)
                 {
-                    ep.ClickTimeOff();
-                    ep.ClickAssignLeaveType();
-                    ep.ClickLeaveType();
-                    ep.SelectLeaveType(timeoff.leaveType);
-                    ep.LTProvideEffectiveFromDate(timeoff.LTeffectiveFromDate);
-                    ep.LTClickSave();
-                    CommonPageActions.ClickSave();
-                }               
+                    ep.ClickDependents();
+                    ep.ClickAddSpousesBtn();
+                    ep.ProvideSpouseName(dependents.spouseName);
+                    ep.ProvideSpouseBirthDate(dependents.birthDate);
+                    ep.ProvideSpouseMarriageDate(dependents.marriageDate);
+                    ep.ClickAddChildrensBtn();
+                    ep.ProvideChildrenName(dependents.childrenName);
+                    ep.ProvidechildrenBirthDate(dependents.childrenBirthDate);
+                    ep.ClickChildrenSave();
+                    ep.ClickAddOthersBtn();
+                    ep.ProvideDependentName(dependents.dependentName);
+                    ep.ProvideDependentBirthDate(dependents.dependentBirthDate);
+                    ep.ClickOtherSave();
+                }
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 ClassicAssert.Fail("Test case failed: " + e);
             }

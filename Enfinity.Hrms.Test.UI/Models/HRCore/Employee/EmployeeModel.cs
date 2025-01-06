@@ -6,9 +6,21 @@ using System.Threading.Tasks;
 
 namespace Enfinity.Hrms.Test.UI.Models.Employee
 {
-    public class EmployeeModel
+    public class NewEmployeeModel
     {
-
+        public string email { get; set; }
+        public string name { get; set; }
+        public string mobile { get; set; }
+        public string DOJ { get; set; }
+        public string department { get; set; }
+        public string designation { get; set; }
+        public string payrollSet { get; set; }
+        public string calendar { get; set; }
+        public string indemnity { get; set; }
+        public string grade { get; set; }
+        public string gender { get; set; }
+        public string religion { get; set; }
+        public string maritalStatus { get; set; }
     }
 
     public class PersonalTabModel
@@ -105,6 +117,77 @@ namespace Enfinity.Hrms.Test.UI.Models.Employee
         public string dueDate { get; set; }
         public string priority { get; set; }
         public string goalsWeightage { get; set; }
+    }
+
+    public class IntegrationTabModel
+    {
+        public string financialIntegrationGroup { get; set; }
+        public string division { get; set; }
+        public string department { get; set; }
+        public string project { get; set; }
+        public string segmentWorkLocation { get; set; }
+        public string FromPeriod { get; set; }
+        public string ToPeriod { get; set; }
+        public string sdivision { get; set; }
+        public string sdepartment { get; set; }
+        public string sproject { get; set; }
+        public string sWorkLocation { get; set; }
+        public string Project { get; set; }
+        public string EffectiveFromDate { get; set; }
+    }
+
+    public class DependentsTabModel
+    {
+        public string spouseName { get; set; }
+        public string birthDate { get; set; }
+        public string marriageDate { get; set; }
+        public string childrenName { get; set; }
+        public string childrenBirthDate { get; set; }
+        public string dependentName { get; set; }
+        public string dependentBirthDate { get; set; }
+        
+    }
+
+    public class ResidencyInfoTabModel
+    {
+        public string secondName { get; set; }
+        public string thirdName { get; set; }
+        public string fourthName { get; set; }
+        public string lastName { get; set; }
+        public string birthPlace { get; set; }
+        public string dateOfEntry { get; set; }
+        public string VisaNumber { get; set; }
+        public string WorkPermitNumber { get; set; }
+        public string ResidenceNumber { get; set; }
+        public string ContractQualification { get; set; }
+        public string NewResidencyPeriod { get; set; }
+        public string NewGovtDesignation { get; set; }
+        public string GovtLicense { get; set; }
+        public string NewContractSalary { get; set; }
+        public string OldContractSalary { get; set; }
+        public string Block { get; set; }
+        public string BuildingNumber { get; set; }
+        public string FlatNumber { get; set; }
+        public string FloorNumber { get; set; }
+        public string Lane { get; set; }
+        public string TypeOfBuilding { get; set; }
+        public string Street { get; set; }
+        public string Qasima { get; set; }
+        public string Area { get; set; }
+        public string PaciNumber { get; set; }
+        public string PreviousSponsorName { get; set; }
+        public string PreviousCompanyAuthorizedSign { get; set; }
+        public string PreviousCompanyName { get; set; }
+        public string OldGovtDesignation { get; set; }
+        public string OldFileNumber { get; set; }
+        public string OldGovernmentLicense { get; set; }
+
+    }
+
+    public class DeleteEmpModel
+    {
+        public string EMPID { get; set; }
+        
     }
 
 

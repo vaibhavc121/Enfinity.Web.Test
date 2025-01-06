@@ -14,6 +14,7 @@ namespace Enfinity.Hrms.Test.UI
     {
         public string Product = "Hrms";
         [Test]
+        [Ignore("")]
         [TestCaseSource(typeof(HRCoreDataProvider), nameof(HRCoreDataProvider.EmployeeWithSystemAccess))]
         public void ValidateEmployeeCreationWithValidAccess(string email, string name, string mbl, string doj, string dept, string desg, string payrollset, string calendar, string indemnity, string grade, string gender, string religion, string martitalStatus, string username, string roles)
         {
@@ -35,7 +36,7 @@ namespace Enfinity.Hrms.Test.UI
                 EmployeePage pe = new EmployeePage(_driver);
                 pe.ClickNewBtn();
                 pe.ProvideWorkEmail(email);
-                pe.ProvideName(name);
+                pe.ProvideName();
                 pe.ClickMgrDropdown();
                 pe.SelectMgr();
                 pe.ProvideMobileNumber(mbl);

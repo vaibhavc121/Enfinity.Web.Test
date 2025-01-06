@@ -1,5 +1,5 @@
 ﻿{
-  "new": [
+  "newEmployee": [
     {
       "email": "abc121@gmail.com",
       "name": "Mohan",
@@ -54,7 +54,7 @@
       "paymentMode": "Bank",
       "employeebank": "Ahli United Bank",
       "bankAccountType": "Saving",
-      "govtRecruitmentContractLicense": "Demo Govt",
+      "govtRecruitmentContractLicense": "Demo Govt Recruitment Contract Lincese",
       "salaryComponent": "Basic Salary",
       "amount": "500",
       "effectiveFromDate": "10-Nov-2024",
@@ -115,6 +115,83 @@
       "dueDate": "01-Jan-2030",
       "priority": "Medium",
       "goalsWeightage": "100"
+    }
+  ],
+
+  "integration": [
+    {
+      "financialIntegrationGroup": "Hawalley Store WorkLocation",
+      "division": "01",
+      "department": "02",
+      "project": "03",
+      "segmentWorkLocation": "04",
+      "FromPeriod": "Jan-2025",
+      "ToPeriod": "Jun-2025",
+      "sdivision": "05",
+      "sdepartment": "06",
+      "sproject": "07",
+      "sWorkLocation": "08",
+      "Project": "Project0",
+      "EffectiveFromDate": "01-Jan-2024"
+    }
+  ],
+
+  "dependents": [
+    {
+      "spouseName": "Mahesh",
+      "birthDate": "01-Jan-1975",
+      "marriageDate": "01-Jan-1990",
+      "childrenName": "Nitin",
+      "childrenBirthDate": "01-Jan-1999",
+      "dependentName": "Dhiraj",
+      "dependentBirthDate": "01-Jan-1970"
+
+    }
+  ],
+
+  "residencyInfo": [
+    {
+      "secondName": "secondName",
+      "thirdName": "thirdName",
+      "fourthName": "fourthName",
+      "lastName": "lastName",
+      "birthPlace": "pune",
+      "dateOfEntry": "01-Jan-2024",
+      "VisaNumber": "1234",
+      "WorkPermitNumber": "1234",
+      "ResidenceNumber": "1234",
+      "ContractQualification": "BCA",
+      "NewResidencyPeriod": "Four Years",
+      "NewGovtDesignation": "PSI",
+      "GovtLicense": "Demo Govt Recruitment Contract Lincese",
+      "NewContractSalary": "1000",
+      "OldContractSalary": "500",
+      "Block": "Block1",
+      "BuildingNumber": "1",
+      "FlatNumber": "1",
+      "FloorNumber": "1",
+      "Lane": "1",
+      "TypeOfBuilding": "House",
+      "Street": "Street1",
+      "Qasima": "Qasima",
+      "Area": "Area1",
+      "PaciNumber": "PaciNumber1",
+      "PreviousSponsorName": "CTPL",
+      "PreviousCompanyAuthorizedSign": "SIGN",
+      "PreviousCompanyName": "CTPL",
+      "OldGovtDesignation": "IPS",
+      "OldFileNumber": "1234",
+      "OldGovernmentLicense": "1234"
+
+
+    }
+  ],
+
+  "deleteEmployee": [
+    {
+      "EMPID": "Mohan"
+     
+
     }
   ]
 

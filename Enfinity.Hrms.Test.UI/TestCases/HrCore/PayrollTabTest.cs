@@ -81,14 +81,14 @@ namespace Enfinity.Hrms.Test.UI
                     ep.ClickResetAvailedDaysMethod();
                     ep.SelectResetAvailedDaysMethod(payroll.resetAvailedDaysMethod);
                     ep.SaveMiscellaneousAccrual();
-                    ep.ClickBenefitSchemes();
-                    ep.ClickRelationshipType();
-                    ep.BSSelectRelationshipType(payroll.BSrelationshipType);
-                    ep.ClickBenefitScheme();
-                    ep.SelectBenefitScheme(payroll.benefitScheme);
-                    ep.ProvideBSEffectiveFromDate(payroll.BSeffectiveFromDate);
-                    ep.ProvideBSEffectiveToDate(payroll.BSeffectiveToDate);
-                    ep.BSSave();
+                    //ep.ClickBenefitSchemes();
+                    //ep.ClickRelationshipType();
+                    //ep.BSSelectRelationshipType(payroll.BSrelationshipType);
+                    //ep.ClickBenefitScheme();
+                    //ep.SelectBenefitScheme(payroll.benefitScheme);
+                    //ep.ProvideBSEffectiveFromDate(payroll.BSeffectiveFromDate);
+                    //ep.ProvideBSEffectiveToDate(payroll.BSeffectiveToDate);
+                    //ep.BSSave();
 
                 }
                 

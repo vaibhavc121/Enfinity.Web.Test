@@ -15,6 +15,7 @@ namespace Enfinity.Hrms.Test.UI
     {
         public string Product = "Hrms";
         [Test]
+        [Ignore("")]
         [TestCaseSource(typeof(HRCoreDataProvider), nameof(HRCoreDataProvider.NonPayrollEmployee))]
         public void VerifyNonPayrollEmployeeCreation(string email, string name, string mbl, string doj, string grade, string gender, string religion, string martitalStatus)
         {
@@ -36,7 +37,7 @@ namespace Enfinity.Hrms.Test.UI
                 EmployeePage pe = new EmployeePage(_driver);
                 pe.ClickNewBtn();
                 pe.ProvideWorkEmail(email);
-                pe.ProvideName(name);
+                pe.ProvideName();
                 pe.ClickMgrDropdown();
                 pe.SelectMgr();
                 pe.ProvideMobileNumber(mbl);

@@ -1,4 +1,5 @@
 ﻿//using Bogus;
+using Bogus.DataSets;
 using Enfinity.Common.Test;
 using OpenQA.Selenium;
 using System;
@@ -21,6 +22,7 @@ namespace Enfinity.Hrms.Test.UI
         {
         }
 
+        //Page Objects
         #region Create Page Objects
         private readonly By newbtn = By.CssSelector("#MainMenu_DXI0_Img");
 
@@ -98,6 +100,7 @@ namespace Enfinity.Hrms.Test.UI
         private By learning = By.XPath("//a[@id='employeeProfileMenu_DXI7_T']//span[@class='dx-vam dxm-contentText'][normalize-space()='Learning']");
         private By integration = By.XPath("//span[normalize-space()='Integration']");
         private By dependents = By.XPath("//span[normalize-space()='Dependents']");
+        private By metaballsMenu = By.XPath("//img[@id='employeeProfileMenu_DXI14_PImg']");
         private By residencyInfo = By.XPath("//span[normalize-space()='Residency Info']");
         private By onboarding = By.XPath("//a[@id='employeeProfileMenu_DXI11_T']//span[@class='dx-vam dxm-contentText'][normalize-space()='Onboarding']");
         private By offboarding = By.XPath("//span[normalize-space()='Offboarding']");
@@ -184,7 +187,8 @@ namespace Enfinity.Hrms.Test.UI
         private By resetAvailedDaysMethod = By.XPath("//input[contains(@id,'ResetAvailedDaysMethod')]");
         private By miscellaneousAccrualSave = By.XPath("//div[@class='dx-overlay-content dx-popup-normal dx-popup-draggable dx-resizable']//span[@class='dx-button-text'][normalize-space()='Save']");
         private By addBenefitScheme = By.XPath("//div[@title='Add Benefit Scheme']//i[@class='dx-icon dx-icon-edit-button-addrow']");
-        private By BSrelationshipType = By.XPath("/html[1]/body[1]/div[12]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
+        //private By BSrelationshipType = By.XPath("/html[1]/body[1]/div[12]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
+        private By BSrelationshipType = By.XPath("//input[contains(@id,'RelationshipType')]");        
         private By benefitScheme = By.XPath("//input[contains(@id,'BenefitSchemeId')]");
         private By BSeffectiveFromDate = By.XPath("/html[1]/body[1]/div[12]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
         private By BSeffectiveToDate = By.XPath("/html[1]/body[1]/div[12]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
@@ -255,6 +259,116 @@ namespace Enfinity.Hrms.Test.UI
 
         #endregion
 
+        #region Integration Tab Page Objects
+        //Cost Allocation section
+        private By financialIntegrationGroup = By.XPath("//input[contains(@id,'FinancialIntegrationGroupId')]");
+        private By division = By.XPath("//input[contains(@id,'Segment1')]");
+        private By department = By.XPath("//input[contains(@id,'Segment2')]");
+        private By project = By.XPath("//input[contains(@id,'Segment3')]");
+        private By segmentWorkLocation = By.XPath("//input[contains(@id,'Segment4')]");
+
+        //Default Cost Allocation section
+        private By defaultCostAllocationBtn = By.XPath("//i[@class='dx-icon dx-icon-add']");
+        private By FromPeriod = By.XPath("//input[contains(@id,'FromPeriodId')]");
+        private By ToPeriod = By.XPath("//input[contains(@id,'ToPeriodId')]");
+        private By addRowBtn = By.XPath("//div[@aria-label='Data grid with 0 rows and 5 columns']//i[@class='dx-icon dx-icon-edit-button-addrow']");
+        private By sdivision = By.XPath("//div[@class='dx-show-invalid-badge dx-textbox dx-texteditor dx-editor-outlined dx-texteditor-empty dx-widget']//input[@role='textbox']");
+        private By sdepartment = By.XPath("//div[@class='dx-show-invalid-badge dx-textbox dx-texteditor dx-editor-outlined dx-texteditor-empty dx-widget']//input[@role='textbox']");
+        private By sproject = By.XPath("td[role='gridcell'][aria-describedby='dx-col-9']");
+        private By sWorkLocation = By.XPath("td[role='gridcell'][aria-describedby='dx-col-10']");
+        private By costAllocationsave = By.XPath("//div[@id='SaveButton']//span[@class='dx-button-text'][normalize-space()='Save']");
+
+        //project section
+        private By AddProjectsBtn = By.XPath("/html[1]/body[1]/div[6]/div[1]/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/i[1]");
+        private By Project = By.XPath("//input[contains(@id,'ProjectId')]");
+        private By EffectiveFromDate = By.XPath("//input[contains(@id,'EffectiveFromDate')]");
+        private By EffectiveToDate = By.XPath("//input[contains(@id,'EffectiveToDate')]");
+        private By empProjectsave = By.XPath("//div[@class='dx-item-content dx-toolbar-item-content']//div[@aria-label='Save']//div[@class='dx-button-content']");
+
+        #endregion
+
+        #region Dependents Tab Page Objects
+
+        //spouse section
+        private By addSpousesBtn = By.XPath("//div[@title='Add Spouse']//i[@class='dx-icon dx-icon-edit-button-addrow']");
+        private By spouseName = By.XPath("//span[normalize-space()='Name:']//following::input[contains(@id,'Name')][1]");        
+        private By birthDate = By.XPath("/html[1]/body[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
+        private By marriageDate = By.XPath("//input[contains(@id,'MarriageDate')]");
+        private By spouseSave = By.XPath("//div[@class='dx-overlay-content dx-popup-normal dx-popup-draggable dx-resizable']//span[@class='dx-button-text'][normalize-space()='Save']");
+
+        //Childrens section
+        private By addChildrensBtn = By.XPath("//div[@title='Add Child']//i[@class='dx-icon dx-icon-edit-button-addrow']");
+        private By childrenName = By.XPath("/html[1]/body[1]/div[10]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
+        private By childrenBirthDate = By.XPath("/html[1]/body[1]/div[10]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
+        private By childrenSave = By.XPath("//div[@class='dx-overlay-content dx-popup-normal dx-popup-draggable dx-resizable']//span[@class='dx-button-text'][normalize-space()='Save']");
+
+        //Others section
+        private By addOthersBtn = By.XPath("//div[@title='Add Dependent']//i[@class='dx-icon dx-icon-edit-button-addrow']");
+        private By dependentName = By.XPath("/html[1]/body[1]/div[10]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
+        private By dependentBirthDate = By.XPath("/html[1]/body[1]/div[10]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
+        private By OtherSave = By.XPath("//div[@class='dx-overlay-content dx-popup-normal dx-popup-draggable dx-resizable']//span[@class='dx-button-text'][normalize-space()='Save']");
+        #endregion
+
+        #region ResidencyInfo Tab Page Objects
+        //basic details
+        private By secondName = By.Name("SecondName");
+        private By thirdName = By.Name("ThirdName");
+        private By fourthName = By.Name("FourthName");
+        private By lastName = By.Name("LastName");
+        private By firstNameArabic = By.Name("FirstNameL2");
+        private By secondNameArabic = By.Name("SecondNameL2");
+        private By thirdNameArabic = By.Name("ThirdNameL2");
+        private By fourthNameArabic = By.Name("FourthNameL2");
+        private By lastNameArabic = By.Name("LastNameL2");
+        private By birthPlace = By.Name("BirthPlace");
+
+        //Work Permit Details
+        private By OnCompanyResidencyYes = By.XPath("//div[@class='dx-switch-off']");
+        private By OnCompanyResidencyNo = By.XPath("//div[@class='dx-switch-on']");
+        private By dateOfEntry = By.XPath("//input[contains(@id,'DateOfEntry')]");
+        private By VisaNumber = By.XPath("//input[contains(@id,'VisaNumber')]");
+        private By WorkPermitNumber = By.XPath("//input[contains(@id,'WorkPermitNumber')]");
+        private By ResidenceNumber = By.XPath("//input[contains(@id,'ResidenceNumber')]");
+        private By ContractQualification = By.XPath("//input[contains(@id,'ContractQualification')]");
+        private By NewResidencyPeriod = By.XPath("//input[contains(@id,'NewResidencyPeriod')]");
+        private By NewGovtDesignation = By.XPath("//input[contains(@id,'NewGovtDesignationId')]");
+        private By GovtLicense = By.XPath("//input[contains(@id,'GovtRecruitmentContractLicenseId')]");
+        private By NewContractSalary = By.XPath("//input[contains(@id,'NewContractSalary')]");
+        private By OldContractSalary = By.XPath("//input[contains(@id,'OldContractSalary')]");
+
+        //Address Details
+        private By Block = By.XPath("//input[contains(@id,'Block')]");
+        private By BuildingNumber = By.XPath("//input[contains(@id,'BuildingNumber')]");
+        private By FlatNumber = By.XPath("//input[contains(@id,'FlatNumber')]");
+        private By FloorNumber = By.XPath("//input[contains(@id,'FloorNumber')]");
+        private By Lane = By.XPath("//input[contains(@id,'Lane')]");
+        private By TypeOfBuilding = By.XPath("//input[contains(@id,'TypeOfBuilding')]");
+        private By Street = By.XPath("//input[contains(@id,'Street')]");
+        private By Qasima = By.XPath("//input[contains(@id,'Qasima')]");
+        private By Area = By.XPath("//input[contains(@id,'Area')]");
+        private By PaciNumber = By.XPath("//input[contains(@id,'PaciNumber')]");
+
+        //Previous Sponsor Details
+        private By PreviousSponsorName = By.XPath("//input[contains(@id,'PreviousSponsorName')]");
+        private By PreviousCompanyAuthorizedSign = By.XPath("//input[contains(@id,'PreviousCompanyAuthorizedSign')]");
+        private By PreviousCompanyName = By.XPath("//input[contains(@id,'PreviousCompanyName')]");
+        private By OldGovtDesignation = By.XPath("//input[contains(@id,'OldGovtDesignationId')]");
+        private By OldFileNumber = By.XPath("//input[contains(@id,'OldFileNumber')]");
+        private By OldGovernmentLicense = By.XPath("//input[contains(@id,'OldGovernmentLicense')]");
+        #endregion
+
+        #region Delete Employee Page Objects
+        private By settingButton = By.XPath("//i[@class='dx-icon dx-icon-setup-icon']");
+        private By delete = By.XPath("//div[contains(text(),'Delete')]");
+        //private By ok = By.XPath("//span[normalize-space()='Ok']");
+        //private By ok = By.XPath("/html[1]/body[1]/div[9]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]");
+        //private By ok = By.XPath("div[aria-label='Ok'] span[class='dx-button-text']");
+        private By ok = By.XPath("//div[@aria-label='Ok']//div[@class='dx-button-content']");
+        private By rightAreaMenu = By.XPath("//img[@class='account-image']");
+        private By logOff = By.XPath("//span[normalize-space()='Log Off']");
+        #endregion
+
+        //Action Methods
         #region Create Action Methods
         public void ClickNewBtn()
         {
@@ -266,11 +380,9 @@ namespace Enfinity.Hrms.Test.UI
             Find(workEmail).SendKeys(email);
         }
 
-
-
-        public void ProvideName(string empname)
+        public void ProvideName()
         {
-            Find(name).SendKeys(empname);
+            Find(name).SendKeys(faker.Name.FirstName());
         }
 
         public void ClickMgrDropdown()
@@ -436,7 +548,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void ClickSave()
         {
-            CommonPageActions.ClickSaveAndBack();
+            CommonPageActions.ClickSave();
         }
 
         public bool IsEmployeeCreated(string empname)
@@ -475,7 +587,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             Find(documents).Click();
         }
-        public void Performance()
+        public void ClickPerformance()
         {
             Find(performance).Click();
         }
@@ -491,6 +603,10 @@ namespace Enfinity.Hrms.Test.UI
         public void ClickDependents()
         {
             Find(dependents).Click();
+        }
+        public void ClickMetaballsMenu()
+        {
+            Find(metaballsMenu).Click();
         }
         public void ClickResidencyInfo()
         {
@@ -773,6 +889,7 @@ namespace Enfinity.Hrms.Test.UI
         public void ClickEmpBank()
         {
             Find(employeebank).Click();
+            Thread.Sleep(1000);
         }
 
         public void SelectEmpBank(string value)
@@ -803,11 +920,13 @@ namespace Enfinity.Hrms.Test.UI
         public void ClickGovtLicense()
         {
             Find(govtRecruitmentContractLicense).Click();
+            Thread.Sleep(1000);
         }
 
         public void SelectGovtLicense(string value)
         {
             CommonPageActions.SelectDropdownOption(value);
+            Thread.Sleep(1000);
         }
 
         public void ClickAddSalaryComponentBtn()
@@ -868,7 +987,7 @@ namespace Enfinity.Hrms.Test.UI
         public void SaveOvertimeType()
         {
             Find(saveOvertimeType).Click();
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
         }
         public void AddTicketBtn()
         {
@@ -954,6 +1073,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             Thread.Sleep(1000);
             Find(addBenefitScheme).Click();
+            Thread.Sleep(1000);
         }
         public void ClickRelationshipType()
         {
@@ -1163,14 +1283,16 @@ namespace Enfinity.Hrms.Test.UI
         public void ClickKeyResultAreaName()
         {
             Find(KeyResultAreaName).Click();
+            Thread.Sleep(1000);
         }
         public void SelectResultAreaName(string value)
         {
             CommonPageActions.SelectDropdownOption(value);
+            
         }
         public void ProvideWeightage(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            Find(weightage).SendKeys(value);
         }
         public void ClickKRAsave()
         {
@@ -1183,10 +1305,15 @@ namespace Enfinity.Hrms.Test.UI
         public void ClickCompetencyName()
         {
             Find(competencyName).Click();
+            Thread.Sleep(1000);
+        }
+        public void SelectCompetencyName(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
         }
         public void ProvideCompetenciesWeightage(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            Find(competenciesWeightage).SendKeys(value);
         }
         public void ClickCompetenciesSave()
         {
@@ -1195,10 +1322,12 @@ namespace Enfinity.Hrms.Test.UI
         public void ClickaddSkillSetBtn()
         {
             Find(addSkillSetBtn).Click();
+            Thread.Sleep(1000);
         }
         public void ClickSkillSetName()
         {
             Find(skillSetName).Click();
+            Thread.Sleep(1000);
         }
         public void SelectSkillSetName(string value)
         {
@@ -1207,6 +1336,7 @@ namespace Enfinity.Hrms.Test.UI
         public void ClickLevel()
         {
             Find(level).Click();
+            Thread.Sleep(1000);
         }
         public void SelectLevel(string value)
         {
@@ -1214,11 +1344,12 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void ProvideSkillSetWeightage(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            Find(skillSetWeightage).SendKeys(value);
         }
         public void ClickskillSetsave()
         {
             Find(skillSetsave).Click();
+            Thread.Sleep(2000);
         }
         public void ClickaddGoalsBtn()
         {
@@ -1226,19 +1357,20 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void ProvideGoalName(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            Find(goalName).SendKeys(value);
         }
         public void ProvideGoalsStartDate(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            Find(startDate).SendKeys(value);
         }
         public void ProvideGoalsDueDate(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            Find(dueDate).SendKeys(value);
         }
         public void ClickPriority()
         {
             Find(priority).Click();
+            Thread.Sleep(1000);
         }
         public void SelectPriority(string value)
         {
@@ -1246,11 +1378,376 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void ProvideGoalsWeightage(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            Find(goalsWeightage).SendKeys(value);
         }
         public void ClickGoalSave()
         {
             Find(goalSave).Click();
+        }
+
+        #endregion
+
+        #region Integration Tab Action Methods        
+        public void ClickFinancialIntegrationGroup()
+        {
+            Find(financialIntegrationGroup).Click();
+        }
+        public void SelectFinancialIntegrationGroup(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ProvideDivision(string value)
+        {
+            Find(division).SendKeys(value);
+        }
+        public void ProvideDepartment(string value)
+        {
+            Find(department).SendKeys(value);
+        }
+        public void ProvideProject(string value)
+        {
+            Find(project).SendKeys(value);
+        }
+        public void ProvideSegmentWorkLocation(string value)
+        {
+            Find(segmentWorkLocation).SendKeys(value);
+            Thread.Sleep(1000);
+        }
+        public void ClickDefaultCostAllocationBtn()
+        {
+            Find(defaultCostAllocationBtn).Click();
+            Thread.Sleep(1000);
+        }
+        public void ClickFromPeriod()
+        {
+            Find(FromPeriod).Click();
+            Thread.Sleep(1000);
+        }
+        public void SelectFromPeriod(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ClickToPeriod()
+        {
+            Find(ToPeriod).Click();
+            Thread.Sleep(1000);
+        }
+        public void SelectToPeriod(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ClickAddRowBtn()
+        {
+            Find(addRowBtn).Click();
+        }
+        public void Providesdivision(string value)
+        {
+            Find(sdivision).SendKeys(value);
+        }
+        public void Providesdepartment(string value)
+        {
+            Find(sdepartment).SendKeys(value);
+        }
+        public void Providesproject(string value)
+        {
+            Find(sproject).SendKeys(value);
+        }
+        public void ProvidesWorkLocation(string value)
+        {
+            Find(sWorkLocation).SendKeys(value);
+        }
+        public void ClickCostAllocationsave()
+        {
+            Find(costAllocationsave).Click();
+        }
+        public void ClickAddProjectsBtn()
+        {
+            Find(AddProjectsBtn).Click();
+            Thread.Sleep(1000);
+        }
+        public void ClickProject()
+        {
+            Find(Project).Click();
+            Thread.Sleep(1000);
+        }
+        public void SelectProject(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ProvideProjectEffectiveFromDate(string value)
+        {
+            Find(EffectiveFromDate).SendKeys(value);
+        }
+        public void ProvideProjectEffectiveToDate(string value)
+        {
+            Find(EffectiveToDate).SendKeys(value);
+        }
+        public void ClickEmpProjectsave()
+        {
+            Find(empProjectsave).Click();
+        }
+        public void SaveAllInfo()
+        {
+            CommonPageActions.ClickSave();
+        }
+
+        #endregion
+
+        #region Dependents Tab Action Methods
+        //spouse section
+        public void ClickAddSpousesBtn()
+        {
+            Find(addSpousesBtn).Click();
+        }
+        public void ProvideSpouseName(string value)
+        {
+            Find(spouseName).SendKeys(value);
+        }
+        public void ProvideSpouseBirthDate(string value)
+        {
+            Find(birthDate).SendKeys(value);
+        }
+        public void ProvideSpouseMarriageDate(string value)
+        {
+            Find(marriageDate).SendKeys(value);
+        }
+        //Childrens section
+        public void ClickAddChildrensBtn()
+        {
+            Find(addChildrensBtn).Click();
+        }
+        public void ProvideChildrenName(string value)
+        {
+            Find(childrenName).SendKeys(value);
+        }
+        public void ProvidechildrenBirthDate(string value)
+        {
+            Find(childrenBirthDate).SendKeys(value);
+        }
+        public void ClickChildrenSave()
+        {
+            Find(childrenSave).Click();
+        }
+
+        //Others section
+        public void ClickAddOthersBtn()
+        {
+            Find(addOthersBtn).Click();
+        }
+        public void ProvideDependentName(string value)
+        {
+            Find(dependentName).SendKeys(value);
+        }
+        public void ProvideDependentBirthDate(string value)
+        {
+            Find(dependentBirthDate).SendKeys(value);       
+        }
+        public void ClickOtherSave()
+        {
+            Find(OtherSave).Click();
+        }
+
+        #endregion
+
+        #region ResidencyInfo Tab Action Methods
+        //basic details
+        public void ProvideSecondName(string value)
+        {
+            Find(secondName).SendKeys(value);
+        }
+        public void ProvidethirdName(string value)
+        {
+            Find(thirdName).SendKeys(value);
+        }
+        public void ProvidefourthName(string value)
+        {
+            Find(fourthName).SendKeys(value);
+        }
+        public void ProvidelastName(string value)
+        {
+            Find(lastName).SendKeys(value);
+        }
+        public void ProvidebirthPlace(string value)
+        {
+            Find(birthPlace).SendKeys(value);
+        }
+    
+        //Work Permit Details
+        public void ProvidedateOfEntry(string value)
+        {
+            Find(dateOfEntry).SendKeys(value);
+        }
+       
+        public void ProvideVisaNumber(string value)
+        {
+            Find(VisaNumber).SendKeys(value);
+        }
+        public void ProvideWorkPermitNumber(string value)
+        {
+            Find(WorkPermitNumber).SendKeys(value);
+        }
+        public void ProvideResidenceNumber(string value)
+        {
+            Find(ResidenceNumber).SendKeys(value);
+            Thread.Sleep(2000);
+
+        }
+        public void ClickContractQualification()
+        {
+            Find(ContractQualification).Click();
+        }
+        public void SelectContractQualification(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ClickNewResidencyPeriod()
+        {
+            Find(NewResidencyPeriod).Click();
+            Thread.Sleep(1000);
+
+        }
+        public void SelectNewResidencyPeriod(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ClickNewGovtDesignation()
+        {
+            Find(NewGovtDesignation).Click();
+            Thread.Sleep(1000);
+        }
+        public void SelectNewGovtDesignation(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ClickGovermenttLicense()
+        {
+            Find(GovtLicense).Click();
+            Thread.Sleep(1000);
+        }
+        public void SelectGovermenttLicense(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ProvideNewContractSalary(string value)
+        {
+            Find(NewContractSalary).SendKeys(value);
+        }
+        public void ProvideOldContractSalary(string value)
+        {
+            Find(OldContractSalary).SendKeys(value);
+        }
+        
+        //Address Details
+        public void ProvideBlock(string value)
+        {
+            Find(Block).SendKeys(value);
+        }
+        public void ProvideBuildingNumber(string value)
+        {
+            Find(BuildingNumber).SendKeys(value);
+        }
+        public void ProvideFlatNumber(string value)
+        {
+            Find(FlatNumber).SendKeys(value);
+        }
+        public void ProvideFloorNumber(string value)
+        {
+            Find(FloorNumber).SendKeys(value);
+        }
+        public void ProvideLane(string value)
+        {
+            Find(Lane).SendKeys(value);
+        }
+        public void ClickTypeOfBuilding()
+        {
+            Find(TypeOfBuilding).Click();
+            Thread.Sleep(1000);
+        }
+        public void SelectTypeOfBuilding(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+        }
+        public void ProvideStreet(string value)
+        {
+            Find(Street).SendKeys(value);
+        }
+        public void ProvideQasima(string value)
+        {
+            Find(Qasima).SendKeys(value);
+        }
+        
+        public void ProvideArea(string value)
+        {
+            Find(Area).SendKeys(value);
+        }
+        public void ProvidePaciNumber(string value)
+        {
+            Find(PaciNumber).SendKeys(value);
+        }
+
+        //Previous Sponsor Details
+        public void ProvidePreviousSponsorName(string value)
+        {
+            Find(PreviousSponsorName).SendKeys(value);
+        }
+        public void ProvidePreviousCompanyAuthorizedSign(string value)
+        {
+            Find(PreviousCompanyAuthorizedSign).SendKeys(value);
+        }
+        public void ProvidePreviousCompanyName(string value)
+        {
+            Find(PreviousCompanyName).SendKeys(value);
+        }
+        public void ClickOldGovtDesignation(string value)
+        {
+            Find(OldGovtDesignation).Click();
+            Thread.Sleep(2000);
+        }
+        public void SelectOldGovtDesignation(string value)
+        {
+            CommonPageActions.SelectDropdownOption(value);
+            Thread.Sleep(1000);
+        }
+
+        public void ProvideOldFileNumber(string value)
+        {
+            Find(OldFileNumber).SendKeys(value);
+        }
+        public void ProvideOldGovernmentLicense(string value)
+        {
+            Find(OldGovernmentLicense).SendKeys(value);
+        }
+        
+        public void SaveResidencyInfo()
+        {
+            CommonPageActions.ClickSave();
+        }
+        #endregion
+
+        #region Delete Employee Action Methods
+        public void ClickSettingButton()
+        {
+            Find(settingButton).Click();
+        }
+        public void ClickDelete()
+        {
+            Find(delete).Click();
+            Thread.Sleep(2000);
+        }
+        public void ClickOk()
+        {
+            Find(ok).Click();
+            Thread.Sleep(3000);
+        }
+        public void ClickRightAreaMenu()
+        {
+            Find(rightAreaMenu).Click();
+            Thread.Sleep(1000);
+        }
+
+        public void ClicklogOff()
+        {
+            Find(logOff).Click();            
         }
 
         #endregion
