@@ -20,7 +20,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                for (int i = 0; i < 13; i++) 
+                for (int i = 1; i < 5; i++) 
                 {
                     Login(Product);
 

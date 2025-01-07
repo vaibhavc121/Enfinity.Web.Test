@@ -55,10 +55,31 @@
       "employeebank": "Ahli United Bank",
       "bankAccountType": "Saving",
       "govtRecruitmentContractLicense": "Demo Govt Recruitment Contract Lincese",
-      "salaryComponent": "Basic Salary",
-      "amount": "500",
-      "effectiveFromDate": "10-Nov-2024",
-      "overtimeType": "Weekend Overtime",
+      "salaryComponents": [
+        {
+          "salaryComponent": "Basic Salary",
+          "amount": "500",
+          "effectiveFromDate": "10-Nov-2024"
+
+        },
+        {
+          "salaryComponent": "Food Allowance",
+          "amount": "500",
+          "effectiveFromDate": "10-Nov-2024"
+        }
+
+      ],
+
+      "overtimeTypes": [
+        {
+          "overtimeType": "Normal Overtime"
+        },
+        {
+          "overtimeType": "Holiday Overtime"
+        }
+        
+      ],
+      
       "relationshipType": "Spouse",
       "description": "desc",
       "ticketAccrual": "Four Ticket Per Year",
@@ -77,8 +98,17 @@
 
   "timeOff": [
     {
-      "leaveType": "Annual Leave",
-      "LTeffectiveFromDate": "01-Jan-2024"
+      "leaveTypes": [
+        {
+          "leaveType": "Annual Leave",
+          "LTeffectiveFromDate": "01-Jan-2024"
+        },
+        {
+          "leaveType": "Sick Leave",
+          "LTeffectiveFromDate": "01-Jan-2024"
+        }
+
+      ]       
 
     }
   ],
@@ -98,24 +128,72 @@
       "documentType": "Agreement",
       "dateOfExpiry": "01-Jan-2030",
       "placeOfDocument": "Company"
+    },
+    {
+      "documentType": "Civil Id",
+      "dateOfExpiry": "01-Jan-2030",
+      "placeOfDocument": "Company"
     }
   ],
 
   "performance": [
     {
-      "KeyResultAreaName": "Market Insights",
-      "weightage": "100",
-      "competencyName": "Initiative",
-      "competenciesWeightage": "100",
-      "skillSetName": "Accounting Software",
-      "level": "Intermidiate",
-      "skillSetWeightage": "100",
-      "goalName": "HRMS Automation",
-      "startDate": "01-Jan-2024",
-      "dueDate": "01-Jan-2030",
-      "priority": "Medium",
-      "goalsWeightage": "100"
+      "KRA": [
+        {
+          "KeyResultAreaName": "Market Insights",
+          "weightage": "100"
+        },
+        {
+          "KeyResultAreaName": "project sign off",
+          "weightage": "100"
+        }
+      ],
+
+      "Competencies": [
+        {
+          "competencyName": "Communication with clients",
+          "competenciesWeightage": "100"
+        },
+        {
+          "competencyName": "Initiative",
+          "competenciesWeightage": "100"
+        }
+      ],
+
+      "SkillSets": [
+        {
+          "skillSetName": "API design",
+          "level": "Intermidiate",
+          "skillSetWeightage": "100"
+        },
+        {
+          "skillSetName": "Accounting Software",
+          "level": "Intermidiate",
+          "skillSetWeightage": "100"
+        }
+      ],
+
+      "Goals": [
+        {
+          "goalName": "HRMS Automation",
+          "startDate": "01-Jan-2024",
+          "dueDate": "01-Jan-2030",
+          "priority": "Medium",
+          "goalsWeightage": "100"
+        },
+        {
+          "goalName": "ERP Automation",
+          "startDate": "01-Jan-2024",
+          "dueDate": "01-Jan-2030",
+          "priority": "Medium",
+          "goalsWeightage": "100"
+        }
+      ]
+
+      
     }
+    
+
   ],
 
   "integration": [

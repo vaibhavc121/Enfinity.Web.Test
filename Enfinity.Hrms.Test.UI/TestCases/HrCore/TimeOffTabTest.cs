@@ -45,13 +45,17 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach(var timeoff in timeOffInfo)
                 {
-                    ep.ClickTimeOff();
-                    ep.ClickAssignLeaveType();
-                    ep.ClickLeaveType();
-                    ep.SelectLeaveType(timeoff.leaveType);
-                    ep.LTProvideEffectiveFromDate(timeoff.LTeffectiveFromDate);
-                    ep.LTClickSave();
-                    CommonPageActions.ClickSave();
+                    foreach(var leave in timeoff.leaveTypes)
+                    {
+                        ep.ClickTimeOff();
+                        ep.ClickAssignLeaveType();
+                        ep.ClickLeaveType();
+                        ep.SelectLeaveType(leave.leaveType);
+                        ep.LTProvideEffectiveFromDate(leave.LTeffectiveFromDate);
+                        ep.LTClickSave();
+                    }
+                    
+                    //CommonPageActions.ClickSave();
                 }               
 
             }

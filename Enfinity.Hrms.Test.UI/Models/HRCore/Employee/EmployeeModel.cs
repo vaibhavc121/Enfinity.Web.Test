@@ -75,15 +75,38 @@ namespace Enfinity.Hrms.Test.UI.Models.Employee
         public string benefitScheme { get; set; }
         public string BSeffectiveFromDate { get; set; }
         public string BSeffectiveToDate { get; set; }
-       
+        public List<SalaryComponentModel> salaryComponents { get; set; }
+        public List<OvertimeTypesModel> overtimeTypes { get; set; }
     }
+
+    public class SalaryComponentModel
+    {
+        public string salaryComponent { get; set; }
+        public string amount { get; set; }
+        public string effectiveFromDate { get; set; }
+    }
+
+    public class OvertimeTypesModel
+    {
+        public string overtimeType { get; set; }
+    }
+
+
 
     public class TimeOffTabModel
     {
         public string leaveType { get; set; }
         public string LTeffectiveFromDate { get; set; }
-       
+        public List<LeaveTypesModel> leaveTypes { get; set; }
+
     }
+
+    public class LeaveTypesModel
+    {
+        public string leaveType { get; set; }
+        public string LTeffectiveFromDate { get; set; }
+    }
+
 
     public class AttendanceTabModel
     {
@@ -117,7 +140,40 @@ namespace Enfinity.Hrms.Test.UI.Models.Employee
         public string dueDate { get; set; }
         public string priority { get; set; }
         public string goalsWeightage { get; set; }
+        public List<KRAModel> KRA { get; set; }
+        public List<CompetenciesModel> Competencies { get; set; }
+        public List<SkillSetsModel> SkillSets { get; set; }
+        public List<GoalsModel> Goals { get; set; }
+
     }
+
+    public class KRAModel
+    {
+        public string KeyResultAreaName { get; set; }
+        public string weightage { get; set; }
+        
+    }
+    public class CompetenciesModel
+    {
+        public string competencyName { get; set; }
+        public string competenciesWeightage { get; set; }
+        
+    }
+    public class SkillSetsModel
+    {
+        public string skillSetName { get; set; }
+        public string level { get; set; }
+        public string skillSetWeightage { get; set; }
+    }
+    public class GoalsModel
+    {
+        public string goalName { get; set; }
+        public string startDate { get; set; }
+        public string dueDate { get; set; }
+        public string priority { get; set; }
+        public string goalsWeightage { get; set; }
+    }
+
 
     public class IntegrationTabModel
     {

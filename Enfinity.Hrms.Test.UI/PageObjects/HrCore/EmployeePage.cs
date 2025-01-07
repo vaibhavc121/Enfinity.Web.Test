@@ -968,6 +968,7 @@ namespace Enfinity.Hrms.Test.UI
         public void SaveSalComponent()
         {
             Find(saveSalComponent).Click();
+            Thread.Sleep(5000);
 
         }
         public void ClickOvertimeTypesBtn()
@@ -987,7 +988,7 @@ namespace Enfinity.Hrms.Test.UI
         public void SaveOvertimeType()
         {
             Find(saveOvertimeType).Click();
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
         }
         public void AddTicketBtn()
         {

@@ -55,32 +55,40 @@ namespace Enfinity.Hrms.Test.UI
                     ep.SelectBankAcType(payroll.bankAccountType);
                     ep.ClickGovtLicense();
                     ep.SelectGovtLicense(payroll.govtRecruitmentContractLicense);
-                    ep.ClickAddSalaryComponentBtn();
-                    ep.ClickSalaryComponent();
-                    ep.SelectSalComponent(payroll.salaryComponent);
-                    ep.ProvideAmt(payroll.amount);
-                    ep.ProvideEffectiveFromDate(payroll.effectiveFromDate);
-                    ep.SaveSalComponent();
-                    ep.ClickOvertimeTypesBtn();
-                    ep.ClickOvertimeType();
-                    ep.SelectOvertimeType(payroll.overtimeType);
-                    ep.SaveOvertimeType();
-                    ep.AddTicketBtn();
-                    ep.clickRelationshipType();
-                    ep.SelectRelationshipType(payroll.relationshipType);
-                    ep.ProvideDesc(payroll.description);
-                    ep.ClickTicketAccrual();
-                    ep.SelectTicketAccrual(payroll.ticketAccrual);
-                    ep.ClickTicketDestination();
-                    ep.SelectTicketDestination(payroll.ticketDestination);
-                    ep.ProvideTicketEffectiveFromDate(payroll.ticketEffectiveFromDate);
-                    ep.ClickSaveTicket();
-                    ep.ClickAddMiscellaneousAccrualEarnings();
-                    ep.ClickAccrualType();
-                    ep.SelectAccrualType(payroll.accrualType);
-                    ep.ClickResetAvailedDaysMethod();
-                    ep.SelectResetAvailedDaysMethod(payroll.resetAvailedDaysMethod);
-                    ep.SaveMiscellaneousAccrual();
+                    foreach(var component in payroll.salaryComponents)
+                    {
+                        ep.ClickAddSalaryComponentBtn();
+                        ep.ClickSalaryComponent();
+                        ep.SelectSalComponent(component.salaryComponent);
+                        ep.ProvideAmt(component.amount);
+                        ep.ProvideEffectiveFromDate(component.effectiveFromDate);
+                        ep.SaveSalComponent();
+                    }
+
+                    foreach (var overtime in payroll.overtimeTypes)
+                    {
+                        ep.ClickOvertimeTypesBtn();
+                        ep.ClickOvertimeType();
+                        ep.SelectOvertimeType(overtime.overtimeType);
+                        ep.SaveOvertimeType();
+                    }
+                       
+                    //ep.AddTicketBtn();
+                    //ep.clickRelationshipType();
+                    //ep.SelectRelationshipType(payroll.relationshipType);
+                    //ep.ProvideDesc(payroll.description);
+                    //ep.ClickTicketAccrual();
+                    //ep.SelectTicketAccrual(payroll.ticketAccrual);
+                    //ep.ClickTicketDestination();
+                    //ep.SelectTicketDestination(payroll.ticketDestination);
+                    //ep.ProvideTicketEffectiveFromDate(payroll.ticketEffectiveFromDate);
+                    //ep.ClickSaveTicket();
+                    //ep.ClickAddMiscellaneousAccrualEarnings();
+                    //ep.ClickAccrualType();
+                    //ep.SelectAccrualType(payroll.accrualType);
+                    //ep.ClickResetAvailedDaysMethod();
+                    //ep.SelectResetAvailedDaysMethod(payroll.resetAvailedDaysMethod);
+                    //ep.SaveMiscellaneousAccrual();
                     //ep.ClickBenefitSchemes();
                     //ep.ClickRelationshipType();
                     //ep.BSSelectRelationshipType(payroll.BSrelationshipType);
