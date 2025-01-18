@@ -21,6 +21,13 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+- task: DotNetCoreCLI@2
+  displayName: 'Run Unit Tests'
+  inputs:
+    command: test
+    projects: '**/*Enfinity.Hrms.Test.UI*.csproj' # Adjust to match your test project naming
+    arguments: '--configuration Debug --no-build'
+
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
