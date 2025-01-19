@@ -13,19 +13,27 @@ namespace Enfinity.Common.Test
     public class BaseTest
     {
 
-        public static IWebDriver _driver;        
-        
-        [SetUp]
+        public static IWebDriver _driver;
+
+        //[SetUp]
+        [OneTimeSetUp]
         public void Setup()
         {
+            #region
+            ChromeOptions options = new ChromeOptions();
+            options.AddExcludedArgument("enable-automation"); 
+            options.AddAdditionalOption("useAutomationExtension", false);
+            #endregion
+
             // Initialize the Chrome WebDriver
-            _driver = new ChromeDriver();
+            _driver = new ChromeDriver(options);
             _driver.Manage().Window.Maximize();
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
             
         }
 
-        [TearDown]
+        //[TearDown]
+        [OneTimeTearDown]
         public void TearDown()
         {
             // Close the browser

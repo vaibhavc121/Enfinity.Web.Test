@@ -55,15 +55,16 @@
       "employeebank": "Ahli United Bank",
       "bankAccountType": "Saving",
       "govtRecruitmentContractLicense": "Demo Govt Recruitment Contract Lincese",
+      "basicSalary": "500",
       "salaryComponents": [
         {
-          "salaryComponent": "Basic Salary",
+          "salaryComponent": "Food Allowance",
           "amount": "500",
           "effectiveFromDate": "10-Nov-2024"
 
         },
         {
-          "salaryComponent": "Food Allowance",
+          "salaryComponent": "Housing Allowance",
           "amount": "500",
           "effectiveFromDate": "10-Nov-2024"
         }
@@ -77,9 +78,9 @@
         {
           "overtimeType": "Holiday Overtime"
         }
-        
+
       ],
-      
+
       "relationshipType": "Spouse",
       "description": "desc",
       "ticketAccrual": "Four Ticket Per Year",
@@ -108,7 +109,7 @@
           "LTeffectiveFromDate": "01-Jan-2024"
         }
 
-      ]       
+      ]
 
     }
   ],
@@ -190,9 +191,9 @@
         }
       ]
 
-      
+
     }
-    
+
 
   ],
 
@@ -209,8 +210,20 @@
       "sdepartment": "06",
       "sproject": "07",
       "sWorkLocation": "08",
-      "Project": "Project0",
-      "EffectiveFromDate": "01-Jan-2024"
+      "Projects": [
+        {
+          "Project": "Project0",
+
+          "EffectiveFromDate": "01-Jan-2024",
+          "EffectiveToDate": "30-Jun-2024"
+        },
+        {
+          "Project": "project1",
+          "EffectiveFromDate": "01-Jan-2025",
+          "EffectiveToDate": "30-Jun-2025"
+        }
+      ]
+
     }
   ],
 
@@ -267,11 +280,16 @@
 
   "deleteEmployee": [
     {
-      "EMPID": "Mohan"
-     
+      "EMPID": "219"
+    }
+  ],
 
+  "updateEmployee": [
+    {
+      "EMPID": "205"
     }
   ]
+
 
 
 

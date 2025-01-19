@@ -96,10 +96,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Inventory\Item\ItemModel.cs" />
-    <Compile Include="PageObjects\Inventory\CreatenewItemPage.cs" />
+    <Compile Include="PageObjects\Inventory\InventoryItemListingPage.cs" />
+    <Compile Include="PageObjects\Inventory\InventoryPage.cs" />
+    <Compile Include="PageObjects\Inventory\InventorySetupPage.cs" />
+    <Compile Include="PageObjects\Inventory\ItemPage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestCases\Inventory\CreatenewItemTest.cs" />
+    <Compile Include="TestCases\Inventory\ItemTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

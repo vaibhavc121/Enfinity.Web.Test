@@ -2,6 +2,7 @@
 using Bogus.DataSets;
 using Enfinity.Common.Test;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Enfinity.Hrms.Test.UI
 {
-    public class EmployeePage:BasePage
+    public class EmployeePage : BasePage
     {
         //private readonly IWebDriver _driver;
         //public static Faker faker = new Faker();
@@ -91,7 +92,7 @@ namespace Enfinity.Hrms.Test.UI
         //private By job = By.XPath("//span[normalize-space()='Job']");
         //private By job = By.XPath("/html[1]/body[1]/div[6]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]");
         private By job = By.XPath("//span[contains(text(),'Job')]");
-        
+
         private By payroll = By.XPath("//a[@id='employeeProfileMenu_DXI2_T']//span[@class='dx-vam dxm-contentText'][normalize-space()='Payroll']");
         private By timeOff = By.XPath("//span[normalize-space()='Time Off']");
         private By attendance = By.XPath("//a[@id='employeeProfileMenu_DXI4_T']//span[@class='dx-vam dxm-contentText'][normalize-space()='Attendance']");
@@ -133,7 +134,7 @@ namespace Enfinity.Hrms.Test.UI
         #region Job Page Objects
         private By manager = By.XPath("//input[contains(@id,'ManagerEmployeeId')]");
         private By keyEmployee = By.XPath("//div[@class='dx-switch-off']");
-        private By substituteEmployee= By.XPath("//input[contains(@id,'SubstituteEmployeeId')]");
+        private By substituteEmployee = By.XPath("//input[contains(@id,'SubstituteEmployeeId')]");
         private By employeeCategory = By.XPath("//input[contains(@id,'EmployeeCategoryId')]");
         private By workLocation = By.XPath("//input[contains(@id,'WorkLocationId')]");
         private By employmentType = By.XPath("//input[contains(@id,'EmploymentType')]");
@@ -141,8 +142,8 @@ namespace Enfinity.Hrms.Test.UI
         private By noticePeriod = By.XPath("//input[contains(@id,'NoticePeriodInDays')]");
         private By addWorkExpButton = By.XPath("//div[@title='Add Work Experience']//i[@class='dx-icon dx-icon-edit-button-addrow']");
         private By priorCompany = By.XPath("//input[contains(@id,'PriorCompany')]");
-        private By StartDate= By.XPath("//input[contains(@id,'StartDate')]");
-        private By saveWorkExp = By.XPath("//div[@class='dx-overlay-content dx-popup-normal dx-popup-draggable dx-resizable']//span[@class='dx-button-text'][normalize-space()='Save']");        
+        private By StartDate = By.XPath("//input[contains(@id,'StartDate')]");
+        private By saveWorkExp = By.XPath("//div[@class='dx-overlay-content dx-popup-normal dx-popup-draggable dx-resizable']//span[@class='dx-button-text'][normalize-space()='Save']");
         private By addQualification = By.XPath("//div[@title='Add Qualification']//i[@class='dx-icon dx-icon-edit-button-addrow']");
         private By qualification = By.XPath("//input[contains(@id,'QualificationId')]");
         private By university = By.XPath("//input[contains(@id,'University')]");
@@ -163,16 +164,32 @@ namespace Enfinity.Hrms.Test.UI
         private By IbanNumber = By.XPath("//input[contains(@id,'IbanNumber')]");
         private By bankAccountType = By.XPath("//input[contains(@id,'BankAccountType')]");
         private By govtRecruitmentContractLicense = By.XPath("//input[contains(@id,'GovtRecruitmentContractLicenseId')]");
+
+        //salary Component section
         private By addSalaryComponentsBtn = By.XPath("//p[normalize-space()='Salary Components']/../..//i[@class='dx-icon dx-icon-add']");
         //private By salaryComponent = By.XPath("//input[contains(@id,'SalaryComponentId')]");
         private By salaryComponent = By.XPath("//span[normalize-space()='Salary Component']//following::input[contains(@id,'SalaryComponentId')]");
         private By amount = By.XPath("//input[contains(@id,'Amount')]");
         private By effectiveFromDate = By.XPath("//input[contains(@id,'EffectiveFromDate')]");
         private By saveSalComponent = By.XPath("//div[@id='SaveButton']//span[@class='dx-button-text'][normalize-space()='Save']");
+
+        //edit basic salary
+        private By editBasicSalBtn = By.XPath("/html[1]/body[1]/div[6]/div[1]/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/i[1]");
+        private By changeSalary = By.XPath("//div[contains(text(),'Change Salary')]");
+        private By incrementAmount = By.XPath("//input[contains(@id,'IncrementAmount')]");
+        private By saveBasicSalary = By.XPath("//div[@id='SaveButton']//span[@class='dx-button-text'][normalize-space()='Save']");
+
+        //delete basic salary
+        private By deleteBasicSalBtn = By.XPath("/html[1]/body[1]/div[6]/div[1]/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/i[1]");
+        private By deleteBasicSalaryComponent = By.XPath("//span[normalize-space()='Delete']");
+
+        //overtime types section
         private By addOvertimeTypes = By.XPath("//p[normalize-space()='Overtime Types']//following::i[@class='dx-icon dx-icon-add']");
         private By overtimeType = By.XPath("//input[contains(@id,'OvertimeTypeId')]");
         private By saveOvertimeType = By.XPath("//div[@id='EmployeeOvertimeTypePopupForm']//span[@class='dx-button-text'][normalize-space()='Save']");
         //private By saveOvertimeType = By.XPath("//div[@id='SaveButton']//span[@class='dx-button-text'][normalize-space()='Save']");
+
+        //tickets section
         private By addTicketsBtn = By.XPath("//div[@title='Add Ticket']//i[@class='dx-icon dx-icon-edit-button-addrow']");
         private By relationshipType = By.XPath("//input[contains(@id,'RelationshipType')]");
         private By description = By.XPath("//input[contains(@id,'Description')]");
@@ -181,14 +198,17 @@ namespace Enfinity.Hrms.Test.UI
         //private By ticketEffectiveFromDate = By.XPath("//input[contains(@id,'EffectiveFromDate')]");
         private By ticketEffectiveFromDate = By.XPath("//span[normalize-space()='Effective From Date:']//following::input[contains(@id,'EffectiveFromDate')]");
         private By saveTicket = By.XPath("//div[@class='dx-widget dx-button dx-button-mode-contained dx-button-normal dx-button-has-text']//span[@class='dx-button-text'][normalize-space()='Save']");
+
+        //Miscellaneous Accrual Earnings section
         private By addMiscellaneousAccrual = By.XPath("//div[@title='Add Miscellaneous Accrual Earning']//i[@class='dx-icon dx-icon-edit-button-addrow']");
         private By accrualType = By.XPath("//input[contains(@id,'AccrualType')]");
         private By accrualAmount = By.XPath("//input[contains(@id,'_Amount')]");
         private By resetAvailedDaysMethod = By.XPath("//input[contains(@id,'ResetAvailedDaysMethod')]");
         private By miscellaneousAccrualSave = By.XPath("//div[@class='dx-overlay-content dx-popup-normal dx-popup-draggable dx-resizable']//span[@class='dx-button-text'][normalize-space()='Save']");
-        private By addBenefitScheme = By.XPath("//div[@title='Add Benefit Scheme']//i[@class='dx-icon dx-icon-edit-button-addrow']");
-        //private By BSrelationshipType = By.XPath("/html[1]/body[1]/div[12]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
-        private By BSrelationshipType = By.XPath("//input[contains(@id,'RelationshipType')]");        
+
+        //Benefit Schemes section
+        private By addBenefitScheme = By.XPath("//div[@title='Add Benefit Scheme']//i[@class='dx-icon dx-icon-edit-button-addrow']");      
+        private By BSrelationshipType = By.XPath("//input[contains(@id,'RelationshipType')]");
         private By benefitScheme = By.XPath("//input[contains(@id,'BenefitSchemeId')]");
         private By BSeffectiveFromDate = By.XPath("/html[1]/body[1]/div[12]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
         private By BSeffectiveToDate = By.XPath("/html[1]/body[1]/div[12]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
@@ -291,7 +311,7 @@ namespace Enfinity.Hrms.Test.UI
 
         //spouse section
         private By addSpousesBtn = By.XPath("//div[@title='Add Spouse']//i[@class='dx-icon dx-icon-edit-button-addrow']");
-        private By spouseName = By.XPath("//span[normalize-space()='Name:']//following::input[contains(@id,'Name')][1]");        
+        private By spouseName = By.XPath("//span[normalize-space()='Name:']//following::input[contains(@id,'Name')][1]");
         private By birthDate = By.XPath("/html[1]/body[1]/div[9]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
         private By marriageDate = By.XPath("//input[contains(@id,'MarriageDate')]");
         private By spouseSave = By.XPath("//div[@class='dx-overlay-content dx-popup-normal dx-popup-draggable dx-resizable']//span[@class='dx-button-text'][normalize-space()='Save']");
@@ -929,21 +949,58 @@ namespace Enfinity.Hrms.Test.UI
             Thread.Sleep(1000);
         }
 
+        //salary Component section
+
+        public void DeleteBasicSalaryComponent()
+        {
+            IWebElement elementToHover = BaseTest._driver.FindElement(By.XPath("/html[1]/body[1]/div[6]/div[1]/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/i[1]"));
+            Actions actions = new Actions(BaseTest._driver);
+            actions.MoveToElement(elementToHover).Perform();
+            Find(deleteBasicSalBtn).Click();
+            Thread.Sleep(2000);
+            Find(deleteBasicSalaryComponent).Click();
+        }
+        public void EditBasicSalaryComponent(string value)
+        {
+            IWebElement elementToHover = BaseTest._driver.FindElement(By.XPath("/html[1]/body[1]/div[6]/div[1]/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/i[1]"));
+            Actions actions = new Actions(BaseTest._driver);
+            actions.MoveToElement(elementToHover).Perform();
+            Find(editBasicSalBtn).Click();
+            Thread.Sleep(1000);
+            Find(changeSalary).Click();
+            Find(incrementAmount).Click();            
+            Find(incrementAmount).SendKeys(Keys.Control + "a");           
+            Find(incrementAmount).SendKeys(Keys.Delete);
+            Find(incrementAmount).SendKeys(value);
+            Thread.Sleep(1000);
+            Find(saveBasicSalary).Click();
+        }
+        public void ProvideBasicSalAmt(string value)
+        {
+            Find(incrementAmount).Click();
+            //Find(probationPeriod).Clear();
+            Find(incrementAmount).SendKeys(Keys.Control + "a");
+            //Find(probationPeriod).SendKeys(Keys.Backspace);
+            Find(incrementAmount).SendKeys(Keys.Delete);
+            Find(incrementAmount).SendKeys(value);
+            Thread.Sleep(1000);
+        }
         public void ClickAddSalaryComponentBtn()
         {
             Find(addSalaryComponentsBtn).Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
         }
 
         public void ClickSalaryComponent()
         {
             Find(salaryComponent).Click();
-            Thread.Sleep(5000);
+            Thread.Sleep(1000);
         }
-        
+
         public void SelectSalComponent(string value)
         {
             CommonPageActions.SelectDropdownOption(value);
+            Thread.Sleep(1000);
         }
         public void ProvideAmt(string value)
         {
@@ -989,6 +1046,12 @@ namespace Enfinity.Hrms.Test.UI
         {
             Find(saveOvertimeType).Click();
             Thread.Sleep(5000);
+        }
+        public void ScrollDownWebPageTicket()
+        {
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)BaseTest._driver;
+            IWebElement element = BaseTest._driver.FindElement(By.XPath("//div[contains(text(),'Tickets')]"));
+            jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
         }
         public void AddTicketBtn()
         {
@@ -1078,7 +1141,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void ClickRelationshipType()
         {
-            Find(relationshipType).Click();
+            Find(BSrelationshipType).Click();
             Thread.Sleep(1000);
         }
         public void BSSelectRelationshipType(string value)
@@ -1114,7 +1177,7 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region TimeOff Tab Action Methods
-        
+
         public void ClickAssignLeaveType()
         {
             Find(assignLeaveType).Click();
@@ -1141,7 +1204,7 @@ namespace Enfinity.Hrms.Test.UI
             Find(LTeffectiveFromDate).SendKeys(value);
             Thread.Sleep(1000);
         }
-        
+
         public void LTClickSave()
         {
             CommonPageActions.ClickSave();
@@ -1234,11 +1297,13 @@ namespace Enfinity.Hrms.Test.UI
         public void AddDocuments()
         {
             Find(addDocuments).Click();
+            Thread.Sleep(1000);
         }
 
         public void ClickDocType()
         {
             Find(documentType).Click();
+            Thread.Sleep(1000);
         }
 
         public void SelectDocType(string value)
@@ -1269,6 +1334,7 @@ namespace Enfinity.Hrms.Test.UI
         public void EmpDocClickSave()
         {
             CommonPageActions.ClickSave();
+            Thread.Sleep(1000);
         }
 
 
@@ -1289,7 +1355,7 @@ namespace Enfinity.Hrms.Test.UI
         public void SelectResultAreaName(string value)
         {
             CommonPageActions.SelectDropdownOption(value);
-            
+
         }
         public void ProvideWeightage(string value)
         {
@@ -1298,6 +1364,7 @@ namespace Enfinity.Hrms.Test.UI
         public void ClickKRAsave()
         {
             Find(KRAsave).Click();
+            Thread.Sleep(1000);
         }
         public void ClickAddCompetencies()
         {
@@ -1319,6 +1386,7 @@ namespace Enfinity.Hrms.Test.UI
         public void ClickCompetenciesSave()
         {
             Find(competenciesSave).Click();
+            Thread.Sleep(1000);
         }
         public void ClickaddSkillSetBtn()
         {
@@ -1384,6 +1452,7 @@ namespace Enfinity.Hrms.Test.UI
         public void ClickGoalSave()
         {
             Find(goalSave).Click();
+            Thread.Sleep(1000);
         }
 
         #endregion
@@ -1486,6 +1555,7 @@ namespace Enfinity.Hrms.Test.UI
         public void ClickEmpProjectsave()
         {
             Find(empProjectsave).Click();
+            Thread.Sleep(1000);
         }
         public void SaveAllInfo()
         {
@@ -1541,7 +1611,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void ProvideDependentBirthDate(string value)
         {
-            Find(dependentBirthDate).SendKeys(value);       
+            Find(dependentBirthDate).SendKeys(value);
         }
         public void ClickOtherSave()
         {
@@ -1572,13 +1642,13 @@ namespace Enfinity.Hrms.Test.UI
         {
             Find(birthPlace).SendKeys(value);
         }
-    
+
         //Work Permit Details
         public void ProvidedateOfEntry(string value)
         {
             Find(dateOfEntry).SendKeys(value);
         }
-       
+
         public void ProvideVisaNumber(string value)
         {
             Find(VisaNumber).SendKeys(value);
@@ -1632,6 +1702,12 @@ namespace Enfinity.Hrms.Test.UI
         public void ProvideNewContractSalary(string value)
         {
             Find(NewContractSalary).SendKeys(value);
+        }
+        public void ScrollDownWebPageOldContract()
+        {
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)BaseTest._driver;
+            IWebElement element = BaseTest._driver.FindElement(By.XPath("//input[contains(@id,'OldContractSalary')]"));
+            jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
         }
         public void ProvideOldContractSalary(string value)
         {

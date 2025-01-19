@@ -2,6 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -144,6 +145,8 @@ namespace Enfinity.Common.Test
             IWebElement result = BaseTest._driver.FindElement(By.XPath(
                     "/html[1]/body[1]/div[6]/div[2]/div[1]/div[2]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/p[1]/span[1]/a[1]"));
 
+            //IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)BaseTest._driver;
+
             //filterCell.SendKeys(value);
             Thread.Sleep(2000);           
             string employee = result.Text;
@@ -151,6 +154,7 @@ namespace Enfinity.Common.Test
             if (employee.Contains(value))
             {
                 result.Click();
+                //jsExecutor.ExecuteScript("arguments[0].click();", result);
                 Thread.Sleep(2000);
             }            
 
@@ -168,6 +172,24 @@ namespace Enfinity.Common.Test
                 {
                     // Switch to the new window
                     BaseTest._driver.SwitchTo().Window(windowHandle);
+                    break;
+                }
+            }
+        }
+
+        public static void CloseTab()
+        {
+            string originalWindow = BaseTest._driver.CurrentWindowHandle;
+            // Get all window handles
+            var allWindows = BaseTest._driver.WindowHandles;
+            // Iterate through the window handles
+            foreach (var windowHandle in allWindows)
+            {
+                if (windowHandle != originalWindow)
+                {
+                    // Switch to the new window
+                    BaseTest._driver.SwitchTo().Window(windowHandle);
+                    BaseTest._driver.Close();
                     break;
                 }
             }
@@ -192,10 +214,25 @@ namespace Enfinity.Common.Test
             }
         }
 
+        public static bool IsEmployeeDeleted()
+        {
+            string message = BaseTest._driver.FindElement(By.XPath("//div[@class='dx-toast-message']")).Text;
+            //return message;
+            if (message.Contains("deleted successfully"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+
+            }
+        }
+
         public static void ScrollDownWebPage()
         {
-            // Cast driver to IJavaScriptExecutor
-            //IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)BaseTest._driver;
+             //Cast driver to IJavaScriptExecutor
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)BaseTest._driver;
 
             // Scroll down by a specific number of pixels
             //jsExecutor.ExecuteScript("window.scrollBy(0, 50);");
@@ -209,20 +246,23 @@ namespace Enfinity.Common.Test
             //jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
 
             // Initialize Actions class
-            Actions actions = new Actions(BaseTest._driver);
+            //Actions actions = new Actions(BaseTest._driver);
 
             // Perform Page Down key press
-            actions.SendKeys(Keys.PageDown).Perform();
+            //actions.SendKeys(Keys.PageDown).Perform();
 
             // Wait for a few seconds to see the scroll effect
-            System.Threading.Thread.Sleep(2000);
+            //System.Threading.Thread.Sleep(2000);
 
             // Perform multiple Arrow Down key presses
-            actions.SendKeys(Keys.ArrowDown).Perform();
-            actions.SendKeys(Keys.ArrowDown).Perform();
+            //actions.SendKeys(Keys.ArrowDown).Perform();
+            //actions.SendKeys(Keys.ArrowDown).Perform();
 
             // Wait for a few seconds to see the scroll effect
-            System.Threading.Thread.Sleep(2000);
+            //System.Threading.Thread.Sleep(2000);
+
+            IWebElement element = BaseTest._driver.FindElement(By.XPath("//input[contains(@id,'OldContractSalary')]"));
+            jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
         }
 
     }

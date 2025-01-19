@@ -59,6 +59,7 @@ namespace Enfinity.Hrms.Test.UI.Models.Employee
         public string employeebank { get; set; }
         public string bankAccountType { get; set; }
         public string govtRecruitmentContractLicense { get; set; }
+        public string basicSalary { get; set; }
         public string salaryComponent { get; set; }
         public string amount { get; set; }
         public string effectiveFromDate { get; set; }
@@ -190,6 +191,14 @@ namespace Enfinity.Hrms.Test.UI.Models.Employee
         public string sWorkLocation { get; set; }
         public string Project { get; set; }
         public string EffectiveFromDate { get; set; }
+        public List<ProjectsModel> Projects { get; set; }
+    }
+
+    public class ProjectsModel
+    {
+        public string Project { get; set; }
+        public string EffectiveFromDate { get; set; }
+        public string EffectiveToDate { get; set; }
     }
 
     public class DependentsTabModel

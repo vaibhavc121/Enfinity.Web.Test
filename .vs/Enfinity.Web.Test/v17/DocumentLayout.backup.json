@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "D:\\Enfinity.Online\\Enfinity.Web.Test\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|D:\\Enfinity.Online\\Enfinity.Web.Test\\enfinity.hrms.test.ui\\models\\hrcore\\employee\\employeedata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{801612EF-8E6D-4067-AECF-6E070B1D1688}|Enfinity.Erp.Test.UI\\Enfinity.Erp.Test.UI.csproj|d:\\enfinity.online\\enfinity.web.test\\enfinity.erp.test.ui\\testcases\\inventory\\itemtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801612EF-8E6D-4067-AECF-6E070B1D1688}|Enfinity.Erp.Test.UI\\Enfinity.Erp.Test.UI.csproj|solutionrelative:enfinity.erp.test.ui\\testcases\\inventory\\itemtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801612EF-8E6D-4067-AECF-6E070B1D1688}|Enfinity.Erp.Test.UI\\Enfinity.Erp.Test.UI.csproj|d:\\enfinity.online\\enfinity.web.test\\enfinity.erp.test.ui\\pageobjects\\inventory\\itempage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801612EF-8E6D-4067-AECF-6E070B1D1688}|Enfinity.Erp.Test.UI\\Enfinity.Erp.Test.UI.csproj|solutionrelative:enfinity.erp.test.ui\\pageobjects\\inventory\\itempage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|d:\\enfinity.online\\enfinity.web.test\\enfinity.hrms.test.ui\\models\\hrcore\\employee\\employeedata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|solutionrelative:enfinity.hrms.test.ui\\models\\hrcore\\employee\\employeedata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|d:\\enfinity.online\\enfinity.web.test\\enfinity.hrms.test.ui\\testcases\\hrcore\\documentstabtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|solutionrelative:enfinity.hrms.test.ui\\testcases\\hrcore\\documentstabtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|D:\\Enfinity.Online\\Enfinity.Web.Test\\enfinity.hrms.test.ui\\testcases\\hrcore\\createfullemployeetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|solutionrelative:enfinity.hrms.test.ui\\testcases\\hrcore\\createfullemployeetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|D:\\Enfinity.Online\\Enfinity.Web.Test\\enfinity.hrms.test.ui\\testcases\\hrcore\\updatefullemployeetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|solutionrelative:enfinity.hrms.test.ui\\testcases\\hrcore\\updatefullemployeetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BAF8D7E-BD90-4879-A00C-C2F59DD82933}|Enfinity.Common.Test\\Enfinity.Common.Test.csproj|D:\\Enfinity.Online\\Enfinity.Web.Test\\enfinity.common.test\\testcases\\base\\basetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BAF8D7E-BD90-4879-A00C-C2F59DD82933}|Enfinity.Common.Test\\Enfinity.Common.Test.csproj|solutionrelative:enfinity.common.test\\testcases\\base\\basetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|D:\\Enfinity.Online\\Enfinity.Web.Test\\enfinity.hrms.test.ui\\testcases\\hrcore\\updateemployeetabwisetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|solutionrelative:enfinity.hrms.test.ui\\testcases\\hrcore\\updateemployeetabwisetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|D:\\Enfinity.Online\\Enfinity.Web.Test\\enfinity.hrms.test.ui\\models\\hrcore\\employee\\employeemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,15 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|D:\\Enfinity.Online\\Enfinity.Web.Test\\enfinity.hrms.test.ui\\pageobjects\\hrcore\\employeepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|solutionrelative:enfinity.hrms.test.ui\\pageobjects\\hrcore\\employeepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\AppData\\Local\\Temp\\TFSTemp\\v43AF9D.tmp\\714424\\ItemData(C39627).json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\AppData\\Local\\Temp\\TFSTemp\\v43AF9D.tmp\\714891\\ItemTest(C39627).cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\AppData\\Local\\Temp\\TFSTemp\\v43AF9D.tmp\\714425\\ItemModel(C39625).cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,47 +46,75 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "EmployeeData.json",
               "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\Models\\HRCore\\Employee\\EmployeeData.json",
               "RelativeDocumentMoniker": "Enfinity.Hrms.Test.UI\\Models\\HRCore\\Employee\\EmployeeData.json",
-              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\Models\\HRCore\\Employee\\EmployeeData.json",
-              "RelativeToolTip": "Enfinity.Hrms.Test.UI\\Models\\HRCore\\Employee\\EmployeeData.json",
-              "ViewState": "AgIAAI0AAAAAAAAAAAAowKQAAAAXAAAAAAAAAA==",
+              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\Models\\HRCore\\Employee\\EmployeeData.json [Read Only]",
+              "RelativeToolTip": "Enfinity.Hrms.Test.UI\\Models\\HRCore\\Employee\\EmployeeData.json [Read Only]",
+              "ViewState": "AgIAABMBAAAAAAAAAAAAABoBAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-12-30T12:22:09.247Z",
               "IsPinned": true,
-              "EditorCaption": ""
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EmployeeModel.cs",
+              "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\Models\\HRCore\\Employee\\EmployeeModel.cs",
+              "RelativeDocumentMoniker": "Enfinity.Hrms.Test.UI\\Models\\HRCore\\Employee\\EmployeeModel.cs",
+              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\Models\\HRCore\\Employee\\EmployeeModel.cs [Read Only]",
+              "RelativeToolTip": "Enfinity.Hrms.Test.UI\\Models\\HRCore\\Employee\\EmployeeModel.cs [Read Only]",
+              "ViewState": "AgIAAPIAAAAAAAAAAAAAAP8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-31T12:27:51.514Z",
+              "IsPinned": true,
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EmployeePage.cs",
+              "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\PageObjects\\HrCore\\EmployeePage.cs",
+              "RelativeDocumentMoniker": "Enfinity.Hrms.Test.UI\\PageObjects\\HrCore\\EmployeePage.cs",
+              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\PageObjects\\HrCore\\EmployeePage.cs [Read Only]",
+              "RelativeToolTip": "Enfinity.Hrms.Test.UI\\PageObjects\\HrCore\\EmployeePage.cs [Read Only]",
+              "ViewState": "AgIAABoAAAAAAAAAAAAgwBEAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-30T10:08:19.666Z",
+              "IsPinned": true,
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ItemTest.cs",
+              "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Erp.Test.UI\\TestCases\\Inventory\\ItemTest.cs",
+              "RelativeDocumentMoniker": "Enfinity.Erp.Test.UI\\TestCases\\Inventory\\ItemTest.cs",
+              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Erp.Test.UI\\TestCases\\Inventory\\ItemTest.cs [Read Only]",
+              "RelativeToolTip": "Enfinity.Erp.Test.UI\\TestCases\\Inventory\\ItemTest.cs [Read Only]",
+              "ViewState": "AgIAAGoDAAAAAAAAAAAAAMcCAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-09T16:27:10.982Z",
+              "EditorCaption": " [Read Only]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DocumentsTabTest.cs",
-              "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\TestCases\\HrCore\\DocumentsTabTest.cs",
-              "RelativeDocumentMoniker": "Enfinity.Hrms.Test.UI\\TestCases\\HrCore\\DocumentsTabTest.cs",
-              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\TestCases\\HrCore\\DocumentsTabTest.cs",
-              "RelativeToolTip": "Enfinity.Hrms.Test.UI\\TestCases\\HrCore\\DocumentsTabTest.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAAAgAAAAXAAAAAAAAAA==",
+              "Title": "ItemPage.cs",
+              "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Erp.Test.UI\\PageObjects\\Inventory\\ItemPage.cs",
+              "RelativeDocumentMoniker": "Enfinity.Erp.Test.UI\\PageObjects\\Inventory\\ItemPage.cs",
+              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Erp.Test.UI\\PageObjects\\Inventory\\ItemPage.cs [Read Only]",
+              "RelativeToolTip": "Enfinity.Erp.Test.UI\\PageObjects\\Inventory\\ItemPage.cs [Read Only]",
+              "ViewState": "AgIAAN8AAAAAAAAAAAAlwNkAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T12:49:31.493Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EmployeeModel.cs",
-              "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\Models\\HRCore\\Employee\\EmployeeModel.cs",
-              "RelativeDocumentMoniker": "Enfinity.Hrms.Test.UI\\Models\\HRCore\\Employee\\EmployeeModel.cs",
-              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\Models\\HRCore\\Employee\\EmployeeModel.cs",
-              "RelativeToolTip": "Enfinity.Hrms.Test.UI\\Models\\HRCore\\Employee\\EmployeeModel.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAIAwwGMAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-31T12:27:51.514Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-09T16:21:32.813Z",
+              "EditorCaption": " [Read Only]"
             },
             {
               "$type": "Bookmark",
@@ -83,49 +122,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "C:\\Users\\admin\\AppData\\Local\\Temp\\TFSTemp\\v43AF9D.tmp\\714425\\ItemModel(C39625).cs",
-              "DocumentMoniker": "C:\\Users\\admin\\AppData\\Local\\Temp\\TFSTemp\\v43AF9D.tmp\\714425\\ItemModel(C39625).cs",
-              "ToolTip": "C:\\Users\\admin\\AppData\\Local\\Temp\\TFSTemp\\v43AF9D.tmp\\714425\\ItemModel(C39625).cs [Read Only]",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAADoAAAARAAAAAQAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T10:25:04.945Z",
-              "EditorCaption": " [Read Only]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "C:\\Users\\admin\\AppData\\Local\\Temp\\TFSTemp\\v43AF9D.tmp\\714891\\ItemTest(C39627).cs",
-              "DocumentMoniker": "C:\\Users\\admin\\AppData\\Local\\Temp\\TFSTemp\\v43AF9D.tmp\\714891\\ItemTest(C39627).cs",
-              "ToolTip": "C:\\Users\\admin\\AppData\\Local\\Temp\\TFSTemp\\v43AF9D.tmp\\714891\\ItemTest(C39627).cs [Read Only]",
-              "ViewState": "AgIAAPwAAAAAAAAAAAAAAA4BAAA3AAAAAQAAAA==",
+              "Title": "BaseTest.cs",
+              "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Common.Test\\TestCases\\Base\\BaseTest.cs",
+              "RelativeDocumentMoniker": "Enfinity.Common.Test\\TestCases\\Base\\BaseTest.cs",
+              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Common.Test\\TestCases\\Base\\BaseTest.cs [Read Only]",
+              "RelativeToolTip": "Enfinity.Common.Test\\TestCases\\Base\\BaseTest.cs [Read Only]",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T09:48:37.626Z",
-              "EditorCaption": " [Read Only]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "C:\\Users\\admin\\AppData\\Local\\Temp\\TFSTemp\\v43AF9D.tmp\\714424\\ItemData(C39627).json",
-              "DocumentMoniker": "C:\\Users\\admin\\AppData\\Local\\Temp\\TFSTemp\\v43AF9D.tmp\\714424\\ItemData(C39627).json",
-              "ToolTip": "C:\\Users\\admin\\AppData\\Local\\Temp\\TFSTemp\\v43AF9D.tmp\\714424\\ItemData(C39627).json [Read Only]",
-              "ViewState": "AgIAAF8AAAAAAAAAAAAAAHEAAAAnAAAAAQAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-07T09:28:44.267Z",
+              "WhenOpened": "2025-01-09T12:43:09.558Z",
               "EditorCaption": " [Read Only]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "EmployeePage.cs",
-              "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\PageObjects\\HrCore\\EmployeePage.cs",
-              "RelativeDocumentMoniker": "Enfinity.Hrms.Test.UI\\PageObjects\\HrCore\\EmployeePage.cs",
-              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\PageObjects\\HrCore\\EmployeePage.cs",
-              "RelativeToolTip": "Enfinity.Hrms.Test.UI\\PageObjects\\HrCore\\EmployeePage.cs",
-              "ViewState": "AgIAANUDAAAAAAAAAAAAANsDAAAmAAAAAAAAAA==",
+              "Title": "CreateFullEmployeeTest.cs",
+              "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\TestCases\\HrCore\\CreateFullEmployeeTest.cs",
+              "RelativeDocumentMoniker": "Enfinity.Hrms.Test.UI\\TestCases\\HrCore\\CreateFullEmployeeTest.cs",
+              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\TestCases\\HrCore\\CreateFullEmployeeTest.cs [Read Only]",
+              "RelativeToolTip": "Enfinity.Hrms.Test.UI\\TestCases\\HrCore\\CreateFullEmployeeTest.cs [Read Only]",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-30T10:08:19.666Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-09T12:37:53.19Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UpdateFullEmployeeTest.cs",
+              "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\TestCases\\HrCore\\UpdateFullEmployeeTest.cs",
+              "RelativeDocumentMoniker": "Enfinity.Hrms.Test.UI\\TestCases\\HrCore\\UpdateFullEmployeeTest.cs",
+              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\TestCases\\HrCore\\UpdateFullEmployeeTest.cs [Read Only]",
+              "RelativeToolTip": "Enfinity.Hrms.Test.UI\\TestCases\\HrCore\\UpdateFullEmployeeTest.cs [Read Only]",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-09T12:22:59.982Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UpdateEmployeeTabwiseTest.cs",
+              "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\TestCases\\HrCore\\UpdateEmployeeTabwiseTest.cs",
+              "RelativeDocumentMoniker": "Enfinity.Hrms.Test.UI\\TestCases\\HrCore\\UpdateEmployeeTabwiseTest.cs",
+              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\TestCases\\HrCore\\UpdateEmployeeTabwiseTest.cs [Read Only]",
+              "RelativeToolTip": "Enfinity.Hrms.Test.UI\\TestCases\\HrCore\\UpdateEmployeeTabwiseTest.cs [Read Only]",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-09T12:22:52.798Z",
+              "EditorCaption": " [Read Only]"
             }
           ]
         }
