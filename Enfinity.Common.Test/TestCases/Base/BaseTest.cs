@@ -1,4 +1,5 @@
-﻿using Enfinity.Common.Test.Models;
+﻿using Bogus;
+using Enfinity.Common.Test.Models;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -15,13 +16,17 @@ namespace Enfinity.Common.Test
 
         public static IWebDriver _driver;
 
+        #region for fake data generation
+        public Faker faker = new Faker();
+        #endregion
+
         //[SetUp]
         [OneTimeSetUp]
         public void Setup()
         {
             #region
             ChromeOptions options = new ChromeOptions();
-            options.AddExcludedArgument("enable-automation"); 
+            options.AddExcludedArgument("enable-automation");
             options.AddAdditionalOption("useAutomationExtension", false);
             #endregion
 
@@ -29,17 +34,18 @@ namespace Enfinity.Common.Test
             _driver = new ChromeDriver(options);
             _driver.Manage().Window.Maximize();
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            
         }
 
-        //[TearDown]
-        [OneTimeTearDown]
+    
+
+    //[TearDown]
+    [OneTimeTearDown]
         public void TearDown()
         {
             // Close the browser
             if (_driver != null)
             {
-                //_driver.Quit();
+                _driver.Quit();
             }
         }
 

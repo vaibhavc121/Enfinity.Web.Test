@@ -1,4 +1,5 @@
 ﻿using Bogus;
+using Bogus.DataSets;
 using Enfinity.Common.Test;
 using Enfinity.Hrms.Test.UI;
 using OpenQA.Selenium;
@@ -32,9 +33,9 @@ namespace Enfinity.Hrms.Test.UI
         }
 
         public string temp = BasePage.RandomString();
-        public void ProvideDepartmentName()
+        public void ProvideDepartmentName(string value)
         {            
-            Find(deptName).SendKeys(temp);
+            Find(deptName).SendKeys(value);               
         }
 
         public void SelfServiceDD()

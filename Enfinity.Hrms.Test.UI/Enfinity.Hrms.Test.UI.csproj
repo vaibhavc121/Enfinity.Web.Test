@@ -95,15 +95,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\HRCore\Department\DepartmentModel.cs" />
+    <Compile Include="Models\HRCore\Designation\DesignationModel.cs" />
     <Compile Include="Models\HRCore\Employee\EmployeeModel.cs" />
     <Compile Include="PageObjects\Archive\TestPage.cs" />
     <Compile Include="PageObjects\Base\BasePage.cs" />
     <Compile Include="PageObjects\HrCore\DepartmentPage.cs" />
+    <Compile Include="PageObjects\HrCore\DesignationPage.cs" />
     <Compile Include="PageObjects\HrCore\EmployeePage.cs" />
+    <Compile Include="PageObjects\HrCore\GradePage.cs" />
     <Compile Include="PageObjects\HrCore\HRCorePage.cs" />
     <Compile Include="PageObjects\Archive\HardCodedPayrollEmployeePage.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\AttendanceTabTest.cs" />
+    <Compile Include="TestCases\HrCore\CreateDesignationTest.cs" />
     <Compile Include="TestCases\HrCore\CreateFullEmployeeTest.cs" />
+    <Compile Include="TestCases\HrCore\CreateGradeTest.cs" />
     <Compile Include="TestCases\HrCore\DeleteEmployeeTest.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\DependentsTabTest.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\DocumentsTabTest.cs" />
@@ -129,8 +135,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Models\HRCore\Designation\DesignationData.json" />
     <None Include="Models\HRCore\Employee\EmployeeData.json" />
     <None Include="Models\Global\LoginData.json" />
+    <None Include="Models\HRCore\Department\DepartmentData.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

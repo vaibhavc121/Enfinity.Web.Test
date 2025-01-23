@@ -1,8 +1,6 @@
-﻿using Bogus;
-using Enfinity.Common.Test;
-using Enfinity.Hrms.Test.UI;
-using Enfinity.Hrms.Test.UI.Models.Employee;
+﻿using Enfinity.Common.Test;
 using Enfinity.Hrms.Test.UI.Models.HRCore.Employee;
+using Enfinity.Hrms.Test.UI.PageObjects.HrCore;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 using System;
@@ -11,20 +9,19 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
 
 namespace Enfinity.Hrms.Test.UI
 {
     [TestFixture]
-    public class CreateDepartmentTest : BaseTest
+    public class CreateDesignationTest: BaseTest
     {
         public string Product = "Hrms";
+
         [Test]
-        //[Ignore("")]
-        public void VerifyDepartmentCreation()
+        public void VerifyDesignationCreation()
         {
             try
-            {                
+            {
                 Login(Product);
 
                 var departmentFile = FileHelper.GetDataFile("Hrms", "HRCore", "Department", "DepartmentData");
@@ -38,31 +35,26 @@ namespace Enfinity.Hrms.Test.UI
 
                 //setup page
                 SetupPage sp = new SetupPage(_driver);
-                sp.ClickDepartment();
+                sp.ClickDesignation();
                 Thread.Sleep(2000);
 
-                //dept pg
-                DepartmentPage dp = new DepartmentPage(_driver);
-
-                foreach(var department in departmentData)
-                {
-                    dp.ClickNew();
-                    //dp.ProvideDepartmentName(department.deptname);
-                    dp.ProvideDepartmentName(faker.Name.JobArea());
-                    dp.SelfServiceDD();
-                    dp.ClickDeptMgrDD();                     
-                    dp.SelectDeptMgrName();
-                    //dp.SelectDeptMgr();               
-                    dp.ClickSave();
-                }
-                
+                //desg pg
+                DesignationPage dp=new DesignationPage(_driver);
+                dp.ClickNewButton();              
+                dp.SetDesignationCode();                
+                dp.SetDesignation(faker.Name.JobTitle());
+                dp.ClickGrade();
+                dp.SelectGrade();
+                dp.SetJobDescription();
+                dp.ClickSave();
 
                 ClassicAssert.IsTrue(CommonPageActions.IsTxnCreated());
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 ClassicAssert.Fail("Test case failed: " + e);
             }
         }
+        
     }
 }

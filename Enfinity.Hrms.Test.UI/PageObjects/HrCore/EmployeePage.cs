@@ -403,6 +403,7 @@ namespace Enfinity.Hrms.Test.UI
         public void ProvideName()
         {
             Find(name).SendKeys(faker.Name.FirstName());
+            
         }
 
         public void ClickMgrDropdown()
