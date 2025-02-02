@@ -30,7 +30,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
             CommonPageActions.ClickNew();
         }
         
-        public void SetDesignationCode()
+        public void SetDesignationCode()            
         {
             Find(code).SendKeys(RandomNumber());
         }

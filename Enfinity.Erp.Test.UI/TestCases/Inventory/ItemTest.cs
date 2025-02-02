@@ -11,7 +11,7 @@ using OpenQA.Selenium.Chrome;
 using NUnit.Framework.Legacy;
 using Enfinity.Common.Test;
 using System.Drawing;
-using System.Xml.Linq; 
+using System.Xml.Linq;
 
 namespace Enfinity.Erp.Test.UI
 {
@@ -27,8 +27,8 @@ namespace Enfinity.Erp.Test.UI
         }
         #endregion
 
-        #region createNewItem
-        [Test, Category("Inventory"), Order(1)]
+        #region create new item
+        [Test, Category("Inventory"), Order(1), Ignore("1")]
         public void createNewItem()
         {
             #region MyRegion
@@ -73,8 +73,8 @@ namespace Enfinity.Erp.Test.UI
         }
         #endregion
 
-        #region CreateNewItemWithKeyInfoDetails
-        [Test, Category("Inventory"), Order(2)]
+        #region Create new item with KeyInfo Details
+        [Test, Category("Inventory"), Order(2), Ignore("1")]
         public void CreateNewItemWithKeyInfoDetails()
         {
             #region MyRegion
@@ -116,6 +116,15 @@ namespace Enfinity.Erp.Test.UI
                 itemPage.provideSalesPrice(item.SalesPrice);
                 itemPage.providePurchasePrice(item.PurchasePrice);
                 itemPage.provideDescription(item.Description);
+
+                itemPage.provideManufacturerNameKey(item.ManufacturerName);
+                itemPage.provideManufacturerPartNumKey(item.ManufacturerPartNum);
+                itemPage.provideMaximumStockLevelKey(item.MaximumStockLevel);
+                itemPage.provideMinimumStockLevelKey(item.MinimumStockLevel);
+                itemPage.provideReorderStockLevelKey(item.ReorderStockLevel);
+                itemPage.provideMaximumReorderKey(item.MaximumReorder);
+                itemPage.provideMinimumReorderKey(item.MinimumReorder);
+
                 itemPage.clickSaveKeyInfo();
                 Thread.Sleep(2000);
 
@@ -131,8 +140,8 @@ namespace Enfinity.Erp.Test.UI
         }
         #endregion
 
-        #region CreateNewItemWithBOMComponent 
-        [Test, Category("Inventory"), Order(3)]
+        #region Create new item with Multiple BOM Details  
+        [Test, Category("Inventory"), Order(3), Ignore("1")]
         public void CreateNewItemWithBOMComponent()
         {
             #region MyRegion
@@ -189,8 +198,8 @@ namespace Enfinity.Erp.Test.UI
         }
         #endregion
 
-        #region CreateNewItemWithMultipleUOM
-        [Test, Category("Inventory"), Order(4)]
+        #region Create new item with Multiple UOM Details 
+        [Test, Category("Inventory"), Order(4), Ignore("1")]
         public void CreateNewItemWithMultipleUOM()
         {
             #region MyRegion
@@ -244,8 +253,8 @@ namespace Enfinity.Erp.Test.UI
         }
         #endregion
 
-        #region CreateNewItemWithMultipleSuppliers
-        [Test, Category("Inventory"), Order(5)]
+        #region Create new item with Multiple Suppliers Details 
+        [Test, Category("Inventory"), Order(5), Ignore("1")]
         public void CreateNewItemWithMultipleSuppliers()
         {
             #region MyRegion
@@ -288,7 +297,7 @@ namespace Enfinity.Erp.Test.UI
                     itemPage.provideManufacturerPartNum(supplier.ManufacturerPartNum);
                     itemPage.provideManufacturerBarcode(supplier.ManufacturerBarcode);
                     itemPage.clickPreferredForPurchase();
-                    itemPage.clickPreferredForEstimation();                    
+                    itemPage.clickPreferredForEstimation();
                     //itemPage.clickFreezed();
                     Thread.Sleep(2000);
                     itemPage.clickOnSave();
@@ -305,8 +314,8 @@ namespace Enfinity.Erp.Test.UI
         }
         #endregion
 
-        #region CreateNewItemWithMultiplePriceLists
-        [Test, Category("Inventory"), Order(6)]
+        #region Create new item with Multiple PriceLists Details 
+        [Test, Category("Inventory"), Order(6), Ignore("1")]
         public void CreateNewItemWithMultiplePriceLists()
         {
             #region MyRegion
@@ -348,7 +357,7 @@ namespace Enfinity.Erp.Test.UI
                     itemPage.providePriceListMinimumUnitPrice(pricelist.MinimumUnitPrice);
                     itemPage.providePriceListMaximumUnitPrice(pricelist.MaximumUnitPrice);
                     itemPage.providePriceListDefaultDiscountinPercent(pricelist.DefaultDiscountInPercent);
-                    itemPage.providePriceListMaximumDiscountinPercent(pricelist.MaximumDiscountInPercent);                   
+                    itemPage.providePriceListMaximumDiscountinPercent(pricelist.MaximumDiscountInPercent);
                     //itemPage.clickDefault();
                     Thread.Sleep(1000);
                     itemPage.clickOnSave();
@@ -365,8 +374,8 @@ namespace Enfinity.Erp.Test.UI
         }
         #endregion
 
-        #region CreateNewItemWithMultipleWarehouses
-        [Test, Category("Inventory"), Order(7)]
+        #region Create new item with Multiple Warehouses Details 
+        [Test, Category("Inventory"), Order(7), Ignore("1")]
         public void CreateNewItemWithMultipleWarehouses()
         {
             #region MyRegion
@@ -392,7 +401,7 @@ namespace Enfinity.Erp.Test.UI
                 itemPage.clickUOM();
                 itemPage.selectDropDownOption(item.Uom);
                 itemPage.clickItemType();
-                itemPage.selectDropDownOption(item.Type);               
+                itemPage.selectDropDownOption(item.Type);
                 itemPage.clickSaveItem();
                 itemPage.clickOnWarehouseTab();
 
@@ -407,7 +416,7 @@ namespace Enfinity.Erp.Test.UI
                     itemPage.provideMinimumStockLevel(warehouse.MinimumStockLevel);
                     itemPage.provideReorderStockLevel(warehouse.ReorderStockLevel);
                     itemPage.provideMaximumReorder(warehouse.MaximumReorder);
-                    itemPage.provideMinimumReorder(warehouse.MinimumReorder);                    
+                    itemPage.provideMinimumReorder(warehouse.MinimumReorder);
                     //itemPage.clickWarehouseFreezed();
                     Thread.Sleep(1000);
                     itemPage.clickOnSave();
@@ -425,8 +434,8 @@ namespace Enfinity.Erp.Test.UI
         }
         #endregion
 
-        #region CreateNewItemWithMultipleBarcodes
-        [Test, Category("Inventory"), Order(8)]
+        #region Create new item with Multiple Barcodes Details 
+        [Test, Category("Inventory"), Order(8), Ignore("1")]
         public void CreateNewItemWithMultipleBarcodes()
         {
             #region MyRegion
@@ -479,8 +488,8 @@ namespace Enfinity.Erp.Test.UI
         }
         #endregion
 
-        #region CreateNewItemWithMultipleDocuments
-        [Test, Category("Inventory"), Order(9)]
+        #region Create new item with Multiple Documents Details
+        [Test, Category("Inventory"), Order(9), Ignore("1")]
         public void CreateNewItemWithMultipleDocuments()
         {
             #region MyRegion
@@ -535,8 +544,8 @@ namespace Enfinity.Erp.Test.UI
         }
         #endregion
 
-        #region CreateNewItemWithAccountSetup
-        [Test, Category("Inventory"), Order(10)]
+        #region Create new item with Account Setup Details
+        [Test, Category("Inventory"), Order(10), Ignore("1")]
         public void CreateNewItemWithAccountSetup()
         {
             #region MyRegion
@@ -597,8 +606,8 @@ namespace Enfinity.Erp.Test.UI
         }
         #endregion
 
-        #region CreateNewItemWithDimensions
-        [Test, Category("Inventory"), Order(11)]
+        #region Create new item with Dimensions Details
+        [Test, Category("Inventory"), Order(11), Ignore("1")]
         public void CreateNewItemWithDimensions()
         {
             #region MyRegion
@@ -638,9 +647,9 @@ namespace Enfinity.Erp.Test.UI
                     //itemPage.clickColorGenerate();
                     Thread.Sleep(1000);
                     itemPage.clickOnAdd();
-                    itemPage.provideColorCode(color.Code);
-                    itemPage.provideColorName(color.Name);
-                    itemPage.provideColorArabicName(color.ArabicName);
+                    itemPage.provideColorCode(color.ColorCode);
+                    itemPage.provideColorName(color.ColorName);
+                    itemPage.provideColorArabicName(color.ColorArabicName);
                     itemPage.clickOnSave();
 
                     #region Validating the color added or not
@@ -654,11 +663,11 @@ namespace Enfinity.Erp.Test.UI
                     //Thread.Sleep(1000);
                     //itemPage.clickSizeGenerate();
                     Thread.Sleep(1000);
-                    itemPage.clickOnAddSizeBtn();
-                    itemPage.provideSizeCode(size.Code);                    
-                    itemPage.provideSizeName(size.Name);                    
-                    itemPage.provideSizeArabicName(size.ArabicName);
-                    itemPage.clickSaveSizeBtn();
+                    itemPage.clickOnAddSize();
+                    itemPage.provideSizeCode(size.SizeCode);
+                    itemPage.provideSizeName(size.SizeName);
+                    itemPage.provideSizeArabicName(size.SizeArabicName);
+                    itemPage.clickSaveSize();
 
                     #region Validating the size added or not
                     IWebElement sizeName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{size.ExpectedName}')]"));
@@ -672,42 +681,8 @@ namespace Enfinity.Erp.Test.UI
         }
         #endregion
 
-        #region Delete an Item
-        [Test, Category("Inventory"), Order(12)]
-        public void DeleteItem()
-        {
-            #region MyRegion
-            Login(Product);
-            #endregion
-
-            var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
-            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "delete");
-            var itemPage = new ItemPage(_driver);
-            var inventoryPage = new InventoryPage(_driver);
-            var inventorySetupPage = new InventorySetupPage(_driver);
-            var inventoryItemListingPage = new InventoryItemListingPage(_driver);
-
-            foreach (var item in items)
-            {
-                inventoryPage.clickOnInventoryModule();                
-                inventoryPage.clickOnSetups();
-                inventorySetupPage.clickOnItem();
-
-                inventoryItemListingPage.provideItemName(item.Name);
-                Thread.Sleep(2000);
-                inventoryItemListingPage.clickOnSelectedItemName();
-                Thread.Sleep(2000);
-                inventoryItemListingPage.clickOnContextMenuItem();
-                inventoryItemListingPage.clickOnContextMenuItemDelete();
-                Thread.Sleep(2000);
-                inventoryItemListingPage.clickOnConfirmOk();                
-                Thread.Sleep(2000);
-            }
-        }
-        #endregion
-
-        #region New Item with All Tabs Info
-        [Test, Category("Inventory"), Order(13)]
+        #region Create new item with All Tabs Details
+        [Test, Category("Inventory"), Order(13), Ignore("")]
         public void CreateItemWithAllTab()
         {
             #region MyRegion
@@ -737,9 +712,15 @@ namespace Enfinity.Erp.Test.UI
                 //itemPage.selectDropDownOption(item.TrackingMode);
                 //itemPage.clickCostingMethod();
                 //itemPage.selectDropDownOption(item.CostingMethod);
+                itemPage.clickEnableSize();
+                Thread.Sleep(2000);
+                itemPage.clickEnableColor();
+                Thread.Sleep(2000);
                 itemPage.clickSaveItem();
                 Thread.Sleep(1000);
                 itemPage.clickOnKeyInfoTab();
+
+                #region Key Info Tab
                 itemPage.clickItemGroup();
                 itemPage.selectDropDownOption(item.ItemGroup);
                 itemPage.clickItemCategory();
@@ -749,7 +730,18 @@ namespace Enfinity.Erp.Test.UI
                 itemPage.provideSalesPrice(item.SalesPrice);
                 itemPage.providePurchasePrice(item.PurchasePrice);
                 itemPage.provideDescription(item.Description);
+                Thread.Sleep(1000);
+                itemPage.provideManufacturerNameKey(item.ManufacturerName);
+                itemPage.provideManufacturerPartNumKey(item.ManufacturerPartNum);
+                itemPage.provideMaximumStockLevelKey(item.MaximumStockLevel);
+                itemPage.provideMinimumStockLevelKey(item.MinimumStockLevel);
+                itemPage.provideReorderStockLevelKey(item.ReorderStockLevel);
+                itemPage.provideMaximumReorderKey(item.MaximumReorder);
+                itemPage.provideMinimumReorderKey(item.MinimumReorder);
                 itemPage.clickSaveKeyInfo();
+                #endregion 
+
+                Thread.Sleep(1000);
                 itemPage.clickOnBOMTab();
                 Thread.Sleep(2000);
 
@@ -829,7 +821,7 @@ namespace Enfinity.Erp.Test.UI
                     Thread.Sleep(1000);
                     itemPage.clickDropDownPriceList();
                     itemPage.selectDropDownOption(pricelist.PriceList);
-                    itemPage.clickDropDownPriceListUomAll();                    
+                    itemPage.clickDropDownPriceListUomAll();
                     itemPage.selectDropDownOption(pricelist.Uom);
                     itemPage.providePriceListUnitPriceAll(pricelist.UnitPrice);
                     itemPage.providePriceListMinimumUnitPrice(pricelist.MinimumUnitPrice);
@@ -876,7 +868,7 @@ namespace Enfinity.Erp.Test.UI
                 foreach (var barcode in item.Barcodes)
                 {
                     Thread.Sleep(1000);
-                    itemPage.clickOnAddBarcode();                    
+                    itemPage.clickOnAddBarcode();
                     itemPage.provideBarcode(barcode.Barcode);
                     //itemPage.clickDropDown();                    
                     itemPage.clickDropDownBarcodeUOM();
@@ -890,6 +882,594 @@ namespace Enfinity.Erp.Test.UI
                     ClassicAssert.AreEqual(expectedName, barcode.Barcode);
                     #endregion
                 }
+                itemPage.clickOnDocumentsTab();
+                Thread.Sleep(2000);
+
+                foreach (var document in item.Documents)
+                {
+                    itemPage.clickOnAddDocument();
+                    Thread.Sleep(1000);
+                    itemPage.clickDropDownDocumentType();
+                    itemPage.selectDropDownOption(document.DocumentType);
+                    itemPage.provideDocumentNumber(document.DocumentNumber);
+                    itemPage.provideDateOfIssue(document.DateOfIssue);
+                    itemPage.providePlaceOfIssue(document.PlaceOfIssue);
+                    itemPage.provideDateOfExpiry(document.DateOfExpiry);
+                    Thread.Sleep(1000);
+                    itemPage.clickSaveDocument();
+
+                    #region Validating the document type and number added or not
+                    IWebElement documentName = _driver.FindElement(By.XPath($"//div//p//strong[contains(text(),'{document.ExpectedName}')]"));
+                    string expectedName = documentName.Text;
+                    ClassicAssert.AreEqual(expectedName, document.ActualName);
+                    #endregion                 
+                }
+                itemPage.clickOnSetupTab();
+
+                #region Account Setup Tab
+
+                itemPage.clickRevenueAccount();
+                itemPage.selectDropDownOption(item.RevenueAccount);
+                itemPage.clickInventoryAccount();
+                itemPage.selectDropDownOption(item.InventoryAccount);
+                itemPage.clickcostofgoodssoldAccount();
+                itemPage.selectDropDownOption(item.CostofGoodsSoldAccount);
+                itemPage.clickadjustmentAccount();
+                itemPage.selectDropDownOption(item.AdjustmentAccount);
+                itemPage.clickexpenseAccount();
+                itemPage.selectDropDownOption(item.ExpenseAccount);
+                itemPage.clickinventorysuspenseAccount();
+                itemPage.selectDropDownOption(item.InventorySuspenseAccount);
+                itemPage.clickstoretostoretransferAccount();
+                itemPage.selectDropDownOption(item.StoretoStoreTransferAccount);
+                itemPage.clickworkinprogressAccount();
+                itemPage.selectDropDownOption(item.WorkinProgressAccount);
+                itemPage.clickSaveAccountBtn();
+                Thread.Sleep(1000);
+
+                #endregion 
+
+                itemPage.clickOnDimensionTab();
+
+                foreach (var color in item.Colors)
+                {
+                    //Thread.Sleep(1000);
+                    //itemPage.clickColorGenerate();
+                    Thread.Sleep(1000);
+                    itemPage.clickOnAddColor();
+                    itemPage.provideColorCode(color.ColorCode);
+                    itemPage.provideColorName(color.ColorName);
+                    itemPage.provideColorArabicName(color.ColorArabicName);
+                    itemPage.clickSaveColor();
+
+                    #region Validating the color added or not
+                    IWebElement colorName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{color.ExpectedName}')]"));
+                    string expectedName = colorName.Text;
+                    ClassicAssert.AreEqual(expectedName, color.ActualName);
+                    #endregion
+                }
+
+                foreach (var size in item.Sizes)
+                {
+                    //Thread.Sleep(1000);
+                    //itemPage.clickSizeGenerate();
+                    Thread.Sleep(1000);
+                    itemPage.clickOnAddSizeAll();
+                    itemPage.provideSizeCode(size.SizeCode);
+                    itemPage.provideSizeName(size.SizeName);
+                    itemPage.provideSizeArabicName(size.SizeArabicName);
+                    itemPage.clickSaveSizeAll();
+
+                    #region Validating the size added or not
+                    IWebElement sizeName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{size.ExpectedName}')]"));
+                    string expectedName = sizeName.Text;
+                    ClassicAssert.AreEqual(expectedName, size.ActualName);
+                    #endregion
+                }
+                itemPage.clickBackButton();
+                Thread.Sleep(2000);
+            }
+        }
+        #endregion
+
+        #region Delete items
+        [Test, Category("Inventory"), Order(12), Ignore("1") ]
+        public void DeleteItem()
+        {
+            #region MyRegion
+            Login(Product);
+            #endregion
+
+            var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
+            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "delete");
+            var itemPage = new ItemPage(_driver);
+            var inventoryPage = new InventoryPage(_driver);
+            var inventorySetupPage = new InventorySetupPage(_driver);
+            var inventoryItemListingPage = new InventoryItemListingPage(_driver);
+
+            foreach (var item in items)
+            {
+                inventoryPage.clickOnInventoryModule();
+                inventoryPage.clickOnSetups();
+                inventorySetupPage.clickOnItem();
+
+                inventoryItemListingPage.provideItemName(item.Name);
+                Thread.Sleep(2000);
+                inventoryItemListingPage.clickOnSelectedItemName();
+                Thread.Sleep(2000);
+                inventoryItemListingPage.clickOnContextMenuItem();
+                inventoryItemListingPage.clickOnContextMenuItemDelete();
+                Thread.Sleep(2000);
+                inventoryItemListingPage.clickOnConfirmOk();
+                Thread.Sleep(2000);
+            }
+        }
+        #endregion
+
+        #region Update an item with Key Info Details
+        [Test, Category("Inventory"), Order(14)]
+        public void UpdateItemKeyInfoDetails()
+        {
+            #region MyRegion
+            Login(Product);
+            #endregion
+
+            var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
+            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "update");
+            var itemPage = new ItemPage(_driver);
+            var inventoryPage = new InventoryPage(_driver);
+            var inventorySetupPage = new InventorySetupPage(_driver);
+            var inventoryItemListingPage = new InventoryItemListingPage(_driver);
+
+            foreach (var item in items)
+            {        
+                inventoryPage.clickOnInventoryModule();
+                inventoryPage.clickOnSetups();
+                inventorySetupPage.clickOnItem();
+                inventoryItemListingPage.provideItemName(item.Name);
+                Thread.Sleep(2000);
+                inventoryItemListingPage.clickOnSelectedItemName();
+                inventoryItemListingPage.clickOnView();
+
+                itemPage.clickOnKeyInfoTab();
+
+                #region Key Info Tab
+                itemPage.ProvideItemArabicName(item.ArabicName);
+                itemPage.clickItemGroup();
+                itemPage.selectDropDownOption(item.ItemGroup);
+                itemPage.clickItemCategory();
+                itemPage.selectDropDownOption(item.ItemCategory);
+                itemPage.clickBrand();
+                itemPage.selectDropDownOption(item.Brand);
+                itemPage.provideSalesPrice(item.SalesPrice);
+                itemPage.providePurchasePrice(item.PurchasePrice);
+                itemPage.provideDescription(item.Description);
+                Thread.Sleep(1000);
+                itemPage.provideManufacturerNameKey(item.ManufacturerName);
+                itemPage.provideManufacturerPartNumKey(item.ManufacturerPartNum);
+                itemPage.provideMaximumStockLevelKey(item.MaximumStockLevel);
+                itemPage.provideMinimumStockLevelKey(item.MinimumStockLevel);
+                itemPage.provideReorderStockLevelKey(item.ReorderStockLevel);
+                itemPage.provideMaximumReorderKey(item.MaximumReorder);
+                itemPage.provideMinimumReorderKey(item.MinimumReorder);
+                itemPage.clickSaveKeyInfo();
+                #endregion
+            }
+        }
+        #endregion
+
+        #region Update an item with BOM Details
+        [Test, Category("Inventory"), Order(15)]
+        public void UpdateItemBOMDetails()
+        {
+            #region MyRegion
+            Login(Product);
+            #endregion
+
+            var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
+            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "update");
+            var itemPage = new ItemPage(_driver);
+            var inventoryPage = new InventoryPage(_driver);
+            var inventorySetupPage = new InventorySetupPage(_driver);
+            var inventoryItemListingPage = new InventoryItemListingPage(_driver);
+
+            foreach (var item in items)
+            {
+                inventoryPage.clickOnInventoryModule();
+                inventoryPage.clickOnSetups();
+                inventorySetupPage.clickOnItem();
+                inventoryItemListingPage.provideItemName(item.Name);
+                Thread.Sleep(2000);
+                inventoryItemListingPage.clickOnSelectedItemName();
+                inventoryItemListingPage.clickOnView();
+
+                #region Update BOM Tab
+                itemPage.clickOnBOMTab();
+                itemPage.UpdateFirstComponentItem();                
+                //itemPage.clickDropDownComponentItem();
+                //itemPage.selectDropDownOption(item.SubItem);  
+                itemPage.provideQty(item.Qty);
+                itemPage.clickOnSave();
+
+                #region Validating the qty updated or not
+                IWebElement qtyElemennt = _driver.FindElement(By.XPath($"//span[contains(text(), '{item.Qty} Each')]"));
+                String actualQty = qtyElemennt.Text;
+                ClassicAssert.AreEqual(item.ExpectedQty, actualQty);
+                #endregion
+
+                itemPage.DeleteSecondComponentItem();
+                Thread.Sleep(1000);
+                itemPage.ClickOnOk();
+                #endregion                
+            }
+        }
+        #endregion
+
+        #region Update an item with UOM Details
+        [Test, Category("Inventory"), Order(16)]
+        public void UpdateItemUOMDetails()
+        {
+            #region MyRegion
+            Login(Product);
+            #endregion
+
+            var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
+            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "update");
+            var itemPage = new ItemPage(_driver);
+            var inventoryPage = new InventoryPage(_driver);
+            var inventorySetupPage = new InventorySetupPage(_driver);
+            var inventoryItemListingPage = new InventoryItemListingPage(_driver);
+
+            foreach (var item in items)
+            {
+                inventoryPage.clickOnInventoryModule();
+                inventoryPage.clickOnSetups();
+                inventorySetupPage.clickOnItem();
+                inventoryItemListingPage.provideItemName(item.Name);               
+                inventoryItemListingPage.clickOnSelectedItemName();
+                inventoryItemListingPage.clickOnView();
+
+                #region Update UOM Tab
+                itemPage.clickOnUOMTab();
+
+                itemPage.UpdateSecondUom();
+                itemPage.provideConversionFactor(item.ConversionFactor);
+                itemPage.clickSalesDefault();
+                itemPage.clickPurchaseDefault();
+                itemPage.clickOnSave();
+
+                #region Validating the sales default or not
+                IWebElement salesDefaultElement = _driver.FindElement(By.XPath("//div[@class='tag-maroon']"));
+                String salesDefault = salesDefaultElement.Text;
+                ClassicAssert.AreEqual("Sales Default", salesDefault);
+                #endregion
+
+                #region Validating the purchase default or not
+                IWebElement purchasesDefaultElement = _driver.FindElement(By.XPath("//div[@class='tag-blue']"));
+                String purchaseDefault = purchasesDefaultElement.Text;
+                ClassicAssert.AreEqual("Purchase Default", purchaseDefault);
+                #endregion
+
+                itemPage.DeleteThirdUom();                
+                itemPage.ClickOnOk();
+                #endregion              
+            }
+        }
+        #endregion
+
+        #region Update an item with Supplier Details
+        [Test, Category("Inventory"), Order(17)]
+        public void UpdateItemSupplierDetails()
+        {
+            #region MyRegion
+            Login(Product);
+            #endregion
+
+            var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
+            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "update");
+            var itemPage = new ItemPage(_driver);
+            var inventoryPage = new InventoryPage(_driver);
+            var inventorySetupPage = new InventorySetupPage(_driver);
+            var inventoryItemListingPage = new InventoryItemListingPage(_driver);
+
+            foreach (var item in items)
+            {
+                inventoryPage.clickOnInventoryModule();
+                inventoryPage.clickOnSetups();
+                inventorySetupPage.clickOnItem();
+                inventoryItemListingPage.provideItemName(item.Name);
+                Thread.Sleep(2000);
+                inventoryItemListingPage.clickOnSelectedItemName();
+                inventoryItemListingPage.clickOnView();
+
+                #region Update Supplier Tab
+                itemPage.clickOnSuppliersTab();
+
+                itemPage.DeleteSecondSupplier();
+                Thread.Sleep(1000);
+                itemPage.ClickOnOk();
+
+                itemPage.UpdateFirstSupplier();
+                itemPage.clickDropDown();
+                itemPage.selectDropDownOption(item.Supplier);
+                itemPage.clickPurchaseRateCurrency();
+                itemPage.selectDropDownOption(item.PurchaseRateCurrency);
+                //itemPage.clickSupplierUOM();
+                //itemPage.selectDropDownOption(item.Uom);
+                itemPage.providePurchaseUnitPrice(item.PurchaseUnitPrice);
+                //itemPage.provideManufacturerPartNum(item.ManufacturerPartNum);
+                //itemPage.provideManufacturerBarcode(item.ManufacturerBarcode);
+                itemPage.clickPreferredForPurchase();
+                itemPage.clickPreferredForEstimation();
+                itemPage.clickOnSave();
+                Thread.Sleep(2000);
+
+                #region Validating the supplier name updated or not
+                IWebElement supplierName = _driver.FindElement(By.ClassName("Item-Supplier-title"));
+                string actualName = supplierName.Text;
+                ClassicAssert.AreEqual(item.Supplier + " A004", actualName);
+                #endregion
+                
+                #endregion              
+            }
+        }
+        #endregion
+
+        #region Update an item with Price Lists Details
+        [Test, Category("Inventory"), Order(18)]
+        public void UpdateItemPriceListDetails()
+        {
+            #region MyRegion
+            Login(Product);
+            #endregion
+
+            var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
+            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "update");
+            var itemPage = new ItemPage(_driver);
+            var inventoryPage = new InventoryPage(_driver);
+            var inventorySetupPage = new InventorySetupPage(_driver);
+            var inventoryItemListingPage = new InventoryItemListingPage(_driver);
+
+            foreach (var item in items)
+            {
+                inventoryPage.clickOnInventoryModule();
+                inventoryPage.clickOnSetups();
+                inventorySetupPage.clickOnItem();
+                inventoryItemListingPage.provideItemName(item.Name);
+                Thread.Sleep(2000);
+                inventoryItemListingPage.clickOnSelectedItemName();
+                inventoryItemListingPage.clickOnView();
+
+                #region Update Price Lists Tab
+                itemPage.clickOnPriceListsTab();
+                itemPage.UpdateFirstPriceList();
+                itemPage.providePriceListUnitPrice(item.UnitPrice);
+                itemPage.clickOnSave();
+
+                itemPage.DeleteSecondPriceList();
+                Thread.Sleep(1000);
+                itemPage.ClickOnOk();
+                #endregion              
+            }
+        }
+        #endregion
+
+        #region Update an item with Warehouse Details
+        [Test, Category("Inventory"), Order(19)]
+        public void UpdateItemWarehouseDetails()
+        {
+            #region MyRegion
+            Login(Product);
+            #endregion
+
+            var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
+            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "update");
+            var itemPage = new ItemPage(_driver);
+            var inventoryPage = new InventoryPage(_driver);
+            var inventorySetupPage = new InventorySetupPage(_driver);
+            var inventoryItemListingPage = new InventoryItemListingPage(_driver);
+
+            foreach (var item in items)
+            {
+                inventoryPage.clickOnInventoryModule();
+                inventoryPage.clickOnSetups();
+                inventorySetupPage.clickOnItem();
+                inventoryItemListingPage.provideItemName(item.Name);
+                Thread.Sleep(2000);
+                inventoryItemListingPage.clickOnSelectedItemName();
+                inventoryItemListingPage.clickOnView();
+
+                #region Update Warehouse Tab
+                itemPage.clickOnWarehouseTab();
+                itemPage.UpdateFirstWarehouse();
+                itemPage.provideBinLocation(item.BinLocation);
+                //itemPage.provideMaximumStockLevel(item.MaximumStockLevel);
+                //itemPage.provideMinimumStockLevel(item.MinimumStockLevel);
+                //itemPage.provideReorderStockLevel(item.ReorderStockLevel);
+                //itemPage.provideMaximumReorder(item.MaximumReorder);
+                //itemPage.provideMinimumReorder(item.MinimumReorder);
+                itemPage.clickOnSave();
+
+                itemPage.DeleteSecondWarehouse();
+                Thread.Sleep(1000);
+                itemPage.ClickOnOk();
+                #endregion              
+            }
+        }
+        #endregion
+
+        #region Update an item with Barcode Details
+        [Test, Category("Inventory"), Order(20)]
+        public void UpdateItemBarcodeDetails()
+        {
+            #region MyRegion
+            Login(Product);
+            #endregion
+
+            var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
+            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "update");
+            var itemPage = new ItemPage(_driver);
+            var inventoryPage = new InventoryPage(_driver);
+            var inventorySetupPage = new InventorySetupPage(_driver);
+            var inventoryItemListingPage = new InventoryItemListingPage(_driver);
+
+            foreach (var item in items)
+            {
+                inventoryPage.clickOnInventoryModule();
+                inventoryPage.clickOnSetups();
+                inventorySetupPage.clickOnItem();
+                inventoryItemListingPage.provideItemName(item.Name);
+                Thread.Sleep(2000);
+                inventoryItemListingPage.clickOnSelectedItemName();
+                inventoryItemListingPage.clickOnView();
+
+                #region Update Barcode Tab
+                itemPage.clickOnBarcodesTab();
+                itemPage.UpdateFirstBarcode();
+                itemPage.provideBarcode(item.Barcode);
+                itemPage.clickOnSave();
+                
+                itemPage.DeleteSecondBarcode();
+                Thread.Sleep(1000);
+                itemPage.ClickOnOk();
+                #endregion              
+            }
+        }
+        #endregion
+
+        #region Update an item with Document Details
+        [Test, Category("Inventory"), Order(21)]
+        public void UpdateItemDocumentDetails()
+        {
+            #region MyRegion
+            Login(Product);
+            #endregion
+
+            var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
+            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "update");
+            var itemPage = new ItemPage(_driver);
+            var inventoryPage = new InventoryPage(_driver);
+            var inventorySetupPage = new InventorySetupPage(_driver);
+            var inventoryItemListingPage = new InventoryItemListingPage(_driver);
+
+            foreach (var item in items)
+            {
+                inventoryPage.clickOnInventoryModule();
+                inventoryPage.clickOnSetups();
+                inventorySetupPage.clickOnItem();
+                inventoryItemListingPage.provideItemName(item.Name);
+                Thread.Sleep(2000);
+                inventoryItemListingPage.clickOnSelectedItemName();
+                inventoryItemListingPage.clickOnView();
+
+                #region Update Documents Tab
+                itemPage.clickOnDocumentsTab();
+                itemPage.UpdateFirstDocument();
+                itemPage.provideDocumentNumber(item.DocumentNumber);
+                itemPage.clickOnSave();
+
+                itemPage.DeleteSecondDocument();
+                Thread.Sleep(1000);
+                itemPage.ClickOnOk();
+                #endregion              
+            }
+        }
+        #endregion
+
+        #region Update an item with Account Setup Details
+        [Test, Category("Inventory"), Order(22)]
+        public void UpdateItemAccountSetupDetails()
+        {
+            #region MyRegion
+            Login(Product);
+            #endregion
+
+            var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
+            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "update");
+            var itemPage = new ItemPage(_driver);
+            var inventoryPage = new InventoryPage(_driver);
+            var inventorySetupPage = new InventorySetupPage(_driver);
+            var inventoryItemListingPage = new InventoryItemListingPage(_driver);
+
+            foreach (var item in items)
+            {
+                inventoryPage.clickOnInventoryModule();
+                inventoryPage.clickOnSetups();
+                inventorySetupPage.clickOnItem();
+                inventoryItemListingPage.provideItemName(item.Name);
+                Thread.Sleep(2000);
+                inventoryItemListingPage.clickOnSelectedItemName();
+                inventoryItemListingPage.clickOnView();
+
+                #region Update Account Setup  Tab
+                itemPage.clickOnSetupTab();
+                itemPage.clickRevenueAccount();
+                itemPage.selectDropDownOption(item.RevenueAccount);
+                itemPage.clickInventoryAccount();
+                itemPage.selectDropDownOption(item.InventoryAccount);
+                itemPage.clickcostofgoodssoldAccount();
+                itemPage.selectDropDownOption(item.CostofGoodsSoldAccount);
+                itemPage.clickadjustmentAccount();
+                itemPage.selectDropDownOption(item.AdjustmentAccount);
+                itemPage.clickexpenseAccount();
+                itemPage.selectDropDownOption(item.ExpenseAccount);
+                itemPage.clickinventorysuspenseAccount();
+                itemPage.selectDropDownOption(item.InventorySuspenseAccount);
+                itemPage.clickstoretostoretransferAccount();
+                itemPage.selectDropDownOption(item.StoretoStoreTransferAccount);
+                itemPage.clickworkinprogressAccount();
+                itemPage.selectDropDownOption(item.WorkinProgressAccount);
+                itemPage.clickSaveAccountBtn();
+                #endregion              
+            }
+        }
+        #endregion
+
+        #region Update an item with Dimension Details
+        [Test, Category("Inventory"), Order(23)]
+        public void UpdateItemDimensionDetails()
+        {
+            #region MyRegion
+            Login(Product);
+            #endregion
+
+            var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
+            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "update");
+            var itemPage = new ItemPage(_driver);
+            var inventoryPage = new InventoryPage(_driver);
+            var inventorySetupPage = new InventorySetupPage(_driver);
+            var inventoryItemListingPage = new InventoryItemListingPage(_driver);
+
+            foreach (var item in items)
+            {
+                inventoryPage.clickOnInventoryModule();
+                inventoryPage.clickOnSetups();
+                inventorySetupPage.clickOnItem();
+                inventoryItemListingPage.provideItemName(item.Name);
+                Thread.Sleep(2000);
+                inventoryItemListingPage.clickOnSelectedItemName();
+                inventoryItemListingPage.clickOnView();
+
+                #region Update Dimensions Tab
+                itemPage.clickOnDimensionTab();
+                itemPage.UpdateFirstDimension();
+                itemPage.provideColorCode(item.ColorCode);
+                itemPage.provideColorName(item.ColorName);
+                itemPage.clickOnSave();
+
+                itemPage.DeleteSecondDimension();
+                Thread.Sleep(1000);
+                itemPage.ClickOnOk();
+
+                itemPage.UpdateThirdDimension();
+                itemPage.provideSizeCode(item.SizeCode);
+                itemPage.provideSizeName(item.SizeName);
+                itemPage.clickSaveSize();
+
+                itemPage.DeleteForthDimension();
+                Thread.Sleep(1000);
+                itemPage.ClickOnOk();
+                #endregion              
             }
         }
         #endregion

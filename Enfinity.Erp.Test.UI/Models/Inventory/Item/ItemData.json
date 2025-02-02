@@ -221,7 +221,7 @@
         },
         {
           "Barcode": "7001",
-          "Uom": "box | Box",       
+          "Uom": "box | Box",
           "ExpectedName": "7001"
         }
       ]
@@ -285,32 +285,32 @@
       "Uom": "Each",
       "Colors": [
         {
-          "Code": "B",
-          "Name": "Black",
-          "ArabicName": "Black",
+          "ColorCode": "B",
+          "ColorName": "Black",
+          "ColorArabicName": "Black",
           "ActualName": "Black B",
           "ExpectedName": "Black"
         },
         {
-          "Code": "P",
-          "Name": "Pink",
-          "ArabicName": "Pink",
+          "ColorCode": "P",
+          "ColorName": "Pink",
+          "ColorArabicName": "Pink",
           "ActualName": "Pink P",
           "ExpectedName": "Pink"
         }
       ],
       "Sizes": [
         {
-          "Code": "M",
-          "Name": "Medium",
-          "ArabicName": "Medium",
+          "SizeCode": "M",
+          "SizeName": "Medium",
+          "SizeArabicName": "Medium",
           "ActualName": "Medium M",
           "ExpectedName": "Medium"
         },
         {
-          "Code": "L",
-          "Name": "Large",
-          "ArabicName": "Large",
+          "SizeCode": "L",
+          "SizeName": "Large",
+          "SizeArabicName": "Large",
           "ActualName": "Large L",
           "ExpectedName": "Large"
         }
@@ -330,7 +330,57 @@
       "Brand": "1 | Taihan",
       "SalesPrice": "100",
       "PurchasePrice": "90",
-      "Description": "AllDetailsItem"
+      "Description": "AllDetailsItem",
+      "ManufacturerName": "Grand",
+      "ManufacturerPartNum": "4896",
+      "MaximumStockLevel": "1000",
+      "MinimumStockLevel": "10",
+      "ReorderStockLevel": "100",
+      "MaximumReorder": "100",
+      "MinimumReorder": "50"
+    }
+  ],
+  "update": [
+    {
+      "Name": "InventoryWeightageAllTab",
+      "ArabicName": "جرد",
+      "ItemGroup": "01 | Consumables",
+      "ItemCategory": "1 | Default",
+      "Brand": "1 | Taihan",
+      "SalesPrice": "150",
+      "PurchasePrice": "120",
+      "Description": "UpdateItem",
+      "ManufacturerName": "Grand",
+      "ManufacturerPartNum": "4896",
+      "MaximumStockLevel": "1000",
+      "MinimumStockLevel": "10",
+      "ReorderStockLevel": "100",
+      "MaximumReorder": "100",
+      "MinimumReorder": "50",
+      "SubItem": "000001 | HSS DRILL BIT 6MM",
+      "Qty": "2",
+      "ExpectedQty":  "2 Each",
+      "ConversionFactor": 5,
+      "Supplier": "Al Khrinej Instruments & Equipment Est",
+      "PurchaseRateCurrency": "KWD | Kuwaiti Dinar",
+      "Uom": "EA | Each",
+      "PurchaseUnitPrice": 120,
+      "UnitPrice": "120",
+      "BinLocation": "New Main Store",
+      "Barcode": "9001",
+      "DocumentNumber": "CID60018001",
+      "ColorCode": "G",
+      "ColorName": "Green",
+      "SizeCode": "XL",
+      "SizeName": "Extra Large",
+      "RevenueAccount": "11112 | PDC Clearing A/c",
+      "InventoryAccount": "11112 | PDC Clearing A/c",
+      "CostofGoodsSoldAccount": "11112 | PDC Clearing A/c",
+      "AdjustmentAccount": "11112 | PDC Clearing A/c",
+      "ExpenseAccount": "11112 | PDC Clearing A/c",
+      "InventorySuspenseAccount": "11112 | PDC Clearing A/c",
+      "StoretoStoreTransferAccount": "11112 | PDC Clearing A/c",
+      "WorkinProgressAccount": "11112 | PDC Clearing A/c"
     }
   ],
   "delete": [
@@ -388,8 +438,8 @@
   ],
   "item": [
     {
-      "Name": "InventoryWeightage",
-      "ArabicName": "InventoryWeightage",
+      "Name": "InventoryWeightageAllTab",
+      "ArabicName": "InventoryWeightageAllTab",
       "Type": "Bill Of Material",
       "CostingMethod": "Weighted Average",
       "TrackingMode": "Not Applicable",
@@ -400,6 +450,13 @@
       "SalesPrice": "100",
       "PurchasePrice": "90",
       "Description": "AllDetailsItem",
+      "ManufacturerName": "Grand",
+      "ManufacturerPartNum": "4896",
+      "MaximumStockLevel": "1000",
+      "MinimumStockLevel": "10",
+      "ReorderStockLevel": "100",
+      "MaximumReorder": "100",
+      "MinimumReorder": "50",
       "RevenueAccount": "11110 | Cash on Hand",
       "InventoryAccount": "11110 | Cash on Hand",
       "CostofGoodsSoldAccount": "11110 | Cash on Hand",
@@ -414,14 +471,13 @@
           "SubItem": "000002 | HSS DRILL BIT 6MM 1",
           "ActualName": "HSS DRILL BIT 6MM 1 000002",
           "ExpectedName": "HSS DRILL BIT 6MM 1"
+        },
+        {
+          "Qty": "1",
+          "SubItem": "000004 | PLUM B 6MM",
+          "ActualName": "PLUM B 6MM 000004",
+          "ExpectedName": "PLUM B 6MM"
         }
-        //,
-        //{
-        //  "Qty": "1",
-        //  "SubItem": "000004 | PLUM B 6MM",
-        //  "ActualName": "PLUM B 6MM 000004",
-        //  "ExpectedName": "PLUM B 6MM"
-        //}
       ],
       "ItemUoms": [
         {
@@ -429,14 +485,13 @@
           "ConversionFactor": 5,
           "ActualName": "Box box",
           "ExpectedName": "Box"
+        },
+        {
+          "Uom": "BAG | BAGS",
+          "ConversionFactor": 2,
+          "ActualName": "BAGS BAG",
+          "ExpectedName": "BAGS"
         }
-        //,
-        //{
-        //  "Uom": "BAG | BAGS",
-        //  "ConversionFactor": 2,
-        //  "ActualName": "BAGS BAG",
-        //  "ExpectedName": "BAGS"
-        //}
       ],
       "Suppliers": [
         {
@@ -448,18 +503,17 @@
           "ManufacturerBarcode": "6001",
           "ActualName": "A008",
           "ExpectedName": "A008"
+        },
+        {
+          "Supplier": "A009 | Alita Project",
+          "PurchaseRateCurrency": "KWD | Kuwaiti Dinar",
+          "Uom": "EA | Each",
+          "PurchaseUnitPrice": "200",
+          "ManufacturerPartNum": "2001",
+          "ManufacturerBarcode": "7001",
+          "ActualName": "A009",
+          "ExpectedName": "A009"
         }
-        //,
-        //{
-        //  "Supplier": "A009 | Alita Project",
-        //  "PurchaseRateCurrency": "KWD | Kuwaiti Dinar",
-        //  "Uom": "EA | Each",
-        //  "PurchaseUnitPrice": "200",
-        //  "ManufacturerPartNum": "2001",
-        //  "ManufacturerBarcode": "7001",
-        //  "ActualName": "A009",
-        //  "ExpectedName": "A009"
-        //}
       ],
       "itemPriceLists": [
         {
@@ -472,19 +526,18 @@
           "MaximumDiscountInPercent": "15",
           "ActualName": "Default Price List",
           "ExpectedName": "Default Price List"
+        },
+        {
+          "PriceList": "PL02 | Grand",
+          "Uom": "EA | Each",
+          "UnitPrice": "150",
+          "MinimumUnitPrice": "150",
+          "MaximumUnitPrice": "200",
+          "DefaultDiscountInPercent": "10",
+          "MaximumDiscountInPercent": "15",
+          "ActualName": "Grand",
+          "ExpectedName": "Grand"
         }
-        //,
-        //{
-        //  "PriceList": "PL02 | Grand",
-        //  "Uom": "EA | Each",
-        //  "UnitPrice": "150",
-        //  "MinimumUnitPrice": "150",
-        //  "MaximumUnitPrice": "200",
-        //  "DefaultDiscountInPercent": "10",
-        //  "MaximumDiscountInPercent": "15",
-        //  "ActualName": "Grand",
-        //  "ExpectedName": "Grand"
-        //}
       ],
       "Warehouses": [
         {
@@ -497,19 +550,18 @@
           "MinimumReorder": "100",
           "ActualName": "Main Stores - HO WH01",
           "ExpectedName": "Main Stores - HO"
+        },
+        {
+          "Warehouse": "WH02 | Head Office",
+          "BinLocation": "Head Office",
+          "MaximumStockLevel": "100",
+          "MinimumStockLevel": "100",
+          "ReorderStockLevel": "100",
+          "MaximumReorder": "100",
+          "MinimumReorder": "100",
+          "ActualName": "Head Office WH02",
+          "ExpectedName": "Head Office"
         }
-        //,
-        //{
-        //  "Warehouse": "WH02 | Head Office",
-        //  "BinLocation": "Head Office",
-        //  "MaximumStockLevel": "100",
-        //  "MinimumStockLevel": "100",
-        //  "ReorderStockLevel": "100",
-        //  "MaximumReorder": "100",
-        //  "MinimumReorder": "100",
-        //  "ActualName": "Head Office WH02",
-        //  "ExpectedName": "Head Office"
-        //}
       ],
       "Barcodes": [
         {
@@ -545,32 +597,32 @@
       ],
       "Colors": [
         {
-          "Code": "B",
-          "Name": "Black",
-          "ArabicName": "Black",
+          "ColorCode": "B",
+          "ColorName": "Black",
+          "ColorArabicName": "Black",
           "ActualName": "Black B",
           "ExpectedName": "Black"
         },
         {
-          "Code": "P",
-          "Name": "Pink",
-          "ArabicName": "Pink",
+          "ColorCode": "P",
+          "ColorName": "Pink",
+          "ColorArabicName": "Pink",
           "ActualName": "Pink P",
           "ExpectedName": "Pink"
         }
       ],
       "Sizes": [
         {
-          "Code": "M",
-          "Name": "Medium",
-          "ArabicName": "Medium",
+          "SizeCode": "M",
+          "SizeName": "Medium",
+          "SizeArabicName": "Medium",
           "ActualName": "Medium M",
           "ExpectedName": "Medium"
         },
         {
-          "Code": "L",
-          "Name": "Large",
-          "ArabicName": "Large",
+          "SizeCode": "L",
+          "SizeName": "Large",
+          "SizeArabicName": "Large",
           "ActualName": "Large L",
           "ExpectedName": "Large"
         }

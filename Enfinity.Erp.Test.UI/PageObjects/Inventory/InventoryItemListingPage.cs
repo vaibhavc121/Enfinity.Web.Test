@@ -77,6 +77,7 @@ namespace Enfinity.Erp.Test.UI
         public void provideItemName(string name)
         {
             _driver.FindElement(itemName).SendKeys(name);
+            Thread.Sleep(2000);
         }
         public void clickOnSelectedItemName()
         {

@@ -17,6 +17,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Inventory Module Page Objects
         private By moduleName = By.XPath("//span[normalize-space()='Inventory']");
+        private By remindLater = By.Id("remindButton");
         private By home = By.CssSelector("li[title='Home']");
         private By item = By.CssSelector("li[title='Item']");
         private By storeTransfer = By.CssSelector("li[title='Store Transfer']");
@@ -31,6 +32,10 @@ namespace Enfinity.Erp.Test.UI
         public void clickOnInventoryModule()
         {
             _driver.FindElement(moduleName).Click();
+        }
+        public void clickOnRemindLater()
+        {
+            _driver.FindElement(remindLater).Click();
         }
         public void clickOnHome()
         {

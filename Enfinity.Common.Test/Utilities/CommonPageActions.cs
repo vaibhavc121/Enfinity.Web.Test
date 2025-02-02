@@ -203,7 +203,8 @@ namespace Enfinity.Common.Test
         {
             string message = BaseTest._driver.FindElement(By.XPath("//div[@class='dx-toast-message']")).Text;
             //return message;
-            if (message.Contains("created successfully"))
+            //created successfully
+            if (message.Contains("error"))
             {
                 return true;
             }

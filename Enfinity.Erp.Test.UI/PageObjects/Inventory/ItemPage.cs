@@ -1,13 +1,17 @@
-﻿using Enfinity.Common.Test;
+﻿using Bogus.DataSets;
+using Enfinity.Common.Test;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Enfinity.Erp.Test.UI
 {
@@ -30,7 +34,19 @@ namespace Enfinity.Erp.Test.UI
         private By addButton = By.XPath("(//i[contains(@class, 'dx-icon-edit-button-addrow')])");
         //private By saveButton = By.XPath("(//div[contains(@class, 'dx-widget') and contains(@class, 'dx-button') and contains(@class, 'dx-button-mode-contained') and contains(@class, 'dx-button-normal') and contains(@class, 'dx-button-has-text')])[4]");
         private By saveButton = By.XPath("(//span[@class='dx-button-text'][normalize-space()='Save'])[2]");
+        private By okButton = By.XPath("//div[@aria-label='Ok']");
         private By savepopupButton = By.XPath("(//div[contains(@class, 'dx-widget') and contains(@class, 'dx-button') and contains(@class, 'dx-button-mode-contained') and contains(@class, 'dx-button-normal') and contains(@class, 'dx-button-has-text')])[3]");
+        private By backBtn = By.Id("pre-Button");
+        //private By editFirst = By.XPath("(//div[@title='Edit'])[1]");
+        private By editFirst = By.XPath("(//div[contains(@title, 'Edit')])[1]");
+        private By editSecond = By.XPath("(//div[@title='Edit'])[2]");
+        private By editThird = By.XPath("(//div[@title='Edit'])[3]");
+        private By editForth = By.XPath("(//div[@title='Edit'])[4]");
+        private By deleteFirst = By.XPath("(//div[@title='Delete'])[1]");
+        //private By deleteSecond = By.XPath("(//div[@title='Delete'])[2]");
+        private By deleteSecond = By.XPath("(//div[contains(@title, 'Delete')])[2]");
+        private By deleteThird = By.XPath("(//div[@title='Delete'])[3]");
+        private By deleteForth = By.XPath("(//div[@title='Delete'])[4]");
         //IList<IWebElement> dropdownList = BaseTest._driver.FindElements(By.XPath("(//div[contains(@class, 'dx-dropdowneditor-button')])"));
         #endregion
 
@@ -72,15 +88,23 @@ namespace Enfinity.Erp.Test.UI
         //private By salesPrice = By.CssSelector("input[name='SalesPrice']");
         //private By purchasePrice = By.CssSelector("input[name='PurchasePrice']");
         private By description = By.XPath("//textarea[contains(@id, 'Description')]");
+        private By manufacturernameKey = By.CssSelector("input[name='ManufacturerName']");
+        private By manufacturerpartnumKey = By.CssSelector("input[name='ManufacturerPartNum']");
+        private By maximumstocklevelKey = By.XPath("//input[contains(@id, 'MaximumStockLevelBaseQty')]");
+        private By minimumstocklevelKey = By.XPath("//input[contains(@id, 'MinimumStockLevelBaseQty')]");
+        private By reorderstocklevelKey = By.XPath("//input[contains(@id, 'ReorderStockLevelBaseQty')]");
+        private By maximumreorderKey = By.XPath("//input[contains(@id, 'MaximumReorderBaseQty')]");
+        private By minimumreorderKey = By.XPath("//input[contains(@id, 'MinimumReorderBaseQty')]");
         //private By savekeyInfo = By.XPath("//div[contains(@class, 'dx-button-content')]//span[contains(@class, 'dx-button-text') and text()='Save']");
         private By savekeyInfo = By.XPath("(//span[@class='dx-button-text'][normalize-space()='Save'])");
-        private By backBtn = By.Id("pre-Button");
         #endregion
 
         #region BOM Tab
         //private By dropdownselectbomItem = By.XPath("(//div[contains(@class, 'dx-texteditor-buttons-container')])[23]");
         private By dropdowncomponentItem = By.XPath("(//input[contains(@id, 'ComponentItemId')])");
         private By quantity = By.XPath("//input[contains(@id, 'ComponentBaseQtyPerAssembledUnit')]");
+        private By bomWrapperFirst = By.XPath("(//div[@class='Item-BillOfMaterial-wrapper'])[1]");
+        private By bomWrapperSecond = By.XPath("(//div[@class='Item-BillOfMaterial-wrapper'])[2]");
         #endregion
 
         #region Unit of Measures Tab
@@ -94,6 +118,9 @@ namespace Enfinity.Erp.Test.UI
         //private By dropdownselectUOM = By.XPath("(//div[contains(@class, 'dx-dropdowneditor-button')])[6]");
         //private By saveuomButton = By.XPath("(//div[contains(@class, 'dx-widget') and contains(@class, 'dx-button') and contains(@class, 'dx-button-mode-contained') and contains(@class, 'dx-button-normal') and contains(@class, 'dx-button-has-text')])[6]");
         private By saveuomButton = By.XPath("(//span[@class='dx-button-text'][normalize-space()='Save'])[3]");
+        private By uomWrapperFirst = By.XPath("(//div[@class='UOMCard-wrapper'])[1]");
+        private By uomWrapperSecond = By.XPath("(//div[@class='UOMCard-wrapper'])[2]");
+        private By uomWrapperThird = By.XPath("(//div[@class='UOMCard-wrapper'])[3]");
         #endregion
 
         #region Supplliers Tab
@@ -117,6 +144,8 @@ namespace Enfinity.Erp.Test.UI
         private By freezed = By.XPath("(//div[contains(@class, 'dx-switch-container')])[3]");
         //private By savesupplierBtn = By.XPath("(//div[contains(@class, 'dx-widget') and contains(@class, 'dx-button') and contains(@class, 'dx-button-mode-contained') and contains(@class, 'dx-button-normal') and contains(@class, 'dx-button-has-text')])[9]");
         private By savesupplierButton = By.XPath("(//span[@class='dx-button-text'][normalize-space()='Save'])[4]");
+        private By supplierWrapperSecond = By.XPath("(//div[@class='Item-Supplier-Card-content'])[2]");
+        private By supplierWrapperFirst = By.XPath("(//div[@class='Item-Supplier-Card-content'])[1]");
         #endregion
 
         #region Price Lists Tab
@@ -135,6 +164,8 @@ namespace Enfinity.Erp.Test.UI
         private By defaultField = By.XPath("(//div[contains(@class, 'dx-switch-container')])");        
         //private By savepricelistButton = By.XPath("(//div[contains(@class, 'dx-widget') and contains(@class, 'dx-button') and contains(@class, 'dx-button-mode-contained') and contains(@class, 'dx-button-normal') and contains(@class, 'dx-button-has-text')])[12]");
         private By savepricelistButton = By.XPath("(//span[@class='dx-button-text'][normalize-space()='Save'])[5]");
+        private By pricelistWrapperSecond = By.XPath("(//div[@class='price-list-info-cont'])[2]");
+        private By pricelistWrapperFirst = By.XPath("(//div[@class='price-list-info-cont'])[1]");
         #endregion
 
         #region Warehouses Tab
@@ -155,6 +186,8 @@ namespace Enfinity.Erp.Test.UI
         private By warehouseFreezed = By.XPath("(//div[contains(@class, 'dx-switch-container')])");
         //private By savewareouseBtn = By.XPath("(//div[contains(@class, 'dx-widget') and contains(@class, 'dx-button') and contains(@class, 'dx-button-mode-contained') and contains(@class, 'dx-button-normal') and contains(@class, 'dx-button-has-text')])[15]");
         private By savewarehouseButton = By.XPath("(//span[@class='dx-button-text'][normalize-space()='Save'])[6]");
+        private By warehouseWrapperFirst = By.XPath("(//div[@class='Item-Warehouse-Card-content'])[1]");
+        private By warehouseWrapperSecond = By.XPath("(//div[@class='Item-Warehouse-Card-content'])[2]");        
         #endregion
 
         #region Barcodes Tab
@@ -164,10 +197,13 @@ namespace Enfinity.Erp.Test.UI
         private By dropdownbarcodeUOM = By.XPath("(//input[contains(@id, '_UnitOfMeasureId')])[3]");
         private By barcodeFreezed = By.XPath("(//div[contains(@class, 'dx-switch-container')])");
         private By savebarcodeButton = By.XPath("(//span[@class='dx-button-text'][normalize-space()='Save'])[7]");
+        private By barcodeWrapperFirst = By.XPath("(//div[@class='Item-Barcode-Card-content'])[1]");
+        private By barcodeWrapperSecond = By.XPath("(//div[@class='Item-Barcode-Card-content'])[2]");
         #endregion
 
         #region Documents Tab
         private By adddocumentBtn = By.XPath("(//i[contains(@class, 'dx-icon-edit-button-addrow')])[7]");
+        private By dropdowndocumentType = By.XPath("(//input[contains(@id, 'DocumentTypeId')])");
         //private By documentNumber = By.XPath("(//input[contains(@class, 'dx-texteditor-input')])[23]");
         private By documentNumber = By.XPath("(//input[contains(@id, 'DocumentNumber')])");
         //private By dateofIssue = By.XPath("(//input[contains(@class, 'dx-texteditor-input')])[24]");
@@ -175,7 +211,10 @@ namespace Enfinity.Erp.Test.UI
         //private By placeofIssue = By.XPath("(//input[contains(@class, 'dx-texteditor-input')])[25]");
         private By placeofIssue = By.XPath("(//input[contains(@id, 'PlaceOfIssue')])");
         //private By dateofExpiry = By.XPath("(//input[contains(@class, 'dx-texteditor-input')])[26]");
-        private By dateofExpiry = By.XPath("(//input[contains(@id, 'DateOfExpiry')])");        
+        private By dateofExpiry = By.XPath("(//input[contains(@id, 'DateOfExpiry')])");
+        private By savedocumentButton = By.XPath("(//span[@class='dx-button-text'][normalize-space()='Save'])[8]");
+        private By documentWrapperFirst = By.XPath("(//div[@class='Item-Document-wrapper'])[1]");
+        private By documentWrapperSecond = By.XPath("(//div[@class='Item-Document-wrapper'])[2]");
         #endregion
 
         #region Setups Tab
@@ -191,12 +230,14 @@ namespace Enfinity.Erp.Test.UI
         #endregion
 
         #region Dimensions Tab
+        private By addcolorBtn = By.XPath("(//i[contains(@class, 'dx-icon-edit-button-addrow')])[8]");
         //private By colorCode = By.XPath("(//input[contains(@class, 'dx-texteditor-input')])[22]");
         private By colorCode = By.XPath("(//input[contains(@id, '_Code')])[2]");
         //private By colorName = By.XPath("(//input[contains(@class, 'dx-texteditor-input')])[23]");
         private By colorName = By.XPath("(//input[contains(@id, '_Name')])[3]");
         //private By colorarabicName = By.XPath("(//input[contains(@class, 'dx-texteditor-input')])[24]");
         private By colorarabicName = By.XPath("(//input[contains(@id, '_NameL2')])[2]");
+        private By saveColor = By.XPath("(//span[@class='dx-button-text'][normalize-space()='Save'])[10]");
         private By colorGenerate = (By.XPath("(//div[@aria-label='Generate'])[1]"));
         //private By sizeCode = By.XPath("(//input[contains(@class, 'dx-texteditor-input')])[25]");
         private By sizeCode = By.XPath("(//input[contains(@id, '_Code')])[3]");
@@ -205,9 +246,15 @@ namespace Enfinity.Erp.Test.UI
         //private By sizearabicName = By.XPath("(//input[contains(@class, 'dx-texteditor-input')])[27]");
         private By sizearabicName = By.XPath("(//input[contains(@id, '_NameL2')])[3]");
         private By addsizeBtn = By.XPath("(//i[contains(@class, 'dx-icon-edit-button-addrow')])[2]");
+        private By addSize = By.XPath("(//i[contains(@class, 'dx-icon-edit-button-addrow')])[9]");
         //private By savesizeBtn = By.XPath("(//div[contains(@class, 'dx-widget') and contains(@class, 'dx-button') and contains(@class, 'dx-button-mode-contained') and contains(@class, 'dx-button-normal') and contains(@class, 'dx-button-has-text')])[6]");
         private By savesizeBtn = By.XPath("(//span[@class='dx-button-text'][normalize-space()='Save'])[3]");
+        private By saveSize = By.XPath("(//span[@class='dx-button-text'][normalize-space()='Save'])[11]");
         private By sizeGenerate = (By.XPath("(//div[@aria-label='Generate'])[2]"));
+        private By dimensionWrapperFirst = By.XPath("(//div[@class='Item-Color-Card-content'])[1]");
+        private By dimensionWrapperSecond = By.XPath("(//div[@class='Item-Color-Card-content'])[2]");
+        private By dimensionWrapperThird = By.XPath("(//div[@class='Item-Color-Card-content'])[3]");
+        private By dimensionWrapperForth = By.XPath("(//div[@class='Item-Color-Card-content'])[4]");
         #endregion
 
         #endregion
@@ -255,6 +302,11 @@ namespace Enfinity.Erp.Test.UI
         {
             _driver.FindElement(KeyinfoTab).Click();
         }
+        public void ProvideItemArabicName(String arabicname)
+        {
+            //_driver.FindElement(itemarabicName).SendKeys(arabicname);
+            clearAndProvide(itemarabicName, arabicname);
+        }
         public void clickItemGroup()
         {
             _driver.FindElement(dropdownselectitemGroup).Click();
@@ -269,15 +321,51 @@ namespace Enfinity.Erp.Test.UI
         }
         public void provideSalesPrice(string price)
         {
-            _driver.FindElement(salesPrice).SendKeys(price);
-        }
+            clearAndProvide(salesPrice, price);
+        }        
         public void providePurchasePrice(string price)
-        {
-            _driver.FindElement(purchasePrice).SendKeys(price);
-        }
+        {            
+            clearAndProvide(purchasePrice, price);
+        }        
         public void provideDescription(string desc)
         {
-            _driver.FindElement(description).SendKeys(desc);
+            //_driver.FindElement(description).SendKeys(desc);
+            clearAndProvide(description, desc);
+        }
+        public void provideManufacturerNameKey(string name)
+        {
+            //_driver.FindElement(manufacturernameKey).SendKeys(name);
+            clearAndProvide(manufacturernameKey, name);
+        }
+        public void provideManufacturerPartNumKey(string num)
+        {
+            //_driver.FindElement(manufacturerpartnumKey).SendKeys(num);
+            clearAndProvide(manufacturerpartnumKey, num);
+        }
+        public void provideMaximumStockLevelKey(string level)
+        {
+            //_driver.FindElement(maximumstocklevelKey).SendKeys(level);
+            clearAndProvide(maximumstocklevelKey, level);
+        }
+        public void provideMinimumStockLevelKey(string level)
+        {
+            //_driver.FindElement(minimumstocklevelKey).SendKeys(level);
+            clearAndProvide(minimumstocklevelKey, level);
+        }
+        public void provideReorderStockLevelKey(string level)
+        {
+            //_driver.FindElement(reorderstocklevelKey).SendKeys(level);
+            clearAndProvide(reorderstocklevelKey, level);
+        }
+        public void provideMaximumReorderKey(string reorder)
+        {
+            //_driver.FindElement(maximumreorderKey).SendKeys(reorder);
+            clearAndProvide(maximumreorderKey, reorder);
+        }
+        public void provideMinimumReorderKey(string reorder)
+        {
+            //_driver.FindElement(minimumreorderKey).SendKeys(reorder);
+            clearAndProvide(minimumreorderKey, reorder);
         }
         public void clickSaveKeyInfo()
         {
@@ -288,11 +376,30 @@ namespace Enfinity.Erp.Test.UI
         #region BOM Tab Action Methods
         public void provideQty(string qty)
         {
-            _driver.FindElement(quantity).SendKeys(qty);
+            //_driver.FindElement(quantity).SendKeys(qty);
+            clearAndProvide(quantity, qty);
         }
         public void clickDropDownComponentItem()
         {
-            _driver.FindElement(dropdowncomponentItem).Click();
+            //_driver.FindElement(dropdowncomponentItem).Click();
+            IWebElement element = BaseTest._wait.Until(_driver => _driver.FindElement(dropdowncomponentItem));
+            element.Click();
+        }
+        public void UpdateFirstComponentItem()
+        {
+            EditOrDeleteWrapper(bomWrapperFirst, editFirst );
+        }
+        public void DeleteFirstComponentItem()
+        {
+            EditOrDeleteWrapper(bomWrapperFirst, deleteFirst);
+        }
+        public void UpdateSecondComponentItem()
+        {
+            EditOrDeleteWrapper(bomWrapperSecond, editSecond);
+        }
+        public void DeleteSecondComponentItem()
+        {
+            EditOrDeleteWrapper(bomWrapperSecond, deleteSecond);
         }
         #endregion
 
@@ -309,7 +416,8 @@ namespace Enfinity.Erp.Test.UI
         }
         public void provideConversionFactor(string qty)
         {
-            _driver.FindElement(conversionFactor).SendKeys(qty);
+            clearAndProvide(conversionFactor, qty);
+            //_driver.FindElement(conversionFactor).SendKeys(qty);
         }
         public void clickReportingUOM()
         {
@@ -318,14 +426,37 @@ namespace Enfinity.Erp.Test.UI
         public void clickSalesDefault()
         {
             _driver.FindElement(salesDefault).Click();
+            Thread.Sleep(1000);
         }
         public void clickPurchaseDefault()
         {
             _driver.FindElement(purchaseDefault).Click();
+            Thread.Sleep(1000);
         }
         public void clickSaveUom()
         {
             _driver.FindElement(saveuomButton).Click();            
+        }
+        public void UpdateFirstUom()
+        {
+            EditOrDeleteWrapper(uomWrapperFirst, editFirst);
+        }
+        public void UpdateSecondUom()
+        {
+            EditOrDeleteWrapper(uomWrapperSecond, editSecond);
+        }
+        public void DeleteSecondUom()
+        {
+            EditOrDeleteWrapper(uomWrapperSecond, deleteSecond);
+        }
+        public void UpdateThirdUom()
+        {
+            EditOrDeleteWrapper(uomWrapperThird, editThird);
+        }
+        public void DeleteThirdUom()
+        {
+            EditOrDeleteWrapper(uomWrapperThird, deleteThird);
+            Thread.Sleep(1000);
         }
         #endregion
 
@@ -344,7 +475,8 @@ namespace Enfinity.Erp.Test.UI
         }
         public void providePurchaseUnitPrice(string price)
         {
-            _driver.FindElement(purchaseUnitPrice).SendKeys(price);
+            //_driver.FindElement(purchaseUnitPrice).SendKeys(price);
+            clearAndProvide(purchaseUnitPrice, price);
         }
         public void provideManufacturerPartNum(string num)
         {
@@ -357,6 +489,7 @@ namespace Enfinity.Erp.Test.UI
         public void clickPreferredForPurchase()
         {
             _driver.FindElement(preferredForPurchase).Click();
+            Thread.Sleep(1000);
         }
         public void clickPreferredForPurchaseAll()
         {
@@ -365,6 +498,7 @@ namespace Enfinity.Erp.Test.UI
         public void clickPreferredForEstimation()
         {
             _driver.FindElement(preferredForEstimation).Click();
+            Thread.Sleep(1000);
         }
         public void clickPreferredForEstimationAll()
         {
@@ -396,6 +530,23 @@ namespace Enfinity.Erp.Test.UI
         {            
            _driver.FindElement(savesupplierButton).Click();             
         }
+        public void UpdateFirstSupplier()
+        {
+            EditOrDeleteWrapper(supplierWrapperFirst, editFirst);
+        }
+        public void DeleteFirstSupplier()
+        {
+            EditOrDeleteWrapper(supplierWrapperFirst, deleteFirst);
+        }
+        public void UpdateSecondSupplier()
+        {
+            EditOrDeleteWrapper(supplierWrapperSecond, editSecond);
+        }
+        public void DeleteSecondSupplier()
+        {
+            EditOrDeleteWrapper(supplierWrapperSecond, deleteSecond);
+            Thread.Sleep(1000);
+        }
         #endregion
 
         #region Price List Action Methods
@@ -413,7 +564,8 @@ namespace Enfinity.Erp.Test.UI
         }
         public void providePriceListUnitPrice(string unitprice)
         {
-            _driver.FindElement(pricelistunitPrice).SendKeys(unitprice);
+            //_driver.FindElement(pricelistunitPrice).SendKeys(unitprice);
+            clearAndProvide(pricelistunitPrice, unitprice);
         }
         public void providePriceListUnitPriceAll(string unitprice)
         {
@@ -443,6 +595,22 @@ namespace Enfinity.Erp.Test.UI
         {
             _driver.FindElement(savepricelistButton).Click();
         }
+        public void UpdateFirstPriceList()
+        {
+            EditOrDeleteWrapper(pricelistWrapperFirst, editFirst);
+        }
+        public void DeleteFirstPriceList()
+        {
+            EditOrDeleteWrapper(pricelistWrapperFirst, deleteFirst);
+        }
+        public void UpdateSecondPriceList()
+        {
+            EditOrDeleteWrapper(pricelistWrapperSecond, editSecond);
+        }
+        public void DeleteSecondPriceList()
+        {
+            EditOrDeleteWrapper(pricelistWrapperSecond, deleteSecond);
+        }
         #endregion
 
         #region Warehouse Action Methods
@@ -456,7 +624,8 @@ namespace Enfinity.Erp.Test.UI
         }
         public void provideBinLocation(string location)
         {
-            _driver.FindElement(binLocation).SendKeys(location);
+            //_driver.FindElement(binLocation).SendKeys(location);
+            clearAndProvide(binLocation, location);
         }
         public void provideMaximumStockLevel(string level)
         {
@@ -486,6 +655,22 @@ namespace Enfinity.Erp.Test.UI
         {
             _driver.FindElement(savewarehouseButton).Click();
         }
+        public void UpdateFirstWarehouse()
+        {
+            EditOrDeleteWrapper(warehouseWrapperFirst, editFirst);
+        }
+        public void DeleteFirstWarehouse()
+        {
+            EditOrDeleteWrapper(warehouseWrapperFirst, deleteFirst);
+        }
+        public void UpdateSecondWarehouse()
+        {
+            EditOrDeleteWrapper(warehouseWrapperSecond, editSecond);
+        }
+        public void DeleteSecondWarehouse()
+        {
+            EditOrDeleteWrapper(warehouseWrapperSecond, deleteSecond);
+        }
         #endregion
 
         #region Barcode Action Methods
@@ -499,7 +684,8 @@ namespace Enfinity.Erp.Test.UI
         }
         public void provideBarcode(string barcodenum)
         {
-            _driver.FindElement(barcode).SendKeys(barcodenum);
+            //_driver.FindElement(barcode).SendKeys(barcodenum);
+            clearAndProvide(barcode, barcodenum);
         }
         public void clickBarcodeFreezed()
         {
@@ -509,12 +695,37 @@ namespace Enfinity.Erp.Test.UI
         {
             _driver.FindElement(savebarcodeButton).Click();
         }
+        public void UpdateFirstBarcode()
+        {
+            EditOrDeleteWrapper(barcodeWrapperFirst, editFirst);
+        }
+        public void DeleteFirstBarcode()
+        {
+            EditOrDeleteWrapper(barcodeWrapperFirst, deleteFirst);
+        }
+        public void UpdateSecondBarcode()
+        {
+            EditOrDeleteWrapper(barcodeWrapperSecond, editSecond);
+        }
+        public void DeleteSecondBarcode()
+        {
+            EditOrDeleteWrapper(barcodeWrapperSecond, deleteSecond);
+        }
         #endregion
 
         #region Documents Action Methods
+        public void clickOnAddDocument()
+        {
+            _driver.FindElement(adddocumentBtn).Click();
+        }
+        public void clickDropDownDocumentType()
+        {
+            _driver.FindElement(dropdowndocumentType).Click();
+        }
         public void provideDocumentNumber(string documentnum)
         {
-            _driver.FindElement(documentNumber).SendKeys(documentnum);
+            //_driver.FindElement(documentNumber).SendKeys(documentnum);
+            clearAndProvide(documentNumber, documentnum);
         }
         public void provideDateOfIssue(string date)
         {
@@ -527,6 +738,26 @@ namespace Enfinity.Erp.Test.UI
         public void providePlaceOfIssue(string place)
         {
             _driver.FindElement(placeofIssue).SendKeys(place);
+        }
+        public void clickSaveDocument()
+        {
+            _driver.FindElement(savedocumentButton).Click();
+        }
+        public void UpdateFirstDocument()
+        {
+            EditOrDeleteWrapper(documentWrapperFirst, editFirst);
+        }
+        public void DeleteFirstDocument()
+        {
+            EditOrDeleteWrapper(documentWrapperFirst, deleteFirst);
+        }
+        public void UpdateSecondDocument()
+        {
+            EditOrDeleteWrapper(documentWrapperSecond, editSecond);
+        }
+        public void DeleteSecondDocument()
+        {
+            EditOrDeleteWrapper(documentWrapperSecond, deleteSecond);
         }
         #endregion
 
@@ -570,37 +801,57 @@ namespace Enfinity.Erp.Test.UI
         #endregion
 
         #region Dimensions Action Methods
+        public void clickOnAddColor()
+        {
+            _driver.FindElement(addcolorBtn).Click();
+        }
         public void provideColorCode(string code)
         {
-            _driver.FindElement(colorCode).SendKeys(code);
+            //_driver.FindElement(colorCode).SendKeys(code);
+            clearAndProvide(colorCode, code);
         }
         public void provideColorName(string name)
         {
-            _driver.FindElement(colorName).SendKeys(name);
+            //_driver.FindElement(colorName).SendKeys(name);
+            clearAndProvide(colorName, name);
         }
         public void provideColorArabicName(string arabicname)
         {
             _driver.FindElement(colorarabicName).SendKeys(arabicname);
         }
+        public void clickSaveColor()
+        {
+            _driver.FindElement(saveColor).Click();
+        }
         public void provideSizeCode(string code)
         {
-            _driver.FindElement(sizeCode).SendKeys(code);
+            //_driver.FindElement(sizeCode).SendKeys(code);
+            clearAndProvide(sizeCode, code);
         }
         public void provideSizeName(string name)
         {
-            _driver.FindElement(sizeName).SendKeys(name);
+            //_driver.FindElement(sizeName).SendKeys(name);
+            clearAndProvide(sizeName, name);
         }
         public void provideSizeArabicName(string arabicname)
         {
             _driver.FindElement(sizearabicName).SendKeys(arabicname);
         }
-        public void clickOnAddSizeBtn()
+        public void clickOnAddSize()
         {
             _driver.FindElement(addsizeBtn).Click();
         }
-        public void clickSaveSizeBtn()
+        public void clickOnAddSizeAll()
+        {
+            _driver.FindElement(addSize).Click();
+        }
+        public void clickSaveSize()
         {
             _driver.FindElement(savesizeBtn).Click();
+        }
+        public void clickSaveSizeAll()
+        {
+            _driver.FindElement(saveSize).Click();
         }
         public void clickColorGenerate()
         {
@@ -609,6 +860,38 @@ namespace Enfinity.Erp.Test.UI
         public void clickSizeGenerate()
         {
             _driver.FindElement(sizeGenerate).Click();
+        }
+        public void UpdateFirstDimension()
+        {
+            EditOrDeleteWrapper(dimensionWrapperFirst, editFirst);
+        }
+        public void DeleteFirstDimension()
+        {
+            EditOrDeleteWrapper(dimensionWrapperFirst, deleteFirst);
+        }
+        public void UpdateSecondDimension()
+        {
+            EditOrDeleteWrapper(dimensionWrapperSecond, editSecond);
+        }
+        public void DeleteSecondDimension()
+        {
+            EditOrDeleteWrapper(dimensionWrapperSecond, deleteSecond);
+        }
+        public void UpdateThirdDimension()
+        {
+            EditOrDeleteWrapper(dimensionWrapperThird, editThird);
+        }
+        public void DeleteThirdDimension()
+        {
+            EditOrDeleteWrapper(dimensionWrapperThird, deleteThird);
+        }
+        public void UpdateForthDimension()
+        {
+            EditOrDeleteWrapper(dimensionWrapperForth, editForth);
+        }
+        public void DeleteForthDimension()
+        {
+            EditOrDeleteWrapper(dimensionWrapperForth, deleteForth);
         }
         #endregion
 
@@ -692,6 +975,27 @@ namespace Enfinity.Erp.Test.UI
                 }
             }
         }
+        public void clearAndProvide(By locator, string value)
+        {
+            var element = _driver.FindElement(locator);
+            element.Click();
+            Actions actions = new Actions(_driver);
+            actions.KeyDown(Keys.Control)
+                   .SendKeys("a")
+                   .KeyUp(Keys.Control)
+                   .SendKeys(Keys.Delete)
+                   .Perform();
+            element.SendKeys(value);
+        }
+        public void EditOrDeleteWrapper(By locator, By selector)
+        {
+            IWebElement wrapperElement = BaseTest._wait.Until(_driver => _driver.FindElement(locator));
+            //IWebElement wrapperElement = _driver.FindElement(locator);
+            Actions actions = new Actions(_driver);
+            actions.MoveToElement(wrapperElement).Perform();
+            
+            _driver.FindElement(selector).Click();
+        }
         public void clickBackButton()
         {
             _driver.FindElement(backBtn).Click();
@@ -699,7 +1003,7 @@ namespace Enfinity.Erp.Test.UI
         public void clickOnAdd()
         {
             _driver.FindElement(addButton).Click();
-        }        
+        }
         public void clickOnPopupSave()
         {
             _driver.FindElement(saveButton).Click();
@@ -707,6 +1011,11 @@ namespace Enfinity.Erp.Test.UI
         public void clickOnSave()
         {
             _driver.FindElement(saveButton).Click();
+        }
+        public void ClickOnOk()
+        {
+            _driver.FindElement(okButton).Click();
+            Thread.Sleep(1000);
         }
         public void clickDefault()
         {
