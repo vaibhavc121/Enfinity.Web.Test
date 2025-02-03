@@ -26,7 +26,7 @@ namespace RealTimeProject.Reporting
             extent.AttachReporter(_spark);
 
             extent.AddSystemInfo("Environment", "QA");
-            extent.AddSystemInfo("Tester", "Your Name");
+            extent.AddSystemInfo("Tester", "Vaibhav Chavan");
         }
 
         // Set WebDriver instance (to capture screenshots)
@@ -89,7 +89,7 @@ namespace RealTimeProject.Reporting
             currentTest.Info($"Execution Time: {DateTime.Now}");
 
             // optional code, it will automatically open the report on the browser
-            string reportPath = $"{TestContext.CurrentContext.WorkDirectory}\\ExtentReport.html";
+            string reportPath = $"{TestContext.CurrentContext.WorkDirectory}\\ExtentReport\\ExtentReport.html";
             FileInfo extentReport = new FileInfo(reportPath);
 
             if (extentReport.Exists)

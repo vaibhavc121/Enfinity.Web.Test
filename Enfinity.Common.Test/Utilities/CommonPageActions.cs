@@ -202,9 +202,8 @@ namespace Enfinity.Common.Test
         public static bool IsTxnCreated()
         {
             string message = BaseTest._driver.FindElement(By.XPath("//div[@class='dx-toast-message']")).Text;
-            //return message;
-            //created successfully
-            if (message.Contains("error"))
+            //return message;            
+            if (message.Contains("created successfully"))
             {
                 return true;
             }

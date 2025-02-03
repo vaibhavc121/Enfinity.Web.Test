@@ -17,7 +17,8 @@ namespace Enfinity.Common.Test
     public class BaseTest
     {
 
-        public static IWebDriver _driver; private static string reportPath = $"{TestContext.CurrentContext.WorkDirectory}\\ExtentReport.html";
+        public static IWebDriver _driver; 
+        private static string reportPath = $"{TestContext.CurrentContext.WorkDirectory}\\ExtentReport\\ExtentReport.html";
         public static WebDriverWait _wait;
         #region for fake data generation
         public Faker faker = new Faker();

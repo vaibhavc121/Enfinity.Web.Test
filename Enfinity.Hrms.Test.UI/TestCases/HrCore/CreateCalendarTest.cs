@@ -13,12 +13,12 @@ using System.Threading.Tasks;
 namespace Enfinity.Hrms.Test.UI
 {
     [TestFixture]
-    public class CreateDesignationTest: BaseTest
+    public class CreateCalendarTest:BaseTest
     {
         public string Product = "Hrms";
 
         [Test]
-        public void VerifyDesignationCreation()
+        public void verifyCalendarCreation()
         {
             try
             {
@@ -28,32 +28,32 @@ namespace Enfinity.Hrms.Test.UI
                 var departmentData = JsonHelper.ConvertJsonListDataModel<DepartmentModel>(departmentFile, "createDepartment");
 
                 //hr core page
-                HRCorePage hc = new HRCorePage(_driver);                
+                HRCorePage hc = new HRCorePage(_driver);
                 hc.ClickHRCore();
                 hc.ClickSetupForm();
 
                 //setup page
                 SetupPage sp = new SetupPage(_driver);
-                sp.ClickDesignation();
+                sp.ClickCalendar();
                 Thread.Sleep(2000);
 
-                //desg pg
-                DesignationPage dp=new DesignationPage(_driver);
-                dp.ClickNewButton();              
-                dp.SetDesignationCode();                
-                dp.SetDesignation(faker.Name.JobTitle());
-                dp.ClickGrade();
-                dp.SelectGrade();
-                dp.SetJobDescription();
-                dp.ClickSave();
+                //calendar page                
+                CalendarPage cp = new CalendarPage(_driver);
+                cp.ClickNewButton();
+                cp.ProvideCalendarName();
+                cp.ProvideFromDate();
+                cp.SetWeekoff();
+                cp.SetRestday();
+                cp.ClickSave();
 
                 ClassicAssert.IsTrue(CommonPageActions.IsTxnCreated());
             }
-            catch(Exception e)
+            catch (Exception e)
             {
+
                 ClassicAssert.Fail("Test case failed: " + e);
+
             }
         }
-        
     }
 }

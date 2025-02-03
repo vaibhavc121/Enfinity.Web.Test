@@ -158,6 +158,7 @@
     <Compile Include="Models\HRCore\Employee\EmployeeModel.cs" />
     <Compile Include="PageObjects\Archive\TestPage.cs" />
     <Compile Include="PageObjects\Base\BasePage.cs" />
+    <Compile Include="PageObjects\HrCore\CalendarPage.cs" />
     <Compile Include="PageObjects\HrCore\DepartmentPage.cs" />
     <Compile Include="PageObjects\HrCore\DesignationPage.cs" />
     <Compile Include="PageObjects\HrCore\EmployeePage.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="PageObjects\HrCore\HRCorePage.cs" />
     <Compile Include="PageObjects\Archive\HardCodedPayrollEmployeePage.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\AttendanceTabTest.cs" />
+    <Compile Include="TestCases\HrCore\CreateCalendarTest.cs" />
     <Compile Include="TestCases\HrCore\CreateDesignationTest.cs" />
     <Compile Include="TestCases\HrCore\CreateFullEmployeeTest.cs" />
     <Compile Include="TestCases\HrCore\CreateGradeTest.cs" />
