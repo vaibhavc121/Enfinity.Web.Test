@@ -43,43 +43,43 @@ namespace Enfinity.Erp.Test.UI
         #endregion
 
         #region Item Listing Top Menu Action Methods 
-        public void clickOnNew()
+        public void ClickOnNew()
         {
             _driver.FindElement(newItem).Click();
         }
-        public void clickOnView()
+        public void ClickOnView()
         {
             _driver.FindElement(view).Click();
         }
-        public void clickOnEdit()
+        public void ClickOnEdit()
         {
             _driver.FindElement(edit).Click();
         }
-        public void clickOnReports()
+        public void ClickOnReports()
         {
             _driver.FindElement(reports).Click();
         }
-        public void clickOnTransactions()
+        public void ClickOnTransactions()
         {
             _driver.FindElement(transactions).Click();
         }
-        public void clickOnRelated()
+        public void ClickOnRelated()
         {
             _driver.FindElement(related).Click();
         }
-        public void clickOnRefresh()
+        public void ClickOnRefresh()
         {
             _driver.FindElement(refresh).Click();
         }
         #endregion
 
         #region Item Filter Action Methods
-        public void provideItemName(string name)
+        public void ProvideItemName(string name)
         {
             _driver.FindElement(itemName).SendKeys(name);
             Thread.Sleep(2000);
         }
-        public void clickOnSelectedItemName()
+        public void ClickOnSelectedItemName()
         {
             //_driver.FindElement(itemSelect).Click();
             IWebElement element = _driver.FindElement(itemSelect); 

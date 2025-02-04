@@ -89,28 +89,28 @@ namespace RealTimeProject.Reporting
             currentTest.Info($"Execution Time: {DateTime.Now}");
 
             // optional code, it will automatically open the report on the browser
-            string reportPath = $"{TestContext.CurrentContext.WorkDirectory}\\ExtentReport\\ExtentReport.html";
-            FileInfo extentReport = new FileInfo(reportPath);
+            //string reportPath = $"{TestContext.CurrentContext.WorkDirectory}\\ExtentReport\\ExtentReport.html";
+            //FileInfo extentReport = new FileInfo(reportPath);
 
-            if (extentReport.Exists)
-            {
-                try
-                {
-                    Process.Start(new ProcessStartInfo
-                    {
-                        FileName = extentReport.FullName,
-                        UseShellExecute = true
-                    });
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Error opening the report: " + e.Message);
-                }
-            }
-            else
-            {
-                Console.WriteLine("Report not found at: " + reportPath);
-            }
+            //if (extentReport.Exists)
+            //{
+            //    try
+            //    {
+            //        Process.Start(new ProcessStartInfo
+            //        {
+            //            FileName = extentReport.FullName,
+            //            UseShellExecute = true
+            //        });
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        Console.WriteLine("Error opening the report: " + e.Message);
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Report not found at: " + reportPath);
+            //}
 
         }
 

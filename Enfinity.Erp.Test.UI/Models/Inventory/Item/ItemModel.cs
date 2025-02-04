@@ -39,7 +39,7 @@ namespace Enfinity.Erp.Test.UI
         public string DocumentNumber { get; set; }
         public string ActualName { get; set; }
         public string ExpectedName { get; set; }
-        public String ExpectedQty { get; set; }
+        public string ExpectedQty { get; set; }
         public string RevenueAccount { get; set; }
         public string InventoryAccount { get; set; }
         public string CostofGoodsSoldAccount { get; set; }

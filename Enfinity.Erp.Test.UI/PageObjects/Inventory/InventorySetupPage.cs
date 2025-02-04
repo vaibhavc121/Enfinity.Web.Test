@@ -36,38 +36,38 @@ namespace Enfinity.Erp.Test.UI
         #endregion
 
         #region Setups - Commom Action Methods
-        public void clickOnItem()
+        public void ClickOnItem()
         {
             _driver.FindElement(itemOption).Click();
         }
-        public void clickOnWarehouse()
+        public void ClickOnWarehouse()
         {
             _driver.FindElement(warehouseOption).Click();
         }
-        public void clickOnStockCountBatch()
+        public void ClickOnStockCountBatch()
         {
             _driver.FindElement(stockcountbatchOption).Click();
         }
-        public void clickOnStockAdjustmentReason()
+        public void ClickOnStockAdjustmentReason()
         {
             _driver.FindElement(stockadjustmentreasonOption).Click();
         }
-        public void clickOnDocumentType()
+        public void ClickOnDocumentType()
         {
             _driver.FindElement(documenttypeOption).Click();
         }
         #endregion
 
         #region Setups - Settings Action Methods
-        public void clickOnItemSetting()
+        public void ClickOnItemSetting()
         {
             _driver.FindElement(itemSetting).Click();
         }
-        public void clickOnStoreTransferSetting()
+        public void ClickOnStoreTransferSetting()
         {
             _driver.FindElement(storetransferSetting).Click();
         }
-        public void clickOnStockAdjustment()
+        public void ClickOnStockAdjustment()
         {
             _driver.FindElement(stockadjustment).Click();
         }

@@ -28,11 +28,16 @@ namespace Enfinity.Common.Test
         //[OneTimeSetUp]
         public void Setup()
         {
-            #region
+            #region Disable automation extension and "Save Password" prompt
             ChromeOptions options = new ChromeOptions();
             options.AddExcludedArgument("enable-automation");
             options.AddAdditionalOption("useAutomationExtension", false);
+
+            // Disable the "Save Password" prompt
+            options.AddUserProfilePreference("credentials_enable_service", false);
+            options.AddUserProfilePreference("profile.password_manager_enabled", false);
             #endregion
+
 
             // Initialize the Chrome WebDriver
             _driver = new ChromeDriver(options);

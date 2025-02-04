@@ -17,7 +17,6 @@ namespace Enfinity.Erp.Test.UI
 
         #region Inventory Module Page Objects
         private By moduleName = By.XPath("//span[normalize-space()='Inventory']");
-        private By remindLater = By.Id("remindButton");
         private By home = By.CssSelector("li[title='Home']");
         private By item = By.CssSelector("li[title='Item']");
         private By storeTransfer = By.CssSelector("li[title='Store Transfer']");
@@ -29,43 +28,39 @@ namespace Enfinity.Erp.Test.UI
         #endregion
 
         #region Action Methods
-        public void clickOnInventoryModule()
+        public void ClickOnInventoryModule()
         {
             _driver.FindElement(moduleName).Click();
         }
-        public void clickOnRemindLater()
-        {
-            _driver.FindElement(remindLater).Click();
-        }
-        public void clickOnHome()
+        public void ClickOnHome()
         {
             _driver.FindElement(home).Click();
         }
-        public void clickOnItem()
+        public void ClickOnItem()
         {
             _driver.FindElement(item).Click();
         }
-        public void clickOnStoreTransfer()
+        public void ClickOnStoreTransfer()
         {
             _driver.FindElement(storeTransfer).Click();
         }
-        public void clickOnStockAdjustment()
+        public void ClickOnStockAdjustment()
         {
             _driver.FindElement(stockAdjustment).Click();
         }
-        public void clickOnReports()
+        public void ClickOnReports()
         {
             _driver.FindElement(reports).Click();
         }
-        public void clickOnAnalytics()
+        public void ClickOnAnalytics()
         {
             _driver.FindElement(analytics).Click();
         }
-        public void clickOnPeriodicProcess()
+        public void ClickOnPeriodicProcess()
         {
             _driver.FindElement(periodicProcess).Click();
         }
-        public void clickOnSetups()
+        public void ClickOnSetups()
         {
             _driver.FindElement(setups).Click();
         }

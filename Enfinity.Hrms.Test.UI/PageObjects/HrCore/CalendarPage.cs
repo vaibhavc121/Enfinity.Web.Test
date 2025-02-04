@@ -27,6 +27,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             Find(calname).SendKeys(RandomString());
         }
+        public void ProvideCalendarName(string value)
+        {
+            Find(calname).SendKeys(value);
+        }
         public void ProvideFromDate(string value)
         {
             Find(fromDate).Clear();

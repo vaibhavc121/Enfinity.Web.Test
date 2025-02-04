@@ -359,7 +359,7 @@
       "MinimumReorder": "50",
       "SubItem": "000001 | HSS DRILL BIT 6MM",
       "Qty": "2",
-      "ExpectedQty":  "2 Each",
+      "ExpectedQty": "2 Each",
       "ConversionFactor": 5,
       "Supplier": "Al Khrinej Instruments & Equipment Est",
       "PurchaseRateCurrency": "KWD | Kuwaiti Dinar",
@@ -381,6 +381,12 @@
       "InventorySuspenseAccount": "11112 | PDC Clearing A/c",
       "StoretoStoreTransferAccount": "11112 | PDC Clearing A/c",
       "WorkinProgressAccount": "11112 | PDC Clearing A/c"
+    }
+  ],
+  "Validate": [
+    {
+      "Name": "Failed Item",
+      "ArabicName":  "Failed Item"
     }
   ],
   "delete": [

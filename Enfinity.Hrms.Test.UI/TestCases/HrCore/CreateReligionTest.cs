@@ -1,6 +1,6 @@
 ﻿using Enfinity.Common.Test;
 using Enfinity.Hrms.Test.UI.Models.HRCore.Calendar;
-using Enfinity.Hrms.Test.UI.Models.HRCore.Employee;
+using Enfinity.Hrms.Test.UI.Models.HRCore.Religion;
 using Enfinity.Hrms.Test.UI.PageObjects.HrCore;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
@@ -14,19 +14,19 @@ using System.Threading.Tasks;
 namespace Enfinity.Hrms.Test.UI
 {
     [TestFixture]
-    public class CreateCalendarTest:BaseTest
+    public class CreateReligionTest:BaseTest
     {
         public string Product = "Hrms";
 
         [Test]
-        public void verifyCalendarCreation()
+        public void VerifyReligionCreation()
         {
             try
             {
                 Login(Product);
 
-                var calendarFile = FileHelper.GetDataFile("Hrms", "HRCore", "Calendar", "CalendarData");
-                var calendarData = JsonHelper.ConvertJsonListDataModel<CalendarModel>(calendarFile, "createCalendar");
+                var ReligionFile = FileHelper.GetDataFile("Hrms", "HRCore", "Religion", "ReligionData");
+                var ReligionData = JsonHelper.ConvertJsonListDataModel<ReligionModel>(ReligionFile, "createReligion");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -35,24 +35,20 @@ namespace Enfinity.Hrms.Test.UI
 
                 //setup page
                 SetupPage sp = new SetupPage(_driver);
-                sp.ClickCalendar();
+                sp.ClickReligion();
                 Thread.Sleep(2000);
 
-                //calendar page                
-                CalendarPage cp = new CalendarPage(_driver);
-                foreach(var calendar in calendarData)
+                //religion page                
+                ReligionPage rp = new ReligionPage(_driver);
+                foreach(var religion in ReligionData)
                 {
-                    cp.ClickNewButton();
-                    cp.ProvideCalendarName();
-                    //cp.ProvideCalendarName(calendar.calendarName);
-                    cp.ProvideFromDate(calendar.fromDate);
-                    cp.SetWeekoff();
-                    cp.SetRestday();
-                    cp.ClickSave();
+                    rp.ClickNew();
+                    //rp.ProvideReligionName(religion.religionName);
+                    rp.ProvideReligionName();
+                    rp.ClickSave();
                 }
-                
-
                 ClassicAssert.IsTrue(CommonPageActions.IsTxnCreated());
+
             }
             catch (Exception e)
             {
@@ -61,5 +57,6 @@ namespace Enfinity.Hrms.Test.UI
 
             }
         }
+
     }
 }

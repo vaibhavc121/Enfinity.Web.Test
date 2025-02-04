@@ -1,0 +1,8 @@
+﻿{
+  "createCalendar": [
+    {
+      "calendarName": "Test",
+      "fromDate": "01-Jan-2025"
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 ﻿using Bogus.DataSets;
 using Enfinity.Common.Test;
+using NUnit.Framework.Legacy;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
@@ -267,6 +268,10 @@ namespace Enfinity.Erp.Test.UI
             _driver.FindElement(itemName).SendKeys(itemname);
             _driver.FindElement(itemarabicName).SendKeys(arabicname);
         }
+        public void ProvideItemName(string itemname)
+        {
+            _driver.FindElement(itemName).SendKeys(itemname);
+        }
         public void clickUOM()
         {
             _driver.FindElement(dropdownofbaseUOM).Click();
@@ -302,7 +307,7 @@ namespace Enfinity.Erp.Test.UI
         {
             _driver.FindElement(KeyinfoTab).Click();
         }
-        public void ProvideItemArabicName(String arabicname)
+        public void ProvideItemArabicName(string arabicname)
         {
             //_driver.FindElement(itemarabicName).SendKeys(arabicname);
             clearAndProvide(itemarabicName, arabicname);
@@ -848,6 +853,7 @@ namespace Enfinity.Erp.Test.UI
         public void clickSaveSize()
         {
             _driver.FindElement(savesizeBtn).Click();
+            Thread.Sleep(1000);
         }
         public void clickSaveSizeAll()
         {
@@ -935,12 +941,12 @@ namespace Enfinity.Erp.Test.UI
         #endregion
 
         #region Common Action Methods
-        public void clickDropDown()
+        public void ClickDropDown()
         {
             Thread.Sleep(1000);
             _driver.FindElement(dropdownselect).Click();
         }
-        public void selectDropDownOption(string option)
+        public void SelectDropDownOption(string option)
         {
             Thread.Sleep(1000);
             var options = _driver.FindElements(dropdownOptions);
@@ -996,6 +1002,19 @@ namespace Enfinity.Erp.Test.UI
             
             _driver.FindElement(selector).Click();
         }
+        public void ValidateDeletion(string expectedMessage)
+        {
+            IWebElement deleteElement = _driver.FindElement(By.ClassName("dx-toast-success"));
+            string actualMessage = deleteElement.Text;
+            ClassicAssert.AreEqual(expectedMessage, actualMessage);
+        }
+        public void Validate(string expectedMessage)
+        {
+            IWebElement element = _driver.FindElement(By.ClassName("dx-toast-message"));
+            string actualMessage = element.Text.Trim();
+            StringAssert.Contains(expectedMessage, actualMessage);
+            //ClassicAssert.AreEqual(expectedMessage, actualMessage);
+        }
         public void clickBackButton()
         {
             _driver.FindElement(backBtn).Click();
@@ -1011,6 +1030,7 @@ namespace Enfinity.Erp.Test.UI
         public void clickOnSave()
         {
             _driver.FindElement(saveButton).Click();
+            Thread.Sleep(1000);
         }
         public void ClickOnOk()
         {
