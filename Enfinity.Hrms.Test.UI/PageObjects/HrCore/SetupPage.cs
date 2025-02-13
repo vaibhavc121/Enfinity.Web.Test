@@ -24,6 +24,7 @@ namespace Enfinity.Hrms.Test.UI
         By workLocation = By.XPath("//span[normalize-space()='Work Location']");
         By bank = By.XPath("//span[normalize-space()='Bank']");
         By qualification = By.XPath("//span[normalize-space()='Qualification']");
+        By documentType = By.XPath("//span[normalize-space()='Document Type']");
         By assetIssue = By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[5]/ul[1]/li[1]/ul[1]/li[4]/span[1]");
         By delegation = By.XPath("//span[@class='dx-vam'][normalize-space()='Delegation']");
         By license = By.XPath("//span[normalize-space()='License']");
@@ -67,6 +68,10 @@ namespace Enfinity.Hrms.Test.UI
         public void ClickQualification()
         {
               Find(qualification).Click();
+        }
+        public void ClickDocumentType()
+        {
+            Find(documentType).Click();
         }
         public void ClickAssetIssue()
         {

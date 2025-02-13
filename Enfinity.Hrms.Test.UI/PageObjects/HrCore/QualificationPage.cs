@@ -1,0 +1,44 @@
+﻿using Enfinity.Common.Test;
+using OpenQA.Selenium;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
+{
+    public class QualificationPage : BasePage
+    {
+        public QualificationPage(IWebDriver driver) : base(driver)
+        {
+        }
+
+        private By qualificationName = By.XPath("//input[@id='Qualification.Name_I']");
+
+        public void ClickNew()
+        {
+            CommonPageActions.ClickNew();
+        }
+
+        public void ProvideQualificationName(string value)
+        {
+            Find(qualificationName).SendKeys(value);
+        }
+
+        public void ProvideQualificationName()
+        {
+            Find(qualificationName).SendKeys(RandomString());
+        }
+
+        public void ClickSave()
+        {
+            CommonPageActions.ClickSave();
+        }
+
+        public bool IsTxnCreated()
+        {
+            return CommonPageActions.IsTxnCreated();
+        }
+    }
+}

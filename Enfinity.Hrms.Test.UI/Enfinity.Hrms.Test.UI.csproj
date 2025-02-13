@@ -153,33 +153,43 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\HRCore\Bank\BankModel.cs" />
     <Compile Include="Models\HRCore\Calendar\CalendarModel.cs" />
     <Compile Include="Models\HRCore\Department\DepartmentModel.cs" />
     <Compile Include="Models\HRCore\Designation\DesignationModel.cs" />
+    <Compile Include="Models\HRCore\DocumentType\DocumentTypeModel.cs" />
     <Compile Include="Models\HRCore\Employee\EmployeeModel.cs" />
+    <Compile Include="Models\HRCore\Qualification\QualificationModel.cs" />
     <Compile Include="Models\HRCore\Religion\ReligionModel.cs" />
     <Compile Include="Models\HRCore\WorkLocation\WorkLocationModel.cs" />
     <Compile Include="PageObjects\Archive\TestPage.cs" />
     <Compile Include="PageObjects\Base\BasePage.cs" />
+    <Compile Include="PageObjects\HrCore\BankPage.cs" />
     <Compile Include="PageObjects\HrCore\CalendarPage.cs" />
     <Compile Include="PageObjects\HrCore\DepartmentPage.cs" />
     <Compile Include="PageObjects\HrCore\DesignationPage.cs" />
+    <Compile Include="PageObjects\HrCore\DocumentTypePage.cs" />
     <Compile Include="PageObjects\HrCore\EmployeePage.cs" />
     <Compile Include="PageObjects\HrCore\GradePage.cs" />
     <Compile Include="PageObjects\HrCore\HRCorePage.cs" />
     <Compile Include="PageObjects\Archive\HardCodedPayrollEmployeePage.cs" />
+    <Compile Include="PageObjects\HrCore\QualificationPage.cs" />
     <Compile Include="PageObjects\HrCore\ReligionPage.cs" />
     <Compile Include="PageObjects\HrCore\WorkLocationPage.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\AttendanceTabTest.cs" />
+    <Compile Include="TestCases\HrCore\CreateBankTest.cs" />
     <Compile Include="TestCases\HrCore\CreateCalendarTest.cs" />
     <Compile Include="TestCases\HrCore\CreateDesignationTest.cs" />
+    <Compile Include="TestCases\HrCore\CreateDocumentTypeTest.cs" />
     <Compile Include="TestCases\HrCore\CreateFullEmployeeTest.cs" />
     <Compile Include="TestCases\HrCore\CreateGradeTest.cs" />
+    <Compile Include="TestCases\HrCore\CreateQualificationTest.cs" />
     <Compile Include="TestCases\HrCore\CreateReligionTest.cs" />
     <Compile Include="TestCases\HrCore\CreateWorkLocationTest.cs" />
     <Compile Include="TestCases\HrCore\DeleteEmployeeTest.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\DependentsTabTest.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\DocumentsTabTest.cs" />
+    <Compile Include="TestCases\HrCore\HRCoreModule.cs" />
     <Compile Include="TestCases\HrCore\UpdateEmployeeTabwiseTest.cs" />
     <Compile Include="TestCases\HrCore\UpdateFullEmployeeTest.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\IntegrationTabTest.cs" />
@@ -202,11 +212,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Models\HRCore\Bank\BankData.json" />
     <None Include="Models\HRCore\Calendar\CalendarData.json" />
     <None Include="Models\HRCore\Designation\DesignationData.json" />
+    <None Include="Models\HRCore\DocumentType\DocumentTypeData.json" />
     <None Include="Models\HRCore\Employee\EmployeeData.json" />
     <None Include="Models\Global\LoginData.json" />
     <None Include="Models\HRCore\Department\DepartmentData.json" />
+    <None Include="Models\HRCore\Qualification\QualificationData.json" />
     <None Include="Models\HRCore\Religion\ReligionData.json" />
     <None Include="Models\HRCore\WorkLocation\WorkLocationData.json" />
     <None Include="packages.config" />

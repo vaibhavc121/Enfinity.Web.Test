@@ -53,7 +53,7 @@ namespace Enfinity.Common.Test
 
 
         [TearDown]
-    //[OneTimeTearDown]
+        //[OneTimeTearDown]
         public void TearDown()
         {
             // Close the browser
