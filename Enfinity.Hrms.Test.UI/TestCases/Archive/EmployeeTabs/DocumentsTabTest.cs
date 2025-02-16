@@ -17,7 +17,7 @@ namespace Enfinity.Hrms.Test.UI
         public string Product = "Hrms";
 
         [Test]
-        [Ignore("")]
+        //[Ignore("")]
         public void VerifyDocumentsTab()
         {
             try
@@ -54,6 +54,7 @@ namespace Enfinity.Hrms.Test.UI
                     ep.ProvideDateOfExpiry(documents.dateOfExpiry);
                     ep.ClickPlaceOfDocument();
                     ep.SelectPlaceOfDocument(documents.placeOfDocument);
+                    //ep.AddAttachment();
                     ep.EmpDocClickSave();
 
                 }

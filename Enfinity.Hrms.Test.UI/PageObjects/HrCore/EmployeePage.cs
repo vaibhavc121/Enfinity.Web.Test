@@ -242,6 +242,8 @@ namespace Enfinity.Hrms.Test.UI
         private By documentNumber = By.XPath("//input[contains(@id,'DocumentNumber')]");
         private By dateOfExpiry = By.XPath("//input[contains(@id,'DateOfExpiry')]");
         private By placeOfDocument = By.XPath("//input[contains(@id,'PlaceOfDocument')]");
+        private By addAttachment = By.XPath("//span[normalize-space()='Add Attachment']");
+       
         //save
 
         #endregion
@@ -1336,6 +1338,11 @@ namespace Enfinity.Hrms.Test.UI
         {
             CommonPageActions.ClickSave();
             Thread.Sleep(1000);
+        }
+
+        public void AddAttachment()
+        {
+            Find(addAttachment).SendKeys(@"C:\\Users\\admin\\Downloads\\Employee Contract_190120251111.pdf");
         }
 
 

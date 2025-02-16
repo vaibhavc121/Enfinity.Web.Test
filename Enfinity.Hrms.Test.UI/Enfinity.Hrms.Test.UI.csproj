@@ -176,6 +176,7 @@
     <Compile Include="PageObjects\HrCore\QualificationPage.cs" />
     <Compile Include="PageObjects\HrCore\ReligionPage.cs" />
     <Compile Include="PageObjects\HrCore\WorkLocationPage.cs" />
+    <Compile Include="PageObjects\SelfService\TimeOffPage.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\AttendanceTabTest.cs" />
     <Compile Include="TestCases\HrCore\CreateBankTest.cs" />
     <Compile Include="TestCases\HrCore\CreateCalendarTest.cs" />
@@ -230,7 +231,6 @@
     <Folder Include="PageObjects\Payroll\" />
     <Folder Include="PageObjects\Performance\" />
     <Folder Include="PageObjects\Recruitment\" />
-    <Folder Include="PageObjects\SelfService\" />
     <Folder Include="PageObjects\SuccessionPlanning\" />
     <Folder Include="PageObjects\WorkforcePlanning\" />
     <Folder Include="TestCases\Attendance\" />

@@ -96,7 +96,7 @@ namespace Enfinity.Hrms.Test.UI
                 //desg pg
                 DesignationPage dp = new DesignationPage(_driver);
                 dp.ClickNewButton();
-                dp.SetDesignationCode();
+               //dp.SetDesignationCode();
                 dp.SetDesignation(faker.Name.JobTitle());
                 dp.ClickGrade();
                 dp.SelectGrade();
