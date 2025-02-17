@@ -1,5 +1,6 @@
 ﻿using Enfinity.Common.Test;
 using OpenQA.Selenium;
+using OpenQA.Selenium.BiDi.Modules.BrowsingContext;
 using OpenQA.Selenium.Interactions;
 using System;
 using System.CodeDom.Compiler;
@@ -13,6 +14,103 @@ namespace Enfinity.Common.Test
 {
     public static class CommonPageActions
     {
+        #region listing filter result (Absolute xpath)
+        public static String Result5()
+        {
+            string result = BaseTest._driver.FindElement(By.XPath(
+                    "/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[5]")).Text;
+            return result;
+        }
+        public static string Result6()
+        {
+            string result = BaseTest._driver.FindElement(By.XPath(
+                "/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[6]"))
+                .Text;
+            return result;
+        }
+
+        public static string Result7()
+        {
+            string result = BaseTest._driver.FindElement(By.XPath(
+                "/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[7]"))
+                .Text;
+            return result;
+        }
+
+        public static string Result8()
+        {
+            string result = BaseTest._driver.FindElement(By.XPath(
+                "/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[8]/div[1]/div[1]"))
+                .Text;
+            return result;
+        }
+
+        public static string Result9()
+        {
+            string result = BaseTest._driver.FindElement(By.XPath(
+                "/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[9]"))
+                .Text;
+            return result;
+        }
+
+        public static string Result10()
+        {
+            string result = BaseTest._driver.FindElement(By.XPath(
+                "/html[1]/body[1]/div[6]/div[2]/div[1]/div[2]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[10]/span[1]/a[1]"))
+                .Text;
+            return result;
+        }
+
+
+        #endregion
+
+        #region listing filter result (Relative xpath)
+        public static String Result55()
+        {
+            string result = BaseTest._driver.FindElement(By.XPath(
+                    "(//td[@aria-describedby='dx-col-4' and @role='gridcell' and @aria-colindex='1'])[2]")).Text;
+            return result;
+        }
+        public static string Result66()
+        {
+            string result = BaseTest._driver.FindElement(By.XPath(
+                "(//td[@aria-describedby='dx-col-9' and @role='gridcell' and @aria-colindex='2'])[2]"))
+                .Text;
+            return result;
+        }
+
+        public static string Result77()
+        {
+            string result = BaseTest._driver.FindElement(By.XPath(
+                "(//td[@aria-describedby='dx-col-10' and @role='gridcell' and @aria-colindex='3'])[2]"))
+                .Text;
+            return result;
+        }
+
+        public static string Result88()
+        {
+            string result = BaseTest._driver.FindElement(By.XPath(
+                "(//td[@aria-describedby='dx-col-19' and @role='gridcell' and @aria-colindex='4'])[2]"))
+                .Text;
+            return result;
+        }
+
+        public static string Result99()
+        {
+            string result = BaseTest._driver.FindElement(By.XPath(
+                "(//td[@aria-describedby='dx-col-38' and @role='gridcell' and @aria-colindex='5'])[2]"))
+                .Text;
+            return result;
+        }
+
+        public static string Result100()
+        {
+            string result = BaseTest._driver.FindElement(By.XPath(
+                "(//td[@aria-describedby='dx-col-47' and @role='gridcell' and @aria-colindex='6'])[2]"))
+                .Text;
+            return result;
+        }
+        #endregion
         // Method to click on Save
         public static void ClickSave()
         {
@@ -212,7 +310,7 @@ namespace Enfinity.Common.Test
                 return false;
 
             }
-        }
+        }        
 
         public static bool IsEmployeeDeleted()
         {
@@ -265,6 +363,13 @@ namespace Enfinity.Common.Test
             jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
         }
 
+        public static void ClearAndProvide(By locator, string value)
+        {
+            locator.Clear();
+            locator.SendKeys(value);
+        }
+
+        
     }
 }
 

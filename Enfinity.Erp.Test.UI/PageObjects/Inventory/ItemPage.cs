@@ -310,7 +310,7 @@ namespace Enfinity.Erp.Test.UI
         public void ProvideItemArabicName(string arabicname)
         {
             //_driver.FindElement(itemarabicName).SendKeys(arabicname);
-            clearAndProvide(itemarabicName, arabicname);
+            ClearAndProvide(itemarabicName, arabicname);
         }
         public void clickItemGroup()
         {
@@ -326,51 +326,51 @@ namespace Enfinity.Erp.Test.UI
         }
         public void provideSalesPrice(string price)
         {
-            clearAndProvide(salesPrice, price);
+            ClearAndProvide(salesPrice, price);
         }        
         public void providePurchasePrice(string price)
         {            
-            clearAndProvide(purchasePrice, price);
+            ClearAndProvide(purchasePrice, price);
         }        
         public void provideDescription(string desc)
         {
             //_driver.FindElement(description).SendKeys(desc);
-            clearAndProvide(description, desc);
+            ClearAndProvide(description, desc);
         }
         public void provideManufacturerNameKey(string name)
         {
             //_driver.FindElement(manufacturernameKey).SendKeys(name);
-            clearAndProvide(manufacturernameKey, name);
+            ClearAndProvide(manufacturernameKey, name);
         }
         public void provideManufacturerPartNumKey(string num)
         {
             //_driver.FindElement(manufacturerpartnumKey).SendKeys(num);
-            clearAndProvide(manufacturerpartnumKey, num);
+            ClearAndProvide(manufacturerpartnumKey, num);
         }
         public void provideMaximumStockLevelKey(string level)
         {
             //_driver.FindElement(maximumstocklevelKey).SendKeys(level);
-            clearAndProvide(maximumstocklevelKey, level);
+            ClearAndProvide(maximumstocklevelKey, level);
         }
         public void provideMinimumStockLevelKey(string level)
         {
             //_driver.FindElement(minimumstocklevelKey).SendKeys(level);
-            clearAndProvide(minimumstocklevelKey, level);
+            ClearAndProvide(minimumstocklevelKey, level);
         }
         public void provideReorderStockLevelKey(string level)
         {
             //_driver.FindElement(reorderstocklevelKey).SendKeys(level);
-            clearAndProvide(reorderstocklevelKey, level);
+            ClearAndProvide(reorderstocklevelKey, level);
         }
         public void provideMaximumReorderKey(string reorder)
         {
             //_driver.FindElement(maximumreorderKey).SendKeys(reorder);
-            clearAndProvide(maximumreorderKey, reorder);
+            ClearAndProvide(maximumreorderKey, reorder);
         }
         public void provideMinimumReorderKey(string reorder)
         {
             //_driver.FindElement(minimumreorderKey).SendKeys(reorder);
-            clearAndProvide(minimumreorderKey, reorder);
+            ClearAndProvide(minimumreorderKey, reorder);
         }
         public void clickSaveKeyInfo()
         {
@@ -382,7 +382,7 @@ namespace Enfinity.Erp.Test.UI
         public void provideQty(string qty)
         {
             //_driver.FindElement(quantity).SendKeys(qty);
-            clearAndProvide(quantity, qty);
+            ClearAndProvide(quantity, qty);
         }
         public void clickDropDownComponentItem()
         {
@@ -421,7 +421,7 @@ namespace Enfinity.Erp.Test.UI
         }
         public void provideConversionFactor(string qty)
         {
-            clearAndProvide(conversionFactor, qty);
+            ClearAndProvide(conversionFactor, qty);
             //_driver.FindElement(conversionFactor).SendKeys(qty);
         }
         public void clickReportingUOM()
@@ -481,7 +481,7 @@ namespace Enfinity.Erp.Test.UI
         public void providePurchaseUnitPrice(string price)
         {
             //_driver.FindElement(purchaseUnitPrice).SendKeys(price);
-            clearAndProvide(purchaseUnitPrice, price);
+            ClearAndProvide(purchaseUnitPrice, price);
         }
         public void provideManufacturerPartNum(string num)
         {
@@ -570,7 +570,7 @@ namespace Enfinity.Erp.Test.UI
         public void providePriceListUnitPrice(string unitprice)
         {
             //_driver.FindElement(pricelistunitPrice).SendKeys(unitprice);
-            clearAndProvide(pricelistunitPrice, unitprice);
+            ClearAndProvide(pricelistunitPrice, unitprice);
         }
         public void providePriceListUnitPriceAll(string unitprice)
         {
@@ -630,7 +630,7 @@ namespace Enfinity.Erp.Test.UI
         public void provideBinLocation(string location)
         {
             //_driver.FindElement(binLocation).SendKeys(location);
-            clearAndProvide(binLocation, location);
+            ClearAndProvide(binLocation, location);
         }
         public void provideMaximumStockLevel(string level)
         {
@@ -690,7 +690,7 @@ namespace Enfinity.Erp.Test.UI
         public void provideBarcode(string barcodenum)
         {
             //_driver.FindElement(barcode).SendKeys(barcodenum);
-            clearAndProvide(barcode, barcodenum);
+            ClearAndProvide(barcode, barcodenum);
         }
         public void clickBarcodeFreezed()
         {
@@ -730,7 +730,7 @@ namespace Enfinity.Erp.Test.UI
         public void provideDocumentNumber(string documentnum)
         {
             //_driver.FindElement(documentNumber).SendKeys(documentnum);
-            clearAndProvide(documentNumber, documentnum);
+            ClearAndProvide(documentNumber, documentnum);
         }
         public void provideDateOfIssue(string date)
         {
@@ -813,12 +813,12 @@ namespace Enfinity.Erp.Test.UI
         public void provideColorCode(string code)
         {
             //_driver.FindElement(colorCode).SendKeys(code);
-            clearAndProvide(colorCode, code);
+            ClearAndProvide(colorCode, code);
         }
         public void provideColorName(string name)
         {
             //_driver.FindElement(colorName).SendKeys(name);
-            clearAndProvide(colorName, name);
+            ClearAndProvide(colorName, name);
         }
         public void provideColorArabicName(string arabicname)
         {
@@ -831,12 +831,12 @@ namespace Enfinity.Erp.Test.UI
         public void provideSizeCode(string code)
         {
             //_driver.FindElement(sizeCode).SendKeys(code);
-            clearAndProvide(sizeCode, code);
+            ClearAndProvide(sizeCode, code);
         }
         public void provideSizeName(string name)
         {
             //_driver.FindElement(sizeName).SendKeys(name);
-            clearAndProvide(sizeName, name);
+            ClearAndProvide(sizeName, name);
         }
         public void provideSizeArabicName(string arabicname)
         {
@@ -902,39 +902,39 @@ namespace Enfinity.Erp.Test.UI
         #endregion
 
         #region Tabs Action Methods
-        public void clickOnBOMTab()
+        public void ClickOnBOMTab()
         {
             _driver.FindElement(bomTab).Click();
         }
-        public void clickOnUOMTab()
+        public void ClickOnUOMTab()
         {
             _driver.FindElement(uomTab).Click();
         }
-        public void clickOnSuppliersTab()
+        public void ClickOnSuppliersTab()
         {
             _driver.FindElement(suppliersTab).Click();
         }
-        public void clickOnPriceListsTab()
+        public void ClickOnPriceListsTab()
         {
             _driver.FindElement(pricelistsTab).Click();
         }
-        public void clickOnWarehouseTab()
+        public void ClickOnWarehouseTab()
         {
             _driver.FindElement(warehouseTab).Click();
         }
-        public void clickOnBarcodesTab()
+        public void ClickOnBarcodesTab()
         {
             _driver.FindElement(barcodesTab).Click();
         }
-        public void clickOnDocumentsTab()
+        public void ClickOnDocumentsTab()
         {
             _driver.FindElement(documentsTab).Click();
         }
-        public void clickOnSetupTab()
+        public void ClickOnSetupTab()
         {
             _driver.FindElement(setupTab).Click();
         }
-        public void clickOnDimensionTab()
+        public void ClickOnDimensionTab()
         {
             _driver.FindElement(dimensionTab).Click();
         }
@@ -962,7 +962,7 @@ namespace Enfinity.Erp.Test.UI
                 }
             }
         }
-        public void selectDropDownOptions(string option)
+        public void SelectDropDownOptions(string option)
         {
             Thread.Sleep(1000);
             // Find the list of dropdown elements
@@ -981,7 +981,7 @@ namespace Enfinity.Erp.Test.UI
                 }
             }
         }
-        public void clearAndProvide(By locator, string value)
+        public void ClearAndProvide(By locator, string value)
         {
             var element = _driver.FindElement(locator);
             element.Click();
@@ -1015,19 +1015,19 @@ namespace Enfinity.Erp.Test.UI
             StringAssert.Contains(expectedMessage, actualMessage);
             //ClassicAssert.AreEqual(expectedMessage, actualMessage);
         }
-        public void clickBackButton()
+        public void ClickOnBack()
         {
             _driver.FindElement(backBtn).Click();
         }
-        public void clickOnAdd()
+        public void ClickOnAdd()
         {
             _driver.FindElement(addButton).Click();
         }
-        public void clickOnPopupSave()
+        public void ClickOnPopupSave()
         {
             _driver.FindElement(saveButton).Click();
         }
-        public void clickOnSave()
+        public void ClickOnSave()
         {
             _driver.FindElement(saveButton).Click();
             Thread.Sleep(1000);
@@ -1037,7 +1037,7 @@ namespace Enfinity.Erp.Test.UI
             _driver.FindElement(okButton).Click();
             Thread.Sleep(1000);
         }
-        public void clickDefault()
+        public void ClickOnDefault()
         {
             _driver.FindElement(defaultField).Click();
         }

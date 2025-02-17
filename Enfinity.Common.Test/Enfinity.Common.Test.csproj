@@ -156,6 +156,7 @@
     <Compile Include="Common\Base\BasePage.cs" />
     <Compile Include="Helper\FileHelper.cs" />
     <Compile Include="Helper\JsonHelper.cs" />
+    <Compile Include="Helper\WaitHelper.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

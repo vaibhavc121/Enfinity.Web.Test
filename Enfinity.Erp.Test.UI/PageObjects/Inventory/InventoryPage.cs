@@ -27,6 +27,10 @@ namespace Enfinity.Erp.Test.UI
         private By setups = By.CssSelector("li[title='Setups']");
         #endregion
 
+        #region Quick Links Queries 
+        private By itemQuery = By.Id("NavViewQueries_I0i0_");
+        #endregion
+
         #region Action Methods
         public void ClickOnInventoryModule()
         {
@@ -63,6 +67,10 @@ namespace Enfinity.Erp.Test.UI
         public void ClickOnSetups()
         {
             _driver.FindElement(setups).Click();
+        }
+        public void ClickOnItemQuery()
+        {
+            _driver.FindElement(itemQuery).Click();
         }
         #endregion
     }

@@ -634,6 +634,15 @@
         }
       ]
     }
+  ],
+  "itemquery": [
+    {
+      "Code": "123",
+      "Name": "MUG",
+      "ItemGroup": "Subcontract - Civil",
+      "ItemCategory": "Service Item Lease",
+      "Brand": "TOYOTA"
+    }
   ]
 }
   
