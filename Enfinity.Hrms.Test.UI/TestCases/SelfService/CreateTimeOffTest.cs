@@ -32,7 +32,7 @@ namespace Enfinity.Hrms.Test.UI
                 //self service page
                 SelfServicePage ss = new SelfServicePage(_driver);
                 ss.ClickSelfService();
-                ss.ClickTransactions();               
+                ss.ClickTransactions();
 
                 //time off page                
                 TimeOffPage to = new TimeOffPage(_driver);
@@ -44,8 +44,8 @@ namespace Enfinity.Hrms.Test.UI
                     to.ProvidePermissonDate(timeOff.permisionDate);
                     to.ClickPermissionTypeDD();
                     to.SelectPermissionType(timeOff.permissionType);
-                    to.ProvideFromTime();
-                    to.ProvideUptoTime();
+                    to.ProvideFromTime(timeOff.fromTime);
+                    to.ProvideUptoTime(timeOff.upToTime);
                     to.ClickSave();
                 }               
 

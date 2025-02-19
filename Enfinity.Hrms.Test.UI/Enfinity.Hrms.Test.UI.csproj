@@ -162,6 +162,7 @@
     <Compile Include="Models\HRCore\Qualification\QualificationModel.cs" />
     <Compile Include="Models\HRCore\Religion\ReligionModel.cs" />
     <Compile Include="Models\HRCore\WorkLocation\WorkLocationModel.cs" />
+    <Compile Include="Models\SelfService\ExpenseClaim\ExpenseClaimModel.cs" />
     <Compile Include="Models\SelfService\TimeOff\TimeOffModel.cs" />
     <Compile Include="PageObjects\Archive\TestPage.cs" />
     <Compile Include="PageObjects\Base\BasePage.cs" />
@@ -177,6 +178,7 @@
     <Compile Include="PageObjects\HrCore\QualificationPage.cs" />
     <Compile Include="PageObjects\HrCore\ReligionPage.cs" />
     <Compile Include="PageObjects\HrCore\WorkLocationPage.cs" />
+    <Compile Include="PageObjects\SelfService\ExpenseClaimPage.cs" />
     <Compile Include="PageObjects\SelfService\SelfServicePage.cs" />
     <Compile Include="PageObjects\SelfService\TimeOffPage.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\AttendanceTabTest.cs" />
@@ -211,6 +213,7 @@
     <Compile Include="TestCases\Archive\HardCodedPayrollEmployeeTest.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\ResidencyInfoTest.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\TimeOffTabTest.cs" />
+    <Compile Include="TestCases\SelfService\CreateExpenseClaimTest.cs" />
     <Compile Include="TestCases\SelfService\CreateTimeOffTest.cs" />
     <Compile Include="TestData\DataProviders\HRCore\HRCoreDataProvider.cs" />
   </ItemGroup>
@@ -226,6 +229,7 @@
     <None Include="Models\HRCore\Qualification\QualificationData.json" />
     <None Include="Models\HRCore\Religion\ReligionData.json" />
     <None Include="Models\HRCore\WorkLocation\WorkLocationData.json" />
+    <None Include="Models\SelfService\ExpenseClaim\ExpenseClaimData.json" />
     <None Include="Models\SelfService\TimeOff\TimeOffData.json" />
     <None Include="packages.config" />
   </ItemGroup>

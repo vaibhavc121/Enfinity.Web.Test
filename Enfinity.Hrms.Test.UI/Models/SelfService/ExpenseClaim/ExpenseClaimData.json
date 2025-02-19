@@ -1,0 +1,12 @@
+﻿{
+  "createExpenseClaim": [
+    {
+      "expenseDate": "17-02-2025",
+      "remarks": "Business",
+      "claimCategory": "10:00 AM",
+      "currency": "11:00 AM",
+      "amount": "60"
+
+    }
+  ]
+}

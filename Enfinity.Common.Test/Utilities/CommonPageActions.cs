@@ -365,11 +365,30 @@ namespace Enfinity.Common.Test
 
         public static void ClearAndProvide(By locator, string value)
         {
-            locator.Clear();
-            locator.SendKeys(value);
+            BaseTest._driver.FindElement(locator).Click();
+            BaseTest._driver.FindElement(locator).Clear();
+            BaseTest._driver.FindElement(locator).SendKeys(value);
+            
+        }
+        public static void ClearAndProvide1(By locator, string value)
+        {
+            var element = BaseTest._driver.FindElement(locator);
+            element.Click();
+            Actions actions = new Actions(BaseTest._driver);
+            actions.KeyDown(Keys.Control)
+                   .SendKeys("a")
+                   .KeyUp(Keys.Control)
+                   .SendKeys(Keys.Delete)
+                   .Perform();
+            element.SendKeys(value);
         }
 
-        
+        public static void ScrollDownWebPage(By locator)
+        {
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)BaseTest._driver;
+            IWebElement element = BaseTest._driver.FindElement(locator);
+            jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
+        }
     }
 }
 

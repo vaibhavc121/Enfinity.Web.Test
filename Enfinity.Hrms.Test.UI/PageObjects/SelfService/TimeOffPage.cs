@@ -18,7 +18,10 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         private By permissionDate = By.Id("LatePermission.LateDate_I");
         private By permissionType = By.XPath("//input[@id='LatePermission.PermissionType_I']");
         private By fromTime = By.XPath("//input[@id='LatePermission.FromTime_I']");
-        private By uptoTime = By.XPath("//input[@id='LatePermission.UptoTime_I']");
+        //private By uptoTime = By.XPath("//input[@id='LatePermission.UptoTime_I']");
+        //private By uptoTime = By.XPath("/html[1]/body[1]/div[6]/div[2]/form[1]/div[1]/div[1]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/input[1]");
+        private By uptoTime = By.Name("LatePermission.UptoTime");
+
         private By timeOff = By.XPath("//a[@id='TxnInstanceView_I0i3_T']//span[@class='dx-vam'][normalize-space()='Time Sheet Entry']//following::span[@class='dx-vam'][normalize-space()='Time Off']");
         #endregion
 
@@ -35,6 +38,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         public void ProvidePermissonDate(string value)
         {
             CommonPageActions.ClearAndProvide(permissionDate, value);
+
         }
 
         public void ClickPermissionTypeDD()
@@ -49,12 +53,12 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
 
         public void ProvideFromTime(string value)
         {
-            CommonPageActions.ClearAndProvide(fromTime, value);
+            CommonPageActions.ClearAndProvide1(fromTime, value);
         }
 
         public void ProvideUptoTime(string value)
         {
-            CommonPageActions.ClearAndProvide(uptoTime, value);
+            CommonPageActions.ClearAndProvide1(uptoTime, value);
         }
 
         public void ClickSave()
@@ -65,7 +69,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
 
         public bool IsTxnCreated(string value)
         {            
-            if(CommonPageActions.Result55().Contains(value))
+            if(CommonPageActions.Result7().Contains(value))
             {
                 return true;
             }
@@ -75,15 +79,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             }
         }
 
-        internal void ProvideFromTime()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal void ProvideUptoTime()
-        {
-            throw new NotImplementedException();
-        }
+        
 
         #endregion
 
