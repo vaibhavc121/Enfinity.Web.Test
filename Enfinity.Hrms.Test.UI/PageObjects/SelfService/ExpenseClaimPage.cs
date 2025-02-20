@@ -20,7 +20,8 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         #region page objects
         private By expenseClaim = By.XPath("//span[normalize-space()='Expense Claim']");
         private By newLine = By.XPath("//i[@class='dx-icon dx-icon-new-icon']");
-        private By expenseDate = By.XPath("//td[@class=' grid-cell dx-wrap dxgv dx-ellipsis']//div[@class='dxgBCTC dx-ellipsis']");
+        private By expenseDate = By.XPath("/html[1]/body[1]/div[7]/div[2]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/table[1]/tbody[1]/tr[5]/td[2]/div[1]");
+        //private By expenseDate = By.XPath("//td[@class=' grid-cell dx-wrap dxgv dx-ellipsis']//div[@class='dxgBCTC dx-ellipsis']");
         private By remarks = By.XPath("//td[contains(@class,'grid-cell hide-error-frame dx-wrap dxgv dx-ellipsis')]//div[@class='dxgBCTC dx-ellipsis']");
         private By expenseClaimCategory = By.XPath("//input[@id='ExpenseClaimLine_ExpenseClaimCategoryId_I']");
         private By expenseClaimLineCurrency = By.XPath("//input[@id='ExpenseClaimLine_CurrencyId_I']");
@@ -55,12 +56,14 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         public void ProvideExpenseDate(string value)
         {
             Find(expenseDate).Click();
-            Find(expenseDate).SendKeys(value);
+            CommonPageActions.ProvideValue(expenseDate, value);
         }
 
         public void ProvideRemarks(string value)
         {
-            Find(remarks).SendKeys(value);
+            Find(remarks).Click();
+            //Find(remarks).SendKeys(value);
+            CommonPageActions.ProvideValue(remarks,value);
         }
         public void ClickExpenseClaimCategoryDD()
         {

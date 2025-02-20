@@ -389,6 +389,18 @@ namespace Enfinity.Common.Test
             IWebElement element = BaseTest._driver.FindElement(locator);
             jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
         }
+        public static void ProvideValue(By locator, string value)
+        {
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)BaseTest._driver;
+            IWebElement element = BaseTest._driver.FindElement(locator);
+            //js.ExecuteScript("arguments[0].value='Test Value';", inputField);
+            jsExecutor.ExecuteScript($"arguments[0].value='{value}';", element);
+        }
+
+        public static void ClickNewLine()
+        {
+            BaseTest._driver.FindElement(By.XPath("//i[@class='dx-icon dx-icon-new-icon']")).Click();            
+        }
     }
 }
 
