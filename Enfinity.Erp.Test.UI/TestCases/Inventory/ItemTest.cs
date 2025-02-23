@@ -22,9 +22,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Constructor
         public ItemTest()
-        {
-
-        }
+        {}
         #endregion
 
         #region create new item
@@ -46,7 +44,8 @@ namespace Enfinity.Erp.Test.UI
             {
                 inventoryPage.ClickOnInventoryModule();
                 Thread.Sleep(1000);
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
                 itemPage.ProvideItemName(item.Name);
@@ -94,7 +93,8 @@ namespace Enfinity.Erp.Test.UI
             {
                 inventoryPage.ClickOnInventoryModule();
                 Thread.Sleep(1000);
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
                 itemPage.ProvideItemName(item.Name);
@@ -163,7 +163,8 @@ namespace Enfinity.Erp.Test.UI
             {
                 inventoryPage.ClickOnInventoryModule();
                 Thread.Sleep(1000);
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
                 itemPage.ProvideItemName(item.Name);
@@ -223,7 +224,8 @@ namespace Enfinity.Erp.Test.UI
             {
                 inventoryPage.ClickOnInventoryModule();
                 Thread.Sleep(1000);
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
                 itemPage.ProvideItemName(item.Name);
@@ -280,7 +282,8 @@ namespace Enfinity.Erp.Test.UI
             {
                 inventoryPage.ClickOnInventoryModule();
                 Thread.Sleep(1000);
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
                 itemPage.ProvideItemName(item.Name);
@@ -343,7 +346,8 @@ namespace Enfinity.Erp.Test.UI
             {
                 inventoryPage.ClickOnInventoryModule();
                 Thread.Sleep(1000);
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
                 itemPage.ProvideItemName(item.Name);
@@ -404,7 +408,8 @@ namespace Enfinity.Erp.Test.UI
             {
                 inventoryPage.ClickOnInventoryModule();
                 Thread.Sleep(1000);
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
                 itemPage.ProvideItemName(item.Name);
@@ -465,7 +470,8 @@ namespace Enfinity.Erp.Test.UI
             {
                 inventoryPage.ClickOnInventoryModule();
                 Thread.Sleep(1000);
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
                 itemPage.ProvideItemName(item.Name);
@@ -520,7 +526,8 @@ namespace Enfinity.Erp.Test.UI
             {
                 inventoryPage.ClickOnInventoryModule();
                 Thread.Sleep(1000);
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
                 itemPage.ProvideItemName(item.Name);
@@ -578,7 +585,8 @@ namespace Enfinity.Erp.Test.UI
             {
                 inventoryPage.ClickOnInventoryModule();
                 Thread.Sleep(1000);
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
                 itemPage.ProvideItemName(item.Name);
@@ -640,7 +648,8 @@ namespace Enfinity.Erp.Test.UI
             {
                 inventoryPage.ClickOnInventoryModule();
                 Thread.Sleep(1000);
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
                 itemPage.ProvideItemName(item.Name);
@@ -716,7 +725,8 @@ namespace Enfinity.Erp.Test.UI
             {
                 inventoryPage.ClickOnInventoryModule();
                 Thread.Sleep(1000);
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
                 itemPage.ProvideItemName(item.Name);
@@ -1008,7 +1018,8 @@ namespace Enfinity.Erp.Test.UI
             foreach (var item in items)
             {
                 inventoryPage.ClickOnInventoryModule();
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
 
                 inventoryItemListingPage.ProvideItemName(item.Name);
@@ -1042,7 +1053,8 @@ namespace Enfinity.Erp.Test.UI
             foreach (var item in items)
             {
                 inventoryPage.ClickOnInventoryModule();
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ProvideItemName(item.Name);
                 Thread.Sleep(2000);
@@ -1101,7 +1113,8 @@ namespace Enfinity.Erp.Test.UI
             foreach (var item in items)
             {
                 inventoryPage.ClickOnInventoryModule();
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ProvideItemName(item.Name);
                 Thread.Sleep(2000);
@@ -1156,7 +1169,8 @@ namespace Enfinity.Erp.Test.UI
             foreach (var item in items)
             {
                 inventoryPage.ClickOnInventoryModule();
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ProvideItemName(item.Name);
                 inventoryItemListingPage.ClickOnSelectedItemName();
@@ -1216,7 +1230,8 @@ namespace Enfinity.Erp.Test.UI
             foreach (var item in items)
             {
                 inventoryPage.ClickOnInventoryModule();
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ProvideItemName(item.Name);
                 Thread.Sleep(2000);
@@ -1281,7 +1296,8 @@ namespace Enfinity.Erp.Test.UI
             foreach (var item in items)
             {
                 inventoryPage.ClickOnInventoryModule();
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ProvideItemName(item.Name);
                 Thread.Sleep(2000);
@@ -1334,7 +1350,8 @@ namespace Enfinity.Erp.Test.UI
             foreach (var item in items)
             {
                 inventoryPage.ClickOnInventoryModule();
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ProvideItemName(item.Name);
                 Thread.Sleep(2000);
@@ -1392,7 +1409,8 @@ namespace Enfinity.Erp.Test.UI
             foreach (var item in items)
             {
                 inventoryPage.ClickOnInventoryModule();
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ProvideItemName(item.Name);
                 Thread.Sleep(2000);
@@ -1445,7 +1463,8 @@ namespace Enfinity.Erp.Test.UI
             foreach (var item in items)
             {
                 inventoryPage.ClickOnInventoryModule();
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ProvideItemName(item.Name);
                 Thread.Sleep(2000);
@@ -1499,7 +1518,8 @@ namespace Enfinity.Erp.Test.UI
             foreach (var item in items)
             {
                 inventoryPage.ClickOnInventoryModule();
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ProvideItemName(item.Name);
                 Thread.Sleep(2000);
@@ -1555,7 +1575,8 @@ namespace Enfinity.Erp.Test.UI
             foreach (var item in items)
             {
                 inventoryPage.ClickOnInventoryModule();
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ProvideItemName(item.Name);
                 Thread.Sleep(2000);
@@ -1633,7 +1654,8 @@ namespace Enfinity.Erp.Test.UI
             {
                 inventoryPage.ClickOnInventoryModule();
                 Thread.Sleep(1000);
-                inventoryPage.ClickOnSetups();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
                 itemPage.ProvideItemName(item.Name);
@@ -1669,7 +1691,8 @@ namespace Enfinity.Erp.Test.UI
             {
                 inventoryPage.ClickOnInventoryModule();
                 await WaitHelper.WaitForSeconds(3);
-                inventoryPage.ClickOnHome();
+                CommonPageActions.ClickOnHome();
+                //inventoryPage.ClickOnHome();
                 inventoryPage.ClickOnItemQuery();
                 //itemPage.ClickDropDown();
                 //itemPage.SelectDropDownOption(item.Name);

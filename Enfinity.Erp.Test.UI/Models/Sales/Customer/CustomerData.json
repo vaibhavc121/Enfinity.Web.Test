@@ -1,0 +1,73 @@
+{
+  "new": [
+    {
+      //"Code": "C0002",
+      "Name": "Adila Sharaf",
+      "ArabicName": "Adila Sharaf",
+      "Currency": "KWD | Kuwaiti Dinar"
+    },
+    {
+      //"Code": "C0003",
+      "Name": "Aludra Yassin",
+      "ArabicName": "Aludra Yassin",
+      "Currency": "KWD | Kuwaiti Dinar"
+    }
+  ],
+  "keyinfo": [
+    {
+      "Code": "C0001",
+      "Name": "KeyInfoCustomer",
+      "ArabicName": "KeyInfoCustomer",
+      "Group": "CG01 | National",
+      "Email": "key@gmail.com",
+      "Mobile": "98652545",
+      "Telephone": "965-22543",
+      "Description": "KeyInfoCustomer",
+      "ReceivableAccount": "11210 | Receivables",
+      "CreditLimitAmount": "500",
+      "CreditLimitDays": "50",
+      "CreditrRating": "Good",
+      "CreditCheckMode": "Notify Only",
+      "Salesman": "SM02 | Habid Eid",
+      "PaymentTerm": "PT01 | Net 30",
+      "PriceList": "PL01 | Dhamaka",
+      "ShippingTerm": "Factory",
+      "LoadingPort": "1001",
+      "DestinationPort": "2001",
+      "ShippingMethod": "Air",
+      "ShipmentPriority": "High"
+    }
+  ],
+  "address": [
+    {
+      "Code": "C0001",
+      "Name": "Customer Address",
+      "ArabicName": "Customer Address",
+      "BillingAddress1": "3021 Nyasia Shore",
+      "BillingAddress2": "Fort Wayne",
+      "BillingCountry": "Syrian Arab Republic",
+      "BillingState": "Ethiopia",
+      "BillingCity": "Alabama",
+      "BillingZipcode": "43264",
+      "BillingContactPerson": "Ali Subha",
+      "ShippingAddress1": "3021 Nyasia Shore",
+      "ShippingAddress2": "Fort Wayne",
+      "ShippingCountry": "Syrian Arab Republic",
+      "ShippingState": "Ethiopia",
+      "ShippingCity": "Alabama",
+      "ShippingZipcode": "43264",
+      "ShippingContactPerson": "Ali Subha"
+    }
+  ],
+  "delete": [
+    {
+      "Name": "Adila Sharaf"
+    },
+    {
+      "Name": "Aludra Yassin"
+    },
+    {
+      "Name": "KeyInfoCustomer"
+    }
+  ]
+}

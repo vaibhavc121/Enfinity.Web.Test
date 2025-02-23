@@ -1,11 +1,11 @@
 ﻿{
   "createHRAssetRequest": [
     {
-      "expenseDate": "17-02-2025",
-      "remarks": "Business",
-      "claimCategory": "Accommodation",
-      "currency": "KWD",
-      "amount": "100"
+      "txnDate": "22-02-2025",
+      "effectiveDate": "03-05-2024",
+      "HRAsset": "Headphone",
+      "expReturnDate": "24-02-2025"
+      
 
     }
   ]

@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Enfinity.Hrms.Test.UI.TestCases.SelfService
+namespace Enfinity.Hrms.Test.UI
 {
     [TestFixture]
     public class CreateHRAssetRequestTest:BaseTest
@@ -33,8 +33,24 @@ namespace Enfinity.Hrms.Test.UI.TestCases.SelfService
                 ss.ClickSelfService();
                 ss.ClickTransactions();
 
-                //ExpenseClaim page                
-                ExpenseClaimPage ec = new ExpenseClaimPage(_driver);
+                //HR asset request page                
+                HRAssetRequestPage ar = new HRAssetRequestPage(_driver);
+
+                foreach(var HRAssetRequest in HRAssetRequestData)
+                {
+                    ar.ClickHRAssetRequest();
+                    ar.ClickNew();
+                    ar.ProvideTxnDate(HRAssetRequest.txnDate);
+                    ar.ProvideEffectiveDate(HRAssetRequest.effectiveDate);
+                    ar.ClickSave();
+                    ar.ClickNewLine();
+                    ar.ClickHRAssetDD();
+                    ar.SelectHRAsset(HRAssetRequest.HRAsset);
+                    //ar.ProvideExpReturnDate(HRAssetRequest.expReturnDate);
+                    ar.ClickView();
+                    ar.ClickApprove();
+
+                }
             }
             catch (Exception e)
             {

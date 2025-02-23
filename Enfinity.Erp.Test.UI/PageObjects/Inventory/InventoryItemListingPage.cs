@@ -32,7 +32,6 @@ namespace Enfinity.Erp.Test.UI
         //private By itemSelect = By.ClassName("list-hyperlink");
         //private By itemSelect = By.XPath("//td[@aria-describedby='dx-col-2' and @role='gridcell' and @aria-colindex='1' and text()='T00729']");
         private By itemSelect = By.XPath("(//td[@aria-describedby='dx-col-3' and @role='gridcell' and @aria-colindex='2'])[2]");
-
         #endregion
 
         #region Item Context Menu Locators 

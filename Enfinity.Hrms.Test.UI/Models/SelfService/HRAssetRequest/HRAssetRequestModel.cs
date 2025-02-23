@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Enfinity.Hrms.Test.UI.Models.SelfService.HRAssetRequest
 {
-    internal class HRAssetRequestModel
+    public class HRAssetRequestModel
     {
+        public string txnDate { get; set; }
+        public string effectiveDate { get; set; }
+        public string HRAsset { get; set; }
+        public string expReturnDate { get; set; }
     }
 }

@@ -154,18 +154,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Inventory\Item\ItemModel.cs" />
+    <Compile Include="Models\Sales\Customer\CustomerModel.cs" />
     <Compile Include="PageObjects\Inventory\InventoryItemListingPage.cs" />
     <Compile Include="PageObjects\Inventory\InventoryPage.cs" />
     <Compile Include="PageObjects\Inventory\InventorySetupPage.cs" />
     <Compile Include="PageObjects\Inventory\ItemPage.cs" />
     <Compile Include="PageObjects\Inventory\ItemQueryPage.cs" />
+    <Compile Include="PageObjects\Sales\CustomerListingPage.cs" />
+    <Compile Include="PageObjects\Sales\CustomerPage.cs" />
+    <Compile Include="PageObjects\Sales\SalesPage.cs" />
+    <Compile Include="PageObjects\Sales\SalesSetupPage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCases\Inventory\ItemTest.cs" />
+    <Compile Include="TestCases\Sales\CustomerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Models\Global\LoginData.json" />
+    <None Include="Models\Sales\Customer\CustomerData.json" />
     <None Include="packages.config" />
     <None Include="Models\Inventory\Item\ItemData.json" />
   </ItemGroup>
@@ -174,13 +181,11 @@
     <Folder Include="PageObjects\Base\" />
     <Folder Include="PageObjects\FixedAssets\" />
     <Folder Include="PageObjects\Purchase\" />
-    <Folder Include="PageObjects\Sales\" />
     <Folder Include="PageObjects\Service\" />
     <Folder Include="TestCases\Accounting\" />
     <Folder Include="TestCases\Base\" />
     <Folder Include="TestCases\FixedAssets\" />
     <Folder Include="TestCases\Purchase\" />
-    <Folder Include="TestCases\Sales\" />
     <Folder Include="TestCases\Service\" />
   </ItemGroup>
   <ItemGroup>

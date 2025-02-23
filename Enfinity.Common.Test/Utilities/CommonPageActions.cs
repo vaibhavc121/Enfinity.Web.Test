@@ -401,6 +401,18 @@ namespace Enfinity.Common.Test
         {
             BaseTest._driver.FindElement(By.XPath("//i[@class='dx-icon dx-icon-new-icon']")).Click();            
         }
+
+        public static void HoverAndClick(By locator, By locator1)
+        {
+
+            IWebElement elementToHover = BaseTest._driver.FindElement(locator);
+            Actions actions = new Actions(BaseTest._driver);
+            actions.MoveToElement(elementToHover).Perform();
+            BaseTest._driver.FindElement(locator1).Click();
+            //Find(deleteBasicSalBtn).Click();
+            //Thread.Sleep(2000);
+            //Find(deleteBasicSalaryComponent).Click();
+        }
     }
 }
 
