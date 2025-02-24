@@ -94,6 +94,19 @@ namespace Enfinity.Erp.Test.UI
         private By saveAddress = By.Id("InfoSaveAddress");
         #endregion
 
+        #region Contact Person Tab
+        private By addPerson = By.XPath("div[title=\"Add a row\"]");
+        private By prefix = By.XPath("(//input[contains(@id, '_Prefix')])");
+        private By firstName = By.XPath("(//input[contains(@id, '_FirstName')])");
+        private By lastName = By.XPath("(//input[contains(@id, '_LastName')])");
+        private By jobTitle = By.XPath("(//input[contains(@id, '_JobTitle')])");
+        private By gender = By.XPath("(//input[contains(@id, '_Gender')])");
+        private By mobileNumber = By.XPath("(//input[contains(@id, '_MobileNumber')])");
+        private By telNumber = By.XPath("(//input[contains(@id, '_TelNumber')])");
+        private By emailId = By.XPath("(//input[contains(@id, '_Email')])");
+        private By savePerson = By.XPath("(//input[contains(@id, '_Prefix')])");
+        #endregion
+
         #endregion
 
         #region Action Methods
@@ -352,6 +365,51 @@ namespace Enfinity.Erp.Test.UI
             _driver.FindElement(saveAddress).Click();
         }
         #endregion
+
+        #region Contact Person Action Methods
+        public void ClickOnAdd()
+        {
+            _driver.FindElement(addPerson).Click();
+        }
+        public void ClickOnPrefix()
+        {
+            _driver.FindElement(prefix).Click();
+        }
+        public void ProvideFirstName(string data)
+        {
+            //_driver.FindElement(customerCode).SendKeys(data);
+            ClearAndProvide(firstName, data);
+        }
+        public void ProvideLastName(string data)
+        {
+            //_driver.FindElement(customerCode).SendKeys(data);
+            ClearAndProvide(lastName, data);
+        }
+        public void ProvideJobTitle(string data)
+        {
+            //_driver.FindElement(customerCode).SendKeys(data);
+            ClearAndProvide(jobTitle, data);
+        }
+        public void ClickOnGender()
+        {
+            _driver.FindElement(gender).Click();
+        }
+        public void ProvideMobileNumber(string data)
+        {
+            //_driver.FindElement(customerCode).SendKeys(data);
+            ClearAndProvide(mobileNumber, data);
+        }
+        public void ProvideTelNumber(string data)
+        {
+            //_driver.FindElement(customerCode).SendKeys(data);
+            ClearAndProvide(telNumber, data);
+        }
+        public void ProvideEmailAddress(string data)
+        {
+            //_driver.FindElement(customerCode).SendKeys(data);
+            ClearAndProvide(emailId, data);
+        }
+        #endregion 
 
         #endregion
     }

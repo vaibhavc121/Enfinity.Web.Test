@@ -1,0 +1,8 @@
+﻿{
+  "createGrade": [
+    {
+      "minSal": "100",
+      "maxSal": "200"
+    }
+  ]
+}

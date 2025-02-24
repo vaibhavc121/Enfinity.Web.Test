@@ -1,5 +1,6 @@
 ﻿using Enfinity.Common.Test;
 using Enfinity.Hrms.Test.UI.Models.HRCore.Employee;
+using Enfinity.Hrms.Test.UI.Models.HRCore.Grade;
 using Enfinity.Hrms.Test.UI.PageObjects.HrCore;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
@@ -24,8 +25,8 @@ namespace Enfinity.Hrms.Test.UI
             {
                 Login(Product);
 
-                var departmentFile = FileHelper.GetDataFile("Hrms", "HRCore", "Department", "DepartmentData");
-                var departmentData = JsonHelper.ConvertJsonListDataModel<DepartmentModel>(departmentFile, "createDepartment");
+                var gradeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Grade", "GradeData");
+                var gradeData = JsonHelper.ConvertJsonListDataModel<GradeModel>(gradeFile, "createGrade");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -40,6 +41,15 @@ namespace Enfinity.Hrms.Test.UI
 
                 //grade pg
                 GradePage gp = new GradePage(_driver);
+
+                foreach(var grade in gradeData)
+                {
+                    gp.ClickNew();
+                    gp.ProvideGradeName();
+                    gp.ProvideMinSal(grade.minSal);
+                    gp.ProvideMaxSal(grade.maxSal);
+                    gp.ClickSave();
+                }
 
 
             }

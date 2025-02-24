@@ -14,6 +14,57 @@ namespace Enfinity.Common.Test
 {
     public static class CommonPageActions
     {
+        #region Common Action Methods for ERP
+        public static void ClickOnHome()
+        {
+            BaseTest._driver.FindElement(By.CssSelector("li[title='Home']")).Click();
+        }
+        public static void ClickOnCustomer()
+        {
+            BaseTest._driver.FindElement(By.CssSelector("li[title='Customer']")).Click();
+        }
+        public static void ClickOnSupplier()
+        {
+            BaseTest._driver.FindElement(By.CssSelector("li[title='Supplier']")).Click();
+        }
+        public static void ClickOnItem()
+        {
+            BaseTest._driver.FindElement(By.CssSelector("li[title='Item']")).Click();
+        }
+        public static void ClickOnReports()
+        {
+            BaseTest._driver.FindElement(By.CssSelector("li[title='Reports']")).Click();
+        }
+        public static void ClickOnAnalytics()
+        {
+            BaseTest._driver.FindElement(By.CssSelector("li[title='Analytics']")).Click();
+        }
+        public static void ClickOnPeriodicProcess()
+        {
+            BaseTest._driver.FindElement(By.CssSelector("li[title='Periodic Process']")).Click();
+        }
+        public static void ClickOnSetups()
+        {
+            BaseTest._driver.FindElement(By.CssSelector("li[title='Setups']")).Click();
+        }
+        public static void SelectDropDownOption(string option)
+        {
+            Thread.Sleep(1000);
+            var options = BaseTest._driver.FindElements(By.CssSelector(".dx-item-content, .dx-list-item-content"));
+
+            foreach (var valueElement in options)
+            {
+                string actualValue = valueElement.Text;
+                if (actualValue.Contains(option))
+                {
+                    valueElement.Click();
+                    //Thread.Sleep(1000);
+                    return;
+                }
+            }
+        }
+        #endregion
+
         #region listing filter result (Absolute xpath)
         public static String Result5()
         {
@@ -114,7 +165,7 @@ namespace Enfinity.Common.Test
         // Method to click on Save
         public static void ClickSave()
         {
-            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Save']")).Click();          
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Save']")).Click();
         }
         public static void ClickSaveAndBack()
         {
@@ -204,7 +255,7 @@ namespace Enfinity.Common.Test
 
         #region Common Actions for HRMS
         //written for employee listing
-        
+
         public static void FilterEmployee(string value)
         {
             BaseTest._driver.FindElement(By.Id("//input[@aria-describedby='dx-col-4']")).SendKeys(value);
@@ -229,11 +280,11 @@ namespace Enfinity.Common.Test
             IWebElement employee = BaseTest._driver.FindElement(By.XPath(
                     "//td[@class='list-hyperlink dx-cell-focus-disabled']"));
             string result = employee.Text;
-                    
-            if(result.Contains(value))
+
+            if (result.Contains(value))
             {
                 employee.Click();
-            }             
+            }
         }
 
         public static void NavigateToEmployee(string value)
@@ -246,7 +297,7 @@ namespace Enfinity.Common.Test
             //IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)BaseTest._driver;
 
             //filterCell.SendKeys(value);
-            Thread.Sleep(2000);           
+            Thread.Sleep(2000);
             string employee = result.Text;
             Thread.Sleep(2000);
             if (employee.Contains(value))
@@ -254,7 +305,7 @@ namespace Enfinity.Common.Test
                 result.Click();
                 //jsExecutor.ExecuteScript("arguments[0].click();", result);
                 Thread.Sleep(2000);
-            }            
+            }
 
         }
 
@@ -310,7 +361,7 @@ namespace Enfinity.Common.Test
                 return false;
 
             }
-        }        
+        }
 
         public static bool IsEmployeeDeleted()
         {
@@ -329,7 +380,7 @@ namespace Enfinity.Common.Test
 
         public static void ScrollDownWebPage()
         {
-             //Cast driver to IJavaScriptExecutor
+            //Cast driver to IJavaScriptExecutor
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)BaseTest._driver;
 
             // Scroll down by a specific number of pixels
@@ -368,7 +419,7 @@ namespace Enfinity.Common.Test
             BaseTest._driver.FindElement(locator).Click();
             BaseTest._driver.FindElement(locator).Clear();
             BaseTest._driver.FindElement(locator).SendKeys(value);
-            
+
         }
         public static void ClearAndProvide1(By locator, string value)
         {
@@ -399,7 +450,7 @@ namespace Enfinity.Common.Test
 
         public static void ClickNewLine()
         {
-            BaseTest._driver.FindElement(By.XPath("//i[@class='dx-icon dx-icon-new-icon']")).Click();            
+            BaseTest._driver.FindElement(By.XPath("//i[@class='dx-icon dx-icon-new-icon']")).Click();
         }
 
         public static void HoverAndClick(By locator, By locator1)

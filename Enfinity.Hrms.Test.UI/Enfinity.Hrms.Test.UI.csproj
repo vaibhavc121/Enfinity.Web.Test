@@ -159,12 +159,16 @@
     <Compile Include="Models\HRCore\Designation\DesignationModel.cs" />
     <Compile Include="Models\HRCore\DocumentType\DocumentTypeModel.cs" />
     <Compile Include="Models\HRCore\Employee\EmployeeModel.cs" />
+    <Compile Include="Models\HRCore\Grade\GradeModel.cs" />
     <Compile Include="Models\HRCore\Qualification\QualificationModel.cs" />
     <Compile Include="Models\HRCore\Religion\ReligionModel.cs" />
     <Compile Include="Models\HRCore\WorkLocation\WorkLocationModel.cs" />
+    <Compile Include="Models\SelfService\AdminSupport\AdminSupportModel.cs" />
     <Compile Include="Models\SelfService\ExpenseClaim\ExpenseClaimModel.cs" />
     <Compile Include="Models\SelfService\HRAssetRequest\HRAssetRequestModel.cs" />
+    <Compile Include="Models\SelfService\ITSupport\ITSupportModel.cs" />
     <Compile Include="Models\SelfService\LeaveRequest\LeaveRequestModel.cs" />
+    <Compile Include="Models\SelfService\SelfServiceModel.cs" />
     <Compile Include="Models\SelfService\TimeOff\TimeOffModel.cs" />
     <Compile Include="PageObjects\Archive\TestPage.cs" />
     <Compile Include="PageObjects\Base\BasePage.cs" />
@@ -180,9 +184,12 @@
     <Compile Include="PageObjects\HrCore\QualificationPage.cs" />
     <Compile Include="PageObjects\HrCore\ReligionPage.cs" />
     <Compile Include="PageObjects\HrCore\WorkLocationPage.cs" />
+    <Compile Include="PageObjects\SelfService\AdminSupportPage.cs" />
     <Compile Include="PageObjects\SelfService\ExpenseClaimPage.cs" />
     <Compile Include="PageObjects\SelfService\HRAssetRequestPage.cs" />
+    <Compile Include="PageObjects\SelfService\ITSupportPage.cs" />
     <Compile Include="PageObjects\SelfService\LeaveRequestPage.cs" />
+    <Compile Include="PageObjects\SelfService\LoanRequestPage.cs" />
     <Compile Include="PageObjects\SelfService\SelfServicePage.cs" />
     <Compile Include="PageObjects\SelfService\TimeOffPage.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\AttendanceTabTest.cs" />
@@ -217,9 +224,12 @@
     <Compile Include="TestCases\Archive\HardCodedPayrollEmployeeTest.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\ResidencyInfoTest.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\TimeOffTabTest.cs" />
+    <Compile Include="TestCases\SelfService\CreateAdminSupportTest.cs" />
     <Compile Include="TestCases\SelfService\CreateExpenseClaimTest.cs" />
     <Compile Include="TestCases\SelfService\CreateHRAssetRequestTest.cs" />
+    <Compile Include="TestCases\SelfService\CreateITSupportTest.cs" />
     <Compile Include="TestCases\SelfService\CreateLeaveRequestTest.cs" />
+    <Compile Include="TestCases\SelfService\CreateLoanRequestTest.cs" />
     <Compile Include="TestCases\SelfService\CreateTimeOffTest.cs" />
     <Compile Include="TestData\DataProviders\HRCore\HRCoreDataProvider.cs" />
   </ItemGroup>
@@ -232,12 +242,16 @@
     <None Include="Models\HRCore\Employee\EmployeeData.json" />
     <None Include="Models\Global\LoginData.json" />
     <None Include="Models\HRCore\Department\DepartmentData.json" />
+    <None Include="Models\HRCore\Grade\GradeData.json" />
     <None Include="Models\HRCore\Qualification\QualificationData.json" />
     <None Include="Models\HRCore\Religion\ReligionData.json" />
     <None Include="Models\HRCore\WorkLocation\WorkLocationData.json" />
+    <None Include="Models\SelfService\AdminSupport\AdminSupportData.json" />
     <None Include="Models\SelfService\ExpenseClaim\ExpenseClaimData.json" />
     <None Include="Models\SelfService\HRAssetRequest\HRAssetRequestData.json" />
+    <None Include="Models\SelfService\ITSupport\ITSupportData.json" />
     <None Include="Models\SelfService\LeaveRequest\LeaveRequestData.json" />
+    <None Include="Models\SelfService\SelfServiceData.json" />
     <None Include="Models\SelfService\TimeOff\TimeOffData.json" />
     <None Include="packages.config" />
   </ItemGroup>
