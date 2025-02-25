@@ -1,0 +1,648 @@
+{
+  "new": [
+    {
+      "Name": "InventoryWeightage",
+      "ArabicName": "InventoryWeightage",
+      "Type": "Inventory",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Not Applicable",
+      "Uom": "Each"
+    },
+    {
+      "Name": "InventoryFifo",
+      "ArabicName": "InventoryFifo",
+      "Type": "Inventory",
+      "CostingMethod": "Fifo",
+      "TrackingMode": "Not Applicable",
+      "Uom": "Each"
+    },
+    {
+      "Name": "InventoryLifo",
+      "ArabicName": "InventoryLifo",
+      "Type": "Inventory",
+      "CostingMethod": "Lifo",
+      "TrackingMode": "Not Applicable",
+      "Uom": "Each"
+    },
+    {
+      "Name": "ServiceWeightage",
+      "ArabicName": "ServiceWeightage",
+      "Type": "Service",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Not Applicable",
+      "Uom": "Each"
+    },
+    {
+      "Name": "ServiceFifo",
+      "ArabicName": "ServiceFifo",
+      "Type": "Service",
+      "CostingMethod": "Fifo",
+      "TrackingMode": "Not Applicable",
+      "Uom": "Each"
+    },
+    {
+      "Name": "ServiceLifo",
+      "ArabicName": "ServiceLifo",
+      "Type": "Service",
+      "CostingMethod": "Lifo",
+      "TrackingMode": "Not Applicable",
+      "Uom": "Each"
+    },
+    {
+      "Name": "BOMWeightage",
+      "ArabicName": "BOMWeightage",
+      "Type": "Bill Of Material",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Not Applicable",
+      "Uom": "Each"
+    }
+  ],
+  "newbom": [
+    {
+      "Name": "BOMWeightagewithcomponent",
+      "ArabicName": "BOMWeightagewithcomponent",
+      "Type": "Bill Of Material",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Not Applicable",
+      "Uom": "Each",
+      "SubItems": [
+        {
+          "Qty": "1",
+          "SubItem": "000002 | HSS DRILL BIT 6MM 1",
+          "ActualName": "HSS DRILL BIT 6MM 1 000002",
+          "ExpectedName": "HSS DRILL BIT 6MM 1"
+        },
+        {
+          "Qty": "1",
+          "SubItem": "000004 | PLUM B 6MM",
+          "ActualName": "PLUM B 6MM 000004",
+          "ExpectedName": "PLUM B 6MM"
+        }
+      ]
+    }
+  ],
+  "multiuom": [
+    {
+      "Name": "MultiUOMItem",
+      "ArabicName": "MultiUOMItem",
+      "Type": "Bill Of Material",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Not Applicable",
+      "Uom": "Each",
+      "ItemUoms": [
+        {
+          "Uom": "box | Box",
+          "ConversionFactor": 5,
+          "ActualName": "Box box",
+          "ExpectedName": "Box"
+        },
+        {
+          "Uom": "BAG | BAGS",
+          "ConversionFactor": 2,
+          "ActualName": "BAGS BAG",
+          "ExpectedName": "BAGS"
+        }
+      ]
+    }
+  ],
+  "multisupplier": [
+    {
+      "Name": "MultiSupplierItem",
+      "ArabicName": "MutiSupplierItem",
+      "Type": "Bill Of Material",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Not Applicable",
+      "Uom": "Each",
+      "Suppliers": [
+        {
+          "Supplier": "A008 | Abraj Al Adal",
+          "PurchaseRateCurrency": "KWD | Kuwaiti Dinar",
+          "Uom": "EA | Each",
+          "PurchaseUnitPrice": "100",
+          "ManufacturerPartNum": "1001",
+          "ManufacturerBarcode": "6001",
+          "ActualName": "A008",
+          "ExpectedName": "A008"
+        },
+        {
+          "Supplier": "A009 | Alita Project",
+          "PurchaseRateCurrency": "KWD | Kuwaiti Dinar",
+          "Uom": "EA | Each",
+          "PurchaseUnitPrice": "200",
+          "ManufacturerPartNum": "2001",
+          "ManufacturerBarcode": "7001",
+          "ActualName": "A009",
+          "ExpectedName": "A009"
+        }
+      ]
+    }
+  ],
+  "multipricelists": [
+    {
+      "Name": "MultiPricelistItem",
+      "ArabicName": "MultiPricelistItem",
+      "Type": "Bill Of Material",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Not Applicable",
+      "Uom": "Each",
+      "itemPriceLists": [
+        {
+          "PriceList": "PL01 | Default Price List",
+          "Uom": "EA | Each",
+          "UnitPrice": "100",
+          "MinimumUnitPrice": "100",
+          "MaximumUnitPrice": "120",
+          "DefaultDiscountInPercent": "10",
+          "MaximumDiscountInPercent": "15",
+          "ActualName": "Default Price List",
+          "ExpectedName": "Default Price List"
+        },
+        {
+          "PriceList": "PL02 | Grand",
+          "Uom": "EA | Each",
+          "UnitPrice": "150",
+          "MinimumUnitPrice": "150",
+          "MaximumUnitPrice": "200",
+          "DefaultDiscountInPercent": "10",
+          "MaximumDiscountInPercent": "15",
+          "ActualName": "Grand",
+          "ExpectedName": "Grand"
+        }
+      ]
+    }
+  ],
+  "multiwarehouses": [
+    {
+      "Name": "MultiWarehouseItem",
+      "ArabicName": "MultiPricelistItem",
+      "Type": "Bill Of Material",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Not Applicable",
+      "Uom": "Each",
+      "Warehouses": [
+        {
+          "Warehouse": "WH01 | Main Stores - HO",
+          "BinLocation": "Main Store",
+          "MaximumStockLevel": "100",
+          "MinimumStockLevel": "100",
+          "ReorderStockLevel": "100",
+          "MaximumReorder": "100",
+          "MinimumReorder": "100",
+          "ActualName": "Main Stores - HO WH01",
+          "ExpectedName": "Main Stores - HO"
+        },
+        {
+          "Warehouse": "WH02 | Head Office",
+          "BinLocation": "Head Office",
+          "MaximumStockLevel": "100",
+          "MinimumStockLevel": "100",
+          "ReorderStockLevel": "100",
+          "MaximumReorder": "100",
+          "MinimumReorder": "100",
+          "ActualName": "Head Office WH02",
+          "ExpectedName": "Head Office"
+        }
+      ]
+    }
+  ],
+  "multibarcodes": [
+    {
+      "Name": "MultiBarcodeItem",
+      "ArabicName": "MultiBarcodeItem",
+      "Type": "Inventory",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Not Applicable",
+      "Uom": "Each",
+      "Barcodes": [
+        {
+          "Barcode": "6001",
+          "Uom": "EA | Each",
+          "ExpectedName": "6001"
+        },
+        {
+          "Barcode": "7001",
+          "Uom": "box | Box",
+          "ExpectedName": "7001"
+        }
+      ]
+    }
+  ],
+  "multidocuments": [
+    {
+      "Name": "MultiDocumentItem",
+      "ArabicName": "MultiDocumentItem",
+      "Type": "Inventory",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Not Applicable",
+      "Uom": "Each",
+      "Documents": [
+        {
+          "DocumentType": "Civil Id",
+          "DocumentNumber": "CID60017001",
+          "DateOfIssue": "01-Jan-2025",
+          "PlaceOfIssue": "Kuwait",
+          "DateOfExpiry": "31-Dec-2025",
+          "ActualName": "Civil Id (CID60017001)",
+          "ExpectedName": "Civil Id (CID60017001)"
+        },
+        {
+          "DocumentType": "Contract",
+          "DocumentNumber": "C600017001",
+          "DateOfIssue": "01-Jan-2025",
+          "PlaceOfIssue": "Kuwait",
+          "DateOfExpiry": "31-Dec-2025",
+          "ActualName": "Contract (C600017001)",
+          "ExpectedName": "Contract (C600017001)"
+        }
+      ]
+    }
+  ],
+  "accountsetup": [
+    {
+      "Name": "AccountsetupItem",
+      "ArabicName": "AccountsetupItem",
+      "Type": "Inventory",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Not Applicable",
+      "Uom": "Each",
+      "RevenueAccount": "11110 | Cash on Hand",
+      "InventoryAccount": "11110 | Cash on Hand",
+      "CostofGoodsSoldAccount": "11110 | Cash on Hand",
+      "AdjustmentAccount": "11110 | Cash on Hand",
+      "ExpenseAccount": "11110 | Cash on Hand",
+      "InventorySuspenseAccount": "11110 | Cash on Hand",
+      "StoretoStoreTransferAccount": "11110 | Cash on Hand",
+      "WorkinProgressAccount": "11110 | Cash on Hand"
+    }
+  ],
+  "dimensions": [
+    {
+      "Name": "MultiDimensionItem",
+      "ArabicName": "MultiDimensionItem",
+      "Type": "Inventory",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Not Applicable",
+      "Uom": "Each",
+      "Colors": [
+        {
+          "ColorCode": "B",
+          "ColorName": "Black",
+          "ColorArabicName": "Black",
+          "ActualName": "Black B",
+          "ExpectedName": "Black"
+        },
+        {
+          "ColorCode": "P",
+          "ColorName": "Pink",
+          "ColorArabicName": "Pink",
+          "ActualName": "Pink P",
+          "ExpectedName": "Pink"
+        }
+      ],
+      "Sizes": [
+        {
+          "SizeCode": "M",
+          "SizeName": "Medium",
+          "SizeArabicName": "Medium",
+          "ActualName": "Medium M",
+          "ExpectedName": "Medium"
+        },
+        {
+          "SizeCode": "L",
+          "SizeName": "Large",
+          "SizeArabicName": "Large",
+          "ActualName": "Large L",
+          "ExpectedName": "Large"
+        }
+      ]
+    }
+  ],
+  "keyinfo": [
+    {
+      "Name": "ItemwithKeyInfo",
+      "ArabicName": "ItemwithKeyInfo",
+      "Type": "Inventory",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Not Applicable",
+      "Uom": "Each",
+      "ItemGroup": "01 | Consumables",
+      "ItemCategory": "1 | Default",
+      "Brand": "1 | Taihan",
+      "SalesPrice": "100",
+      "PurchasePrice": "90",
+      "Description": "AllDetailsItem",
+      "ManufacturerName": "Grand",
+      "ManufacturerPartNum": "4896",
+      "MaximumStockLevel": "1000",
+      "MinimumStockLevel": "10",
+      "ReorderStockLevel": "100",
+      "MaximumReorder": "100",
+      "MinimumReorder": "50"
+    }
+  ],
+  "update": [
+    {
+      "Name": "InventoryWeightageAllTab",
+      "ArabicName": "جرد",
+      "ItemGroup": "01 | Consumables",
+      "ItemCategory": "1 | Default",
+      "Brand": "1 | Taihan",
+      "SalesPrice": "150",
+      "PurchasePrice": "120",
+      "Description": "UpdateItem",
+      "ManufacturerName": "Grand",
+      "ManufacturerPartNum": "4896",
+      "MaximumStockLevel": "1000",
+      "MinimumStockLevel": "10",
+      "ReorderStockLevel": "100",
+      "MaximumReorder": "100",
+      "MinimumReorder": "50",
+      "SubItem": "000001 | HSS DRILL BIT 6MM",
+      "Qty": "2",
+      "ExpectedQty": "2 Each",
+      "ConversionFactor": 5,
+      "Supplier": "Al Khrinej Instruments & Equipment Est",
+      "PurchaseRateCurrency": "KWD | Kuwaiti Dinar",
+      "Uom": "EA | Each",
+      "PurchaseUnitPrice": 120,
+      "UnitPrice": "120",
+      "BinLocation": "New Main Store",
+      "Barcode": "9001",
+      "DocumentNumber": "CID60018001",
+      "ColorCode": "G",
+      "ColorName": "Green",
+      "SizeCode": "XL",
+      "SizeName": "Extra Large",
+      "RevenueAccount": "11112 | PDC Clearing A/c",
+      "InventoryAccount": "11112 | PDC Clearing A/c",
+      "CostofGoodsSoldAccount": "11112 | PDC Clearing A/c",
+      "AdjustmentAccount": "11112 | PDC Clearing A/c",
+      "ExpenseAccount": "11112 | PDC Clearing A/c",
+      "InventorySuspenseAccount": "11112 | PDC Clearing A/c",
+      "StoretoStoreTransferAccount": "11112 | PDC Clearing A/c",
+      "WorkinProgressAccount": "11112 | PDC Clearing A/c"
+    }
+  ],
+  "Validate": [
+    {
+      "Name": "Failed Item",
+      "ArabicName":  "Failed Item"
+    }
+  ],
+  "delete": [
+    {
+      "Name": "InventoryWeightage"
+    },
+    {
+      "Name": "InventoryFifo"
+    },
+    {
+      "Name": "InventoryLifo"
+    },
+    {
+      "Name": "ServiceWeightage"
+    },
+    {
+      "Name": "ServiceFifo"
+    },
+    {
+      "Name": "ServiceLifo"
+    },
+    {
+      "Name": "BOMWeightage"
+    },
+    {
+      "Name": "BOMWeightagewithcomponent"
+    },
+    {
+      "Name": "MultiUOMItem"
+    },
+    {
+      "Name": "MultiSupplierItem"
+    },
+    {
+      "Name": "MultiPricelistItem"
+    },
+    {
+      "Name": "MultiWarehouseItem"
+    },
+    {
+      "Name": "MultiBarcodeItem"
+    },
+    {
+      "Name": "MultiDocumentItem"
+    },
+    {
+      "Name": "AccountsetupItem"
+    },
+    {
+      "Name": "MultiDimensionItem"
+    },
+    {
+      "Name": "ItemwithKeyInfo"
+    }
+  ],
+  "item": [
+    {
+      "Name": "InventoryWeightageAllTab",
+      "ArabicName": "InventoryWeightageAllTab",
+      "Type": "Bill Of Material",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Not Applicable",
+      "Uom": "Each",
+      "ItemGroup": "01 | Consumables",
+      "ItemCategory": "1 | Default",
+      "Brand": "1 | Taihan",
+      "SalesPrice": "100",
+      "PurchasePrice": "90",
+      "Description": "AllDetailsItem",
+      "ManufacturerName": "Grand",
+      "ManufacturerPartNum": "4896",
+      "MaximumStockLevel": "1000",
+      "MinimumStockLevel": "10",
+      "ReorderStockLevel": "100",
+      "MaximumReorder": "100",
+      "MinimumReorder": "50",
+      "RevenueAccount": "11110 | Cash on Hand",
+      "InventoryAccount": "11110 | Cash on Hand",
+      "CostofGoodsSoldAccount": "11110 | Cash on Hand",
+      "AdjustmentAccount": "11110 | Cash on Hand",
+      "ExpenseAccount": "11110 | Cash on Hand",
+      "InventorySuspenseAccount": "11110 | Cash on Hand",
+      "StoretoStoreTransferAccount": "11110 | Cash on Hand",
+      "WorkinProgressAccount": "11110 | Cash on Hand",
+      "SubItems": [
+        {
+          "Qty": "1",
+          "SubItem": "000002 | HSS DRILL BIT 6MM 1",
+          "ActualName": "HSS DRILL BIT 6MM 1 000002",
+          "ExpectedName": "HSS DRILL BIT 6MM 1"
+        },
+        {
+          "Qty": "1",
+          "SubItem": "000004 | PLUM B 6MM",
+          "ActualName": "PLUM B 6MM 000004",
+          "ExpectedName": "PLUM B 6MM"
+        }
+      ],
+      "ItemUoms": [
+        {
+          "Uom": "box | Box",
+          "ConversionFactor": 5,
+          "ActualName": "Box box",
+          "ExpectedName": "Box"
+        },
+        {
+          "Uom": "BAG | BAGS",
+          "ConversionFactor": 2,
+          "ActualName": "BAGS BAG",
+          "ExpectedName": "BAGS"
+        }
+      ],
+      "Suppliers": [
+        {
+          "Supplier": "A008 | Abraj Al Adal",
+          "PurchaseRateCurrency": "KWD | Kuwaiti Dinar",
+          "Uom": "EA | Each",
+          "PurchaseUnitPrice": "100",
+          "ManufacturerPartNum": "1001",
+          "ManufacturerBarcode": "6001",
+          "ActualName": "A008",
+          "ExpectedName": "A008"
+        },
+        {
+          "Supplier": "A009 | Alita Project",
+          "PurchaseRateCurrency": "KWD | Kuwaiti Dinar",
+          "Uom": "EA | Each",
+          "PurchaseUnitPrice": "200",
+          "ManufacturerPartNum": "2001",
+          "ManufacturerBarcode": "7001",
+          "ActualName": "A009",
+          "ExpectedName": "A009"
+        }
+      ],
+      "itemPriceLists": [
+        {
+          "PriceList": "PL01 | Default Price List",
+          "Uom": "EA | Each",
+          "UnitPrice": "100",
+          "MinimumUnitPrice": "100",
+          "MaximumUnitPrice": "120",
+          "DefaultDiscountInPercent": "10",
+          "MaximumDiscountInPercent": "15",
+          "ActualName": "Default Price List",
+          "ExpectedName": "Default Price List"
+        },
+        {
+          "PriceList": "PL02 | Grand",
+          "Uom": "EA | Each",
+          "UnitPrice": "150",
+          "MinimumUnitPrice": "150",
+          "MaximumUnitPrice": "200",
+          "DefaultDiscountInPercent": "10",
+          "MaximumDiscountInPercent": "15",
+          "ActualName": "Grand",
+          "ExpectedName": "Grand"
+        }
+      ],
+      "Warehouses": [
+        {
+          "Warehouse": "WH01 | Main Stores - HO",
+          "BinLocation": "Main Store",
+          "MaximumStockLevel": "100",
+          "MinimumStockLevel": "100",
+          "ReorderStockLevel": "100",
+          "MaximumReorder": "100",
+          "MinimumReorder": "100",
+          "ActualName": "Main Stores - HO WH01",
+          "ExpectedName": "Main Stores - HO"
+        },
+        {
+          "Warehouse": "WH02 | Head Office",
+          "BinLocation": "Head Office",
+          "MaximumStockLevel": "100",
+          "MinimumStockLevel": "100",
+          "ReorderStockLevel": "100",
+          "MaximumReorder": "100",
+          "MinimumReorder": "100",
+          "ActualName": "Head Office WH02",
+          "ExpectedName": "Head Office"
+        }
+      ],
+      "Barcodes": [
+        {
+          "Barcode": "6001",
+          "Uom": "EA | Each",
+          "ExpectedName": "6001"
+        },
+        {
+          "Barcode": "7001",
+          "Uom": "box | Box",
+          "ExpectedName": "7001"
+        }
+      ],
+      "Documents": [
+        {
+          "DocumentType": "Civil Id",
+          "DocumentNumber": "CID60017001",
+          "DateOfIssue": "01-Jan-2025",
+          "PlaceOfIssue": "Kuwait",
+          "DateOfExpiry": "31-Dec-2025",
+          "ActualName": "Civil Id (CID60017001)",
+          "ExpectedName": "Civil Id (CID60017001)"
+        },
+        {
+          "DocumentType": "Contract",
+          "DocumentNumber": "C600017001",
+          "DateOfIssue": "01-Jan-2025",
+          "PlaceOfIssue": "Kuwait",
+          "DateOfExpiry": "31-Dec-2025",
+          "ActualName": "Contract (C600017001)",
+          "ExpectedName": "Contract (C600017001)"
+        }
+      ],
+      "Colors": [
+        {
+          "ColorCode": "B",
+          "ColorName": "Black",
+          "ColorArabicName": "Black",
+          "ActualName": "Black B",
+          "ExpectedName": "Black"
+        },
+        {
+          "ColorCode": "P",
+          "ColorName": "Pink",
+          "ColorArabicName": "Pink",
+          "ActualName": "Pink P",
+          "ExpectedName": "Pink"
+        }
+      ],
+      "Sizes": [
+        {
+          "SizeCode": "M",
+          "SizeName": "Medium",
+          "SizeArabicName": "Medium",
+          "ActualName": "Medium M",
+          "ExpectedName": "Medium"
+        },
+        {
+          "SizeCode": "L",
+          "SizeName": "Large",
+          "SizeArabicName": "Large",
+          "ActualName": "Large L",
+          "ExpectedName": "Large"
+        }
+      ]
+    }
+  ],
+  "itemquery": [
+    {
+      "Code": "123",
+      "Name": "MUG",
+      "ItemGroup": "Subcontract - Civil",
+      "ItemCategory": "Service Item Lease",
+      "Brand": "TOYOTA"
+    }
+  ]
+}
+  

@@ -1,0 +1,39 @@
+﻿{
+  "createLoanRequest": [
+    {
+      "repaymentStartPeriod": "Apr-2025",
+      "loanType": "Car Loan",
+      "loanAmt": "100",
+      "numberOfInstallments": "5",
+      "remarks": "test",
+      "empName": "Vaibhav Chavan"
+    }
+  ],
+
+  "createBenefitClaim": [
+    {
+      "claimDate": "24-02-2025",
+      "benefitScheme": "Self | Health Insurance",
+      "claimAmount": "20",
+      "paymentType": "Pay Out Side Payroll",
+      "remarks": "test",
+      "empName": "Vaibhav Chavan"
+    }
+  ],
+  "createTravelRequest": [
+    {
+      "fromDate": "23-02-2025",
+      "uptoDate": "24-02-2025",
+      "category": "B",
+      "country": "Kuwait",
+      "city": "Kuwait",
+      "ticketDestination": "Kolkata",
+      "ticketAmt": "10",
+      "purpose": "Business",
+      "paymentType": "Pay With Payroll",
+      "remarks": "test",
+      "empName": "Vaibhav Chavan"
+
+    }
+  ]
+}
