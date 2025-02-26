@@ -95,7 +95,7 @@ namespace Enfinity.Erp.Test.UI
         #endregion
 
         #region Contact Person Tab
-        private By addPerson = By.XPath("div[title=\"Add a row\"]");
+        private By addPerson = By.XPath("(//i[contains(@class, 'dx-icon-edit-button-addrow')])");
         private By prefix = By.XPath("(//input[contains(@id, '_Prefix')])");
         private By firstName = By.XPath("(//input[contains(@id, '_FirstName')])");
         private By lastName = By.XPath("(//input[contains(@id, '_LastName')])");
@@ -103,8 +103,11 @@ namespace Enfinity.Erp.Test.UI
         private By gender = By.XPath("(//input[contains(@id, '_Gender')])");
         private By mobileNumber = By.XPath("(//input[contains(@id, '_MobileNumber')])");
         private By telNumber = By.XPath("(//input[contains(@id, '_TelNumber')])");
-        private By emailId = By.XPath("(//input[contains(@id, '_Email')])");
-        private By savePerson = By.XPath("(//input[contains(@id, '_Prefix')])");
+        private By emailId = By.XPath("(//input[contains(@id, '_Email')])[2]");
+        private By defaultId = By.XPath("(//div[contains(@id, '_Default')])");
+        private By portalAccess = By.XPath("(//div[contains(@id, '_PortalAccess')])");
+        private By freezed = By.XPath("(//div[contains(@id, '_Freezed')])");
+        private By savePerson = By.XPath("(//span[@class='dx-button-text'][normalize-space()='Save'])[2]");
         #endregion
 
         #endregion
@@ -409,7 +412,23 @@ namespace Enfinity.Erp.Test.UI
             //_driver.FindElement(customerCode).SendKeys(data);
             ClearAndProvide(emailId, data);
         }
-        #endregion 
+        public void ClickOnDefault()
+        {
+            _driver.FindElement(defaultId).Click();
+        }
+        public void ClickOnPortalAccess()
+        {
+            _driver.FindElement(portalAccess).Click();
+        }
+        public void ClickOnFreezed()
+        {
+            _driver.FindElement(freezed).Click();
+        }
+        public void ClickOnSavePerson()
+        {
+            _driver.FindElement(savePerson).Click();
+        }
+        #endregion
 
         #endregion
     }

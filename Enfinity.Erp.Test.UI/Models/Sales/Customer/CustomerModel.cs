@@ -51,7 +51,7 @@ namespace Enfinity.Erp.Test.UI
         public string ShippingState { get; set; }
         public string ShippingZipcode { get; set; }
         public string ShippingContactPerson { get; set; }
-        public List<CustomerContactPerson> ContactPersons { get; set; }
+        public List<CustomerContactPerson> Persons { get; set; }
         public List<CustomerDocument> Documents { get; set; }
     }
     public class CustomerContactPerson

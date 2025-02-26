@@ -16,13 +16,13 @@ using System.Xml.Linq;
 namespace Enfinity.Erp.Test.UI
 {
     [TestFixture]
-    public class CustomerTest: BaseTest
+    public class CustomerTest : BaseTest
     {
         private string Product = "Erp";
 
         #region Constructor
         public CustomerTest()
-        {}
+        { }
         #endregion
 
         #region Create new customer
@@ -121,8 +121,8 @@ namespace Enfinity.Erp.Test.UI
                 cp.ClickOnCreditCheckMode();
                 CommonPageActions.SelectDropDownOption(customer.CreditCheckMode);
                 cp.ClickOnCreditRating();
-                CommonPageActions.SelectDropDownOption(customer.CreditrRating);                
-                cp.ProvideCreditLimitDays(customer.CreditLimitDays);                
+                CommonPageActions.SelectDropDownOption(customer.CreditrRating);
+                cp.ProvideCreditLimitDays(customer.CreditLimitDays);
 
                 cp.ClickOnSetDefaults();
                 cp.ClickOnSalesman();
@@ -174,7 +174,8 @@ namespace Enfinity.Erp.Test.UI
             var sp = new SalesPage(_driver);
             var cp = new CustomerPage(_driver);
             var ssp = new SalesSetupPage(_driver);
-            var clp = new CustomerListingPage(_driver);            
+            var clp = new CustomerListingPage(_driver);
+            ScrollHelper scrollHelper = new ScrollHelper(_driver);
 
             foreach (var customer in customers)
             {
@@ -200,10 +201,20 @@ namespace Enfinity.Erp.Test.UI
                 cp.ClickOnBillingCountry();
                 CommonPageActions.SelectDropDownOption(customer.BillingCountry);
                 cp.ClickOnBillingState();
-                CommonPageActions.SelectDropDownOption(customer.BillingState);
+                CommonPageActions.SelectDropDownOption(customer.BillingState);              
                 cp.ProvideBillingCity(customer.BillingCity);
-                cp.ProvideBillingZipCode(customer.BillingZipcode);
+
+                IWebElement element = _driver.FindElement(By.XPath("(//input[contains(@id, '_BillingContactPerson')])"));
+                scrollHelper.ScrollToElement(element);
                 cp.ProvideBillingContactPerson(customer.BillingContactPerson);
+                cp.ProvideBillingZipCode(customer.BillingZipcode);
+
+                //IWebElement saveElement = _driver.FindElement(By.XPath("//span[contains(@id, '_ShippingAddress')]"));
+                //scrollHelper.ScrollToElement(saveElement);
+
+                IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
+                js.ExecuteScript("window.scrollTo(0, -1500);");
+
                 cp.ClickOnSaveAddress();
                 await WaitHelper.WaitForSeconds(1);
                 #endregion
@@ -245,12 +256,13 @@ namespace Enfinity.Erp.Test.UI
             #endregion
 
             var customerFile = FileHelper.GetDataFile("Erp", "Sales", "Customer", "CustomerData");
-            var customers = JsonHelper.ConvertJsonListDataModel<CustomerModel>(customerFile, "address");
+            var customers = JsonHelper.ConvertJsonListDataModel<CustomerModel>(customerFile, "multipersons");
 
             var sp = new SalesPage(_driver);
             var cp = new CustomerPage(_driver);
             var ssp = new SalesSetupPage(_driver);
             var clp = new CustomerListingPage(_driver);
+            ScrollHelper scrollHelper = new ScrollHelper(_driver);
 
             foreach (var customer in customers)
             {
@@ -269,13 +281,113 @@ namespace Enfinity.Erp.Test.UI
                 cp.ClickOnSaveCustomer();
                 await WaitHelper.WaitForSeconds(1);
                 cp.ClickOnContactPersonTab();
-                Thread.Sleep(5000);
+                await WaitHelper.WaitForSeconds(1);
+
+                #region Provide the values of contact person and click on save             
+                foreach (var person in customer.Persons)
+                {
+                    cp.ClickOnAdd();
+                    await WaitHelper.WaitForSeconds(1);
+                    cp.ClickOnPrefix();
+                    CommonPageActions.SelectDropdownOption(person.Prefix);
+                    cp.ProvideFirstName(person.FirstName);
+                    cp.ProvideLastName(person.LastName);
+                    cp.ProvideJobTitle(person.JobTitle);
+
+                    cp.ClickOnGender();
+                    await WaitHelper.WaitForSeconds(1);
+                    CommonPageActions.SelectDropdownOption(person.Gender);
+
+                    IWebElement emaiElement = _driver.FindElement(By.XPath("(//input[contains(@id, '_Email')])[2]"));
+                    scrollHelper.ScrollToElement(emaiElement);
+                    cp.ProvideEmailAddress(person.Email);
+                    cp.ProvideMobileNumber(person.Mobile);
+                    cp.ProvideTelNumber(person.Telephone);
+
+                    //IWebElement freezedElement = _driver.FindElement(By.XPath("(//div[contains(@id, '_Freezed')])"));
+                    //scrollHelper.ScrollToElement(emaiElement);
+                    //cp.ClickOnFreezed();
+
+                    //cp.ClickOnDefault();
+                    //cp.ClickOnPortalAccess();                    
+                    cp.ClickOnSavePerson();
+                    await WaitHelper.WaitForSeconds(2);
+
+                    #region Validate the contact person name 
+                    IWebElement personName = _driver.FindElement(By.XPath($"//div//h2[contains(text(),'{person.Prefix + " " + person.FirstName + " " + person.LastName}')]"));
+                    string actualName = personName.Text;
+                    ClassicAssert.AreEqual(person.Prefix + " " + person.FirstName + " " + person.LastName, actualName);
+                    #endregion
+                }
+                #endregion
+            }
+        }
+        #endregion
+
+        #region Create new customer with document details
+        [Test, Category("Sales"), Order(5)]
+        public async Task CreateNewCustomerWithDocument()
+        {
+            #region MyRegion
+            Login(Product);
+            #endregion
+
+            var customerFile = FileHelper.GetDataFile("Erp", "Sales", "Customer", "CustomerData");
+            var customers = JsonHelper.ConvertJsonListDataModel<CustomerModel>(customerFile, "multidocuments");
+
+            var sp = new SalesPage(_driver);
+            var cp = new CustomerPage(_driver);
+            var ssp = new SalesSetupPage(_driver);
+            var clp = new CustomerListingPage(_driver);
+            ScrollHelper scrollHelper = new ScrollHelper(_driver);
+
+            foreach (var customer in customers)
+            {
+                sp.ClickOnSalesModule();
+                await WaitHelper.WaitForSeconds(3);
+
+                CommonPageActions.ClickOnSetups();
+                ssp.ClickOnCustomer();
+                clp.ClickOnNewCustomer();
+
+                //cp.ProvideCustomerCode(customer.Code);
+                cp.ProvideCustomerName(customer.Name);
+                cp.ProvideCustomerArabicName(customer.ArabicName);
+                //cp.ClickOnCurrency();
+                //CommonPageActions.SelectDropdownOption(customer.Currency);
+                cp.ClickOnSaveCustomer();
+                await WaitHelper.WaitForSeconds(1);
+                cp.ClickOnDocumentsTab();                 
+
+                #region Provide the values of document and click on save             
+                foreach (var document in customer.Documents)
+                {
+                    cp.ClickOnAdd();
+                    await WaitHelper.WaitForSeconds(1);                             
+                    
+                    CommonPageActions.clickOnDocumentType();
+                    CommonPageActions.SelectDropDownOption(document.DocumentType);
+                    CommonPageActions.provideDocumentNumber(document.DocumentNumber);
+                    CommonPageActions.provideDateOfIssue(document.DateOfIssue);
+                    CommonPageActions.providePlaceOfIssue(document.PlaceOfIssue);
+                    CommonPageActions.provideDateOfExpiry(document.DateOfExpiry);
+
+                    CommonPageActions.clickSaveDocument();
+                    await WaitHelper.WaitForSeconds(1);
+
+                    #region Validating the document type and number added or not
+                    IWebElement documentName = _driver.FindElement(By.XPath($"//div//p//strong[contains(text(),'{document.DocumentType +" ("+ document.DocumentNumber +")"}')]"));
+                    string actualName = documentName.Text;
+                    ClassicAssert.AreEqual(document.DocumentType + " (" + document.DocumentNumber + ")", actualName);
+                    #endregion
+                }
+                #endregion
             }
         }
         #endregion
 
         #region Delete new customer
-        [Test, Category("Sales"), Order(5)]
+        [Test, Category("Sales"), Order(6)]
         public async Task DeleteCustomer()
         {
             #region MyRegion

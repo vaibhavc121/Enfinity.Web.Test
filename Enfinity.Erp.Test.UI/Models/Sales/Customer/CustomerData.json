@@ -45,23 +45,70 @@
       "ArabicName": "Customer Address",
       "BillingAddress1": "3021 Nyasia Shore",
       "BillingAddress2": "Fort Wayne",
-      "BillingCountry": "Syrian Arab Republic",
-      "BillingState": "Ethiopia",
+      "BillingCountry": "Finland",
+      "BillingState": "Netherlands",
       "BillingCity": "Alabama",
       "BillingZipcode": "43264",
       "BillingContactPerson": "Ali Subha",
       "ShippingAddress1": "3021 Nyasia Shore",
       "ShippingAddress2": "Fort Wayne",
-      "ShippingCountry": "Syrian Arab Republic",
-      "ShippingState": "Ethiopia",
+      "ShippingCountry": "Finland",
+      "ShippingState": "Netherlands",
       "ShippingCity": "Alabama",
       "ShippingZipcode": "43264",
       "ShippingContactPerson": "Ali Subha"
     }
   ],
-  "contactperson": [
+  "multipersons": [
     {
-
+      "Code": "C0001",
+      "Name": "Multiple Contact Person",
+      "ArabicName": "Multiple Contact Person",
+      "persons": [
+        {
+          "Prefix": "Mr.",
+          "FirstName": "Kareem",
+          "LastName": "Amiri",
+          "JobTitle": "Salesman",
+          "Gender": "Male",
+          "Mobile": "9865254245",
+          "Telephone": "964-452415",
+          "Email": "kareem@grand.com"
+        },
+        {
+          "Prefix": "Mr.",
+          "FirstName": "Salim",
+          "LastName": "Tabatabai",
+          "JobTitle": "Salesman",
+          "Gender": "Male",
+          "Mobile": "9865254246",
+          "Telephone": "964-452416",
+          "Email": "salim@grand.com"
+        }
+      ]
+    }
+  ],
+  "multidocuments": [
+    {
+      "Code": "C0001",
+      "Name": "Multiple Documents",
+      "ArabicName": "Multiple Documents",
+      "Documents": [
+        {
+          "DocumentType": "Civil Id",
+          "DocumentNumber": "CID60017001",
+          "DateOfIssue": "01-Jan-2025",
+          "PlaceOfIssue": "Kuwait",
+          "DateOfExpiry": "31-Dec-2025"          
+        },
+        {
+          "DocumentType": "Sponsor Contract",
+          "DocumentNumber": "C600017001",
+          "DateOfIssue": "01-Jan-2025",
+          "PlaceOfIssue": "Kuwait",
+          "DateOfExpiry": "31-Dec-2025"          
+        }
+      ]
     }
   ],
   "delete": [
@@ -73,6 +120,15 @@
     },
     {
       "Name": "KeyInfoCustomer"
+    },
+    {
+      "Name": "Customer Address"
+    },
+    {
+      "Name": "Multiple Contact Person"
+    },
+    {
+      "Name": "Multiple Documents"
     }
   ]
 }

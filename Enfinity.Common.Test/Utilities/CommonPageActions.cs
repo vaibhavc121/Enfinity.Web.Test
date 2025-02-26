@@ -65,6 +65,34 @@ namespace Enfinity.Common.Test
         }
         #endregion
 
+        #region Documents Action Methods         
+        public static void clickOnDocumentType()
+        {
+            BaseTest._driver.FindElement(By.XPath("(//input[contains(@id, 'DocumentTypeId')])")).Click();
+        }
+        public static void provideDocumentNumber(string documentnum)
+        {
+            //_driver.FindElement(documentNumber).SendKeys(documentnum);
+            ClearAndProvide(By.XPath("(//input[contains(@id, 'DocumentNumber')])"), documentnum);
+        }
+        public static void provideDateOfIssue(string date)
+        {
+            BaseTest._driver.FindElement(By.XPath("(//input[contains(@id, 'DateOfIssue')])")).SendKeys(date);
+        }
+        public static void provideDateOfExpiry(string date)
+        {
+            BaseTest._driver.FindElement(By.XPath("(//input[contains(@id, 'DateOfExpiry')])")).SendKeys(date);
+        }
+        public static void providePlaceOfIssue(string place)
+        {
+            BaseTest._driver.FindElement(By.XPath("(//input[contains(@id, 'PlaceOfIssue')])")).SendKeys(place);
+        }
+        public static void clickSaveDocument()
+        {
+            BaseTest._driver.FindElement(By.XPath("(//span[normalize-space()='Save'])[2]")).Click();
+        }
+        #endregion
+
         #region listing filter result (Absolute xpath)
         public static String Result5()
         {

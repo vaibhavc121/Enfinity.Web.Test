@@ -42,5 +42,21 @@ namespace Enfinity.Hrms.Test.UI.Models.SelfService
         public string empName { get; set; }
 
     }
+    public class PromotionRequestModel
+    {
+        public string txnDate { get; set; }
+        public string effectiveDate { get; set; }
+        public string type { get; set; }
+        public string newDepartment { get; set; }
+        public string newDesignation { get; set; }
+        public string newWorkLocation { get; set; }
+        public string newProject { get; set; }
+        public string description { get; set; }
+        public string salaryComponent { get; set; }
+        public string incrementAmount { get; set; }
+        public string effectiveFromDate { get; set; }
+        public string effectiveToDate { get; set; }
+
+    }
 
 }

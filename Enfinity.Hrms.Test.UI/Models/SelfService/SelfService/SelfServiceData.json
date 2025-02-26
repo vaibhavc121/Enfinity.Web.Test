@@ -35,5 +35,41 @@
       "empName": "Vaibhav Chavan"
 
     }
+  ],
+  "createPromotionRequest": [
+
+    {
+      "txnDate": "01-02-2025",
+      "effectiveDate": "01-02-2025",
+      "type": "Promotion",
+      "newDepartment": "003 | prod",
+      "newDesignation": "SR Accountant",
+      "newWorkLocation": "Salmiya House",
+      "newProject": "003 | project1",
+      "description": "test",
+      "salaryComponent": "SC001 | Basic Salary",
+      "incrementAmount": "100",
+      "effectiveFromDate": "01-02-2025",
+      "effectiveToDate": "31-03-2025"
+
+    },
+    {
+      "txnDate": "02-02-2025",
+      "effectiveDate": "02-02-2025",
+      "type": "Promotion",
+      "newDepartment": "004 | marketing",
+      "newDesignation": "Senior Optimization Agent",
+      "newWorkLocation": "Suleman House",
+      "newProject": "004 | Project2",
+      "description": "test",
+      "salaryComponent": "SC001 | Basic Salary",
+      "incrementAmount": "100",
+      "effectiveFromDate": "01-02-2025",
+      "effectiveToDate": "31-03-2025"
+
+    }
+
+
   ]
+
 }
