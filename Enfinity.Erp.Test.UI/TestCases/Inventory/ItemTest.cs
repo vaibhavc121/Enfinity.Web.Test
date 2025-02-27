@@ -27,7 +27,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region create new item
         [Test, Category("Inventory"), Order(1)]
-        public void createNewItem()
+        public void CreateItem()
         {
             #region MyRegion
             Login(Product);
@@ -76,7 +76,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Create new item with KeyInfo Details
         [Test, Category("Inventory"), Order(2)]
-        public void CreateNewItemWithKeyInfoDetails()
+        public void CreateItemWithKeyInfoDetail()
         {
             #region MyRegion
             Login(Product);
@@ -146,7 +146,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Create new item with Multiple BOM Details  
         [Test, Category("Inventory"), Order(3)]
-        public void CreateNewItemWithBOMComponent()
+        public void CreateItemWithBOMDetail()
         {
             #region MyRegion
             Login(Product);
@@ -207,7 +207,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Create new item with Multiple UOM Details 
         [Test, Category("Inventory"), Order(4)]
-        public void CreateNewItemWithMultipleUOM()
+        public void CreateItemWithUOMDetail()
         {
             #region MyRegion
             Login(Product);
@@ -265,7 +265,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Create new item with Multiple Suppliers Details 
         [Test, Category("Inventory"), Order(5)]
-        public void CreateNewItemWithMultipleSuppliers()
+        public void CreateItemWithSupplierDetail()
         {
             #region MyRegion
             Login(Product);
@@ -329,7 +329,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Create new item with Multiple PriceLists Details 
         [Test, Category("Inventory"), Order(6)]
-        public void CreateNewItemWithMultiplePriceLists()
+        public void CreateItemWithPriceListDetail()
         {
             #region MyRegion
             Login(Product);
@@ -391,7 +391,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Create new item with Multiple Warehouses Details 
         [Test, Category("Inventory"), Order(7)]
-        public void CreateNewItemWithMultipleWarehouses()
+        public void CreateItemWithWarehouseDetail()
         {
             #region MyRegion
             Login(Product);
@@ -453,7 +453,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Create new item with Multiple Barcodes Details 
         [Test, Category("Inventory"), Order(8)]
-        public void CreateNewItemWithMultipleBarcodes()
+        public void CreateItemWithBarcodeDetail()
         {
             #region MyRegion
             Login(Product);
@@ -509,7 +509,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Create new item with Multiple Documents Details
         [Test, Category("Inventory"), Order(9)]
-        public void CreateNewItemWithMultipleDocuments()
+        public void CreateItemWithDocumentDetail()
         {
             #region MyRegion
             Login(Product);
@@ -567,7 +567,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Create new item with Account Setup Details
         [Test, Category("Inventory"), Order(10)]
-        public void CreateNewItemWithAccountSetup()
+        public void CreateItemWithAccountSetupDetail()
         {
             #region MyRegion
             Login(Product);
@@ -631,7 +631,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Create new item with Dimensions Details
         [Test, Category("Inventory"), Order(11)]
-        public void CreateNewItemWithDimensions()
+        public void CreateItemWithDimensionDetail()
         {
             #region MyRegion
             Login(Product);
@@ -708,7 +708,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Create new item with All Tabs Details
         [Test, Category("Inventory"), Order(13)]
-        public void CreateItemWithAllTab()
+        public void CreateItemWithAllTabDetail()
         {
             #region MyRegion
             Login(Product);
@@ -1037,7 +1037,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Update an item with Key Info Details
         [Test, Category("Inventory"), Order(14)]
-        public void UpdateItemKeyInfoDetails()
+        public void UpdateItemWithKeyInfoDetail()
         {
             #region MyRegion
             Login(Product);
@@ -1097,7 +1097,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Update an item with BOM Details
         [Test, Category("Inventory"), Order(15)]
-        public void UpdateItemBOMDetails()
+        public void UpdateItemWithBOMDetail()
         {
             #region MyRegion
             Login(Product);
@@ -1153,7 +1153,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Update an item with UOM Details
         [Test, Category("Inventory"), Order(16)]
-        public void UpdateItemUOMDetails()
+        public void UpdateItemWithUOMDetail()
         {
             #region MyRegion
             Login(Product);
@@ -1214,7 +1214,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Update an item with Supplier Details
         [Test, Category("Inventory"), Order(17)]
-        public void UpdateItemSupplierDetails()
+        public void UpdateItemWithSupplierDetail()
         {
             #region MyRegion
             Login(Product);
@@ -1280,7 +1280,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Update an item with Price Lists Details
         [Test, Category("Inventory"), Order(18)]
-        public void UpdateItemPriceListDetails()
+        public void UpdateItemWithPriceListDetail()
         {
             #region MyRegion
             Login(Product);
@@ -1334,7 +1334,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Update an item with Warehouse Details
         [Test, Category("Inventory"), Order(19)]
-        public void UpdateItemWarehouseDetails()
+        public void UpdateItemWithWarehouseDetail()
         {
             #region MyRegion
             Login(Product);
@@ -1393,7 +1393,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Update an item with Barcode Details
         [Test, Category("Inventory"), Order(20)]
-        public void UpdateItemBarcodeDetails()
+        public void UpdateItemWithBarcodeDetail()
         {
             #region MyRegion
             Login(Product);
@@ -1447,7 +1447,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Update an item with Document Details
         [Test, Category("Inventory"), Order(21)]
-        public void UpdateItemDocumentDetails()
+        public void UpdateItemWithDocumentDetail()
         {
             #region MyRegion
             Login(Product);
@@ -1502,7 +1502,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Update an item with Account Setup Details
         [Test, Category("Inventory"), Order(22)]
-        public void UpdateItemAccountSetupDetails()
+        public void UpdateItemWithAccountSetupDetail()
         {
             #region MyRegion
             Login(Product);
@@ -1559,7 +1559,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Update an item with Dimension Details
         [Test, Category("Inventory"), Order(23)]
-        public void UpdateItemDimensionDetails()
+        public void UpdateItemWithDimensionDetail()
         {
             #region MyRegion
             Login(Product);
@@ -1635,7 +1635,7 @@ namespace Enfinity.Erp.Test.UI
         }
         #endregion
 
-        #region create new item without Base UOM
+        #region create new item without Base UOM - Not allowed
         [Test, Category("Inventory"), Order(24)]
         public void createNewItemWithoutBaseUOM()
         {
@@ -1674,7 +1674,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Filter the data in Item Query
         [Test, Category("Inventory"), Order(25)]
-        public async Task FiltersOnItemQuery()
+        public async Task ApplyFiltersOnItemQuery()
         {
             #region MyRegion
             Login(Product);

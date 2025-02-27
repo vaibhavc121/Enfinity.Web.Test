@@ -99,16 +99,22 @@
           "DocumentNumber": "CID60017001",
           "DateOfIssue": "01-Jan-2025",
           "PlaceOfIssue": "Kuwait",
-          "DateOfExpiry": "31-Dec-2025"          
+          "DateOfExpiry": "31-Dec-2025"
         },
         {
           "DocumentType": "Sponsor Contract",
           "DocumentNumber": "C600017001",
           "DateOfIssue": "01-Jan-2025",
           "PlaceOfIssue": "Kuwait",
-          "DateOfExpiry": "31-Dec-2025"          
+          "DateOfExpiry": "31-Dec-2025"
         }
       ]
+    }
+  ],
+  "duplicate": [
+    {
+      "Code": "001",
+      "Name": "Adila Sharaf"
     }
   ],
   "delete": [

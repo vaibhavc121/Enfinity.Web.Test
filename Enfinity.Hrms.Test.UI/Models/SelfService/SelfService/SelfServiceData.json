@@ -39,13 +39,15 @@
   "createPromotionRequest": [
 
     {
+      //type- Promotion
       "txnDate": "01-02-2025",
-      "effectiveDate": "01-02-2025",
+      "effectiveDate": "01-03-2025",
+      "effectiveDate1": "01-Mar-2025",
       "type": "Promotion",
       "newDepartment": "003 | prod",
       "newDesignation": "SR Accountant",
       "newWorkLocation": "Salmiya House",
-      "newProject": "003 | project1",
+      "newProject": "003 | project0",
       "description": "test",
       "salaryComponent": "SC001 | Basic Salary",
       "incrementAmount": "100",
@@ -54,9 +56,28 @@
 
     },
     {
+      //type- change in status
       "txnDate": "02-02-2025",
-      "effectiveDate": "02-02-2025",
-      "type": "Promotion",
+      "effectiveDate": "01-04-2025",
+      "effectiveDate1": "01-Apr-2025",
+      "type": "Change In Status",
+      "newDepartment": "004 | marketing",
+      "newDesignation": "Senior Optimization Agent",
+      "newWorkLocation": "Suleman House",
+      "newProject": "004 | Project1",
+      "description": "test",
+      "salaryComponent": "SC001 | Basic Salary",
+      "incrementAmount": "100",
+      "effectiveFromDate": "01-02-2025",
+      "effectiveToDate": "31-03-2025"
+
+    },
+    {
+      //type- Work Location Change
+      "txnDate": "02-02-2025",
+      "effectiveDate": "01-05-2025",
+      "effectiveDate1": "01-May-2025",
+      "type": "Work Location Change",
       "newDepartment": "004 | marketing",
       "newDesignation": "Senior Optimization Agent",
       "newWorkLocation": "Suleman House",

@@ -46,6 +46,7 @@ namespace Enfinity.Hrms.Test.UI.Models.SelfService
     {
         public string txnDate { get; set; }
         public string effectiveDate { get; set; }
+        public string effectiveDate1 { get; set; }
         public string type { get; set; }
         public string newDepartment { get; set; }
         public string newDesignation { get; set; }

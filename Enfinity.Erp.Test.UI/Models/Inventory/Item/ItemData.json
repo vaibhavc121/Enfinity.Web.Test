@@ -6,7 +6,7 @@
       "Type": "Inventory",
       "CostingMethod": "Weighted Average",
       "TrackingMode": "Not Applicable",
-      "Uom": "Each"
+      "Uom": "001 | Piece"
     },
     {
       "Name": "InventoryFifo",
@@ -14,7 +14,7 @@
       "Type": "Inventory",
       "CostingMethod": "Fifo",
       "TrackingMode": "Not Applicable",
-      "Uom": "Each"
+      "Uom": "001 | Piece"
     },
     {
       "Name": "InventoryLifo",
@@ -22,7 +22,7 @@
       "Type": "Inventory",
       "CostingMethod": "Lifo",
       "TrackingMode": "Not Applicable",
-      "Uom": "Each"
+      "Uom": "001 | Piece"
     },
     {
       "Name": "ServiceWeightage",
@@ -30,7 +30,7 @@
       "Type": "Service",
       "CostingMethod": "Weighted Average",
       "TrackingMode": "Not Applicable",
-      "Uom": "Each"
+      "Uom": "001 | Piece"
     },
     {
       "Name": "ServiceFifo",
@@ -38,7 +38,7 @@
       "Type": "Service",
       "CostingMethod": "Fifo",
       "TrackingMode": "Not Applicable",
-      "Uom": "Each"
+      "Uom": "001 | Piece"
     },
     {
       "Name": "ServiceLifo",
@@ -46,7 +46,7 @@
       "Type": "Service",
       "CostingMethod": "Lifo",
       "TrackingMode": "Not Applicable",
-      "Uom": "Each"
+      "Uom": "001 | Piece"
     },
     {
       "Name": "BOMWeightage",
@@ -54,7 +54,71 @@
       "Type": "Bill Of Material",
       "CostingMethod": "Weighted Average",
       "TrackingMode": "Not Applicable",
-      "Uom": "Each"
+      "Uom": "001 | Piece"
+    },
+    {
+      "Name": "BOMFifo",
+      "ArabicName": "BOMFifo",
+      "Type": "Bill Of Material",
+      "CostingMethod": "Fifo",
+      "TrackingMode": "Not Applicable",
+      "Uom": "001 | Piece"
+    },
+    {
+      "Name": "BOMLifo",
+      "ArabicName": "BOMLifo",
+      "Type": "Bill Of Material",
+      "CostingMethod": "Lifo",
+      "TrackingMode": "Not Applicable",
+      "Uom": "001 | Piece"
+    },
+    {
+      "Name": "InventoryBatch",
+      "ArabicName": "InventoryBatch",
+      "Type": "Inventory",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Batch",
+      "Uom": "001 | Piece"
+    },
+    {
+      "Name": "InventorySerial",
+      "ArabicName": "InventorySerial",
+      "Type": "Inventory",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Serial",
+      "Uom": "001 | Piece"
+    },
+    {
+      "Name": "ServiceBatch",
+      "ArabicName": "ServiceBatch",
+      "Type": "Service",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Batch",
+      "Uom": "001 | Piece"
+    },
+    {
+      "Name": "ServiceSerial",
+      "ArabicName": "ServiceSerial",
+      "Type": "Service",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Serial",
+      "Uom": "001 | Piece"
+    },
+    {
+      "Name": "BOMBatch",
+      "ArabicName": "BOMBatch",
+      "Type": "Bill Of Material",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Batch",
+      "Uom": "001 | Piece"
+    },
+    {
+      "Name": "BOMSerial",
+      "ArabicName": "BOMSerial",
+      "Type": "Bill Of Material",
+      "CostingMethod": "Weighted Average",
+      "TrackingMode": "Serial",
+      "Uom": "001 | Piece"
     }
   ],
   "newbom": [

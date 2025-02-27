@@ -126,6 +126,13 @@ namespace Enfinity.Erp.Test.UI
             StringAssert.Contains(expectedMessage, actualMessage);
             //ClassicAssert.AreEqual(expectedMessage, actualMessage);
         }
+        public void ValidateError(string expectedMessage)
+        {
+            IWebElement element = _driver.FindElement(By.ClassName("dx-toast-message"));
+            string actualMessage = element.Text;
+            StringAssert.Contains(expectedMessage, actualMessage);
+            //ClassicAssert.AreEqual(expectedMessage, actualMessage);
+        }
         public void ClearAndProvide(By locator, string value)
         {
             var element = _driver.FindElement(locator);
@@ -148,7 +155,8 @@ namespace Enfinity.Erp.Test.UI
         }
         public void ProvideCustomerName(string customername)
         {
-            _driver.FindElement(customerName).SendKeys(customername);
+            //_driver.FindElement(customerName).SendKeys(customername);
+            ClearAndProvide(customerName,customername);
         }
         public void ProvideCustomerArabicName(string customerarabicname)
         {

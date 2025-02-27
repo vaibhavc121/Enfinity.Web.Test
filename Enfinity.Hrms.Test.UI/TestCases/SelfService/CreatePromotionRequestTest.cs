@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Enfinity.Hrms.Test.UI
@@ -37,19 +38,34 @@ namespace Enfinity.Hrms.Test.UI
                 pr.ClickPromotionRequest();
                 pr.ClickNew();
 
+                int iteration = 1;
                 foreach (var promotionRequest in promotionRequestData)
                 {
                     
                     pr.ProvideTxnDate(promotionRequest.txnDate);
                     pr.ProvideEffectiveDate(promotionRequest.effectiveDate);
                     pr.ProvideType(promotionRequest.type);
-                    pr.ProvideNewDepartment(promotionRequest.newDepartment);
-                    pr.ProvideNewDesignation(promotionRequest.newDesignation);
+                    if (iteration != 3) // Skip this in the third iteration, if type is Work Location Change
+                    {
+                        pr.ProvideNewDepartment(promotionRequest.newDepartment);
+                        pr.ProvideNewDesignation(promotionRequest.newDesignation);
+                    }
+                    
                     pr.ProvideNewWorkLocation(promotionRequest.newWorkLocation);
-                    pr.ProvideNewProject(promotionRequest.newProject);
-                    pr.ProvideDescription(promotionRequest.description);
 
-                    pr.ClickSave();
+                    if (iteration != 3) // Skip this in the third iteration, if type is Work Location Change
+                    {
+                        pr.ProvideNewProject(promotionRequest.newProject);
+                    }  
+                    
+                    pr.ProvideDescription(promotionRequest.description);
+                    //pr.ClickSave();                    
+                    //pr.ClickNewBtn();
+
+                    pr.SaveAndBack();
+                    ClassicAssert.IsTrue(pr.IsTxnCreated(promotionRequest.effectiveDate1));
+                    pr.ClickNew();
+                    //ClassicAssert.IsTrue(pr.IsTxnCreated());
                     #region salaries section
                     //pr.ClickSalariesSection();
                     //pr.ClickPlusBtn();
@@ -60,7 +76,7 @@ namespace Enfinity.Hrms.Test.UI
                     #endregion
 
 
-
+                    iteration++;
                 }
             }
             catch (Exception e)

@@ -176,6 +176,7 @@ namespace Enfinity.Erp.Test.UI
             var ssp = new SalesSetupPage(_driver);
             var clp = new CustomerListingPage(_driver);
             ScrollHelper scrollHelper = new ScrollHelper(_driver);
+            IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;            
 
             foreach (var customer in customers)
             {
@@ -202,19 +203,17 @@ namespace Enfinity.Erp.Test.UI
                 CommonPageActions.SelectDropDownOption(customer.BillingCountry);
                 cp.ClickOnBillingState();
                 CommonPageActions.SelectDropDownOption(customer.BillingState);              
-                cp.ProvideBillingCity(customer.BillingCity);
+                cp.ProvideBillingCity(customer.BillingCity);                
 
                 IWebElement element = _driver.FindElement(By.XPath("(//input[contains(@id, '_BillingContactPerson')])"));
                 scrollHelper.ScrollToElement(element);
                 cp.ProvideBillingContactPerson(customer.BillingContactPerson);
                 cp.ProvideBillingZipCode(customer.BillingZipcode);
 
-                //IWebElement saveElement = _driver.FindElement(By.XPath("//span[contains(@id, '_ShippingAddress')]"));
-                //scrollHelper.ScrollToElement(saveElement);
+                IWebElement saveElement = _driver.FindElement(By.XPath("//span[contains(@id, '_ShippingAddress')]"));
+                scrollHelper.ScrollToElement(saveElement);
 
-                IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
-                js.ExecuteScript("window.scrollTo(0, -1500);");
-
+                await WaitHelper.WaitForSeconds(1);
                 cp.ClickOnSaveAddress();
                 await WaitHelper.WaitForSeconds(1);
                 #endregion
@@ -234,8 +233,16 @@ namespace Enfinity.Erp.Test.UI
                 cp.ClickOnShippingState();
                 CommonPageActions.SelectDropDownOption(customer.ShippingState);
                 cp.ProvideShippingCity(customer.ShippingCity);
-                cp.ProvideShippingZipCode(customer.ShippingZipcode);
+
+                IWebElement shipelement = _driver.FindElement(By.XPath("(//input[contains(@id, '_ShippingContactPerson')])"));
+                scrollHelper.ScrollToElement(shipelement);
                 cp.ProvideShippingContactPerson(customer.ShippingContactPerson);
+                cp.ProvideShippingZipCode(customer.ShippingZipcode);
+
+                IWebElement saveToElement = _driver.FindElement(By.XPath("//span[contains(@id, '_ShippingAddress')]"));
+                scrollHelper.ScrollToElement(saveToElement);
+
+                await WaitHelper.WaitForSeconds(1);
                 cp.ClickOnSaveAddress();
                 await WaitHelper.WaitForSeconds(1);
                 #endregion
@@ -386,8 +393,56 @@ namespace Enfinity.Erp.Test.UI
         }
         #endregion
 
-        #region Delete new customer
+        #region Create new customer with same name - not create
         [Test, Category("Sales"), Order(6)]
+        public async Task CreateCustomerSameNameCode()
+        {
+            #region MyRegion
+            Login(Product);
+            #endregion
+
+            var customerFile = FileHelper.GetDataFile("Erp", "Sales", "Customer", "CustomerData");
+            var customers = JsonHelper.ConvertJsonListDataModel<CustomerModel>(customerFile, "duplicate");
+
+            var sp = new SalesPage(_driver);
+            var cp = new CustomerPage(_driver);
+            var ssp = new SalesSetupPage(_driver);
+            var clp = new CustomerListingPage(_driver);
+
+            foreach (var customer in customers)
+            {
+                sp.ClickOnSalesModule();
+                await WaitHelper.WaitForSeconds(2);
+
+                CommonPageActions.ClickOnSetups();
+                ssp.ClickOnCustomer();
+                clp.ClickOnNewCustomer();
+
+                cp.ProvideCustomerName(customer.Name);
+                cp.ClickOnSaveCustomer();
+                await WaitHelper.WaitForSeconds(1);
+
+                #region Validate the same name customer not create
+                cp.ValidateError("already exists");
+                #endregion
+                await WaitHelper.WaitForSeconds(3);
+
+                cp.ProvideCustomerCode(customer.Code);
+                cp.ProvideCustomerName(customer.Name);
+                cp.ClickOnSaveCustomer();
+                await WaitHelper.WaitForSeconds(1);
+                
+                #region Validate the same code customer not create
+                cp.ValidateError("already exists");
+                #endregion
+
+                                   
+            }
+        }
+        #endregion
+
+        #region Delete new customer
+        [Test, Category("Sales"), Order(7)]
         public async Task DeleteCustomer()
         {
             #region MyRegion

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,6 +32,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         private By incrementAmount = By.XPath("(//div[@class='dxgBCTC dx-ellipsis'][normalize-space()='0'])[2]");
         private By effectiveFromDate = By.XPath("/html[1]/body[1]/div[5]/div[2]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/table[1]/tbody[1]/tr[5]/td[6]/div[1]");
         private By effectiveToDate = By.XPath("/html[1]/body[1]/div[5]/div[2]/form[1]/div[1]/div[1]/div[3]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/table[1]/tbody[1]/tr[5]/td[7]/div[1]");
+        private By newBtn = By.XPath("//span[@class='dx-vam dxm-contentText'][normalize-space()='New']");
 
         #endregion
 
@@ -86,6 +88,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         public void ClickSave()
         {
             CommonPageActions.ClickSave();
+            Thread.Sleep(2000);
         }
         public void ClickPlusBtn()
         {
@@ -107,6 +110,32 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         public void ProvideEffectiveToDate(string value)
         {
             CommonPageActions.ClearAndProvide1(effectiveToDate,value);
+        }
+        public void ClickNewBtn()
+        {
+            Find(newBtn).Click();
+            Thread.Sleep(2000);
+        }
+        public void SaveAndBack()
+        {
+            CommonPageActions.ClickSaveAndBack();
+        }
+        public bool IsTxnCreated()
+        {
+            CommonPageActions.ClickSave();
+            return CommonPageActions.IsTxnCreated();
+            Thread.Sleep(2000);
+        }
+        public bool IsTxnCreated(string effectiveDate)
+        {
+            if (CommonPageActions.Result5().Contains(effectiveDate))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         #endregion
 
