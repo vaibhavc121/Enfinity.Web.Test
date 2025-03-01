@@ -3,28 +3,51 @@
   "WorkspaceRootPath": "D:\\Enfinity.Online\\Enfinity.Web.Test\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{801612EF-8E6D-4067-AECF-6E070B1D1688}|Enfinity.Erp.Test.UI\\Enfinity.Erp.Test.UI.csproj|d:\\enfinity.online\\enfinity.web.test\\enfinity.erp.test.ui\\testcases\\sales\\createinvoicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801612EF-8E6D-4067-AECF-6E070B1D1688}|Enfinity.Erp.Test.UI\\Enfinity.Erp.Test.UI.csproj|solutionrelative:enfinity.erp.test.ui\\testcases\\sales\\createinvoicetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801612EF-8E6D-4067-AECF-6E070B1D1688}|Enfinity.Erp.Test.UI\\Enfinity.Erp.Test.UI.csproj|d:\\enfinity.online\\enfinity.web.test\\enfinity.erp.test.ui\\models\\sales\\invoice\\invoicedata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{801612EF-8E6D-4067-AECF-6E070B1D1688}|Enfinity.Erp.Test.UI\\Enfinity.Erp.Test.UI.csproj|solutionrelative:enfinity.erp.test.ui\\models\\sales\\invoice\\invoicedata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801612EF-8E6D-4067-AECF-6E070B1D1688}|Enfinity.Erp.Test.UI\\Enfinity.Erp.Test.UI.csproj|d:\\enfinity.online\\enfinity.web.test\\enfinity.erp.test.ui\\pageobjects\\sales\\invoicepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801612EF-8E6D-4067-AECF-6E070B1D1688}|Enfinity.Erp.Test.UI\\Enfinity.Erp.Test.UI.csproj|solutionrelative:enfinity.erp.test.ui\\pageobjects\\sales\\invoicepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801612EF-8E6D-4067-AECF-6E070B1D1688}|Enfinity.Erp.Test.UI\\Enfinity.Erp.Test.UI.csproj|d:\\enfinity.online\\enfinity.web.test\\enfinity.erp.test.ui\\testcases\\inventory\\itemtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801612EF-8E6D-4067-AECF-6E070B1D1688}|Enfinity.Erp.Test.UI\\Enfinity.Erp.Test.UI.csproj|solutionrelative:enfinity.erp.test.ui\\testcases\\inventory\\itemtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|d:\\enfinity.online\\enfinity.web.test\\enfinity.hrms.test.ui\\testcases\\selfservice\\createpromotionrequesttest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|solutionrelative:enfinity.hrms.test.ui\\testcases\\selfservice\\createpromotionrequesttest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|D:\\Enfinity.Online\\Enfinity.Web.Test\\enfinity.hrms.test.ui\\pageobjects\\selfservice\\promotionrequestpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|solutionrelative:enfinity.hrms.test.ui\\pageobjects\\selfservice\\promotionrequestpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|D:\\Enfinity.Online\\Enfinity.Web.Test\\enfinity.hrms.test.ui\\models\\selfservice\\selfservice\\selfservicedata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|solutionrelative:enfinity.hrms.test.ui\\models\\selfservice\\selfservice\\selfservicedata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{2BAF8D7E-BD90-4879-A00C-C2F59DD82933}|Enfinity.Common.Test\\Enfinity.Common.Test.csproj|D:\\Enfinity.Online\\Enfinity.Web.Test\\enfinity.common.test\\utilities\\commonpageactions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BAF8D7E-BD90-4879-A00C-C2F59DD82933}|Enfinity.Common.Test\\Enfinity.Common.Test.csproj|solutionrelative:enfinity.common.test\\utilities\\commonpageactions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|D:\\Enfinity.Online\\Enfinity.Web.Test\\enfinity.hrms.test.ui\\models\\selfservice\\selfservice\\selfservicemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|solutionrelative:enfinity.hrms.test.ui\\models\\selfservice\\selfservice\\selfservicemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|D:\\Enfinity.Online\\Enfinity.Web.Test\\enfinity.hrms.test.ui\\pageobjects\\selfservice\\travelrequestpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|solutionrelative:enfinity.hrms.test.ui\\pageobjects\\selfservice\\travelrequestpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{801612EF-8E6D-4067-AECF-6E070B1D1688}|Enfinity.Erp.Test.UI\\Enfinity.Erp.Test.UI.csproj|d:\\enfinity.online\\enfinity.web.test\\enfinity.erp.test.ui\\models\\sales\\invoice\\invoicemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801612EF-8E6D-4067-AECF-6E070B1D1688}|Enfinity.Erp.Test.UI\\Enfinity.Erp.Test.UI.csproj|solutionrelative:enfinity.erp.test.ui\\models\\sales\\invoice\\invoicemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2BAF8D7E-BD90-4879-A00C-C2F59DD82933}|Enfinity.Common.Test\\Enfinity.Common.Test.csproj|D:\\Enfinity.Online\\Enfinity.Web.Test\\enfinity.common.test\\utilities\\commonpageactions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2BAF8D7E-BD90-4879-A00C-C2F59DD82933}|Enfinity.Common.Test\\Enfinity.Common.Test.csproj|solutionrelative:enfinity.common.test\\utilities\\commonpageactions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\Downloads\\items.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|D:\\Enfinity.Online\\Enfinity.Web.Test\\enfinity.hrms.test.ui\\models\\selfservice\\selfservice\\selfservicedata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|solutionrelative:enfinity.hrms.test.ui\\models\\selfservice\\selfservice\\selfservicedata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|D:\\Enfinity.Online\\Enfinity.Web.Test\\enfinity.hrms.test.ui\\pageobjects\\selfservice\\promotionrequestpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|solutionrelative:enfinity.hrms.test.ui\\pageobjects\\selfservice\\promotionrequestpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|D:\\Enfinity.Online\\Enfinity.Web.Test\\enfinity.hrms.test.ui\\pageobjects\\selfservice\\travelrequestpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|solutionrelative:enfinity.hrms.test.ui\\pageobjects\\selfservice\\travelrequestpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|D:\\Enfinity.Online\\Enfinity.Web.Test\\enfinity.hrms.test.ui\\testcases\\selfservice\\createtravelrequesttest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,7 +61,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,59 +69,111 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InvoicePage.cs",
+              "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Erp.Test.UI\\PageObjects\\Sales\\InvoicePage.cs",
+              "RelativeDocumentMoniker": "Enfinity.Erp.Test.UI\\PageObjects\\Sales\\InvoicePage.cs",
+              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Erp.Test.UI\\PageObjects\\Sales\\InvoicePage.cs",
+              "RelativeToolTip": "Enfinity.Erp.Test.UI\\PageObjects\\Sales\\InvoicePage.cs",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAwEwAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T05:40:21.911Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CreateInvoiceTest.cs",
+              "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Erp.Test.UI\\TestCases\\Sales\\CreateInvoiceTest.cs",
+              "RelativeDocumentMoniker": "Enfinity.Erp.Test.UI\\TestCases\\Sales\\CreateInvoiceTest.cs",
+              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Erp.Test.UI\\TestCases\\Sales\\CreateInvoiceTest.cs",
+              "RelativeToolTip": "Enfinity.Erp.Test.UI\\TestCases\\Sales\\CreateInvoiceTest.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAWwAwAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T05:02:26.529Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "InvoiceData.json",
+              "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Erp.Test.UI\\Models\\Sales\\Invoice\\InvoiceData.json",
+              "RelativeDocumentMoniker": "Enfinity.Erp.Test.UI\\Models\\Sales\\Invoice\\InvoiceData.json",
+              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Erp.Test.UI\\Models\\Sales\\Invoice\\InvoiceData.json",
+              "RelativeToolTip": "Enfinity.Erp.Test.UI\\Models\\Sales\\Invoice\\InvoiceData.json",
+              "ViewState": "AgIAAOoAAAAAAAAAAAAAAPcAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-01T05:20:24.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "InvoiceModel.cs",
+              "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Erp.Test.UI\\Models\\Sales\\Invoice\\InvoiceModel.cs",
+              "RelativeDocumentMoniker": "Enfinity.Erp.Test.UI\\Models\\Sales\\Invoice\\InvoiceModel.cs",
+              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Erp.Test.UI\\Models\\Sales\\Invoice\\InvoiceModel.cs",
+              "RelativeToolTip": "Enfinity.Erp.Test.UI\\Models\\Sales\\Invoice\\InvoiceModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T05:18:54.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "CreatePromotionRequestTest.cs",
               "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\TestCases\\SelfService\\CreatePromotionRequestTest.cs",
               "RelativeDocumentMoniker": "Enfinity.Hrms.Test.UI\\TestCases\\SelfService\\CreatePromotionRequestTest.cs",
               "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\TestCases\\SelfService\\CreatePromotionRequestTest.cs",
               "RelativeToolTip": "Enfinity.Hrms.Test.UI\\TestCases\\SelfService\\CreatePromotionRequestTest.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAAwD8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAuwB4AAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-26T07:00:57.726Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
               "Title": "PromotionRequestPage.cs",
               "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\PageObjects\\SelfService\\PromotionRequestPage.cs",
               "RelativeDocumentMoniker": "Enfinity.Hrms.Test.UI\\PageObjects\\SelfService\\PromotionRequestPage.cs",
               "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\PageObjects\\SelfService\\PromotionRequestPage.cs",
               "RelativeToolTip": "Enfinity.Hrms.Test.UI\\PageObjects\\SelfService\\PromotionRequestPage.cs",
-              "ViewState": "AgIAAIEAAAAAAAAAAAAAAIoAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAAAHUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-26T07:01:34.016Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "SelfServiceData.json",
               "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\Models\\SelfService\\SelfService\\SelfServiceData.json",
               "RelativeDocumentMoniker": "Enfinity.Hrms.Test.UI\\Models\\SelfService\\SelfService\\SelfServiceData.json",
               "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\Models\\SelfService\\SelfService\\SelfServiceData.json",
               "RelativeToolTip": "Enfinity.Hrms.Test.UI\\Models\\SelfService\\SelfService\\SelfServiceData.json",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAswE0AAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAAAE0AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-02-24T12:56:43.842Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "SelfServiceModel.cs",
               "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\Models\\SelfService\\SelfService\\SelfServiceModel.cs",
               "RelativeDocumentMoniker": "Enfinity.Hrms.Test.UI\\Models\\SelfService\\SelfService\\SelfServiceModel.cs",
               "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\Models\\SelfService\\SelfService\\SelfServiceModel.cs",
               "RelativeToolTip": "Enfinity.Hrms.Test.UI\\Models\\SelfService\\SelfService\\SelfServiceModel.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAqwC8AAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAA6wC8AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-24T12:56:12.321Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "TravelRequestPage.cs",
               "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\PageObjects\\SelfService\\TravelRequestPage.cs",
               "RelativeDocumentMoniker": "Enfinity.Hrms.Test.UI\\PageObjects\\SelfService\\TravelRequestPage.cs",
@@ -106,12 +181,24 @@
               "RelativeToolTip": "Enfinity.Hrms.Test.UI\\PageObjects\\SelfService\\TravelRequestPage.cs [Read Only]",
               "ViewState": "AgIAAGEAAAAAAAAAAAAAAHAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T06:59:45.228Z",
+              "WhenOpened": "2025-02-26T06:59:45.228Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ItemTest.cs",
+              "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Erp.Test.UI\\TestCases\\Inventory\\ItemTest.cs",
+              "RelativeDocumentMoniker": "Enfinity.Erp.Test.UI\\TestCases\\Inventory\\ItemTest.cs",
+              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Erp.Test.UI\\TestCases\\Inventory\\ItemTest.cs [Read Only]",
+              "RelativeToolTip": "Enfinity.Erp.Test.UI\\TestCases\\Inventory\\ItemTest.cs [Read Only]",
+              "ViewState": "AgIAADEAAAAAAAAAAAAgwEMAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T05:08:28.13Z",
               "EditorCaption": " [Read Only]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "CreateTravelRequestTest.cs",
               "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\TestCases\\SelfService\\CreateTravelRequestTest.cs",
               "RelativeDocumentMoniker": "Enfinity.Hrms.Test.UI\\TestCases\\SelfService\\CreateTravelRequestTest.cs",
@@ -128,12 +215,23 @@
               "Title": "CommonPageActions.cs",
               "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Common.Test\\Utilities\\CommonPageActions.cs",
               "RelativeDocumentMoniker": "Enfinity.Common.Test\\Utilities\\CommonPageActions.cs",
-              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Common.Test\\Utilities\\CommonPageActions.cs [Read Only]",
-              "RelativeToolTip": "Enfinity.Common.Test\\Utilities\\CommonPageActions.cs [Read Only]",
-              "ViewState": "AgIAAA8BAAAAAAAAAAAwwHoBAAAbAAAAAAAAAA==",
+              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Common.Test\\Utilities\\CommonPageActions.cs",
+              "RelativeToolTip": "Enfinity.Common.Test\\Utilities\\CommonPageActions.cs",
+              "ViewState": "AgIAAOUBAAAAAAAAAAAjwPEBAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-25T08:20:54.93Z",
-              "EditorCaption": " [Read Only]"
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "items.json",
+              "DocumentMoniker": "C:\\Users\\admin\\Downloads\\items.json",
+              "ToolTip": "C:\\Users\\admin\\Downloads\\items.json",
+              "ViewState": "AgIAAIIlAAAAAAAAAAAYwJ4lAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-01T10:57:19.94Z",
+              "EditorCaption": ""
             }
           ]
         }

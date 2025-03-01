@@ -1,4 +1,5 @@
 ﻿using Enfinity.Common.Test;
+using NUnit.Framework.Legacy;
 using OpenQA.Selenium;
 using OpenQA.Selenium.BiDi.Modules.BrowsingContext;
 using OpenQA.Selenium.Interactions;
@@ -62,6 +63,18 @@ namespace Enfinity.Common.Test
                     return;
                 }
             }
+        }
+        public static void ValidateSucess(string expectedMessage)
+        {
+            IWebElement element = BaseTest._driver.FindElement(By.ClassName("dx-toast-success"));
+            string actualMessage = element.Text;
+            StringAssert.Contains(expectedMessage, actualMessage);
+        }
+        public static void Validate(string expectedMessage)
+        {
+            IWebElement element = BaseTest._driver.FindElement(By.ClassName("dx-toast-message"));
+            string actualMessage = element.Text;
+            StringAssert.Contains(expectedMessage, actualMessage);
         }
         #endregion
 
@@ -460,6 +473,21 @@ namespace Enfinity.Common.Test
                    .SendKeys(Keys.Delete)
                    .Perform();
             element.SendKeys(value);
+        }
+        public static void ProvideAndEnter(By locator, string value)
+        {
+            var element = BaseTest._driver.FindElement(locator);
+            element.Click();
+            Actions actions = new Actions(BaseTest._driver);
+            actions.KeyDown(Keys.Control)
+                   .SendKeys("a")
+                   .KeyUp(Keys.Control)
+                   .SendKeys(Keys.Delete)
+                   .Perform();
+            element.SendKeys(value);
+            Thread.Sleep(2000);
+
+            element.SendKeys(Keys.Enter);
         }
 
         public static void ScrollDownWebPage(By locator)
