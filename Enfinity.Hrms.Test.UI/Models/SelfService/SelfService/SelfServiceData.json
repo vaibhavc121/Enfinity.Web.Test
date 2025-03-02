@@ -89,8 +89,16 @@
       "effectiveToDate": "31-03-2025"
 
     }
+  ],
 
-
+  "createOvertimeRequest": [
+    {
+      "overtimeDate": "01-04-2025",
+      "overtimeType": "Normal Overtime",
+      "hrs": "1.00",
+      "remarks": "test"
+    }
   ]
+
 
 }

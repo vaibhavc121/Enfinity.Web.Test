@@ -60,4 +60,14 @@ namespace Enfinity.Hrms.Test.UI.Models.SelfService
 
     }
 
+    public class OvertimeRequestModel
+    {
+        public string overtimeDate { get; set; }
+        public string overtimeType { get; set; }
+        public string hrs { get; set; }
+        public string remarks { get; set; }
+
+    }
+
+
 }

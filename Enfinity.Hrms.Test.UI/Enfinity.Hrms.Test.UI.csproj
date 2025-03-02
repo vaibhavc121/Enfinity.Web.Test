@@ -191,6 +191,7 @@
     <Compile Include="PageObjects\SelfService\ITSupportPage.cs" />
     <Compile Include="PageObjects\SelfService\LeaveRequestPage.cs" />
     <Compile Include="PageObjects\SelfService\LoanRequestPage.cs" />
+    <Compile Include="PageObjects\SelfService\OvertimeRequestPage.cs" />
     <Compile Include="PageObjects\SelfService\PromotionRequestPage.cs" />
     <Compile Include="PageObjects\SelfService\SelfServicePage.cs" />
     <Compile Include="PageObjects\SelfService\TimeOffPage.cs" />
@@ -234,6 +235,7 @@
     <Compile Include="TestCases\SelfService\CreateITSupportTest.cs" />
     <Compile Include="TestCases\SelfService\CreateLeaveRequestTest.cs" />
     <Compile Include="TestCases\SelfService\CreateLoanRequestTest.cs" />
+    <Compile Include="TestCases\SelfService\CreateOvertimeRequestTest.cs" />
     <Compile Include="TestCases\SelfService\CreatePromotionRequestTest.cs" />
     <Compile Include="TestCases\SelfService\CreateTimeOffTest.cs" />
     <Compile Include="TestCases\SelfService\CreateTravelRequestTest.cs" />
