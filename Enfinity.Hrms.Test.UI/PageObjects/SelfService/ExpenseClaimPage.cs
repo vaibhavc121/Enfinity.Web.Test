@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
@@ -64,6 +65,10 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             Find(remarks).Click();
             //Find(remarks).SendKeys(value);
             CommonPageActions.ProvideValue(remarks,value);
+        }
+        public void ProvideExpenseClaimCategory(string value)
+        {
+            CommonPageActions.ClearAndProvide1(expenseClaimCategory, value);
         }
         public void ClickExpenseClaimCategoryDD()
         {

@@ -13,7 +13,7 @@ namespace Enfinity.Hrms.Test.UI
     [TestFixture]
     public class Test
     {
-        [Test]
+        //[Test]
         [Ignore("Ignored bcos I want to see different POM implementation")]
         public void VerifyLogin()
         {

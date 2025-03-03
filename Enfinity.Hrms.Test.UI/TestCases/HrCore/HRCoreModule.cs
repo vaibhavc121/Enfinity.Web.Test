@@ -1,4 +1,5 @@
 ﻿using Enfinity.Common.Test;
+using Enfinity.Hrms.Test.UI.Models.Employee;
 using Enfinity.Hrms.Test.UI.Models.HRCore;
 using Enfinity.Hrms.Test.UI.Models.HRCore.Bank;
 using Enfinity.Hrms.Test.UI.Models.HRCore.Calendar;
@@ -23,6 +24,243 @@ namespace Enfinity.Hrms.Test.UI
     public class HRCoreModule:BaseTest
     {
         public string Product = "Hrms";
+
+        #region Employee Test
+
+        #region Create Employee With System Access 
+        [Test]
+        [Ignore("")]
+        [TestCaseSource(typeof(HRCoreDataProvider), nameof(HRCoreDataProvider.EmployeeWithSystemAccess))]
+        public void ValidateEmployeeCreationWithValidAccess(string email, string name, string mbl, string doj, string dept, string desg, string payrollset, string calendar, string indemnity, string grade, string gender, string religion, string martitalStatus, string username, string roles)
+        {
+            try
+            {
+                Login(Product);
+
+                //hr core page
+                HRCorePage hc = new HRCorePage(_driver);
+                hc.ClickHRCore();
+                hc.ClickSetupForm();
+
+                //setup page
+                SetupPage sp = new SetupPage(_driver);
+                sp.ClickEmployee();
+                Thread.Sleep(2000);
+
+                //PayrollEmployee page
+                EmployeePage pe = new EmployeePage(_driver);
+                pe.ClickNewBtn();
+                pe.ProvideWorkEmail(email);
+                pe.ProvideName();
+                pe.ClickMgrDropdown();
+                pe.SelectMgr();
+                pe.ProvideMobileNumber(mbl);
+                pe.ProvideDOJ(doj);
+                pe.ClickDepartment();
+                pe.SelectDepartment(dept);
+                pe.ClickDesignation();
+                pe.SelectDesignation(desg);
+                //pe.ClearPayrollSet();
+                pe.ClickPayrollSet();
+                pe.SelectPayrollSet(payrollset);
+                pe.ClickCalendar();
+                pe.SelectCalendar(calendar);
+                pe.ClickIndemnity();
+                pe.SelectIndemnity(indemnity);
+                pe.ClickGrade();
+                pe.SelectGrade(grade);
+                pe.ClickGender();
+                pe.SelectGender(gender);
+                pe.ClickReligion();
+                pe.SelectReligion(religion);
+                pe.ClickMaritalStatus();
+                pe.SelectMaritalStatus(martitalStatus);
+                pe.ClickSystemAccessBtn();
+                //pe.ProvideUserName(username);
+                pe.ClickRoles();
+                pe.SelectRole(roles);
+                pe.ClickSave();
+
+                ClassicAssert.IsTrue(pe.IsEmployeeCreated(name));
+
+            }
+            catch (Exception e)
+            {
+                ClassicAssert.Fail("Test case failed: " + e);
+            }
+
+        }
+        #endregion
+
+        #region Create NonPayroll Employee
+        [Test]
+        [Ignore("")]
+        [TestCaseSource(typeof(HRCoreDataProvider), nameof(HRCoreDataProvider.NonPayrollEmployee))]
+        public void VerifyNonPayrollEmployeeCreation(string email, string name, string mbl, string doj, string grade, string gender, string religion, string martitalStatus)
+        {
+            try
+            {
+                Login(Product);
+
+                //hr core page
+                HRCorePage hc = new HRCorePage(_driver);
+                hc.ClickHRCore();
+                hc.ClickSetupForm();
+
+                //setup page
+                SetupPage sp = new SetupPage(_driver);
+                sp.ClickEmployee();
+                Thread.Sleep(2000);
+
+                //PayrollEmployee page
+                EmployeePage pe = new EmployeePage(_driver);
+                pe.ClickNewBtn();
+                pe.ProvideWorkEmail(email);
+                pe.ProvideName();
+                pe.ClickMgrDropdown();
+                pe.SelectMgr();
+                pe.ProvideMobileNumber(mbl);
+                pe.ProvideDOJ(doj);
+                pe.ClickNonPayrollBtn();
+                pe.ClickGrade();
+                pe.SelectGrade(grade);
+                pe.ClickGender();
+                pe.SelectGender(gender);
+                pe.ClickReligion();
+                pe.SelectReligion(religion);
+                pe.ClickMaritalStatus();
+                pe.SelectMaritalStatus(martitalStatus);
+                pe.ClickSave();
+
+                ClassicAssert.IsTrue(pe.IsEmployeeCreated(name));
+
+            }
+            catch (Exception e)
+            {
+                ClassicAssert.Fail("Test case failed: " + e);
+            }
+
+        }
+
+        #endregion
+
+        #region Create Payroll Employee
+        [Test]
+        //[Ignore("")]
+
+        public void VerifyPayrollEmployeeCreation()
+        {
+            try
+            {
+                Login(Product);
+
+                var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                var employeeInfo = JsonHelper.ConvertJsonListDataModel<NewEmployeeModel>(employeeFile, "newEmployee");
+
+                //hr core page
+                HRCorePage hc = new HRCorePage(_driver);
+                hc.ClickHRCore();
+                hc.ClickSetupForm();
+
+                //setup page
+                SetupPage sp = new SetupPage(_driver);
+                sp.ClickEmployee();
+                Thread.Sleep(2000);
+
+                //PayrollEmployee page
+                EmployeePage pe = new EmployeePage(_driver);
+
+                foreach (var employee in employeeInfo)
+                {
+                    pe.ClickNewBtn();
+                    pe.ProvideWorkEmail(employee.email);
+                    pe.ProvideName();
+                    pe.ClickMgrDropdown();
+                    pe.SelectMgr();
+                    pe.ProvideMobileNumber(employee.mobile);
+                    pe.ProvideDOJ(employee.DOJ);
+                    pe.ClickDepartment();
+                    pe.SelectDepartment(employee.department);
+                    pe.ClickDesignation();
+                    pe.SelectDesignation(employee.designation);
+                    //pe.ClearPayrollSet();
+                    pe.ClickPayrollSet();
+                    pe.SelectPayrollSet(employee.payrollSet);
+                    pe.ClickCalendar();
+                    pe.SelectCalendar(employee.calendar);
+                    pe.ClickIndemnity();
+                    pe.SelectIndemnity(employee.indemnity);
+                    pe.ClickGrade();
+                    pe.SelectGrade(employee.grade);
+                    pe.ClickGender();
+                    pe.SelectGender(employee.gender);
+                    pe.ClickReligion();
+                    pe.SelectReligion(employee.religion);
+                    pe.ClickMaritalStatus();
+                    pe.SelectMaritalStatus(employee.maritalStatus);
+                    pe.ClickSave();
+                }
+
+
+                //ClassicAssert.IsTrue(pe.IsEmployeeCreated(name));
+
+            }
+            catch (Exception e)
+            {
+                ClassicAssert.Fail("Test case failed: " + e);
+            }
+
+        }
+        #endregion
+
+        #region Delete Employee
+        [Test]
+        //[Ignore("")]
+        public void DeleteEmployee1()
+        {
+            try
+            {
+                for (int i = 1; i <= 1; i++)
+                {
+                    Login(Product);
+
+                    var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                    var deleteEmployee = JsonHelper.ConvertJsonListDataModel<DeleteEmpModel>(employeeFile, "deleteEmployee");
+
+                    HRCorePage hc = new HRCorePage(_driver);
+                    hc.ClickHRCore();
+                    hc.ClickSetupForm();
+
+                    SetupPage sp = new SetupPage(_driver);
+                    sp.ClickEmployee();
+                    Thread.Sleep(2000);
+
+                    foreach (var delete in deleteEmployee)
+                    {
+                        CommonPageActions.NavigateToEmployee(delete.EMPID);
+                        CommonPageActions.SwitchTab();
+
+                        EmployeePage ep = new EmployeePage(_driver);
+                        ep.ClickSettingButton();
+                        ep.ClickDelete();
+                        ep.ClickOk();
+                        //ClassicAssert.IsTrue(CommonPageActions.IsEmployeeDeleted(), "Employee not deleted");
+                        ep.ClickRightAreaMenu();
+                        ep.ClicklogOff();
+                        //CommonPageActions.CloseTab();
+
+                    }
+
+                }
+            }
+            catch (Exception e)
+            {
+                ClassicAssert.Fail("Test case failed: " + e);
+            }
+        }
+        #endregion
+
+        #endregion
 
         #region create department
         [Test, Order(1)]

@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace Enfinity.Hrms.Test.UI
 {
-    [TestFixture]
+    //[TestFixture]
     public class DependentsTabTest:BaseTest
     {
         public string Product = "Hrms";
 
-        [Test]
+        //[Test]
         [Ignore("")]
         public void VerifyDependentsTab()
         {

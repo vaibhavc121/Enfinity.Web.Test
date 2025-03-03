@@ -119,20 +119,6 @@ namespace Enfinity.Erp.Test.UI
         {
             _driver.FindElement(back).Click();
         }
-        public void Validate(string expectedMessage)
-        {
-            IWebElement element = _driver.FindElement(By.ClassName("dx-toast-success"));
-            string actualMessage = element.Text;
-            StringAssert.Contains(expectedMessage, actualMessage);
-            //ClassicAssert.AreEqual(expectedMessage, actualMessage);
-        }
-        public void ValidateError(string expectedMessage)
-        {
-            IWebElement element = _driver.FindElement(By.ClassName("dx-toast-message"));
-            string actualMessage = element.Text;
-            StringAssert.Contains(expectedMessage, actualMessage);
-            //ClassicAssert.AreEqual(expectedMessage, actualMessage);
-        }
         public void ClearAndProvide(By locator, string value)
         {
             var element = _driver.FindElement(locator);

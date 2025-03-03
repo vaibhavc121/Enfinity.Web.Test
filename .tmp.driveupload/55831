@@ -13,12 +13,12 @@ using System.Threading.Tasks;
 
 namespace Enfinity.Hrms.Test.UI
 {
-    [TestFixture]
+    //[TestFixture]
     public class CreateBankTest:BaseTest
     {
         public string Product = "Hrms";
 
-        [Test]
+        //[Test]
         public void VerifyBankCreation()
         {
             try

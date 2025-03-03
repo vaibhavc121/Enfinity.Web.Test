@@ -15,7 +15,7 @@ namespace Enfinity.Hrms.Test.UI
     public class JobTabTest : BaseTest
     {
         public string Product = "Hrms";
-        [Test]
+        //[Test]
         [Ignore("")]
         public void VerifyJobTab()
         {

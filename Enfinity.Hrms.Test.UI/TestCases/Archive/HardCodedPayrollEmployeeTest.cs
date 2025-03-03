@@ -16,7 +16,7 @@ namespace Enfinity.Hrms.Test.UI
     public class HardCodedPayrollEmployeeTest : BaseTest
     {
 
-        [Test]
+        //[Test]
         [Ignore("Ignored due to hard coded data")]
         public void VerifyPayrollEmployeeCreation()
         {

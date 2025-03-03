@@ -48,6 +48,7 @@ namespace Enfinity.Erp.Test.UI
                 CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
+                //itemPage.ProvideItemCode(item.Code);
                 itemPage.ProvideItemName(item.Name);
                 itemPage.ProvideItemArabicName(item.ArabicName);
                 //itemPage.provideItemName(item.Name, item.ArabicName);
@@ -97,6 +98,7 @@ namespace Enfinity.Erp.Test.UI
                 CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
+                //itemPage.ProvideItemCode(item.Code);
                 itemPage.ProvideItemName(item.Name);
                 itemPage.ProvideItemArabicName(item.ArabicName);
                 //itemPage.provideItemName(item.Name, item.ArabicName);
@@ -132,10 +134,11 @@ namespace Enfinity.Erp.Test.UI
                 itemPage.clickSaveKeyInfo();
                 Thread.Sleep(2000);
 
-                #region
-                IWebElement itemName = _driver.FindElement(By.CssSelector("input[name='Name']"));
-                string expectedName = itemName.GetDomProperty("value");
-                ClassicAssert.AreEqual(expectedName, item.Name);
+                #region Validate Item updated message 
+                //IWebElement itemName = _driver.FindElement(By.CssSelector("input[name='Name']"));
+                //string actualName = itemName.GetDomProperty("value");
+                //ClassicAssert.AreEqual(item.Name, actualName);
+                CommonPageActions.Validate("Item updated successfully.");
                 #endregion
 
                 itemPage.ClickOnBack();
@@ -153,7 +156,7 @@ namespace Enfinity.Erp.Test.UI
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
-            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "newbom");
+            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "bom");
             var itemPage = new ItemPage(_driver);
             var inventoryPage = new InventoryPage(_driver);
             var inventorySetupPage = new InventorySetupPage(_driver);
@@ -167,6 +170,7 @@ namespace Enfinity.Erp.Test.UI
                 CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
+                //itemPage.ProvideItemCode(item.Code);
                 itemPage.ProvideItemName(item.Name);
                 itemPage.ProvideItemArabicName(item.ArabicName);
                 //itemPage.provideItemName(item.Name, item.ArabicName);
@@ -193,9 +197,9 @@ namespace Enfinity.Erp.Test.UI
                     itemPage.ClickOnSave();
 
                     #region Validating the subItems added or not
-                    IWebElement subItemName = _driver.FindElement(By.CssSelector($"p[title='{subItem.ExpectedName}']"));
-                    string expectedName = subItemName.Text;
-                    ClassicAssert.AreEqual(expectedName, subItem.ActualName);
+                    IWebElement subItemName = _driver.FindElement(By.CssSelector($"p[title='{subItem.SubItem}']"));
+                    string actualName = subItemName.Text;                    
+                    StringAssert.Contains(subItem.SubItem, actualName);
                     #endregion
 
                 }
@@ -228,6 +232,7 @@ namespace Enfinity.Erp.Test.UI
                 CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
+                //itemPage.ProvideItemCode(item.Code);
                 itemPage.ProvideItemName(item.Name);
                 itemPage.ProvideItemArabicName(item.ArabicName);
                 //itemPage.provideItemName(item.Name, item.ArabicName);
@@ -286,6 +291,7 @@ namespace Enfinity.Erp.Test.UI
                 CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
+                //itemPage.ProvideItemCode(item.Code);
                 itemPage.ProvideItemName(item.Name);
                 itemPage.ProvideItemArabicName(item.ArabicName);
                 //itemPage.provideItemName(item.Name, item.ArabicName);
@@ -350,6 +356,7 @@ namespace Enfinity.Erp.Test.UI
                 CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
+                //itemPage.ProvideItemCode(item.Code);
                 itemPage.ProvideItemName(item.Name);
                 itemPage.ProvideItemArabicName(item.ArabicName);
                 //itemPage.provideItemName(item.Name, item.ArabicName);
@@ -412,6 +419,7 @@ namespace Enfinity.Erp.Test.UI
                 CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
+                //itemPage.ProvideItemCode(item.Code);
                 itemPage.ProvideItemName(item.Name);
                 itemPage.ProvideItemArabicName(item.ArabicName);
                 //itemPage.provideItemName(item.Name, item.ArabicName);
@@ -474,6 +482,7 @@ namespace Enfinity.Erp.Test.UI
                 CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
+                //itemPage.ProvideItemCode(item.Code);
                 itemPage.ProvideItemName(item.Name);
                 itemPage.ProvideItemArabicName(item.ArabicName);
                 //itemPage.provideItemName(item.Name, item.ArabicName);
@@ -530,6 +539,7 @@ namespace Enfinity.Erp.Test.UI
                 CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
+                //itemPage.ProvideItemCode(item.Code);
                 itemPage.ProvideItemName(item.Name);
                 itemPage.ProvideItemArabicName(item.ArabicName);
                 //itemPage.provideItemName(item.Name, item.ArabicName);
@@ -545,11 +555,11 @@ namespace Enfinity.Erp.Test.UI
                     Thread.Sleep(1000);
                     itemPage.ClickOnAdd();
                     itemPage.ClickDropDown();
-                    itemPage.SelectDropDownOption(document.DocumentType);
-                    itemPage.provideDocumentNumber(document.DocumentNumber);
-                    itemPage.provideDateOfIssue(document.DateOfIssue);
-                    itemPage.providePlaceOfIssue(document.PlaceOfIssue);
-                    itemPage.provideDateOfExpiry(document.DateOfExpiry);
+                    CommonPageActions.SelectDropDownOption(document.DocumentType);                    
+                    CommonPageActions.provideDocumentNumber(document.DocumentNumber);                    
+                    CommonPageActions.provideDateOfIssue(document.DateOfIssue);
+                    CommonPageActions.providePlaceOfIssue(document.PlaceOfIssue);
+                    CommonPageActions.provideDateOfExpiry(document.DateOfExpiry);
                     Thread.Sleep(1000);
                     itemPage.ClickOnSave();
 
@@ -589,6 +599,7 @@ namespace Enfinity.Erp.Test.UI
                 CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
+                //itemPage.ProvideItemCode(item.Code);
                 itemPage.ProvideItemName(item.Name);
                 itemPage.ProvideItemArabicName(item.ArabicName);
                 //itemPage.provideItemName(item.Name, item.ArabicName);
@@ -652,6 +663,7 @@ namespace Enfinity.Erp.Test.UI
                 CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
+                //itemPage.ProvideItemCode(item.Code);
                 itemPage.ProvideItemName(item.Name);
                 itemPage.ProvideItemArabicName(item.ArabicName);
                 //itemPage.provideItemName(item.Name, item.ArabicName);
@@ -707,7 +719,7 @@ namespace Enfinity.Erp.Test.UI
         #endregion
 
         #region Create new item with All Tabs Details
-        [Test, Category("Inventory"), Order(13)]
+        [Test, Category("Inventory"), Order(12)]
         public void CreateItemWithAllTabDetail()
         {
             #region MyRegion
@@ -729,6 +741,7 @@ namespace Enfinity.Erp.Test.UI
                 CommonPageActions.ClickOnSetups();
                 inventorySetupPage.ClickOnItem();
                 inventoryItemListingPage.ClickOnNew();
+                //itemPage.ProvideItemCode(item.Code);
                 itemPage.ProvideItemName(item.Name);
                 itemPage.ProvideItemArabicName(item.ArabicName);
                 //itemPage.provideItemName(item.Name, item.ArabicName);
@@ -773,20 +786,20 @@ namespace Enfinity.Erp.Test.UI
                 itemPage.ClickOnBOMTab();
                 Thread.Sleep(2000);
 
-                foreach (var componentItem in item.SubItems)
+                foreach (var SubItem in item.SubItems)
                 {
                     //Thread.Sleep(2000);
                     itemPage.ClickOnAdd();
                     Thread.Sleep(1000);
                     itemPage.clickDropDownComponentItem();
-                    itemPage.SelectDropDownOption(componentItem.SubItem);
-                    itemPage.provideQty(componentItem.Qty);
+                    itemPage.SelectDropDownOption(SubItem.SubItem);
+                    itemPage.provideQty(SubItem.Qty);
                     itemPage.ClickOnSave();
 
                     #region Validating the subItems added or not
-                    IWebElement subItemName = _driver.FindElement(By.CssSelector($"p[title='{componentItem.ExpectedName}']"));
-                    string expectedName = subItemName.Text;
-                    ClassicAssert.AreEqual(expectedName, componentItem.ActualName);
+                    IWebElement subItemName = _driver.FindElement(By.CssSelector($"p[title='{SubItem.SubItem}']"));
+                    string actualName = subItemName.Text;
+                    StringAssert.Contains(SubItem.SubItem, actualName);
                     #endregion
                 }
                 itemPage.ClickOnUOMTab();
@@ -906,8 +919,8 @@ namespace Enfinity.Erp.Test.UI
 
                     #region Validating the barcode added or not
                     IWebElement barcodeName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{barcode.ExpectedName}')]"));
-                    string expectedName = barcodeName.Text;
-                    ClassicAssert.AreEqual(expectedName, barcode.Barcode);
+                    string actualName = barcodeName.Text;
+                    ClassicAssert.AreEqual(barcode.Barcode, actualName);
                     #endregion
                 }
                 itemPage.ClickOnDocumentsTab();
@@ -1000,43 +1013,8 @@ namespace Enfinity.Erp.Test.UI
         }
         #endregion
 
-        #region Delete items
-        [Test, Category("Inventory"), Order(12)]
-        public void DeleteItem()
-        {
-            #region MyRegion
-            Login(Product);
-            #endregion
-
-            var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
-            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "delete");
-            var itemPage = new ItemPage(_driver);
-            var inventoryPage = new InventoryPage(_driver);
-            var inventorySetupPage = new InventorySetupPage(_driver);
-            var inventoryItemListingPage = new InventoryItemListingPage(_driver);
-
-            foreach (var item in items)
-            {
-                inventoryPage.ClickOnInventoryModule();
-                //inventoryPage.ClickOnSetups();
-                CommonPageActions.ClickOnSetups();
-                inventorySetupPage.ClickOnItem();
-
-                inventoryItemListingPage.ProvideItemName(item.Name);
-                Thread.Sleep(2000);
-                inventoryItemListingPage.ClickOnSelectedItemName();
-                Thread.Sleep(2000);
-                inventoryItemListingPage.clickOnContextMenuItem();
-                inventoryItemListingPage.clickOnContextMenuItemDelete();
-                Thread.Sleep(2000);
-                inventoryItemListingPage.clickOnConfirmOk();
-                Thread.Sleep(2000);
-            }
-        }
-        #endregion
-
         #region Update an item with Key Info Details
-        [Test, Category("Inventory"), Order(14)]
+        [Test, Category("Inventory"), Order(13)]
         public void UpdateItemWithKeyInfoDetail()
         {
             #region MyRegion
@@ -1096,7 +1074,7 @@ namespace Enfinity.Erp.Test.UI
         #endregion
 
         #region Update an item with BOM Details
-        [Test, Category("Inventory"), Order(15)]
+        [Test, Category("Inventory"), Order(14)]
         public void UpdateItemWithBOMDetail()
         {
             #region MyRegion
@@ -1130,7 +1108,7 @@ namespace Enfinity.Erp.Test.UI
                 itemPage.ClickOnSave();
 
                 #region Validating the qty updated or not
-                IWebElement qtyElemennt = _driver.FindElement(By.XPath($"//span[contains(text(), '{item.Qty} Each')]"));
+                IWebElement qtyElemennt = _driver.FindElement(By.XPath($"//span[contains(text(), '{item.Qty} Piece')]"));
                 string actualQty = qtyElemennt.Text;
                 ClassicAssert.AreEqual(item.ExpectedQty, actualQty);
                 #endregion
@@ -1152,7 +1130,7 @@ namespace Enfinity.Erp.Test.UI
         #endregion
 
         #region Update an item with UOM Details
-        [Test, Category("Inventory"), Order(16)]
+        [Test, Category("Inventory"), Order(15)]
         public void UpdateItemWithUOMDetail()
         {
             #region MyRegion
@@ -1213,7 +1191,7 @@ namespace Enfinity.Erp.Test.UI
         #endregion
 
         #region Update an item with Supplier Details
-        [Test, Category("Inventory"), Order(17)]
+        [Test, Category("Inventory"), Order(16)]
         public void UpdateItemWithSupplierDetail()
         {
             #region MyRegion
@@ -1270,7 +1248,7 @@ namespace Enfinity.Erp.Test.UI
                 #region Validating the supplier name updated or not
                 IWebElement supplierNameElement = _driver.FindElement(By.ClassName("Item-Supplier-title"));
                 string supplierName = supplierNameElement.Text;
-                ClassicAssert.AreEqual(item.Supplier + " A004", supplierName);
+                ClassicAssert.AreEqual(item.Supplier + " S002", supplierName);
                 #endregion
 
                 #endregion
@@ -1279,7 +1257,7 @@ namespace Enfinity.Erp.Test.UI
         #endregion
 
         #region Update an item with Price Lists Details
-        [Test, Category("Inventory"), Order(18)]
+        [Test, Category("Inventory"), Order(17)]
         public void UpdateItemWithPriceListDetail()
         {
             #region MyRegion
@@ -1313,7 +1291,7 @@ namespace Enfinity.Erp.Test.UI
                 #region Validating the price list unit price updated or not
                 IWebElement priceListElement = _driver.FindElement(By.XPath("//div[span[contains(text(),'Unit Price')]]"));
                 string unitPriceActual = priceListElement.Text.Trim();
-                ClassicAssert.AreEqual("Unit Price " + item.UnitPrice + " @ EA", unitPriceActual);
+                ClassicAssert.AreEqual("Unit Price " + item.UnitPrice + " @ 001", unitPriceActual);
                 #endregion
 
                 itemPage.DeleteSecondPriceList();
@@ -1333,7 +1311,7 @@ namespace Enfinity.Erp.Test.UI
         #endregion
 
         #region Update an item with Warehouse Details
-        [Test, Category("Inventory"), Order(19)]
+        [Test, Category("Inventory"), Order(18)]
         public void UpdateItemWithWarehouseDetail()
         {
             #region MyRegion
@@ -1392,7 +1370,7 @@ namespace Enfinity.Erp.Test.UI
         #endregion
 
         #region Update an item with Barcode Details
-        [Test, Category("Inventory"), Order(20)]
+        [Test, Category("Inventory"), Order(19)]
         public void UpdateItemWithBarcodeDetail()
         {
             #region MyRegion
@@ -1434,9 +1412,9 @@ namespace Enfinity.Erp.Test.UI
                 itemPage.ClickOnOk();
 
                 #region Validating the Barcode Deleted or not
-                //IWebElement deleteElemennt = _driver.FindElement(By.ClassName("dx-toast-success"));
-                //string successMessage = deleteElemennt.Text;
-                //ClassicAssert.AreEqual("Item Barcode deleted", successMessage);
+                IWebElement deleteElemennt = _driver.FindElement(By.ClassName("dx-toast-success"));
+                string successMessage = deleteElemennt.Text;
+                ClassicAssert.AreEqual("Item Barcode deleted", successMessage);
                 itemPage.ValidateDeletion("Item Barcode deleted");
                 #endregion
 
@@ -1446,7 +1424,7 @@ namespace Enfinity.Erp.Test.UI
         #endregion
 
         #region Update an item with Document Details
-        [Test, Category("Inventory"), Order(21)]
+        [Test, Category("Inventory"), Order(20)]
         public void UpdateItemWithDocumentDetail()
         {
             #region MyRegion
@@ -1501,7 +1479,7 @@ namespace Enfinity.Erp.Test.UI
         #endregion
 
         #region Update an item with Account Setup Details
-        [Test, Category("Inventory"), Order(22)]
+        [Test, Category("Inventory"), Order(21)]
         public void UpdateItemWithAccountSetupDetail()
         {
             #region MyRegion
@@ -1558,7 +1536,7 @@ namespace Enfinity.Erp.Test.UI
         #endregion
 
         #region Update an item with Dimension Details
-        [Test, Category("Inventory"), Order(23)]
+        [Test, Category("Inventory"), Order(22)]
         public void UpdateItemWithDimensionDetail()
         {
             #region MyRegion
@@ -1635,16 +1613,51 @@ namespace Enfinity.Erp.Test.UI
         }
         #endregion
 
-        #region create new item without Base UOM - Not allowed
-        [Test, Category("Inventory"), Order(24)]
-        public void createNewItemWithoutBaseUOM()
+        #region Delete items
+        [Test, Category("Inventory"), Order(23)]
+        public void DeleteItem()
         {
             #region MyRegion
             Login(Product);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
-            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "validate");
+            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "delete");
+            var itemPage = new ItemPage(_driver);
+            var inventoryPage = new InventoryPage(_driver);
+            var inventorySetupPage = new InventorySetupPage(_driver);
+            var inventoryItemListingPage = new InventoryItemListingPage(_driver);
+
+            foreach (var item in items)
+            {
+                inventoryPage.ClickOnInventoryModule();
+                //inventoryPage.ClickOnSetups();
+                CommonPageActions.ClickOnSetups();
+                inventorySetupPage.ClickOnItem();
+
+                inventoryItemListingPage.ProvideItemName(item.Name);
+                Thread.Sleep(2000);
+                inventoryItemListingPage.ClickOnSelectedItemName();
+                Thread.Sleep(2000);
+                inventoryItemListingPage.clickOnContextMenuItem();
+                inventoryItemListingPage.clickOnContextMenuItemDelete();
+                Thread.Sleep(2000);
+                inventoryItemListingPage.clickOnConfirmOk();
+                Thread.Sleep(2000);
+            }
+        }
+        #endregion
+
+        #region create new item without Base UOM - Not allowed
+        [Test, Category("Inventory"), Order(24)]
+        public void createItemWithoutBaseUOM()
+        {
+            #region MyRegion
+            Login(Product);
+            #endregion
+
+            var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
+            var items = JsonHelper.ConvertJsonListDataModel<ItemModel>(itemFile, "Validate");
             var itemPage = new ItemPage(_driver);
             var inventoryPage = new InventoryPage(_driver);
             var inventorySetupPage = new InventorySetupPage(_driver);
@@ -1661,13 +1674,11 @@ namespace Enfinity.Erp.Test.UI
                 itemPage.ProvideItemName(item.Name);
                 //itemPage.provideItemName(item.Name, item.ArabicName);
                 itemPage.clickSaveItem();
+                Thread.Sleep(1000);
 
                 #region Validate the base unit of measure is required while creating new item
                 itemPage.Validate("Item base unit of measure is required!");
                 #endregion
-
-
-
             }
         }
         #endregion

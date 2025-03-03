@@ -520,6 +520,12 @@ namespace Enfinity.Common.Test
             //Thread.Sleep(2000);
             //Find(deleteBasicSalaryComponent).Click();
         }
+
+        public static void PressTab()
+        {
+            Actions actions = new Actions(BaseTest._driver);             
+            actions.SendKeys(Keys.Tab).Perform();
+        }
     }
 }
 

@@ -219,7 +219,7 @@ namespace Enfinity.Erp.Test.UI
                 #endregion
 
                 #region Validate the Address updated sucessfully
-                cp.Validate("Customer updated successfully.");
+                CommonPageActions.ValidateSucess("Customer updated successfully.");
                 #endregion                
 
                 //cp.ClickOnSameAddress();
@@ -248,7 +248,7 @@ namespace Enfinity.Erp.Test.UI
                 #endregion
 
                 #region Validate the Address updated sucessfully
-                cp.Validate("Customer updated successfully.");
+                CommonPageActions.ValidateSucess("Customer updated successfully.");
                 #endregion 
             }
         }
@@ -423,7 +423,7 @@ namespace Enfinity.Erp.Test.UI
                 await WaitHelper.WaitForSeconds(1);
 
                 #region Validate the same name customer not create
-                cp.ValidateError("already exists");
+                CommonPageActions.Validate("already exists");
                 #endregion
                 await WaitHelper.WaitForSeconds(3);
 
@@ -433,7 +433,7 @@ namespace Enfinity.Erp.Test.UI
                 await WaitHelper.WaitForSeconds(1);
                 
                 #region Validate the same code customer not create
-                cp.ValidateError("already exists");
+                CommonPageActions.Validate("already exists");
                 #endregion
 
                                    
@@ -475,7 +475,7 @@ namespace Enfinity.Erp.Test.UI
                 await WaitHelper.WaitForSeconds(1);
 
                 #region Validate the customer deleted message
-                cp.Validate("Customer deleted successfully");
+                CommonPageActions.ValidateSucess("Customer deleted successfully");
                 #endregion               
             }
         }

@@ -69,5 +69,13 @@ namespace Enfinity.Hrms.Test.UI.Models.SelfService
 
     }
 
+    public class ResignationModel
+    {
+        public string submittedDate { get; set; }             
+        public string remarks { get; set; }
+
+    }
+
+
 
 }

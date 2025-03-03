@@ -10,10 +10,13 @@ namespace Enfinity.Erp.Test.UI
     public class SalesSetupPage
     {
         private readonly IWebDriver _driver;
+
+        #region Constructor
         public SalesSetupPage(IWebDriver driver)
         {
             _driver = driver;
         }
+        #endregion
 
         #region Setups - Common Page Objects
         private By customer = By.Id("NavViewCommon_I0i0_T");

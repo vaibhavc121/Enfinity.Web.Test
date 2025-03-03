@@ -15,7 +15,7 @@ namespace Enfinity.Hrms.Test.UI
     public class PayrollTabTest: BaseTest
     {
         public string Product = "Hrms";
-        [Test]
+        //[Test]
         [Ignore("")]
         public void VerifyPayrollTab()
         {

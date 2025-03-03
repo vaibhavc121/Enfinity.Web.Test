@@ -65,6 +65,7 @@ namespace Enfinity.Erp.Test.UI
         #endregion
 
         #region Create New Item
+        private By itemCode = By.CssSelector("input[name='Code']");
         private By itemName = By.CssSelector("input[name='Name']");
         private By itemarabicName = By.CssSelector("input[name='NameL2']");
         //private By dropdownselectofUOM = By.CssSelector(".dx-widget.dx-dropdowneditor-button");
@@ -193,8 +194,10 @@ namespace Enfinity.Erp.Test.UI
 
         #region Barcodes Tab
         private By addbarcodeButton = By.XPath("(//i[contains(@class, 'dx-icon-edit-button-addrow')])[6]");
+        private By addBarcode = By.XPath("(//i[contains(@class, 'dx-icon-edit-button-addrow')])[2]");
         //private By barcode = By.XPath("(//input[contains(@class, 'dx-texteditor-input')])[22]");
         private By barcode = By.XPath("(//input[contains(@id, '_Barcode')])");
+        private By barcodeUOM = By.XPath("(//input[contains(@id, '_UnitOfMeasureId')])[2]");
         private By dropdownbarcodeUOM = By.XPath("(//input[contains(@id, '_UnitOfMeasureId')])[3]");
         private By barcodeFreezed = By.XPath("(//div[contains(@class, 'dx-switch-container')])");
         private By savebarcodeButton = By.XPath("(//span[@class='dx-button-text'][normalize-space()='Save'])[7]");
@@ -267,6 +270,11 @@ namespace Enfinity.Erp.Test.UI
         {
             _driver.FindElement(itemName).SendKeys(itemname);
             _driver.FindElement(itemarabicName).SendKeys(arabicname);
+        }
+        public void ProvideItemCode(string data)
+        {
+            //_driver.FindElement(itemName).SendKeys(itemname);
+            ClearAndProvide(itemCode,data);
         }
         public void ProvideItemName(string itemname)
         {
@@ -687,6 +695,10 @@ namespace Enfinity.Erp.Test.UI
         {
             _driver.FindElement(dropdownbarcodeUOM).Click();
         }
+        public void clickBarcodeUOM()
+        {
+            _driver.FindElement(barcodeUOM).Click();
+        }
         public void provideBarcode(string barcodenum)
         {
             //_driver.FindElement(barcode).SendKeys(barcodenum);
@@ -1012,8 +1024,7 @@ namespace Enfinity.Erp.Test.UI
         {
             IWebElement element = _driver.FindElement(By.ClassName("dx-toast-message"));
             string actualMessage = element.Text.Trim();
-            StringAssert.Contains(expectedMessage, actualMessage);
-            //ClassicAssert.AreEqual(expectedMessage, actualMessage);
+            StringAssert.Contains(expectedMessage, actualMessage);       
         }
         public void ClickOnBack()
         {

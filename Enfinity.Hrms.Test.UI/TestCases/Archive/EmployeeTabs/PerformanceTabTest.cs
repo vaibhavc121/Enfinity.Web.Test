@@ -17,7 +17,7 @@ namespace Enfinity.Hrms.Test.UI
     {
         public string Product = "Hrms";
 
-        [Test]
+        //[Test]
         [Ignore("")]
         public void VerifyPerformanceTab()
         {
