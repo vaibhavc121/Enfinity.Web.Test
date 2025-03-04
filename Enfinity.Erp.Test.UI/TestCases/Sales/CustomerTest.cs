@@ -72,7 +72,7 @@ namespace Enfinity.Erp.Test.UI
 
         #region Create new customer with keyinfo details
         [Test, Category("Sales"), Order(2)]
-        public async Task CreateNewCustomerWithKeyInfo()
+        public async Task CreateCustomerWithKeyInfoDetail()
         {
             #region MyRegion
             Login(Product);
@@ -85,7 +85,7 @@ namespace Enfinity.Erp.Test.UI
             var cp = new CustomerPage(_driver);
             var ssp = new SalesSetupPage(_driver);
             var clp = new CustomerListingPage(_driver);
-            ScrollHelper scrollHelper = new ScrollHelper(_driver);
+            //ScrollHelper scrollHelper = new ScrollHelper(_driver);
 
             foreach (var customer in customers)
             {
@@ -117,7 +117,7 @@ namespace Enfinity.Erp.Test.UI
                 cp.ProvideCreditLimitAmount(customer.CreditLimitAmount);
 
                 IWebElement element = _driver.FindElement(By.XPath("(//input[contains(@id, '_CreditCheckMode')])"));
-                scrollHelper.ScrollToElement(element);
+                ScrollHelper.ScrollToElement(element);
                 cp.ClickOnCreditCheckMode();
                 CommonPageActions.SelectDropDownOption(customer.CreditCheckMode);
                 cp.ClickOnCreditRating();
@@ -141,7 +141,7 @@ namespace Enfinity.Erp.Test.UI
                 CommonPageActions.SelectDropDownOption(customer.ShipmentPriority);
 
                 IWebElement saveElement = _driver.FindElement(By.XPath("//span[contains(@class, 'dx-tab-text') and text()='Documents']"));
-                scrollHelper.ScrollToElement(saveElement);
+                ScrollHelper.ScrollToElement(saveElement);
                 await WaitHelper.WaitForSeconds(2);
                 cp.ClickOnSaveKeyInfo();
 
@@ -156,13 +156,16 @@ namespace Enfinity.Erp.Test.UI
                 string actualName = customerName.GetDomProperty("value");
                 ClassicAssert.AreEqual(customer.Email, actualName);
                 #endregion
+
+                cp.ClickOnBack();
+                await WaitHelper.WaitForSeconds(2);
             }
         }
         #endregion
 
         #region Create new customer with address details
         [Test, Category("Sales"), Order(3)]
-        public async Task CreateNewCustomerWithAddress()
+        public async Task CreateCustomerWithAddressDetail()
         {
             #region MyRegion
             Login(Product);
@@ -175,7 +178,7 @@ namespace Enfinity.Erp.Test.UI
             var cp = new CustomerPage(_driver);
             var ssp = new SalesSetupPage(_driver);
             var clp = new CustomerListingPage(_driver);
-            ScrollHelper scrollHelper = new ScrollHelper(_driver);
+            //ScrollHelper scrollHelper = new ScrollHelper(_driver);
             IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;            
 
             foreach (var customer in customers)
@@ -206,12 +209,12 @@ namespace Enfinity.Erp.Test.UI
                 cp.ProvideBillingCity(customer.BillingCity);                
 
                 IWebElement element = _driver.FindElement(By.XPath("(//input[contains(@id, '_BillingContactPerson')])"));
-                scrollHelper.ScrollToElement(element);
+                ScrollHelper.ScrollToElement(element);
                 cp.ProvideBillingContactPerson(customer.BillingContactPerson);
                 cp.ProvideBillingZipCode(customer.BillingZipcode);
 
                 IWebElement saveElement = _driver.FindElement(By.XPath("//span[contains(@id, '_ShippingAddress')]"));
-                scrollHelper.ScrollToElement(saveElement);
+                ScrollHelper.ScrollToElement(saveElement);
 
                 await WaitHelper.WaitForSeconds(1);
                 cp.ClickOnSaveAddress();
@@ -235,12 +238,12 @@ namespace Enfinity.Erp.Test.UI
                 cp.ProvideShippingCity(customer.ShippingCity);
 
                 IWebElement shipelement = _driver.FindElement(By.XPath("(//input[contains(@id, '_ShippingContactPerson')])"));
-                scrollHelper.ScrollToElement(shipelement);
+                ScrollHelper.ScrollToElement(shipelement);
                 cp.ProvideShippingContactPerson(customer.ShippingContactPerson);
                 cp.ProvideShippingZipCode(customer.ShippingZipcode);
 
                 IWebElement saveToElement = _driver.FindElement(By.XPath("//span[contains(@id, '_ShippingAddress')]"));
-                scrollHelper.ScrollToElement(saveToElement);
+                ScrollHelper.ScrollToElement(saveToElement);
 
                 await WaitHelper.WaitForSeconds(1);
                 cp.ClickOnSaveAddress();
@@ -250,13 +253,16 @@ namespace Enfinity.Erp.Test.UI
                 #region Validate the Address updated sucessfully
                 CommonPageActions.ValidateSucess("Customer updated successfully.");
                 #endregion 
+
+                cp.ClickOnBack();
+                await WaitHelper.WaitForSeconds(2);
             }
         }
         #endregion
 
         #region Create new customer with contact person details
         [Test, Category("Sales"), Order(4)]
-        public async Task CreateNewCustomerWithContactPerson()
+        public async Task CreateCustomerWithContactPersonDetail()
         {
             #region MyRegion
             Login(Product);
@@ -269,7 +275,7 @@ namespace Enfinity.Erp.Test.UI
             var cp = new CustomerPage(_driver);
             var ssp = new SalesSetupPage(_driver);
             var clp = new CustomerListingPage(_driver);
-            ScrollHelper scrollHelper = new ScrollHelper(_driver);
+            //ScrollHelper scrollHelper = new ScrollHelper(_driver);
 
             foreach (var customer in customers)
             {
@@ -306,7 +312,7 @@ namespace Enfinity.Erp.Test.UI
                     CommonPageActions.SelectDropdownOption(person.Gender);
 
                     IWebElement emaiElement = _driver.FindElement(By.XPath("(//input[contains(@id, '_Email')])[2]"));
-                    scrollHelper.ScrollToElement(emaiElement);
+                    ScrollHelper.ScrollToElement(emaiElement);
                     cp.ProvideEmailAddress(person.Email);
                     cp.ProvideMobileNumber(person.Mobile);
                     cp.ProvideTelNumber(person.Telephone);
@@ -327,13 +333,16 @@ namespace Enfinity.Erp.Test.UI
                     #endregion
                 }
                 #endregion
+
+                cp.ClickOnBack();
+                await WaitHelper.WaitForSeconds(2);
             }
         }
         #endregion
 
         #region Create new customer with document details
         [Test, Category("Sales"), Order(5)]
-        public async Task CreateNewCustomerWithDocument()
+        public async Task CreateCustomerWithDocumentDetail()
         {
             #region MyRegion
             Login(Product);
@@ -346,7 +355,7 @@ namespace Enfinity.Erp.Test.UI
             var cp = new CustomerPage(_driver);
             var ssp = new SalesSetupPage(_driver);
             var clp = new CustomerListingPage(_driver);
-            ScrollHelper scrollHelper = new ScrollHelper(_driver);
+            //ScrollHelper scrollHelper = new ScrollHelper(_driver);
 
             foreach (var customer in customers)
             {
@@ -389,13 +398,16 @@ namespace Enfinity.Erp.Test.UI
                     #endregion
                 }
                 #endregion
+
+                cp.ClickOnBack();
+                await WaitHelper.WaitForSeconds(2);
             }
         }
         #endregion
 
         #region Create new customer with same name - not create
         [Test, Category("Sales"), Order(6)]
-        public async Task CreateCustomerSameNameCode()
+        public async Task ValidateCustomerWithSameNameOrCodeNotAllowed()
         {
             #region MyRegion
             Login(Product);
@@ -436,7 +448,6 @@ namespace Enfinity.Erp.Test.UI
                 CommonPageActions.Validate("already exists");
                 #endregion
 
-                                   
             }
         }
         #endregion

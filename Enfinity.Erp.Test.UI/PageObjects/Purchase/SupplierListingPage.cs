@@ -92,6 +92,7 @@ namespace Enfinity.Erp.Test.UI
             //_driver.FindElement(itemSelect).Click();
             IWebElement element = _driver.FindElement(supplierSelect);
             ((IJavaScriptExecutor)_driver).ExecuteScript("arguments[0].click();", element);
+            Thread.Sleep(1000);
         }
         #endregion
 
@@ -99,14 +100,17 @@ namespace Enfinity.Erp.Test.UI
         public void clickOnContextMenuItem()
         {
             _driver.FindElement(contextmenuItem).Click();
+            Thread.Sleep(500);
         }
         public void clickOnContextMenuDelete()
         {
             _driver.FindElement(contextmenuDelete).Click();
+            Thread.Sleep(1000);
         }
         public void clickOnConfirmOk()
         {
             _driver.FindElement(confirmOk).Click();
+            Thread.Sleep(1000);
         }
         public void clickOnConfirmCancel()
         {

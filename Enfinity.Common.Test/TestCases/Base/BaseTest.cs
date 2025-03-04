@@ -24,8 +24,8 @@ namespace Enfinity.Common.Test
         public Faker faker = new Faker();
         #endregion
 
-        //[SetUp]
-        [OneTimeSetUp]
+        [SetUp]
+        //[OneTimeSetUp]
         public void Setup()
         {
             #region Disable automation extension and "Save Password" prompt
@@ -52,16 +52,16 @@ namespace Enfinity.Common.Test
 
 
 
-        //[TearDown]
-        [OneTimeTearDown]
+        [TearDown]
+        //[OneTimeTearDown]
         public void TearDown()
         {
             // Close the browser
             if (_driver != null)
             {
                 ExtentReportsUtility.LogTestResult();
-                //_driver.Quit();
-                //_driver.Dispose();
+                _driver.Quit();
+                _driver.Dispose();
                 ExtentReportsUtility.FlushReport();
             }
         }

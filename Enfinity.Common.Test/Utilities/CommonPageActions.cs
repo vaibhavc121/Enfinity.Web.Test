@@ -48,6 +48,44 @@ namespace Enfinity.Common.Test
         {
             BaseTest._driver.FindElement(By.CssSelector("li[title='Setups']")).Click();
         }
+        public static void ClickOnDelete()
+        {
+            BaseTest._driver.FindElement(By.XPath("//div//span[contains(@class, 'dx-vam') and text()='Delete']")).Click();
+            Thread.Sleep(1000);
+        }
+        public static void ClickOnOk()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-button-text') and normalize-space(text())='Ok']")).Click();
+            Thread.Sleep(1000);
+        }
+        public static void ClickOnCancel()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-button-text') and normalize-space(text())='Cancel']")).Click();
+        }
+        public static void ClickOnNew()
+        {
+            BaseTest._driver.FindElement(By.XPath("//div//span[contains(@class, 'dx-vam') and text()='New']")).Click();
+        }
+        public static void ClickOnView()
+        {
+            BaseTest._driver.FindElement(By.XPath("//div//span[contains(@class, 'dx-vam') and text()='View']")).Click();
+        }
+        public static void ClickOnEdit()
+        {
+            BaseTest._driver.FindElement(By.XPath("//div//span[contains(@class, 'dx-vam') and text()='Edit']")).Click();
+        }
+        public static void ProvideNameOnListing(string name)
+        {
+            BaseTest._driver.FindElement(By.XPath("//input[@aria-describedby='dx-col-3']")).SendKeys(name);
+            Thread.Sleep(2000);
+        }
+        public static void ClickOnSelectedName()
+        {
+            //_driver.FindElement(itemSelect).Click();
+            IWebElement element = BaseTest._driver.FindElement(By.XPath("(//td[@aria-describedby='dx-col-3' and @role='gridcell' and @aria-colindex='2'])[2]"));
+            ((IJavaScriptExecutor)BaseTest._driver).ExecuteScript("arguments[0].click();", element);
+            Thread.Sleep(1000);
+        }
         public static void SelectDropDownOption(string option)
         {
             Thread.Sleep(1000);
@@ -76,9 +114,27 @@ namespace Enfinity.Common.Test
             string actualMessage = element.Text;
             StringAssert.Contains(expectedMessage, actualMessage);
         }
+        public static void ValidateSummary(string expectedMessage)
+        {
+            IWebElement element = BaseTest._driver.FindElement(By.Id("ValidationSummary"));
+            string actualMessage = element.Text;
+            StringAssert.Contains(expectedMessage, actualMessage);
+        }
+        public static void ClearAndProvideValue(By locator, string value)
+        {
+            var element = BaseTest._driver.FindElement(locator);
+            element.Click();
+            Actions actions = new Actions(BaseTest._driver);
+            actions.KeyDown(Keys.Control)
+                   .SendKeys("a")
+                   .KeyUp(Keys.Control)
+                   .SendKeys(Keys.Delete)
+                   .Perform();
+            element.SendKeys(value);
+        }
         #endregion
 
-        #region Documents Action Methods         
+        #region ERP Documents Action Methods         
         public static void clickOnDocumentType()
         {
             BaseTest._driver.FindElement(By.XPath("(//input[contains(@id, 'DocumentTypeId')])")).Click();
@@ -103,6 +159,25 @@ namespace Enfinity.Common.Test
         public static void clickSaveDocument()
         {
             BaseTest._driver.FindElement(By.XPath("(//span[normalize-space()='Save'])[2]")).Click();
+        }
+        #endregion
+
+        #region ERP Module related Action Methods
+        public static void ClickOnAccountingModule()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Accounting']")).Click();
+        }
+        public static void ClickOnSalesModule()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Sales']")).Click();
+        }
+        public static void ClickOnPurchaseModule()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Purchase']")).Click();
+        }
+        public static void ClickOnInventoryModule()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Inventory']")).Click();
         }
         #endregion
 
@@ -245,7 +320,7 @@ namespace Enfinity.Common.Test
                 string actualValue = dropdownElement.Text;
 
                 // If the dropdown name matches the desired one, click it
-                if (actualValue.Equals(expectedValue))
+                if (actualValue.Contains(expectedValue))
                 {
                     dropdownElement.Click();
                     break;
@@ -289,6 +364,21 @@ namespace Enfinity.Common.Test
                 if (actualValue.Contains(value))
                 {
                     valueElement.Click();
+                    break;
+                }
+            }
+        }
+        public static bool Validation(By locator, string value)
+        {
+            // Find all values in the Office 365 dropdown
+            IList<IWebElement> valuesList = BaseTest._driver.FindElements(locator);
+
+            foreach (var valueElement in valuesList)
+            {
+                string actualValue = valueElement.Text;
+                if (actualValue.Contains(value))
+                {
+                    return true;
                     break;
                 }
             }

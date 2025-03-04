@@ -1,13 +1,13 @@
 {
   "new": [
     {
-      //"Code": "C0002",
+      "Code": "C0016",
       "Name": "Adila Sharaf",
       "ArabicName": "Adila Sharaf",
       "Currency": "KWD | Kuwaiti Dinar"
     },
     {
-      //"Code": "C0003",
+      "Code": "C0017",
       "Name": "Aludra Yassin",
       "ArabicName": "Aludra Yassin",
       "Currency": "KWD | Kuwaiti Dinar"
@@ -15,9 +15,9 @@
   ],
   "keyinfo": [
     {
-      "Code": "C0001",
-      "Name": "KeyInfoCustomer",
-      "ArabicName": "KeyInfoCustomer",
+      "Code": "C0018",
+      "Name": "Key Info Detail Customer",
+      "ArabicName": "Key Info Detail Customer",
       "Group": "CG01 | National",
       "Email": "key@gmail.com",
       "Mobile": "98652545",
@@ -30,7 +30,7 @@
       "CreditCheckMode": "Notify Only",
       "Salesman": "SM02 | Habid Eid",
       "PaymentTerm": "PT01 | Net 30",
-      "PriceList": "PL01 | Dhamaka",
+      "PriceList": "PL001 | Standard",
       "ShippingTerm": "Factory",
       "LoadingPort": "1001",
       "DestinationPort": "2001",
@@ -40,9 +40,9 @@
   ],
   "address": [
     {
-      "Code": "C0001",
-      "Name": "Customer Address",
-      "ArabicName": "Customer Address",
+      "Code": "C0019",
+      "Name": "Address Detail Customer",
+      "ArabicName": "Address Detail Customer",
       "BillingAddress1": "3021 Nyasia Shore",
       "BillingAddress2": "Fort Wayne",
       "BillingCountry": "Finland",
@@ -61,9 +61,9 @@
   ],
   "multipersons": [
     {
-      "Code": "C0001",
-      "Name": "Multiple Contact Person",
-      "ArabicName": "Multiple Contact Person",
+      "Code": "C0020",
+      "Name": "Contact Person Detail Customer",
+      "ArabicName": "Contact Person Detail Customer",
       "persons": [
         {
           "Prefix": "Mr.",
@@ -90,9 +90,9 @@
   ],
   "multidocuments": [
     {
-      "Code": "C0001",
-      "Name": "Multiple Documents",
-      "ArabicName": "Multiple Documents",
+      "Code": "C0021",
+      "Name": "Document Detail Customer",
+      "ArabicName": "Document Detail Customer",
       "Documents": [
         {
           "DocumentType": "Civil Id",
@@ -113,8 +113,8 @@
   ],
   "duplicate": [
     {
-      "Code": "001",
-      "Name": "Adila Sharaf"
+      "Code": "C0001",
+      "Name": "Rahim Jaber"
     }
   ],
   "delete": [
@@ -125,16 +125,16 @@
       "Name": "Aludra Yassin"
     },
     {
-      "Name": "KeyInfoCustomer"
+      "Name": "Key Info Detail Customer"
     },
     {
-      "Name": "Customer Address"
+      "Name": "Address Detail Customer"
     },
     {
-      "Name": "Multiple Contact Person"
+      "Name": "Contact Person Detail Customer"
     },
     {
-      "Name": "Multiple Documents"
+      "Name": "Document Detail Customer"
     }
   ]
 }

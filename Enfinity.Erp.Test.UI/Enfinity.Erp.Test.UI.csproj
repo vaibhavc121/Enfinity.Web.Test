@@ -153,15 +153,22 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Models\Global\UOM\UOMData.json" />
+    <Compile Include="Models\Global\UOM\UOMModel.cs" />
     <Compile Include="Models\Inventory\Item\ItemModel.cs" />
+    <Compile Include="Models\Inventory\Warehouse\WarehouseModel.cs" />
     <Compile Include="Models\Purchase\Supplier\SupplierModel.cs" />
     <Compile Include="Models\Sales\Customer\CustomerModel.cs" />
     <Compile Include="Models\Sales\Invoice\InvoiceModel.cs" />
+    <Compile Include="PageObjects\Global\NavigationBarPage.cs" />
+    <Compile Include="PageObjects\Global\UOMListingPage.cs" />
+    <Compile Include="PageObjects\Global\UOMPage.cs" />
     <Compile Include="PageObjects\Inventory\InventoryItemListingPage.cs" />
     <Compile Include="PageObjects\Inventory\InventoryPage.cs" />
     <Compile Include="PageObjects\Inventory\InventorySetupPage.cs" />
     <Compile Include="PageObjects\Inventory\ItemPage.cs" />
     <Compile Include="PageObjects\Inventory\ItemQueryPage.cs" />
+    <Compile Include="PageObjects\Inventory\WarehousePage.cs" />
     <Compile Include="PageObjects\Purchase\PurchasePage.cs" />
     <Compile Include="PageObjects\Purchase\PurchaseSetupPage.cs" />
     <Compile Include="PageObjects\Purchase\SupplierListingPage.cs" />
@@ -173,7 +180,9 @@
     <Compile Include="PageObjects\Sales\SalesSetupPage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCases\Global\GlobalTest.cs" />
     <Compile Include="TestCases\Inventory\ItemTest.cs" />
+    <Compile Include="TestCases\Inventory\WarehouseTest.cs" />
     <Compile Include="TestCases\Purchase\SupplierTest.cs" />
     <Compile Include="TestCases\Sales\CreateInvoiceTest.cs" />
     <Compile Include="TestCases\Sales\CustomerTest.cs" />
@@ -181,6 +190,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Models\Global\LoginData.json" />
+    <None Include="Models\Inventory\Warehouse\WarehouseData.json" />
     <None Include="Models\Purchase\Supplier\SupplierData.json" />
     <None Include="Models\Sales\Customer\CustomerData.json" />
     <None Include="Models\Sales\Invoice\InvoiceData.json" />
@@ -189,11 +199,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PageObjects\Accounting\" />
-    <Folder Include="PageObjects\Base\" />
     <Folder Include="PageObjects\FixedAssets\" />
     <Folder Include="PageObjects\Service\" />
     <Folder Include="TestCases\Accounting\" />
-    <Folder Include="TestCases\Base\" />
     <Folder Include="TestCases\FixedAssets\" />
     <Folder Include="TestCases\Service\" />
   </ItemGroup>

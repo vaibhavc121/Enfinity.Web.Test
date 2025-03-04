@@ -1,13 +1,13 @@
 {
   "new": [
     {
-      "Code": "S0003",
+      "Code": "S0016",
       "Name": "Adila Sharaf",
       "ArabicName": "Adila Sharaf",
       "Currency": "KWD | Kuwaiti Dinar"
     },
     {
-      "Code": "S0004",
+      "Code": "S0017",
       "Name": "Aludra Yassin",
       "ArabicName": "Aludra Yassin",
       "Currency": "KWD | Kuwaiti Dinar"
@@ -15,18 +15,18 @@
   ],
   "keyinfo": [
     {
-      "Code": "S0005",
-      "Name": "KeyInfo Detail Supplier",
-      "ArabicName": "KeyInfo Detail Supplier",
-      "Group": "CG01 | National",
-      "ContactPerson": "",
+      "Code": "S0018",
+      "Name": "Key Info Detail Supplier",
+      "ArabicName": "Key Info Detail Supplier",
+      "Group": "National",
+      "ContactPerson": "Sakib Al Hasan",
       "Mobile": "98652545",
       "Email": "key@gmail.com",
       "PayableAccount": "11210 | Receivables",
-      "Description": "KeyInfo Detail Supplier",
+      "Description": "Key Info Detail Supplier",
       "CreditLimitAmount": "500",
       "CreditLimitDays": "50",
-      "PaymentTerm": "PT01 | Net 30",
+      "PaymentTerm": "Net 30",
       "ShippingTerm": "Factory",
       "LoadingPort": "1001",
       "DestinationPort": "2001",
@@ -36,100 +36,100 @@
   ],
   "multipersons": [
     {
-      "Code": "S0006",
-      "Name": "Multiple Contact Person",
-      "ArabicName": "Multiple Contact Person",
+      "Code": "S0019",
+      "Name": "Contact Person Detail Supplier",
+      "ArabicName": "Contact Person Detail Supplier",
       "persons": [
         {
           "Prefix": "Mr.",
           "FirstName": "Kareem",
-          "MiddleName": null,
+          "MiddleName": "M",
           "LastName": "Amiri",
           "JobTitle": "Salesman",
           "Gender": "Male",
           "Mobile": "9865254245",
-          "Telephone": "964-452415",
-          "Fax": null,
+          "Telephone": "964452415",
+          "Fax": "964452415",
           "Email": "kareem@grand.com"
         },
         {
-          "Prefix": "Mr.",
-          "FirstName": "Salim",
-          "MiddleName": null,
+          "Prefix": "Ms.",
+          "FirstName": "Salma",
+          "MiddleName": "R",
           "LastName": "Tabatabai",
           "JobTitle": "Salesman",
-          "Gender": "Male",
+          "Gender": "Female",
           "Mobile": "9865254246",
-          "Telephone": "964-452416",
-          "Fax": null,
-          "Email": "salim@grand.com"
+          "Telephone": "964452416",
+          "Fax": "964452416",
+          "Email": "salma@grand.com"
         }
       ]
     }
   ],
   "multiaddress": [
     {
-      "Code": "S0007",
-      "Name": "Multiple Address",
-      "ArabicName": "Multiple Address",
-      "address": [
+      "Code": "S0020",
+      "Name": "Address Detail Supplier",
+      "ArabicName": "Address Detail Supplier",
+      "Addresses": [
         {
-          "Description": "Mr.",
-          "Address1": "Kareem",
-          "Address2": "Amiri",
-          "Address3": "Salesman",
-          "Address4": "Male",
-          "Address5": "9865254245",
-          "City": "964-452415",
-          "State": "kareem@grand.com",
+          "Description": "Shipping Address",
+          "Address1": "123 Main Street",
+          "Address2": "Apartment: 2B",
+          "Address3": "15 Mubarak Al-Kabeer Street",
+          "Address4": "Sharq Area",
+          "Address5": "15458 Kuwait City",
+          "City": "Kuwait",
+          "State": "KUWAIT",
           "DialingCode": "965",
-          "ZipCode": "",
-          "ContactPerson": "",
-          "Email": "",
-          "MobileNumber": "",
-          "TelNumber": "",
-          "FaxNumber": ""
+          "ZipCode": "154858",
+          "ContactPerson": "Kareem Amiri",
+          "Email": "supplier@gmail.com",
+          "MobileNumber": "96563524",
+          "TelNumber": "98573524",
+          "FaxNumber": "98573524"
         },
         {
-          "Description": "Mr.",
-          "Address1": "Kareem",
-          "Address2": "Amiri",
-          "Address3": "Salesman",
-          "Address4": "Male",
-          "Address5": "9865254245",
-          "City": "964-452415",
-          "State": "kareem@grand.com",
+          "Description": "Mailing Address",
+          "Address1": "124 Main Street",
+          "Address2": "Apartment: 2D",
+          "Address3": "15 Mubarak Al-Kabeer Street",
+          "Address4": "Sharq Area",
+          "Address5": "15459 Kuwait City",
+          "City": "Kuwait",
+          "State": "KUWAIT",
           "DialingCode": "965",
-          "ZipCode": "",
-          "ContactPerson": "",
-          "Email": "",
-          "MobileNumber": "",
-          "TelNumber": "",
-          "FaxNumber": ""
+          "ZipCode": "154858",
+          "ContactPerson": "Salma Shah",
+          "Email": "supplier@gmail.com",
+          "MobileNumber": "96563525",
+          "TelNumber": "98573525",
+          "FaxNumber": "98573525"
         }
       ]
     }
   ],
   "multiitems": [
     {
-      "Code": "S0008",
-      "Name": "Multiple Documents",
-      "ArabicName": "Multiple Documents",
+      "Code": "S0021",
+      "Name": "Items Detail Supplier",
+      "ArabicName": "Items Detail Supplier",
       "Items": [
         {
-          "Item": ""
+          "Item": "Screen Protectors"
         },
         {
-          "Item": ""
+          "Item": "Phone Cases"
         }
       ]
     }
   ],
   "multidocuments": [
     {
-      "Code": "S0009",
-      "Name": "Multiple Documents",
-      "ArabicName": "Multiple Documents",
+      "Code": "S0022",
+      "Name": "Document Detail Supplier",
+      "ArabicName": "Document Detail Supplier",
       "Documents": [
         {
           "DocumentType": "Civil Id",
@@ -146,6 +146,35 @@
           "DateOfExpiry": "31-Dec-2025"
         }
       ]
+    }
+  ],
+  "delete": [
+    {
+      "Name": "Adila Sharaf"
+    },
+    {
+      "Name": "Aludra Yassin"
+    },
+    {
+      "Name": "Key Info Detail Supplier"
+    },
+    {
+      "Name": "Contact Person Detail Supplier"
+    },
+    {
+      "Name": "Address Detail Supplier"
+    },
+    {
+      "Name": "Items Detail Supplier"
+    },
+    {
+      "Name": "Document Detail Supplier"
+    }
+  ],
+  "duplicate": [
+    {
+      "Code": "S0001",
+      "Name": "Taraab Mansoor"
     }
   ]
 }

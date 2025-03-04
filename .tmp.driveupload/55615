@@ -163,6 +163,7 @@
     <Compile Include="Models\HRCore\Qualification\QualificationModel.cs" />
     <Compile Include="Models\HRCore\Religion\ReligionModel.cs" />
     <Compile Include="Models\HRCore\WorkLocation\WorkLocationModel.cs" />
+    <Compile Include="Models\Learning\Learning\LearningModel.cs" />
     <Compile Include="Models\SelfService\AdminSupport\AdminSupportModel.cs" />
     <Compile Include="Models\SelfService\ExpenseClaim\ExpenseClaimModel.cs" />
     <Compile Include="Models\SelfService\HRAssetRequest\HRAssetRequestModel.cs" />
@@ -235,6 +236,7 @@
     <None Include="Models\HRCore\Qualification\QualificationData.json" />
     <None Include="Models\HRCore\Religion\ReligionData.json" />
     <None Include="Models\HRCore\WorkLocation\WorkLocationData.json" />
+    <None Include="Models\Learning\Learning\LearningData.json" />
     <None Include="Models\SelfService\AdminSupport\AdminSupportData.json" />
     <None Include="Models\SelfService\ExpenseClaim\ExpenseClaimData.json" />
     <None Include="Models\SelfService\HRAssetRequest\HRAssetRequestData.json" />

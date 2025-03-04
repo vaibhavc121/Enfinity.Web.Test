@@ -75,7 +75,7 @@ namespace Enfinity.Erp.Test.UI
         private By mobileNumber = By.XPath("(//input[contains(@id, '_MobileNumber')])");
         private By telNumber = By.XPath("(//input[contains(@id, '_TelNumber')])");
         private By fax = By.XPath("(//input[contains(@id, '_FaxNumber')])");
-        private By emailId = By.XPath("(//input[contains(@id, '_Email')])[2]");
+        private By emailId = By.XPath("(//input[contains(@id, '_Email')])[1]");
         private By defaultId = By.XPath("(//div[contains(@id, '_Default')])");
         private By freezed = By.XPath("(//div[contains(@id, '_Freezed')])");
         private By savePerson = By.XPath("(//span[@class='dx-button-text'][normalize-space()='Save'])[2]");
@@ -93,18 +93,18 @@ namespace Enfinity.Erp.Test.UI
         private By state = By.XPath("(//input[contains(@id, '_State')])");
         private By dialingCode = By.XPath("(//input[contains(@id, '_CountryCode')])");          
         private By zipCode = By.XPath("(//input[contains(@id, '_Zipcode')])");
-        private By contact = By.XPath("(//input[contains(@id, '_Contact')])");
-        private By addressEmail = By.XPath("(//input[contains(@id, '_Email')])[3]");
-        private By addressMobileNumber = By.XPath("(//input[contains(@id, '_MobileNumber')])[2]");
-        private By addressTelNumber = By.XPath("(//input[contains(@id, '_TelNumber')])[2]");
-        private By addressFax = By.XPath("(//input[contains(@id, '_FaxNumber')])[2]");
-        private By saveAddress = By.Id("InfoSaveAddress");
+        private By contact = By.XPath("(//input[contains(@id, '_Contact')])[4]");
+        private By addressEmail = By.XPath("(//input[contains(@id, '_Email')])[1]");
+        private By addressMobileNumber = By.XPath("(//input[contains(@id, '_MobileNumber')])[1]");
+        private By addressTelNumber = By.XPath("(//input[contains(@id, '_TelNumber')])[1]");
+        private By addressFax = By.XPath("(//input[contains(@id, '_FaxNumber')])[1]");
+        private By saveAddress = By.XPath("(//span[@class='dx-button-text'][normalize-space()='Save'])[2]");
         #endregion
 
         #region Items Tab
         private By addItems = By.XPath("(//i[contains(@class, 'dx-icon-edit-button-addrow')])");
         private By itemId = By.XPath("(//input[contains(@id, '_ItemId')])");
-        private By saveItem = By.XPath("(//span[@class='dx-button-text'][normalize-space()='Save'])[3]");
+        private By saveItem = By.XPath("(//span[@class='dx-button-text'][normalize-space()='Save'])[2]");
         #endregion
 
         #endregion
@@ -145,7 +145,7 @@ namespace Enfinity.Erp.Test.UI
         }
         public void ClickOnItemTab()
         {
-            _driver.FindElement(addressTab).Click();
+            _driver.FindElement(itemsTab).Click();
         }
         public void ClickOnDocumentsTab()
         {
@@ -377,15 +377,15 @@ namespace Enfinity.Erp.Test.UI
         {
             _driver.FindElement(city).SendKeys(data);
         }
-        public void ProvideState()
+        public void ProvideState(string data)
         {
-            _driver.FindElement(state).Click();
+            _driver.FindElement(state).SendKeys(data);
         }
-        public void ProvideDialingCode()
+        public void ProvideDialingCode(string data)
         {
-            _driver.FindElement(dialingCode).Click();
+            _driver.FindElement(dialingCode).SendKeys(data);
         }
-        public void ProvideBillingZipCode(string data)
+        public void ProvideAddressZipCode(string data)
         {
             _driver.FindElement(zipCode).SendKeys(data);
         }
@@ -395,19 +395,19 @@ namespace Enfinity.Erp.Test.UI
         }
         public void ProvideAddressEmail(string data)
         {
-            _driver.FindElement(addressEmail).Click();
+            _driver.FindElement(addressEmail).SendKeys(data);
         }
         public void ProvideAddressMobileNumber(string data)
         {
-            _driver.FindElement(addressMobileNumber).Click();
+            _driver.FindElement(addressMobileNumber).SendKeys(data);
         }
         public void ProvideAddressTelNumber(string data)
         {
-            _driver.FindElement(addressTelNumber).Click();
+            _driver.FindElement(addressTelNumber).SendKeys(data);
         }
         public void ProvideAddressFaxNumber(string data)
         {
-            _driver.FindElement(addressFax).Click();
+            _driver.FindElement(addressFax).SendKeys(data);
         }
         public void ClickOnSaveAddress()
         {
