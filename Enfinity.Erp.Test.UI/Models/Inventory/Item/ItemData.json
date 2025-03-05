@@ -148,11 +148,11 @@
       "SubItems": [
         {
           "Qty": "1",
-          "SubItem": "Inventory Weightage Item"          
+          "SubItem": "Screen Protectors"
         },
         {
           "Qty": "1",
-          "SubItem": "Service Weightage Item"          
+          "SubItem": "Phone Cases"
         }
       ]
     }
@@ -193,24 +193,24 @@
       "Uom": "001 | Piece",
       "Suppliers": [
         {
-          "Supplier": "S001 | Aludra Mahdavi",
+          "Supplier": "S0001 | Taraab Mansoor",
           "PurchaseRateCurrency": "KWD | Kuwaiti Dinar",
           "Uom": "001 | Piece",
           "PurchaseUnitPrice": "100",
           "ManufacturerPartNum": "1001",
           "ManufacturerBarcode": "6001",
-          "ActualName": "S001",
-          "ExpectedName": "S001"
+          "ActualName": "S0001",
+          "ExpectedName": "S0001"
         },
         {
-          "Supplier": "S002 | Aalam Salik",
+          "Supplier": "S0002 | Nizam Sawaya",
           "PurchaseRateCurrency": "KWD | Kuwaiti Dinar",
           "Uom": "001 | Piece",
           "PurchaseUnitPrice": "200",
           "ManufacturerPartNum": "2001",
           "ManufacturerBarcode": "7001",
-          "ActualName": "S002",
-          "ExpectedName": "S002"
+          "ActualName": "S0002",
+          "ExpectedName": "S0002"
         }
       ]
     }

@@ -63,7 +63,7 @@ namespace Enfinity.Erp.Test.UI
                 itemPage.clickSaveItem();
                 Thread.Sleep(1000);
 
-                #region
+                #region Validate the newly created item name
                 IWebElement itemName = _driver.FindElement(By.CssSelector("input[name='Name']"));
                 string expectedName = itemName.GetDomProperty("value");
                 ClassicAssert.AreEqual(expectedName, item.Name);
@@ -132,7 +132,7 @@ namespace Enfinity.Erp.Test.UI
                 itemPage.provideMinimumReorderKey(item.MinimumReorder);
 
                 itemPage.clickSaveKeyInfo();
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
 
                 #region Validate Item updated message 
                 //IWebElement itemName = _driver.FindElement(By.CssSelector("input[name='Name']"));
@@ -255,10 +255,10 @@ namespace Enfinity.Erp.Test.UI
                     //itemPage.clickPurchaseDefault();
                     itemPage.ClickOnSave();
 
-                    #region Validation
+                    #region Validated added uom name
                     IWebElement uomName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{uom.ExpectedName}')]"));
-                    string expectedName = uomName.Text;
-                    ClassicAssert.AreEqual(expectedName, uom.ActualName);
+                    string actualName = uomName.Text;
+                    ClassicAssert.AreEqual(uom.ActualName, actualName);
                     #endregion
                 }
                 itemPage.ClickOnBack();
@@ -323,8 +323,8 @@ namespace Enfinity.Erp.Test.UI
 
                     #region Validating the supplier name added or not
                     IWebElement supplierName = _driver.FindElement(By.XPath($"//div//p//span[contains(text(),'{supplier.ExpectedName}')]"));
-                    string expectedName = supplierName.Text;
-                    ClassicAssert.AreEqual(expectedName, supplier.ActualName);
+                    string actualName = supplierName.Text;
+                    ClassicAssert.AreEqual(supplier.ActualName, actualName);
                     #endregion
                 }
                 itemPage.ClickOnBack();

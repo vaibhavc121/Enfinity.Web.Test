@@ -48,6 +48,7 @@ namespace Enfinity.Erp.Test.UI
                 wp.ClickOnSkipNegativeStockCheck();
                 wp.ProvideDescription(warehouse.Description);
                 wp.ClickOnSave();
+                await WaitHelper.WaitForSeconds(1);
 
                 #region Validate
                 CommonPageActions.Validate("Warehouse created successfully!");

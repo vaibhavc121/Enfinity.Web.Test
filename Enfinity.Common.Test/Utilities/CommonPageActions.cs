@@ -368,7 +368,7 @@ namespace Enfinity.Common.Test
                 }
             }
         }
-        public static bool Validation(By locator, string value)
+        public static bool IsValuePresent(By locator, string value)
         {
             // Find all values in the Office 365 dropdown
             IList<IWebElement> valuesList = BaseTest._driver.FindElements(locator);
@@ -378,10 +378,10 @@ namespace Enfinity.Common.Test
                 string actualValue = valueElement.Text;
                 if (actualValue.Contains(value))
                 {
-                    return true;
-                    break;
+                    return true;                    
                 }
             }
+            return false;
         }
 
         #region Common Actions for HRMS

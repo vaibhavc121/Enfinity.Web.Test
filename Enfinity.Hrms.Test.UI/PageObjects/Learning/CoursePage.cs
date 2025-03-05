@@ -41,6 +41,8 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Learning
         private By batchName = By.Name("courseBatch[0].Name");
         private By startDate = By.XPath("//input[contains(@id,'StartDate')]");
         private By endDate = By.XPath("//input[contains(@id,'EndDate')]");
+
+        private By courses = By.XPath("//h4[@class='course-title']");
         #endregion
 
         #region action methods
@@ -150,11 +152,11 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Learning
         }
         public void ClickSave()
         {
-            CommonPageActions.ClickSave();
+            CommonPageActions.ClickSaveAndBack();
         }
-        public void IsTxnCreated()
+        public bool IsTxnCreated(string value)
         {
-
+            return  CommonPageActions.IsValuePresent(courses,value);
         }
 
         #endregion
