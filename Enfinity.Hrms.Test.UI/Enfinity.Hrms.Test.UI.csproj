@@ -164,6 +164,8 @@
     <Compile Include="Models\HRCore\Religion\ReligionModel.cs" />
     <Compile Include="Models\HRCore\WorkLocation\WorkLocationModel.cs" />
     <Compile Include="Models\Learning\Learning\LearningModel.cs" />
+    <Compile Include="Models\Onboarding\Onboarding\OnboardingModel.cs" />
+    <Compile Include="Models\Recruitment\Recruitment\RecruitmentModel.cs" />
     <Compile Include="Models\SelfService\AdminSupport\AdminSupportModel.cs" />
     <Compile Include="Models\SelfService\ExpenseClaim\ExpenseClaimModel.cs" />
     <Compile Include="Models\SelfService\HRAssetRequest\HRAssetRequestModel.cs" />
@@ -171,6 +173,7 @@
     <Compile Include="Models\SelfService\LeaveRequest\LeaveRequestModel.cs" />
     <Compile Include="Models\SelfService\SelfService\SelfServiceModel.cs" />
     <Compile Include="Models\SelfService\TimeOff\TimeOffModel.cs" />
+    <Compile Include="Models\SuccessionPlanning\SuccessionPlanning\SuccessionModel.cs" />
     <Compile Include="PageObjects\Archive\TestPage.cs" />
     <Compile Include="PageObjects\Base\BasePage.cs" />
     <Compile Include="PageObjects\HrCore\BankPage.cs" />
@@ -187,6 +190,8 @@
     <Compile Include="PageObjects\HrCore\WorkLocationPage.cs" />
     <Compile Include="PageObjects\Learning\CoursePage.cs" />
     <Compile Include="PageObjects\Learning\LearningPage.cs" />
+    <Compile Include="PageObjects\Onboarding\CandidatePage.cs" />
+    <Compile Include="PageObjects\Onboarding\OnboardingPage.cs" />
     <Compile Include="PageObjects\Recruitment\JobPage.cs" />
     <Compile Include="PageObjects\Recruitment\RecruitmentPage.cs" />
     <Compile Include="PageObjects\SelfService\AdminSupportPage.cs" />
@@ -202,6 +207,8 @@
     <Compile Include="PageObjects\SelfService\SelfServicePage.cs" />
     <Compile Include="PageObjects\SelfService\TimeOffPage.cs" />
     <Compile Include="PageObjects\SelfService\TravelRequestPage.cs" />
+    <Compile Include="PageObjects\SuccessionPlanning\SuccessionPage.cs" />
+    <Compile Include="PageObjects\SuccessionPlanning\SuccessionPlanPage.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\AttendanceTabTest.cs" />
     <Compile Include="TestCases\HrCore\CreateFullEmployeeTest.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\DependentsTabTest.cs" />
@@ -222,8 +229,10 @@
     <Compile Include="TestCases\Archive\EmployeeTabs\ResidencyInfoTest.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\TimeOffTabTest.cs" />
     <Compile Include="TestCases\Learning\LearningModule.cs" />
-    <Compile Include="TestCases\Recruitment\CreateJobTest.cs" />
+    <Compile Include="TestCases\Onboarding\OnboardingModule.cs" />
+    <Compile Include="TestCases\Recruitment\RecruitmentModule.cs" />
     <Compile Include="TestCases\SelfService\SelfServiceModule.cs" />
+    <Compile Include="TestCases\SuccessionPlanning\SuccessionModule.cs" />
     <Compile Include="TestData\DataProviders\HRCore\HRCoreDataProvider.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -240,6 +249,8 @@
     <None Include="Models\HRCore\Religion\ReligionData.json" />
     <None Include="Models\HRCore\WorkLocation\WorkLocationData.json" />
     <None Include="Models\Learning\Learning\LearningData.json" />
+    <None Include="Models\Onboarding\Onboarding\OnboardingData.json" />
+    <None Include="Models\Recruitment\Recruitment\RecruitmentData.json" />
     <None Include="Models\SelfService\AdminSupport\AdminSupportData.json" />
     <None Include="Models\SelfService\ExpenseClaim\ExpenseClaimData.json" />
     <None Include="Models\SelfService\HRAssetRequest\HRAssetRequestData.json" />
@@ -247,22 +258,18 @@
     <None Include="Models\SelfService\LeaveRequest\LeaveRequestData.json" />
     <None Include="Models\SelfService\SelfService\SelfServiceData.json" />
     <None Include="Models\SelfService\TimeOff\TimeOffData.json" />
+    <None Include="Models\SuccessionPlanning\SuccessionPlanning\SuccessionData.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Recruitment\Recruitment\" />
     <Folder Include="PageObjects\Attendance\" />
-    <Folder Include="PageObjects\Onboarding\" />
     <Folder Include="PageObjects\Payroll\" />
     <Folder Include="PageObjects\Performance\" />
-    <Folder Include="PageObjects\SuccessionPlanning\" />
     <Folder Include="PageObjects\WorkforcePlanning\" />
     <Folder Include="TestCases\Attendance\" />
     <Folder Include="TestCases\Base\" />
-    <Folder Include="TestCases\Onboarding\" />
     <Folder Include="TestCases\Payroll\" />
     <Folder Include="TestCases\Performance\" />
-    <Folder Include="TestCases\SuccessionPlanning\" />
     <Folder Include="TestCases\WorkforcePlanning\" />
     <Folder Include="Utilities\" />
   </ItemGroup>

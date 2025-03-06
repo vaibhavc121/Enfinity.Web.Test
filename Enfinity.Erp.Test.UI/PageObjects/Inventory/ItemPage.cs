@@ -1013,19 +1013,7 @@ namespace Enfinity.Erp.Test.UI
             actions.MoveToElement(wrapperElement).Perform();
             
             _driver.FindElement(selector).Click();
-        }
-        public void ValidateDeletion(string expectedMessage)
-        {
-            IWebElement deleteElement = _driver.FindElement(By.ClassName("dx-toast-success"));
-            string actualMessage = deleteElement.Text;
-            ClassicAssert.AreEqual(expectedMessage, actualMessage);
-        }
-        public void Validate(string expectedMessage)
-        {
-            IWebElement element = _driver.FindElement(By.ClassName("dx-toast-message"));
-            string actualMessage = element.Text.Trim();
-            StringAssert.Contains(expectedMessage, actualMessage);       
-        }
+        }        
         public void ClickOnBack()
         {
             _driver.FindElement(backBtn).Click();

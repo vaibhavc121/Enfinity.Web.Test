@@ -38,6 +38,8 @@ namespace Enfinity.Common.Test
             options.AddUserProfilePreference("profile.password_manager_enabled", false);
             #endregion
 
+            // Add Headless Mode
+            //options.AddArgument("--headless");
 
             // Initialize the Chrome WebDriver
             _driver = new ChromeDriver(options);

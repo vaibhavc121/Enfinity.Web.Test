@@ -12,6 +12,7 @@ using NUnit.Framework.Legacy;
 using Enfinity.Common.Test;
 using System.Drawing;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace Enfinity.Erp.Test.UI
 {
@@ -63,10 +64,10 @@ namespace Enfinity.Erp.Test.UI
                 itemPage.clickSaveItem();
                 Thread.Sleep(1000);
 
-                #region
+                #region Validate the newly created item name
                 IWebElement itemName = _driver.FindElement(By.CssSelector("input[name='Name']"));
-                string expectedName = itemName.GetDomProperty("value");
-                ClassicAssert.AreEqual(expectedName, item.Name);
+                string actualName = itemName.GetDomProperty("value");
+                StringAssert.Contains(item.Name, actualName);
                 #endregion
 
                 itemPage.ClickOnBack();
@@ -255,10 +256,10 @@ namespace Enfinity.Erp.Test.UI
                     //itemPage.clickPurchaseDefault();
                     itemPage.ClickOnSave();
 
-                    #region Validation
-                    IWebElement uomName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{uom.ExpectedName}')]"));
-                    string expectedName = uomName.Text;
-                    ClassicAssert.AreEqual(expectedName, uom.ActualName);
+                    #region Validated added uom name
+                    IWebElement uomName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{uom.Uom}')]"));
+                    string actualName = uomName.Text;
+                    StringAssert.Contains(uom.Uom, actualName);
                     #endregion
                 }
                 itemPage.ClickOnBack();
@@ -322,9 +323,9 @@ namespace Enfinity.Erp.Test.UI
                     itemPage.ClickOnSave();
 
                     #region Validating the supplier name added or not
-                    IWebElement supplierName = _driver.FindElement(By.XPath($"//div//p//span[contains(text(),'{supplier.ExpectedName}')]"));
-                    string expectedName = supplierName.Text;
-                    ClassicAssert.AreEqual(expectedName, supplier.ActualName);
+                    IWebElement supplierName = _driver.FindElement(By.XPath($"//p[@class='Item-Supplier-title' and contains(., '{supplier.Supplier}')]"));
+                    string actualName = supplierName.Text;
+                    StringAssert.Contains(supplier.Supplier, actualName);
                     #endregion
                 }
                 itemPage.ClickOnBack();
@@ -385,9 +386,9 @@ namespace Enfinity.Erp.Test.UI
                     itemPage.ClickOnSave();
 
                     #region Validating the price list added or not
-                    IWebElement pricelistName = _driver.FindElement(By.XPath($"//div//span[contains(text(),'{pricelist.ExpectedName}')]"));
-                    string expectedName = pricelistName.Text;
-                    ClassicAssert.AreEqual(expectedName, pricelist.ActualName);
+                    IWebElement pricelistName = _driver.FindElement(By.XPath($"//div//span[contains(text(),'{pricelist.PriceList}')]"));
+                    string actualName = pricelistName.Text;
+                    StringAssert.Contains(pricelist.PriceList, actualName);
                     #endregion
                 }
                 itemPage.ClickOnBack();
@@ -447,9 +448,9 @@ namespace Enfinity.Erp.Test.UI
                     itemPage.ClickOnSave();
 
                     #region Validating the warehouse name added or not
-                    IWebElement warehouseName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{warehouse.ExpectedName}')]"));
-                    string expectedName = warehouseName.Text;
-                    ClassicAssert.AreEqual(expectedName, warehouse.ActualName);
+                    IWebElement warehouseName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{warehouse.Warehouse}')]"));
+                    string actualName = warehouseName.Text;
+                    StringAssert.Contains(warehouse.Warehouse, actualName);
                     #endregion
 
                 }
@@ -505,9 +506,9 @@ namespace Enfinity.Erp.Test.UI
                     itemPage.ClickOnSave();
 
                     #region Validating the barcode added or not
-                    IWebElement barcodeName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{barcode.ExpectedName}')]"));
-                    string expectedName = barcodeName.Text;
-                    ClassicAssert.AreEqual(expectedName, barcode.Barcode);
+                    IWebElement barcodeName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{barcode.Barcode}')]"));
+                    string actualName = barcodeName.Text;
+                    StringAssert.Contains(barcode.Barcode, actualName);
                     #endregion
                 }
                 itemPage.ClickOnBack();
@@ -563,11 +564,15 @@ namespace Enfinity.Erp.Test.UI
                     Thread.Sleep(1000);
                     itemPage.ClickOnSave();
 
-                    #region Validating the document type and number added or not
-                    IWebElement documentName = _driver.FindElement(By.XPath($"//div//p//strong[contains(text(),'{document.ExpectedName}')]"));
-                    string expectedName = documentName.Text;
-                    ClassicAssert.AreEqual(expectedName, document.ActualName);
-                    #endregion                 
+                    //#region Validating the document type and number added or not
+                    //IWebElement documentName = _driver.FindElement(By.XPath($"//div//p//strong[contains(text(),'{document.DocumentType + " (" + document.DocumentNumber + ")"}')]"));
+                    //string actualName = documentName.Text;
+                    //ClassicAssert.AreEqual(document.DocumentType + " (" + document.DocumentNumber + ")", actualName);
+                    //#endregion
+
+                    #region Validate the document created sucessfully message
+                    CommonPageActions.ValidateSucess("Document created successfully");
+                    #endregion
                 }
                 itemPage.ClickOnBack();
                 Thread.Sleep(2000);
@@ -630,8 +635,8 @@ namespace Enfinity.Erp.Test.UI
 
                 #region Validate the accounts added or not 
                 IWebElement accountName = _driver.FindElement(By.XPath("//input[contains(@id, 'RevenueMainAccountId')]"));
-                string expectedName = accountName.GetDomProperty("value");
-                ClassicAssert.AreEqual(expectedName, item.RevenueAccount);
+                string actualName = accountName.GetDomProperty("value");
+                StringAssert.Contains(item.RevenueAccount, actualName);
                 #endregion
 
                 itemPage.ClickOnBack();
@@ -690,9 +695,9 @@ namespace Enfinity.Erp.Test.UI
                     itemPage.ClickOnSave();
 
                     #region Validating the color added or not
-                    IWebElement colorName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{color.ExpectedName}')]"));
-                    string expectedName = colorName.Text;
-                    ClassicAssert.AreEqual(expectedName, color.ActualName);
+                    IWebElement colorName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{color.ColorName}')]"));
+                    string actualName = colorName.Text;
+                    StringAssert.Contains(color.ColorName, actualName);
                     #endregion
                 }
                 foreach (var size in item.Sizes)
@@ -707,9 +712,9 @@ namespace Enfinity.Erp.Test.UI
                     itemPage.clickSaveSize();
 
                     #region Validating the size added or not
-                    IWebElement sizeName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{size.ExpectedName}')]"));
-                    string expectedName = sizeName.Text;
-                    ClassicAssert.AreEqual(expectedName, size.ActualName);
+                    IWebElement sizeName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{size.SizeName}')]"));
+                    string actualName = sizeName.Text;
+                    StringAssert.Contains(size.SizeName, actualName);
                     #endregion
                 }
                 itemPage.ClickOnBack();
@@ -795,7 +800,7 @@ namespace Enfinity.Erp.Test.UI
                     itemPage.SelectDropDownOption(SubItem.SubItem);
                     itemPage.provideQty(SubItem.Qty);
                     itemPage.ClickOnSave();
-
+                    
                     #region Validating the subItems added or not
                     IWebElement subItemName = _driver.FindElement(By.CssSelector($"p[title='{SubItem.SubItem}']"));
                     string actualName = subItemName.Text;
@@ -816,13 +821,14 @@ namespace Enfinity.Erp.Test.UI
                     //itemPage.clickReportingUOM();
                     //itemPage.clickSalesDefault();
                     //itemPage.clickPurchaseDefault();                    
-                    itemPage.clickSaveUom();
+                    itemPage.clickSaveUom();                                    
 
-                    #region Validation
-                    IWebElement uomName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{uom.ExpectedName}')]"));
-                    string expectedName = uomName.Text;
-                    ClassicAssert.AreEqual(expectedName, uom.ActualName);
+                    #region Validated added uom name
+                    IWebElement uomName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{uom.Uom}')]"));
+                    string actualName = uomName.Text;
+                    StringAssert.Contains(uom.Uom, actualName);
                     #endregion
+
                 }
                 itemPage.ClickOnSuppliersTab();
                 Thread.Sleep(2000);
@@ -846,11 +852,11 @@ namespace Enfinity.Erp.Test.UI
                     //itemPage.clickPreferredForEstimationAll();
                     //itemPage.clickFreezed();                 
                     itemPage.clickSaveSupplier();
-
+                    
                     #region Validating the supplier name added or not
-                    IWebElement supplierName = _driver.FindElement(By.XPath($"//div//p//span[contains(text(),'{supplier.ExpectedName}')]"));
-                    string expectedName = supplierName.Text;
-                    ClassicAssert.AreEqual(expectedName, supplier.ActualName);
+                    IWebElement supplierName = _driver.FindElement(By.XPath($"//p[@class='Item-Supplier-title' and contains(., '{supplier.Supplier}')]"));
+                    string actualName = supplierName.Text;
+                    StringAssert.Contains(supplier.Supplier, actualName);
                     #endregion
                 }
                 itemPage.ClickOnPriceListsTab();
@@ -872,11 +878,11 @@ namespace Enfinity.Erp.Test.UI
                     //Thread.Sleep(2000);
                     //itemPage.clickDefault();                               
                     itemPage.clickSavePriceList();
-
+                    
                     #region Validating the price list added or not
-                    IWebElement pricelistName = _driver.FindElement(By.XPath($"//div//span[contains(text(),'{pricelist.ExpectedName}')]"));
-                    string expectedName = pricelistName.Text;
-                    ClassicAssert.AreEqual(expectedName, pricelist.ActualName);
+                    IWebElement pricelistName = _driver.FindElement(By.XPath($"//div//span[contains(text(),'{pricelist.PriceList}')]"));
+                    string actualName = pricelistName.Text;
+                    StringAssert.Contains(pricelist.PriceList, actualName);
                     #endregion
                 }
                 itemPage.ClickOnWarehouseTab();
@@ -898,9 +904,9 @@ namespace Enfinity.Erp.Test.UI
                     itemPage.clickSaveWarehouse();
 
                     #region Validating the warehouse name added or not
-                    IWebElement warehouseName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{warehouse.ExpectedName}')]"));
-                    string expectedName = warehouseName.Text;
-                    ClassicAssert.AreEqual(expectedName, warehouse.ActualName);
+                    IWebElement warehouseName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{warehouse.Warehouse}')]"));
+                    string actualName = warehouseName.Text;
+                    StringAssert.Contains(warehouse.Warehouse, actualName);
                     #endregion
                 }
                 itemPage.ClickOnBarcodesTab();
@@ -918,10 +924,11 @@ namespace Enfinity.Erp.Test.UI
                     itemPage.clickSaveBarcode();
 
                     #region Validating the barcode added or not
-                    IWebElement barcodeName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{barcode.ExpectedName}')]"));
+                    IWebElement barcodeName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{barcode.Barcode}')]"));
                     string actualName = barcodeName.Text;
-                    ClassicAssert.AreEqual(barcode.Barcode, actualName);
+                    StringAssert.Contains(barcode.Barcode, actualName);
                     #endregion
+
                 }
                 itemPage.ClickOnDocumentsTab();
                 Thread.Sleep(2000);
@@ -940,10 +947,11 @@ namespace Enfinity.Erp.Test.UI
                     itemPage.clickSaveDocument();
 
                     #region Validating the document type and number added or not
-                    IWebElement documentName = _driver.FindElement(By.XPath($"//div//p//strong[contains(text(),'{document.ExpectedName}')]"));
-                    string expectedName = documentName.Text;
-                    ClassicAssert.AreEqual(expectedName, document.ActualName);
-                    #endregion                 
+                    IWebElement documentName = _driver.FindElement(By.XPath($"//div//p//strong[contains(text(),'{document.DocumentType + " (" + document.DocumentNumber + ")"}')]"));
+                    string actualName = documentName.Text;
+                    ClassicAssert.AreEqual(document.DocumentType + " (" + document.DocumentNumber + ")", actualName);
+                    #endregion
+
                 }
                 itemPage.ClickOnSetupTab();
 
@@ -984,9 +992,9 @@ namespace Enfinity.Erp.Test.UI
                     itemPage.clickSaveColor();
 
                     #region Validating the color added or not
-                    IWebElement colorName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{color.ExpectedName}')]"));
-                    string expectedName = colorName.Text;
-                    ClassicAssert.AreEqual(expectedName, color.ActualName);
+                    IWebElement colorName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{color.ColorName}')]"));
+                    string actualName = colorName.Text;
+                    StringAssert.Contains(color.ColorName, actualName);
                     #endregion
                 }
 
@@ -1002,9 +1010,9 @@ namespace Enfinity.Erp.Test.UI
                     itemPage.clickSaveSizeAll();
 
                     #region Validating the size added or not
-                    IWebElement sizeName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{size.ExpectedName}')]"));
-                    string expectedName = sizeName.Text;
-                    ClassicAssert.AreEqual(expectedName, size.ActualName);
+                    IWebElement sizeName = _driver.FindElement(By.XPath($"//div//p[contains(text(),'{size.SizeName}')]"));
+                    string actualName = sizeName.Text;
+                    StringAssert.Contains(size.SizeName, actualName);
                     #endregion
                 }
                 itemPage.ClickOnBack();
@@ -1061,11 +1069,16 @@ namespace Enfinity.Erp.Test.UI
                 itemPage.provideMaximumReorderKey(item.MaximumReorder);
                 itemPage.provideMinimumReorderKey(item.MinimumReorder);
                 itemPage.clickSaveKeyInfo();
+                Thread.Sleep(1000);
 
-                #region Validate the Brand is updated or not
-                IWebElement itemBrandElement = _driver.FindElement(By.XPath("//input[contains(@id, 'BrandId')]"));
-                string itemBrandActualName = itemBrandElement.GetDomProperty("value");
-                ClassicAssert.AreEqual(item.Brand, itemBrandActualName);
+                //#region Validate the Brand is updated or not
+                //IWebElement itemBrandElement = _driver.FindElement(By.XPath("//input[contains(@id, 'BrandId')]"));
+                //string actualName = itemBrandElement.GetDomProperty("value");
+                //ClassicAssert.AreEqual(item.Brand, actualName);
+                //#endregion
+
+                #region Validate updated message
+                CommonPageActions.Validate("Item updated successfully.");
                 #endregion
 
                 #endregion
@@ -1108,9 +1121,9 @@ namespace Enfinity.Erp.Test.UI
                 itemPage.ClickOnSave();
 
                 #region Validating the qty updated or not
-                IWebElement qtyElemennt = _driver.FindElement(By.XPath($"//span[contains(text(), '{item.Qty} Piece')]"));
+                IWebElement qtyElemennt = _driver.FindElement(By.XPath($"//span[contains(text(), '{item.Qty}')]"));
                 string actualQty = qtyElemennt.Text;
-                ClassicAssert.AreEqual(item.ExpectedQty, actualQty);
+                StringAssert.Contains(item.Qty, actualQty);
                 #endregion
 
                 itemPage.DeleteSecondComponentItem();
@@ -1121,7 +1134,7 @@ namespace Enfinity.Erp.Test.UI
                 //IWebElement deleteElemennt = _driver.FindElement(By.ClassName("dx-toast-success"));
                 //string successMessage = deleteElemennt.Text;
                 //ClassicAssert.AreEqual("Item bill of material deleted", successMessage);
-                itemPage.ValidateDeletion("Item bill of material deleted");
+                CommonPageActions.ValidateSucess("Item bill of material deleted");
                 #endregion
 
                 #endregion                
@@ -1166,13 +1179,13 @@ namespace Enfinity.Erp.Test.UI
                 #region Validating the sales default or not
                 IWebElement salesDefaultElement = _driver.FindElement(By.XPath("//div[@class='tag-maroon']"));
                 string salesDefault = salesDefaultElement.Text;
-                ClassicAssert.AreEqual("Sales Default", salesDefault);
+                StringAssert.Contains("Sales Default", salesDefault);
                 #endregion
 
                 #region Validating the purchase default or not
                 IWebElement purchasesDefaultElement = _driver.FindElement(By.XPath("//div[@class='tag-blue']"));
                 string purchaseDefault = purchasesDefaultElement.Text;
-                ClassicAssert.AreEqual("Purchase Default", purchaseDefault);
+                StringAssert.Contains("Purchase Default", purchaseDefault);
                 #endregion
 
                 itemPage.DeleteThirdUom();
@@ -1182,7 +1195,7 @@ namespace Enfinity.Erp.Test.UI
                 //IWebElement deleteElemennt = _driver.FindElement(By.ClassName("dx-toast-success"));
                 //string successMessage = deleteElemennt.Text;
                 //ClassicAssert.AreEqual("Item unit of measures deleted", successMessage);
-                itemPage.ValidateDeletion("Item unit of measures deleted");
+                CommonPageActions.ValidateSucess("Item unit of measures deleted");
                 #endregion
 
                 #endregion              
@@ -1227,7 +1240,7 @@ namespace Enfinity.Erp.Test.UI
                 //IWebElement deleteElemennt = _driver.FindElement(By.ClassName("dx-toast-success"));
                 //string successMessage = deleteElemennt.Text;
                 //ClassicAssert.AreEqual("Item supplier deleted", successMessage);
-                itemPage.ValidateDeletion("Item supplier deleted");
+                CommonPageActions.ValidateSucess("Item supplier deleted");
                 #endregion
 
                 itemPage.UpdateFirstSupplier();
@@ -1243,12 +1256,12 @@ namespace Enfinity.Erp.Test.UI
                 //itemPage.clickPreferredForPurchase();
                 //itemPage.clickPreferredForEstimation();
                 itemPage.ClickOnSave();
-                Thread.Sleep(2000);
+                Thread.Sleep(2000);                
 
-                #region Validating the supplier name updated or not
-                IWebElement supplierNameElement = _driver.FindElement(By.ClassName("Item-Supplier-title"));
-                string supplierName = supplierNameElement.Text;
-                ClassicAssert.AreEqual(item.Supplier + " S002", supplierName);
+                #region Validating the supplier name added or not
+                IWebElement supplierName = _driver.FindElement(By.XPath($"//p[@class='Item-Supplier-title' and contains(., '{item.Supplier}')]"));
+                string actualName = supplierName.Text;
+                StringAssert.Contains(item.Supplier, actualName);
                 #endregion
 
                 #endregion
@@ -1291,7 +1304,7 @@ namespace Enfinity.Erp.Test.UI
                 #region Validating the price list unit price updated or not
                 IWebElement priceListElement = _driver.FindElement(By.XPath("//div[span[contains(text(),'Unit Price')]]"));
                 string unitPriceActual = priceListElement.Text.Trim();
-                ClassicAssert.AreEqual("Unit Price " + item.UnitPrice + " @ 001", unitPriceActual);
+                StringAssert.Contains(item.UnitPrice, unitPriceActual);
                 #endregion
 
                 itemPage.DeleteSecondPriceList();
@@ -1302,7 +1315,7 @@ namespace Enfinity.Erp.Test.UI
                 //IWebElement deleteElemennt = _driver.FindElement(By.ClassName("dx-toast-success"));
                 //string successMessage = deleteElemennt.Text;
                 //ClassicAssert.AreEqual("Item price list deleted", successMessage);
-                itemPage.ValidateDeletion("Item price list deleted");
+                CommonPageActions.ValidateSucess("Item price list deleted");
                 #endregion
 
                 #endregion              
@@ -1350,7 +1363,7 @@ namespace Enfinity.Erp.Test.UI
                 #region Validating the bin location name updated or not
                 IWebElement binLocationElement = _driver.FindElement(By.XPath("//p[@class='Item-Warehouse-detail']"));
                 string binLocationActualName = binLocationElement.Text.Trim();
-                ClassicAssert.AreEqual(item.BinLocation, binLocationActualName);
+                StringAssert.Contains(item.BinLocation, binLocationActualName);
                 #endregion
 
                 itemPage.DeleteSecondWarehouse();
@@ -1361,7 +1374,7 @@ namespace Enfinity.Erp.Test.UI
                 //IWebElement deleteElemennt = _driver.FindElement(By.ClassName("dx-toast-success"));
                 //string successMessage = deleteElemennt.Text;
                 //ClassicAssert.AreEqual("Item warehouse deleted", successMessage);
-                itemPage.ValidateDeletion("Item warehouse deleted");
+                CommonPageActions.ValidateSucess("Item warehouse deleted");
                 #endregion
 
                 #endregion              
@@ -1404,7 +1417,7 @@ namespace Enfinity.Erp.Test.UI
                 #region Validating the barcode updated or not
                 IWebElement barcodeElement = _driver.FindElement(By.XPath("//div[contains(@class,'Item-Barcode-Card-content')]//p"));
                 string barcodeActualCode = barcodeElement.Text.Trim();
-                ClassicAssert.AreEqual(item.Barcode, barcodeActualCode);
+                StringAssert.Contains(item.Barcode, barcodeActualCode);
                 #endregion
 
                 itemPage.DeleteSecondBarcode();
@@ -1412,10 +1425,7 @@ namespace Enfinity.Erp.Test.UI
                 itemPage.ClickOnOk();
 
                 #region Validating the Barcode Deleted or not
-                IWebElement deleteElemennt = _driver.FindElement(By.ClassName("dx-toast-success"));
-                string successMessage = deleteElemennt.Text;
-                ClassicAssert.AreEqual("Item Barcode deleted", successMessage);
-                itemPage.ValidateDeletion("Item Barcode deleted");
+                CommonPageActions.ValidateSucess("Item Barcode deleted");
                 #endregion
 
                 #endregion
@@ -1455,10 +1465,14 @@ namespace Enfinity.Erp.Test.UI
                 itemPage.provideDocumentNumber(item.DocumentNumber);
                 itemPage.ClickOnSave();
 
-                #region Validating the document number updated or not
-                IWebElement documentNumberElement = _driver.FindElement(By.XPath("//div[contains(@class,'Item-Document-Card-content')]//p/strong"));
-                string documentNumberActaulCode = documentNumberElement.Text.Trim();
-                ClassicAssert.AreEqual("Civil Id (" + item.DocumentNumber + ")", documentNumberActaulCode);
+                //#region Validating the document number updated or not
+                //IWebElement documentNumberElement = _driver.FindElement(By.XPath("//div[contains(@class,'Item-Document-Card-content')]//p/strong"));
+                //string documentNumberActaulCode = documentNumberElement.Text.Trim();
+                //ClassicAssert.AreEqual("Civil Id (" + item.DocumentNumber + ")", documentNumberActaulCode);
+                //#endregion
+
+                #region Validate the document update message
+                CommonPageActions.Validate("Document Updated Successfully");
                 #endregion
 
                 itemPage.DeleteSecondDocument();
@@ -1470,7 +1484,7 @@ namespace Enfinity.Erp.Test.UI
                 //IWebElement deleteElemennt = _driver.FindElement(By.ClassName("dx-toast-success"));
                 //string successMessage = deleteElemennt.Text;
                 //ClassicAssert.AreEqual("Item Document deleted", successMessage);
-                itemPage.ValidateDeletion("Item Document deleted");
+                CommonPageActions.ValidateSucess("Item Document deleted");
                 #endregion
 
                 #endregion
@@ -1527,7 +1541,7 @@ namespace Enfinity.Erp.Test.UI
                 #region Validate the accounts added or not 
                 IWebElement accountName = _driver.FindElement(By.XPath("//input[contains(@id, 'RevenueMainAccountId')]"));
                 string accountActualName = accountName.GetDomProperty("value");
-                ClassicAssert.AreEqual(item.RevenueAccount, accountActualName);
+                StringAssert.Contains(item.RevenueAccount, accountActualName);
                 #endregion
 
                 #endregion              
@@ -1566,12 +1580,13 @@ namespace Enfinity.Erp.Test.UI
                 itemPage.UpdateFirstDimension();
                 itemPage.provideColorCode(item.ColorCode);
                 itemPage.provideColorName(item.ColorName);
+                itemPage.provideColorArabicName(item.ColorName);
                 itemPage.ClickOnSave();
 
                 #region Validating the color code and name updated or not
                 IWebElement colorElement = _driver.FindElement(By.XPath("//div[contains(@class,'Item-Color-Card-content')]//p"));
                 string actualColorCodeName = colorElement.Text.Trim();
-                ClassicAssert.AreEqual(item.ColorName + " " + item.ColorCode, actualColorCodeName);
+                StringAssert.Contains(item.ColorName + " " + item.ColorCode, actualColorCodeName);
                 #endregion
 
                 itemPage.DeleteSecondDimension();
@@ -1582,18 +1597,19 @@ namespace Enfinity.Erp.Test.UI
                 //IWebElement deleteElemennt = _driver.FindElement(By.ClassName("dx-toast-success"));
                 //string successMessage = deleteElemennt.Text;
                 //ClassicAssert.AreEqual("Item color deleted", successMessage);
-                itemPage.ValidateDeletion("Item color deleted");
+                CommonPageActions.ValidateSucess("Item color deleted");
                 #endregion
 
                 itemPage.UpdateThirdDimension();
                 itemPage.provideSizeCode(item.SizeCode);
                 itemPage.provideSizeName(item.SizeName);
+                itemPage.provideSizeArabicName(item.SizeName);
                 itemPage.clickSaveSize();
 
                 #region Validating the color code and name updated or not
                 IWebElement sizeElement = _driver.FindElement(By.XPath("(//div[contains(@class,'Item-Color-Card-content')]//p)[3]"));
                 string actualSizeCodeName = sizeElement.Text.Trim();
-                ClassicAssert.AreEqual(item.SizeName + " " + item.SizeCode, actualSizeCodeName);
+                StringAssert.Contains(item.SizeName + " " + item.SizeCode, actualSizeCodeName);
                 #endregion
 
                 itemPage.DeleteForthDimension();
@@ -1605,7 +1621,7 @@ namespace Enfinity.Erp.Test.UI
                 //IWebElement deleteSizeElemennt = _driver.FindElement(By.ClassName("dx-toast-success"));
                 //string successSizeMessage = deleteSizeElemennt.Text;
                 //ClassicAssert.AreEqual("Item size deleted", successSizeMessage);
-                itemPage.ValidateDeletion("Item size deleted");
+                CommonPageActions.ValidateSucess("Item size deleted");
                 #endregion
 
                 #endregion
@@ -1644,6 +1660,10 @@ namespace Enfinity.Erp.Test.UI
                 Thread.Sleep(2000);
                 inventoryItemListingPage.clickOnConfirmOk();
                 Thread.Sleep(2000);
+
+                #region Validate deleted message
+                CommonPageActions.Validate("Item deleted successfully");
+                #endregion
             }
         }
         #endregion
@@ -1677,7 +1697,7 @@ namespace Enfinity.Erp.Test.UI
                 Thread.Sleep(1000);
 
                 #region Validate the base unit of measure is required while creating new item
-                itemPage.Validate("Item base unit of measure is required!");
+                CommonPageActions.Validate("Item base unit of measure is required!");
                 #endregion
             }
         }

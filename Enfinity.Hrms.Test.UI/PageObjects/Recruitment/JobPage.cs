@@ -32,13 +32,18 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Recruitment
 
         private By city = By.XPath("//input[contains(@id,'City')]");
         private By state = By.XPath("//input[contains(@id,'State')]");
-        private By country = By.XPath("//span[contains(text(),'Country:')]//following::input[@id='dx_dx-78c8a8ef-674b-a3da-9836-735ab19beeae_CountryId']");
+        private By country = By.XPath("(//input[contains(@id,'CountryId')])[1]");
         private By postalCode = By.XPath("//input[contains(@id,'PostalCode')]");
 
         private By gender = By.XPath("//input[contains(@id,'Gender')]");
         private By maritalStatus = By.XPath("//input[contains(@id,'MaritalStatus')]");
         private By nationality = By.XPath(" //input[contains(@id,'NationalityCountryId')]");
-           
+
+        //private By col1 = By.XPath("//tr[@class='dx-row dx-data-row dx-row-lines dx-column-lines dx-selection']//td[1]//span");        
+        private By col1 = By.XPath("//tr[@class='dx-row dx-data-row dx-row-lines dx-column-lines']//td[1]//span");
+
+
+
 
 
         #endregion
@@ -66,7 +71,8 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Recruitment
         }
         public void ProvideEmploymentType(string value)
         {
-            CommonPageActions.ProvideAndEnter(employmentType, value);
+            Find(employmentType).Click();
+            CommonPageActions.SelectDropdownOption(value);
         }
         public void ProvideIndustry(string value)
         {
@@ -74,7 +80,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Recruitment
         }
         public void ProvideTargetDate(string value)
         {
-            CommonPageActions.ClearAndProvide1(industry, value);
+            CommonPageActions.ClearAndProvide1(targetDate, value);
         }
         public void ProvideMonthlySal(string value)
         {
@@ -123,6 +129,24 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Recruitment
         public void ProvideNationality(string value)
         {
             CommonPageActions.ProvideAndEnter(nationality, value);
+        }
+        public void ClickSave()
+        {
+            CommonPageActions.ClickSaveAndBack();
+        }
+        public bool IsTxnCreated(string value)
+        {
+            IWebElement element = _driver.FindElement(col1);
+           
+            string jobTitle = element.Text;
+            if(jobTitle.Contains(value))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         #endregion
     }

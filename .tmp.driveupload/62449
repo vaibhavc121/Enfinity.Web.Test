@@ -1,0 +1,23 @@
+{
+  "new": [
+    {
+      "Code": "PT03",
+      "Name": "Net 90",
+      "ArabicName": "Net 90",
+      "DueDays": "90",
+      "Description": "Payment till 90 days"
+    }
+  ],
+  "delete": [
+    {
+      "Name": "Net 90"
+    }
+  ],
+  "update": [
+    {
+      "Code": "PT01",
+      "Name": "Net 30"
+    }
+  ]
+
+}

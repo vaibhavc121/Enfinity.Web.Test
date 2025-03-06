@@ -1,4 +1,5 @@
-﻿using Enfinity.Common.Test;
+﻿using Bogus.DataSets;
+using Enfinity.Common.Test;
 using NUnit.Framework.Legacy;
 using OpenQA.Selenium;
 using OpenQA.Selenium.BiDi.Modules.BrowsingContext;
@@ -73,6 +74,10 @@ namespace Enfinity.Common.Test
         public static void ClickOnEdit()
         {
             BaseTest._driver.FindElement(By.XPath("//div//span[contains(@class, 'dx-vam') and text()='Edit']")).Click();
+        }
+        public static void ClickOnSave()
+        {
+            BaseTest._driver.FindElement(By.XPath("//div//span[contains(@class, 'dx-vam') and text()='Save']")).Click();
         }
         public static void ProvideNameOnListing(string name)
         {
@@ -178,6 +183,21 @@ namespace Enfinity.Common.Test
         public static void ClickOnInventoryModule()
         {
             BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Inventory']")).Click();
+        }
+        #endregion
+
+        #region ERP Module Transaction Top Menu Action Methods
+        public static void ProvideCode(string data)
+        {
+            ClearAndProvideValue(By.XPath("//input[contains(@id, 'Code')]"), data);
+        }
+        public static void ProvideName(string data)
+        {
+            ClearAndProvideValue(By.XPath("//input[contains(@id, 'Name')]"), data);
+        }
+        public static void ProvideArabicName(string data)
+        {
+            ClearAndProvideValue(By.XPath("//input[contains(@id, 'NameL2')]"), data);
         }
         #endregion
 

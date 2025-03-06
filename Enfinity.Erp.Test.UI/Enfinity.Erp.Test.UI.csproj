@@ -157,6 +157,7 @@
     <Compile Include="Models\Global\UOM\UOMModel.cs" />
     <Compile Include="Models\Inventory\Item\ItemModel.cs" />
     <Compile Include="Models\Inventory\Warehouse\WarehouseModel.cs" />
+    <Compile Include="Models\Purchase\PaymentTerm\PaymentTermModel.cs" />
     <Compile Include="Models\Purchase\Supplier\SupplierModel.cs" />
     <Compile Include="Models\Sales\Customer\CustomerModel.cs" />
     <Compile Include="Models\Sales\Invoice\InvoiceModel.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="PageObjects\Inventory\InventorySetupPage.cs" />
     <Compile Include="PageObjects\Inventory\ItemPage.cs" />
     <Compile Include="PageObjects\Inventory\ItemQueryPage.cs" />
+    <Compile Include="PageObjects\Inventory\PaymentTermPage.cs" />
     <Compile Include="PageObjects\Inventory\WarehousePage.cs" />
     <Compile Include="PageObjects\Purchase\PurchasePage.cs" />
     <Compile Include="PageObjects\Purchase\PurchaseSetupPage.cs" />
@@ -191,6 +193,7 @@
     <None Include="App.config" />
     <None Include="Models\Global\LoginData.json" />
     <None Include="Models\Inventory\Warehouse\WarehouseData.json" />
+    <None Include="Models\Purchase\PaymentTerm\PaymentTermData.json" />
     <None Include="Models\Purchase\Supplier\SupplierData.json" />
     <None Include="Models\Sales\Customer\CustomerData.json" />
     <None Include="Models\Sales\Invoice\InvoiceData.json" />

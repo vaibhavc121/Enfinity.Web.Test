@@ -148,11 +148,11 @@
       "SubItems": [
         {
           "Qty": "1",
-          "SubItem": "Inventory Weightage Item"          
+          "SubItem": "Screen Protectors"
         },
         {
           "Qty": "1",
-          "SubItem": "Service Weightage Item"          
+          "SubItem": "Phone Cases"
         }
       ]
     }
@@ -168,16 +168,12 @@
       "Uom": "001 | Piece",
       "ItemUoms": [
         {
-          "Uom": "005 | Box",
-          "ConversionFactor": 5,
-          "ActualName": "Box 005",
-          "ExpectedName": "Box"
+          "Uom": "Box",
+          "ConversionFactor": 5          
         },
         {
-          "Uom": "006 | Dozen",
-          "ConversionFactor": 12,
-          "ActualName": "Dozen 006",
-          "ExpectedName": "Dozen"
+          "Uom": "Dozen",
+          "ConversionFactor": 12          
         }
       ]
     }
@@ -193,24 +189,20 @@
       "Uom": "001 | Piece",
       "Suppliers": [
         {
-          "Supplier": "S001 | Aludra Mahdavi",
+          "Supplier": "Taraab Mansoor",
           "PurchaseRateCurrency": "KWD | Kuwaiti Dinar",
           "Uom": "001 | Piece",
           "PurchaseUnitPrice": "100",
           "ManufacturerPartNum": "1001",
-          "ManufacturerBarcode": "6001",
-          "ActualName": "S001",
-          "ExpectedName": "S001"
+          "ManufacturerBarcode": "6001"
         },
         {
-          "Supplier": "S002 | Aalam Salik",
+          "Supplier": "Nizam Sawaya",
           "PurchaseRateCurrency": "KWD | Kuwaiti Dinar",
           "Uom": "001 | Piece",
           "PurchaseUnitPrice": "200",
           "ManufacturerPartNum": "2001",
-          "ManufacturerBarcode": "7001",
-          "ActualName": "S002",
-          "ExpectedName": "S002"
+          "ManufacturerBarcode": "7001"          
         }
       ]
     }
@@ -226,26 +218,22 @@
       "Uom": "001 | Piece",
       "itemPriceLists": [
         {
-          "PriceList": "PL001 | Standard",
+          "PriceList": "Standard",
           "Uom": "001 | Piece",
           "UnitPrice": "100",
           "MinimumUnitPrice": "100",
           "MaximumUnitPrice": "120",
           "DefaultDiscountInPercent": "10",
-          "MaximumDiscountInPercent": "15",
-          "ActualName": "Standard",
-          "ExpectedName": "Standard"
+          "MaximumDiscountInPercent": "15"          
         },
         {
-          "PriceList": "PL002 | Discounted",
+          "PriceList": "Discounted",
           "Uom": "001 | Piece",
           "UnitPrice": "150",
           "MinimumUnitPrice": "150",
           "MaximumUnitPrice": "200",
           "DefaultDiscountInPercent": "10",
-          "MaximumDiscountInPercent": "15",
-          "ActualName": "Discounted",
-          "ExpectedName": "Discounted"
+          "MaximumDiscountInPercent": "15"
         }
       ]
     }
@@ -261,26 +249,22 @@
       "Uom": "001 | Piece",
       "Warehouses": [
         {
-          "Warehouse": "WH01 | Grand Prime House",
+          "Warehouse": "Grand Prime House",
           "BinLocation": "Prime House",
           "MaximumStockLevel": "100",
           "MinimumStockLevel": "100",
           "ReorderStockLevel": "100",
           "MaximumReorder": "100",
-          "MinimumReorder": "100",
-          "ActualName": "Grand Prime House WH01",
-          "ExpectedName": "Grand Prime House"
+          "MinimumReorder": "100"
         },
         {
-          "Warehouse": "WH02 | Grand Second House",
+          "Warehouse": "Grand Second House",
           "BinLocation": "Second House",
           "MaximumStockLevel": "100",
           "MinimumStockLevel": "100",
           "ReorderStockLevel": "100",
           "MaximumReorder": "100",
-          "MinimumReorder": "100",
-          "ActualName": "Grand Second House WH02",
-          "ExpectedName": "Grand Second House"
+          "MinimumReorder": "100"
         }
       ]
     }
@@ -296,9 +280,8 @@
       "Uom": "001 | Piece",
       "Barcodes": [
         {
-          "Barcode": "6001",
-          "Uom": "Piece",
-          "ExpectedName": "6001"
+          "Barcode": "B6001",
+          "Uom": "Piece"          
         }
       ]
     }
@@ -318,18 +301,14 @@
           "DocumentNumber": "CID60017001",
           "DateOfIssue": "01-Jan-2025",
           "PlaceOfIssue": "Kuwait",
-          "DateOfExpiry": "31-Dec-2025",
-          "ActualName": "Civil Id (CID60017001)",
-          "ExpectedName": "Civil Id (CID60017001)"
+          "DateOfExpiry": "31-Dec-2025"
         },
         {
-          "DocumentType": "Contract",
+          "DocumentType": "Sponsor Contract",
           "DocumentNumber": "C600017001",
           "DateOfIssue": "01-Jan-2025",
           "PlaceOfIssue": "Kuwait",
-          "DateOfExpiry": "31-Dec-2025",
-          "ActualName": "Sponsor Contract (C600017001)",
-          "ExpectedName": "Sponsor Contract (C600017001)"
+          "DateOfExpiry": "31-Dec-2025"
         }
       ]
     }
@@ -366,32 +345,24 @@
         {
           "ColorCode": "B",
           "ColorName": "Black",
-          "ColorArabicName": "Black",
-          "ActualName": "Black B",
-          "ExpectedName": "Black"
+          "ColorArabicName": "Black"
         },
         {
           "ColorCode": "P",
           "ColorName": "Pink",
-          "ColorArabicName": "Pink",
-          "ActualName": "Pink P",
-          "ExpectedName": "Pink"
+          "ColorArabicName": "Pink"
         }
       ],
       "Sizes": [
         {
           "SizeCode": "M",
           "SizeName": "Medium",
-          "SizeArabicName": "Medium",
-          "ActualName": "Medium M",
-          "ExpectedName": "Medium"
+          "SizeArabicName": "Medium"
         },
         {
           "SizeCode": "L",
           "SizeName": "Large",
-          "SizeArabicName": "Large",
-          "ActualName": "Large L",
-          "ExpectedName": "Large"
+          "SizeArabicName": "Large"
         }
       ]
     }
@@ -399,8 +370,8 @@
   "keyinfo": [
     {
       "Code": "I0024",
-      "Name": "Key Info Item",
-      "ArabicName": "Key Info Item",
+      "Name": "Key Info Detail Item",
+      "ArabicName": "Key Info Detail Item",
       "Type": "Inventory",
       "CostingMethod": "Weighted Average",
       "TrackingMode": "Not Applicable",
@@ -437,17 +408,16 @@
       "ReorderStockLevel": "200",
       "MaximumReorder": "200",
       "MinimumReorder": "60",
-      "SubItem": "I004 | Service Weightage Item",
+      "SubItem": "Charging Cables",
       "Qty": "2",
-      "ExpectedQty": "2 Piece",
       "ConversionFactor": 10,
-      "Supplier": "Aalam Salik",
+      "Supplier": "Naeem Qasim",
       "PurchaseRateCurrency": "AED | UAE Dirham",
-      "Uom": "EA | Each",
+      "Uom": "001 | Piece",
       "PurchaseUnitPrice": 160,
       "UnitPrice": "120",
       "BinLocation": "New Prime House",
-      "Barcode": "9001",
+      "Barcode": "B9001",
       "DocumentNumber": "CID60018001",
       "ColorCode": "G",
       "ColorName": "Green",
@@ -465,13 +435,13 @@
   ],
   "Validate": [
     {
-      "Name": "Failed Item",
-      "ArabicName":  "Failed Item"
+      "Name": "No Base UOM Item",
+      "ArabicName": "No Base UOM Item"
     }
   ],
   "delete": [
     {
-      "Name": "Key Info Item"
+      "Name": "Key Info Detail Item"
     },
     {
       "Name": "Dimension Detail Item"
@@ -541,6 +511,12 @@
     },
     {
       "Name": "All Tab Detail Item"
+    },
+    {
+      "Name": "Service Weightage Item"
+    },
+    {
+      "Name": "Inventory Weightage Item"
     }
   ],
   "item": [
@@ -576,107 +552,89 @@
       "SubItems": [
         {
           "Qty": "1",
-          "SubItem": "Inventory Weightage Item"          
+          "SubItem": "Screen Protectors"
         },
         {
-          "Qty": "1",
-          "SubItem": "Service Weightage Item"          
+          "Qty": "2",
+          "SubItem": "Phone Cases"
         }
       ],
       "ItemUoms": [
         {
-          "Uom": "005 | Box",
-          "ConversionFactor": 5,
-          "ActualName": "Box 005",
-          "ExpectedName": "Box"
+          "Uom": "Box",
+          "ConversionFactor": 5          
         },
         {
-          "Uom": "006 | Dozen",
-          "ConversionFactor": 12,
-          "ActualName": "Dozen 006",
-          "ExpectedName": "Dozen"
+          "Uom": "Dozen",
+          "ConversionFactor": 12
         }
       ],
       "Suppliers": [
         {
-          "Supplier": "S001 | Aludra Mahdavi",
+          "Supplier": "Taraab Mansoor",
           "PurchaseRateCurrency": "KWD | Kuwaiti Dinar",
           "Uom": "001 | Piece",
           "PurchaseUnitPrice": "100",
           "ManufacturerPartNum": "1001",
-          "ManufacturerBarcode": "6001",
-          "ActualName": "S001",
-          "ExpectedName": "S001"
+          "ManufacturerBarcode": "6001"           
         },
         {
-          "Supplier": "S002 | Aalam Salik",
+          "Supplier": "Nizam Sawaya",
           "PurchaseRateCurrency": "KWD | Kuwaiti Dinar",
           "Uom": "001 | Piece",
           "PurchaseUnitPrice": "200",
           "ManufacturerPartNum": "2001",
-          "ManufacturerBarcode": "7001",
-          "ActualName": "S002",
-          "ExpectedName": "S002"
+          "ManufacturerBarcode": "7001"
         }
       ],
       "itemPriceLists": [
         {
-          "PriceList": "PL001 | Standard",
+          "PriceList": "Standard",
           "Uom": "001 | Piece",
           "UnitPrice": "100",
           "MinimumUnitPrice": "100",
           "MaximumUnitPrice": "120",
           "DefaultDiscountInPercent": "10",
-          "MaximumDiscountInPercent": "15",
-          "ActualName": "Standard",
-          "ExpectedName": "Standard"
+          "MaximumDiscountInPercent": "15"
         },
         {
-          "PriceList": "PL002 | Discounted",
+          "PriceList": "Discounted",
           "Uom": "001 | Piece",
           "UnitPrice": "150",
           "MinimumUnitPrice": "150",
           "MaximumUnitPrice": "200",
           "DefaultDiscountInPercent": "10",
-          "MaximumDiscountInPercent": "15",
-          "ActualName": "Discounted",
-          "ExpectedName": "Discounted"
+          "MaximumDiscountInPercent": "15"
         }
       ],
       "Warehouses": [
         {
-          "Warehouse": "WH01 | Grand Prime House",
+          "Warehouse": "Grand Prime House",
           "BinLocation": "Prime House",
           "MaximumStockLevel": "100",
           "MinimumStockLevel": "100",
           "ReorderStockLevel": "100",
           "MaximumReorder": "100",
-          "MinimumReorder": "100",
-          "ActualName": "Grand Prime House WH01",
-          "ExpectedName": "Grand Prime House"
+          "MinimumReorder": "100"
         },
         {
-          "Warehouse": "WH02 | Grand Second House",
+          "Warehouse": "Grand Second House",
           "BinLocation": "Second House",
           "MaximumStockLevel": "100",
           "MinimumStockLevel": "100",
           "ReorderStockLevel": "100",
           "MaximumReorder": "100",
-          "MinimumReorder": "100",
-          "ActualName": "Grand Second House WH02",
-          "ExpectedName": "Grand Second House"
+          "MinimumReorder": "100"
         }
       ],
       "Barcodes": [
         {
-          "Barcode": "6001",
-          "Uom": "Piece",
-          "ExpectedName": "6001"
+          "Barcode": "B7001",
+          "Uom": "Piece"
         },
         {
-          "Barcode": "7001",
-          "Uom": "Box",
-          "ExpectedName": "7001"
+          "Barcode": "B8001",
+          "Uom": "Box"
         }
       ],
       "Documents": [
@@ -685,50 +643,38 @@
           "DocumentNumber": "CID60017001",
           "DateOfIssue": "01-Jan-2025",
           "PlaceOfIssue": "Kuwait",
-          "DateOfExpiry": "31-Dec-2025",
-          "ActualName": "Civil Id (CID60017001)",
-          "ExpectedName": "Civil Id (CID60017001)"
+          "DateOfExpiry": "31-Dec-2025"
         },
         {
-          "DocumentType": "Contract",
+          "DocumentType": "Sponsor Contract",
           "DocumentNumber": "C600017001",
           "DateOfIssue": "01-Jan-2025",
           "PlaceOfIssue": "Kuwait",
-          "DateOfExpiry": "31-Dec-2025",
-          "ActualName": "Sponsor Contract (C600017001)",
-          "ExpectedName": "Sponsor Contract (C600017001)"
+          "DateOfExpiry": "31-Dec-2025"
         }
       ],
       "Colors": [
         {
           "ColorCode": "B",
           "ColorName": "Black",
-          "ColorArabicName": "Black",
-          "ActualName": "Black B",
-          "ExpectedName": "Black"
+          "ColorArabicName": "Black"
         },
         {
           "ColorCode": "P",
           "ColorName": "Pink",
-          "ColorArabicName": "Pink",
-          "ActualName": "Pink P",
-          "ExpectedName": "Pink"
+          "ColorArabicName": "Pink"
         }
       ],
       "Sizes": [
         {
           "SizeCode": "M",
           "SizeName": "Medium",
-          "SizeArabicName": "Medium",
-          "ActualName": "Medium M",
-          "ExpectedName": "Medium"
+          "SizeArabicName": "Medium"
         },
         {
           "SizeCode": "L",
           "SizeName": "Large",
-          "SizeArabicName": "Large",
-          "ActualName": "Large L",
-          "ExpectedName": "Large"
+          "SizeArabicName": "Large"
         }
       ]
     }
@@ -736,7 +682,7 @@
   "itemquery": [
     {
       "Code": "001",
-      "Name": "Inventory Weightage Item",
+      "Name": "Phone Holders",
       "ItemGroup": "Electronics",
       "ItemCategory": "Electronics",
       "Brand": "LG"
