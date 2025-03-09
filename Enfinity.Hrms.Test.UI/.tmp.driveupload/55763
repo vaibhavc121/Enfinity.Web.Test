@@ -1,0 +1,12 @@
+﻿{
+  "createHRAssetRequest": [
+    {
+      "txnDate": "22-02-2025",
+      "effectiveDate": "03-05-2024",
+      "HRAsset": "Headphone",
+      "expReturnDate": "24-02-2025"
+      
+
+    }
+  ]
+}

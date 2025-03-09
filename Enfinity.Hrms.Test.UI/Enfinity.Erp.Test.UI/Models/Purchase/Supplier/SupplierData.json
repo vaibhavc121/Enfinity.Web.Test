@@ -1,0 +1,180 @@
+{
+  "new": [
+    {
+      "Code": "S0016",
+      "Name": "Adila Sharaf",
+      "ArabicName": "Adila Sharaf",
+      "Currency": "KWD | Kuwaiti Dinar"
+    },
+    {
+      "Code": "S0017",
+      "Name": "Aludra Yassin",
+      "ArabicName": "Aludra Yassin",
+      "Currency": "KWD | Kuwaiti Dinar"
+    }
+  ],
+  "keyinfo": [
+    {
+      "Code": "S0018",
+      "Name": "Key Info Detail Supplier",
+      "ArabicName": "Key Info Detail Supplier",
+      "Group": "National",
+      "ContactPerson": "Sakib Al Hasan",
+      "Mobile": "98652545",
+      "Email": "key@gmail.com",
+      "PayableAccount": "11210 | Receivables",
+      "Description": "Key Info Detail Supplier",
+      "CreditLimitAmount": "500",
+      "CreditLimitDays": "50",
+      "PaymentTerm": "Net 30",
+      "ShippingTerm": "Factory",
+      "LoadingPort": "1001",
+      "DestinationPort": "2001",
+      "ShippingMethod": "Air",
+      "ShipmentPriority": "High"
+    }
+  ],
+  "multipersons": [
+    {
+      "Code": "S0019",
+      "Name": "Contact Person Detail Supplier",
+      "ArabicName": "Contact Person Detail Supplier",
+      "persons": [
+        {
+          "Prefix": "Mr.",
+          "FirstName": "Kareem",
+          "MiddleName": "M",
+          "LastName": "Amiri",
+          "JobTitle": "Salesman",
+          "Gender": "Male",
+          "Mobile": "9865254245",
+          "Telephone": "964452415",
+          "Fax": "964452415",
+          "Email": "kareem@grand.com"
+        },
+        {
+          "Prefix": "Ms.",
+          "FirstName": "Salma",
+          "MiddleName": "R",
+          "LastName": "Tabatabai",
+          "JobTitle": "Salesman",
+          "Gender": "Female",
+          "Mobile": "9865254246",
+          "Telephone": "964452416",
+          "Fax": "964452416",
+          "Email": "salma@grand.com"
+        }
+      ]
+    }
+  ],
+  "multiaddress": [
+    {
+      "Code": "S0020",
+      "Name": "Address Detail Supplier",
+      "ArabicName": "Address Detail Supplier",
+      "Addresses": [
+        {
+          "Description": "Shipping Address",
+          "Address1": "123 Main Street",
+          "Address2": "Apartment: 2B",
+          "Address3": "15 Mubarak Al-Kabeer Street",
+          "Address4": "Sharq Area",
+          "Address5": "15458 Kuwait City",
+          "City": "Kuwait",
+          "State": "KUWAIT",
+          "DialingCode": "965",
+          "ZipCode": "154858",
+          "ContactPerson": "Kareem Amiri",
+          "Email": "supplier@gmail.com",
+          "MobileNumber": "96563524",
+          "TelNumber": "98573524",
+          "FaxNumber": "98573524"
+        },
+        {
+          "Description": "Mailing Address",
+          "Address1": "124 Main Street",
+          "Address2": "Apartment: 2D",
+          "Address3": "15 Mubarak Al-Kabeer Street",
+          "Address4": "Sharq Area",
+          "Address5": "15459 Kuwait City",
+          "City": "Kuwait",
+          "State": "KUWAIT",
+          "DialingCode": "965",
+          "ZipCode": "154858",
+          "ContactPerson": "Salma Shah",
+          "Email": "supplier@gmail.com",
+          "MobileNumber": "96563525",
+          "TelNumber": "98573525",
+          "FaxNumber": "98573525"
+        }
+      ]
+    }
+  ],
+  "multiitems": [
+    {
+      "Code": "S0021",
+      "Name": "Items Detail Supplier",
+      "ArabicName": "Items Detail Supplier",
+      "Items": [
+        {
+          "Item": "Screen Protectors"
+        },
+        {
+          "Item": "Phone Cases"
+        }
+      ]
+    }
+  ],
+  "multidocuments": [
+    {
+      "Code": "S0022",
+      "Name": "Document Detail Supplier",
+      "ArabicName": "Document Detail Supplier",
+      "Documents": [
+        {
+          "DocumentType": "Civil Id",
+          "DocumentNumber": "CID60017001",
+          "DateOfIssue": "01-Jan-2025",
+          "PlaceOfIssue": "Kuwait",
+          "DateOfExpiry": "31-Dec-2025"
+        },
+        {
+          "DocumentType": "Sponsor Contract",
+          "DocumentNumber": "C600017001",
+          "DateOfIssue": "01-Jan-2025",
+          "PlaceOfIssue": "Kuwait",
+          "DateOfExpiry": "31-Dec-2025"
+        }
+      ]
+    }
+  ],
+  "delete": [
+    {
+      "Name": "Adila Sharaf"
+    },
+    {
+      "Name": "Aludra Yassin"
+    },
+    {
+      "Name": "Key Info Detail Supplier"
+    },
+    {
+      "Name": "Contact Person Detail Supplier"
+    },
+    {
+      "Name": "Address Detail Supplier"
+    },
+    {
+      "Name": "Items Detail Supplier"
+    },
+    {
+      "Name": "Document Detail Supplier"
+    }
+  ],
+  "duplicate": [
+    {
+      "Code": "S0001",
+      "Name": "Taraab Mansoor"
+    }
+  ]
+}

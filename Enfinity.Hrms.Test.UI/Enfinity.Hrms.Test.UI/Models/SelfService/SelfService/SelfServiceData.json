@@ -1,0 +1,113 @@
+﻿{
+  "createLoanRequest": [
+    {
+      "repaymentStartPeriod": "Apr-2025",
+      "loanType": "Car Loan",
+      "loanAmt": "100",
+      "numberOfInstallments": "5",
+      "remarks": "test",
+      "empName": "Vaibhav Chavan"
+    }
+  ],
+
+  "createBenefitClaim": [
+    {
+      "claimDate": "24-02-2025",
+      "benefitScheme": "Self | Health Insurance",
+      "claimAmount": "20",
+      "paymentType": "Pay Out Side Payroll",
+      "remarks": "test",
+      "empName": "Vaibhav Chavan"
+    }
+  ],
+  "createTravelRequest": [
+    {
+      "fromDate": "23-02-2025",
+      "uptoDate": "24-02-2025",
+      "category": "B",
+      "country": "Kuwait",
+      "city": "Kuwait",
+      "ticketDestination": "Kolkata",
+      "ticketAmt": "10",
+      "purpose": "Business",
+      "paymentType": "Pay With Payroll",
+      "remarks": "test",
+      "empName": "Vaibhav Chavan"
+
+    }
+  ],
+  "createPromotionRequest": [
+
+    {
+      //type- Promotion
+      "txnDate": "01-02-2025",
+      "effectiveDate": "01-03-2025",
+      "effectiveDate1": "01-Mar-2025",
+      "type": "Promotion",
+      "newDepartment": "003 | prod",
+      "newDesignation": "SR Accountant",
+      "newWorkLocation": "Salmiya House",
+      "newProject": "003 | project0",
+      "description": "test",
+      "salaryComponent": "SC001 | Basic Salary",
+      "incrementAmount": "100",
+      "effectiveFromDate": "01-02-2025",
+      "effectiveToDate": "31-03-2025"
+
+    },
+    {
+      //type- change in status
+      "txnDate": "02-02-2025",
+      "effectiveDate": "01-04-2025",
+      "effectiveDate1": "01-Apr-2025",
+      "type": "Change In Status",
+      "newDepartment": "004 | marketing",
+      "newDesignation": "Senior Optimization Agent",
+      "newWorkLocation": "Suleman House",
+      "newProject": "004 | Project1",
+      "description": "test",
+      "salaryComponent": "SC001 | Basic Salary",
+      "incrementAmount": "100",
+      "effectiveFromDate": "01-02-2025",
+      "effectiveToDate": "31-03-2025"
+
+    },
+    {
+      //type- Work Location Change
+      "txnDate": "02-02-2025",
+      "effectiveDate": "01-05-2025",
+      "effectiveDate1": "01-May-2025",
+      "type": "Work Location Change",
+      "newDepartment": "004 | marketing",
+      "newDesignation": "Senior Optimization Agent",
+      "newWorkLocation": "Suleman House",
+      "newProject": "004 | Project2",
+      "description": "test",
+      "salaryComponent": "SC001 | Basic Salary",
+      "incrementAmount": "100",
+      "effectiveFromDate": "01-02-2025",
+      "effectiveToDate": "31-03-2025"
+
+    }
+  ],
+
+  "createOvertimeRequest": [
+    {
+      "overtimeDate": "01-04-2025",
+      "overtimeType": "Normal Overtime",
+      "hrs": "1.00",
+      "remarks": "test"
+    }
+  ],
+
+  "createResignation": [
+    {
+      "submittedDate": "01-04-2025",       
+      "remarks": "test"
+    }
+  ]
+
+
+
+
+}

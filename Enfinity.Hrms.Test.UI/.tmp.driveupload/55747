@@ -1,0 +1,12 @@
+﻿{
+  "createAdminSupport": [
+    {
+      "supportRequestCategory": "Salary Certificate",
+      "priority": "High",
+      "remarks": "test"
+
+
+
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+﻿{
+  "createITSupport": [
+    {
+      "supportRequestCategory": "Setup computer",
+      "priority": "High",
+      "remarks": "test"
+    }
+  ]
+}
