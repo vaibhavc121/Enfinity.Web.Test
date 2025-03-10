@@ -1,0 +1,21 @@
+{
+  "new": [
+    {
+      "Code": "SM03",
+      "Name": "Adil Tamer",
+      "ArabicName": "Adil Tamer",
+      "Description": "Adil Tamer Salesman",
+      "Type": "Salesman Cum Collector",
+      "Commission": "10",
+      "Title": "Mr",
+      "Email": "adil@grand.com",
+      "Extension": "214",
+      "Mobile": "9658754524"
+    }
+  ],
+  "delete": [
+    {
+      "Name": "Adil Tamer"
+    }
+  ]
+}

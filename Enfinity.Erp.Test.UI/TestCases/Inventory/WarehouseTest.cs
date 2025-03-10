@@ -11,7 +11,7 @@ namespace Enfinity.Erp.Test.UI
     [TestFixture]
     public class WarehouseTest:BaseTest
     {
-        private string Product = "Erp";
+        //private string Product = "Erp";
 
         #region Constructor
         public WarehouseTest()
@@ -23,7 +23,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task CreateWarehouse()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var warehouseFile = FileHelper.GetDataFile("Erp", "Inventory", "Warehouse", "WarehouseData");
@@ -42,7 +42,7 @@ namespace Enfinity.Erp.Test.UI
                 CommonPageActions.ClickOnNew();
                 await WaitHelper.WaitForSeconds(1);
 
-                wp.ProvideCode(warehouse.Code);
+                //wp.ProvideCode(warehouse.Code);
                 wp.ProvideName(warehouse.Name);
                 wp.ProvideArabicName(warehouse.ArabicName);
                 wp.ClickOnSkipNegativeStockCheck();
@@ -51,7 +51,7 @@ namespace Enfinity.Erp.Test.UI
                 await WaitHelper.WaitForSeconds(1);
 
                 #region Validate
-                CommonPageActions.Validate("Warehouse created successfully!");
+                CommonPageActions.ValidateMessage("Warehouse created successfully!");
                 #endregion
 
                 wp.ClickOnWarehouse();
@@ -65,7 +65,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task DeleteWarehouse()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var warehouseFile = FileHelper.GetDataFile("Erp", "Inventory", "Warehouse", "WarehouseData");
@@ -88,8 +88,8 @@ namespace Enfinity.Erp.Test.UI
                 CommonPageActions.ClickOnDelete();
                 CommonPageActions.ClickOnOk();
 
-                #region Validate
-                CommonPageActions.Validate("Record deleted successfully!");
+                #region Validate warehouse deleted message
+                CommonPageActions.ValidateMessage("Record deleted successfully!");
                 #endregion                 
             }
         }

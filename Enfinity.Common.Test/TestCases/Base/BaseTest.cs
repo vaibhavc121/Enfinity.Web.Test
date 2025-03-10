@@ -16,7 +16,8 @@ namespace Enfinity.Common.Test
 {
     public class BaseTest
     {
-
+        public static string ErpProduct = "Erp";
+        public static string HrmsProduct = "Hrms";
         public static IWebDriver _driver; 
         private static string reportPath = $"{TestContext.CurrentContext.WorkDirectory}\\ExtentReport\\ExtentReport.html";
         public static WebDriverWait _wait;
@@ -36,10 +37,12 @@ namespace Enfinity.Common.Test
             // Disable the "Save Password" prompt
             options.AddUserProfilePreference("credentials_enable_service", false);
             options.AddUserProfilePreference("profile.password_manager_enabled", false);
-            #endregion
 
             // Add Headless Mode
             //options.AddArgument("--headless");
+            #endregion
+
+
 
             // Initialize the Chrome WebDriver
             _driver = new ChromeDriver(options);

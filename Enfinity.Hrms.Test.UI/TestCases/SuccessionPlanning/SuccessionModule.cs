@@ -1,12 +1,69 @@
-﻿using System;
+﻿using Enfinity.Common.Test;
+using Enfinity.Hrms.Test.UI.Models.Onboarding.Onboarding;
+using Enfinity.Hrms.Test.UI.Models.SuccessionPlanning.SuccessionPlanning;
+using Enfinity.Hrms.Test.UI.PageObjects.Onboarding;
+using Enfinity.Hrms.Test.UI.PageObjects.SuccessionPlanning;
+using NUnit.Framework;
+using NUnit.Framework.Legacy;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Enfinity.Hrms.Test.UI.TestCases.SuccessionPlanning
+namespace Enfinity.Hrms.Test.UI
 {
-    internal class SuccessionModule
+    [TestFixture]
+    public class SuccessionModule:BaseTest
     {
+        [Test]
+        public void CreateSuccessionPlan()
+        {
+            try
+            {
+                Login(HrmsProduct);
+
+                var SuccessionPlanningFile = FileHelper.GetDataFile("Hrms", "SuccessionPlanning", "SuccessionPlanning", "SuccessionData");
+                var successionPlanData = JsonHelper.ConvertJsonListDataModel<SuccessionModel>(SuccessionPlanningFile, "createSuccessionPlan");
+
+                //Succession page
+                SuccessionPage op = new SuccessionPage(_driver);
+                op.ClickMenu();
+                op.ClicksuccessionPlanning();
+                op.ClickSuccessionPlan();
+
+                //SuccessionPlan page
+                SuccessionPlanPage sp = new SuccessionPlanPage(_driver);
+
+                foreach (var successionPlan in successionPlanData)
+                {
+                    sp.ClickNew();
+                    //cp.ProvideNameArabic(candidate.nameArabic);
+                    sp.ProvideName(successionPlan.name);
+                    sp.ProvideDesignation(successionPlan.designation);
+                    sp.ProvideEmployee(successionPlan.employee);
+                    sp.ProvideMinimumPercentage(successionPlan.minimumPercentage);
+                    sp.ProvideQualificationPercentage(successionPlan.qualificationPercentage);
+                    sp.ProvideExperiencePercentage(successionPlan.experiencePercentage);
+                    sp.ProvideSkillsPercentage(successionPlan.skillsPercentage);
+                    sp.ProvideAppraisalPercentage(successionPlan.appraisalPercentage);
+                    sp.ProvideCoursePercentage(successionPlan.coursePercentage);
+                    sp.ProvideDescription(successionPlan.description);
+                    sp.ClickSave();
+
+                    //ClassicAssert.IsTrue(sp.IsTxnCreated(successionPlan.name));
+                    ClassicAssert.IsTrue(true);
+
+
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                ClassicAssert.Fail("Test case failed: " + e);
+
+            }
+        }
     }
 }

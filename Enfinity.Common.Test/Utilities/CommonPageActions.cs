@@ -16,53 +16,80 @@ namespace Enfinity.Common.Test
 {
     public static class CommonPageActions
     {
-        #region Common Action Methods for ERP
+        #region Action Methods for ERP Products
+
+        #region Module related Action Methods
+        public static void ClickOnAccountingModule()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Accounting']")).Click();
+        }
+        public static void ClickOnSalesModule()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Sales']")).Click();
+        }
+        public static void ClickOnPurchaseModule()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Purchase']")).Click();
+        }
+        public static void ClickOnInventoryModule()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Inventory']")).Click();
+        }
+        #endregion
+
+        #region Left menu bar Action Methods
         public static void ClickOnHome()
         {
-            BaseTest._driver.FindElement(By.CssSelector("li[title='Home']")).Click();
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and contains(text(), 'Home')]")).Click();
         }
         public static void ClickOnCustomer()
         {
-            BaseTest._driver.FindElement(By.CssSelector("li[title='Customer']")).Click();
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and contains(text(), 'Customer')]")).Click();
         }
         public static void ClickOnSupplier()
         {
-            BaseTest._driver.FindElement(By.CssSelector("li[title='Supplier']")).Click();
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and contains(text(), 'Supplier')]")).Click();
         }
         public static void ClickOnItem()
         {
-            BaseTest._driver.FindElement(By.CssSelector("li[title='Item']")).Click();
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and contains(text(), 'Item')]")).Click();
         }
         public static void ClickOnReports()
         {
-            BaseTest._driver.FindElement(By.CssSelector("li[title='Reports']")).Click();
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and contains(text(), 'Reports')]")).Click();
         }
         public static void ClickOnAnalytics()
         {
-            BaseTest._driver.FindElement(By.CssSelector("li[title='Analytics']")).Click();
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and contains(text(), 'Analytics')]")).Click();
         }
         public static void ClickOnPeriodicProcess()
         {
-            BaseTest._driver.FindElement(By.CssSelector("li[title='Periodic Process']")).Click();
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and contains(text(), 'Periodic Process')]")).Click();
         }
         public static void ClickOnSetups()
         {
-            BaseTest._driver.FindElement(By.CssSelector("li[title='Setups']")).Click();
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and contains(text(), 'Setups')]")).Click();
         }
+        #endregion
+
+        #region Conext Menu items Action Methods
         public static void ClickOnDelete()
         {
-            BaseTest._driver.FindElement(By.XPath("//div//span[contains(@class, 'dx-vam') and text()='Delete']")).Click();
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and text()='Delete']")).Click();
             Thread.Sleep(1000);
         }
         public static void ClickOnOk()
         {
-            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-button-text') and normalize-space(text())='Ok']")).Click();
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-button-text') and text()='Ok']")).Click();
             Thread.Sleep(1000);
         }
         public static void ClickOnCancel()
         {
-            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-button-text') and normalize-space(text())='Cancel']")).Click();
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-button-text') and text()='Cancel']")).Click();
         }
+        #endregion
+
+        #region Listing Action Methods
         public static void ClickOnNew()
         {
             BaseTest._driver.FindElement(By.XPath("//div//span[contains(@class, 'dx-vam') and text()='New']")).Click();
@@ -75,10 +102,6 @@ namespace Enfinity.Common.Test
         {
             BaseTest._driver.FindElement(By.XPath("//div//span[contains(@class, 'dx-vam') and text()='Edit']")).Click();
         }
-        public static void ClickOnSave()
-        {
-            BaseTest._driver.FindElement(By.XPath("//div//span[contains(@class, 'dx-vam') and text()='Save']")).Click();
-        }
         public static void ProvideNameOnListing(string name)
         {
             BaseTest._driver.FindElement(By.XPath("//input[@aria-describedby='dx-col-3']")).SendKeys(name);
@@ -86,60 +109,37 @@ namespace Enfinity.Common.Test
         }
         public static void ClickOnSelectedName()
         {
-            //_driver.FindElement(itemSelect).Click();
+            //_driver.FindElement(itemSelect).Click();     // Use this option when you want to open the selected item in another tab 
             IWebElement element = BaseTest._driver.FindElement(By.XPath("(//td[@aria-describedby='dx-col-3' and @role='gridcell' and @aria-colindex='2'])[2]"));
             ((IJavaScriptExecutor)BaseTest._driver).ExecuteScript("arguments[0].click();", element);
             Thread.Sleep(1000);
         }
-        public static void SelectDropDownOption(string option)
-        {
-            Thread.Sleep(1000);
-            var options = BaseTest._driver.FindElements(By.CssSelector(".dx-item-content, .dx-list-item-content"));
+        #endregion
 
-            foreach (var valueElement in options)
-            {
-                string actualValue = valueElement.Text;
-                if (actualValue.Contains(option))
-                {
-                    valueElement.Click();
-                    //Thread.Sleep(1000);
-                    return;
-                }
-            }
-        }
-        public static void ValidateSucess(string expectedMessage)
+        #region Transaction form related Action Methods
+        public static void ProvideCode(string data)
         {
-            IWebElement element = BaseTest._driver.FindElement(By.ClassName("dx-toast-success"));
-            string actualMessage = element.Text;
-            StringAssert.Contains(expectedMessage, actualMessage);
+            ClearAndProvideValue(By.XPath("//input[contains(@id, 'Code')]"), data);
         }
-        public static void Validate(string expectedMessage)
+        public static void ProvideName(string data)
         {
-            IWebElement element = BaseTest._driver.FindElement(By.ClassName("dx-toast-message"));
-            string actualMessage = element.Text;
-            StringAssert.Contains(expectedMessage, actualMessage);
+            ClearAndProvideValue(By.XPath("//input[contains(@id, 'Name')]"), data);
         }
-        public static void ValidateSummary(string expectedMessage)
+        public static void ProvideArabicName(string data)
         {
-            IWebElement element = BaseTest._driver.FindElement(By.Id("ValidationSummary"));
-            string actualMessage = element.Text;
-            StringAssert.Contains(expectedMessage, actualMessage);
+            ClearAndProvideValue(By.XPath("//input[contains(@id, 'NameL2')]"), data);
         }
-        public static void ClearAndProvideValue(By locator, string value)
+        public static void ProvideDescription(string data)
         {
-            var element = BaseTest._driver.FindElement(locator);
-            element.Click();
-            Actions actions = new Actions(BaseTest._driver);
-            actions.KeyDown(Keys.Control)
-                   .SendKeys("a")
-                   .KeyUp(Keys.Control)
-                   .SendKeys(Keys.Delete)
-                   .Perform();
-            element.SendKeys(value);
+            BaseTest._driver.FindElement(By.XPath("//textarea[contains(@id, 'Description')]")).SendKeys(data);
+        }
+        public static void ClickOnSave()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and text()='Save']")).Click();
         }
         #endregion
 
-        #region ERP Documents Action Methods         
+        #region Documents related Action Methods         
         public static void clickOnDocumentType()
         {
             BaseTest._driver.FindElement(By.XPath("(//input[contains(@id, 'DocumentTypeId')])")).Click();
@@ -167,38 +167,117 @@ namespace Enfinity.Common.Test
         }
         #endregion
 
-        #region ERP Module related Action Methods
-        public static void ClickOnAccountingModule()
+        #region Validate message Action Methods
+        public static void ValidateSucess(string expectedMessage)
         {
-            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Accounting']")).Click();
+            IWebElement element = BaseTest._driver.FindElement(By.ClassName("dx-toast-success"));
+            string actualMessage = element.Text;
+            StringAssert.Contains(expectedMessage, actualMessage);
         }
-        public static void ClickOnSalesModule()
+        public static void ValidateMessage(string expectedMessage)
         {
-            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Sales']")).Click();
+            IWebElement element = BaseTest._driver.FindElement(By.ClassName("dx-toast-message"));
+            string actualMessage = element.Text;
+            StringAssert.Contains(expectedMessage, actualMessage);
         }
-        public static void ClickOnPurchaseModule()
+        public static void ValidateSummary(string expectedMessage)
         {
-            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Purchase']")).Click();
-        }
-        public static void ClickOnInventoryModule()
-        {
-            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Inventory']")).Click();
+            IWebElement element = BaseTest._driver.FindElement(By.Id("ValidationSummary"));
+            string actualMessage = element.Text;
+            StringAssert.Contains(expectedMessage, actualMessage);
         }
         #endregion
 
-        #region ERP Module Transaction Top Menu Action Methods
-        public static void ProvideCode(string data)
+        #region Common methods
+        public static void SelectDropDownOption(string option)
         {
-            ClearAndProvideValue(By.XPath("//input[contains(@id, 'Code')]"), data);
+            Thread.Sleep(1000);
+            var options = BaseTest._driver.FindElements(By.CssSelector(".dx-item-content, .dx-list-item-content"));
+
+            foreach (var valueElement in options)
+            {
+                string actualValue = valueElement.Text;
+                if (actualValue.Contains(option))
+                {
+                    valueElement.Click();
+                    //Thread.Sleep(1000);
+                    return;
+                }
+            }
         }
-        public static void ProvideName(string data)
+        public static void SelectDropDownListOption(string expectedValue)
         {
-            ClearAndProvideValue(By.XPath("//input[contains(@id, 'Name')]"), data);
+            // Find the list of dropdown elements
+            IList<IWebElement> dropdownList = BaseTest._driver.FindElements(By.XPath("//div[@class='dx-item dx-list-item']"));
+
+            // Loop through each dropdown element
+            Thread.Sleep(500);
+            foreach (var dropdownElement in dropdownList)
+            {
+                string actualValue = dropdownElement.Text;
+
+                // If the dropdown name matches the desired one, click it
+                if (actualValue.Contains(expectedValue))
+                {
+                    dropdownElement.Click();
+                    break;
+                }
+            }
         }
-        public static void ProvideArabicName(string data)
+        public static void SelectDropDownValue(string expectedValue)
         {
-            ClearAndProvideValue(By.XPath("//input[contains(@id, 'NameL2')]"), data);
+            // Find the list of dropdown elements
+            IList<IWebElement> dropdownList = BaseTest._driver.FindElements(By.XPath("//tr[@class='dxeListBoxItemRow_Office365']"));
+
+            // Loop through each dropdown element
+            Thread.Sleep(500);
+            foreach (var dropdownElement in dropdownList)
+            {
+                string actualValue = dropdownElement.Text;
+
+                // If the dropdown name matches the desired one, click it
+                if (actualValue.Contains(expectedValue))
+                {
+                    dropdownElement.Click();
+                    break;
+                }
+            }
         }
+        public static void SelectDropDownOptionValue(string value)
+        {
+            while (true)
+            {
+                // Finding all the elements in the dropdown
+                IList<IWebElement> valuesList = BaseTest._driver.FindElements(By.XPath("//div[@class='lookup-text']"));
+
+                foreach (var valueElement in valuesList)
+                {
+                    string actualValue = valueElement.Text;
+                    if (actualValue.Contains(value))
+                    {
+                        valueElement.Click();
+                        return;
+                    }
+                }
+                // Click on the next icon to load more items in the dropdown
+                //BaseTest._driver.FindElement(By.XPath("//i[@class='dx-icon dx-icon-next-icon']")).Click();
+                //Thread.Sleep(3000);  // Wait for 3 seconds for next page to load
+            }
+        }
+        public static void ClearAndProvideValue(By locator, string value)
+        {
+            var element = BaseTest._driver.FindElement(locator);
+            element.Click();
+            Actions actions = new Actions(BaseTest._driver);
+            actions.KeyDown(Keys.Control)
+                   .SendKeys("a")
+                   .KeyUp(Keys.Control)
+                   .SendKeys(Keys.Delete)
+                   .Perform();
+            element.SendKeys(value);
+        }
+        #endregion
+
         #endregion
 
         #region listing filter result (Absolute xpath)

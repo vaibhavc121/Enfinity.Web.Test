@@ -69,7 +69,7 @@ namespace Enfinity.Erp.Test.UI.PageObjects.Sales
         }
         public void ProvideUnitPrice(string value)
         {
-            CommonPageActions.ClearAndProvide1(unitPrice, value);
+            CommonPageActions.ClearAndProvideValue(unitPrice, value);
         }
         public bool CheckUnitPrice()
         {

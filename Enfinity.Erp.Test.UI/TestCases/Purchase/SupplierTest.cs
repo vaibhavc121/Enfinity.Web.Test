@@ -20,7 +20,7 @@ namespace Enfinity.Erp.Test.UI
     [TestFixture]
     public class SupplierTest: BaseTest
     {
-        private string Product = "Erp";
+        //private string Product = "Erp";
 
         #region Constructor
         public SupplierTest()
@@ -32,7 +32,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task CreateSupplier()
         {
             #region MyRegion
-            Login(Product);
+           Login(ErpProduct);
             #endregion
 
             var supplierFile = FileHelper.GetDataFile("Erp", "Purchase", "Supplier", "SupplierData");
@@ -77,7 +77,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task CreateSupplierWithKeyInfoDetail()
         {
             #region MyRegion
-            Login(Product);
+           Login(ErpProduct);
             #endregion
 
             var supplierFile = FileHelper.GetDataFile("Erp", "Purchase", "Supplier", "SupplierData");
@@ -168,7 +168,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task CreateSupplierWithContactPersonDetail()
         {
             #region MyRegion
-            Login(Product);
+           Login(ErpProduct);
             #endregion
 
             var supplierFile = FileHelper.GetDataFile("Erp", "Purchase", "Supplier", "SupplierData");
@@ -196,6 +196,7 @@ namespace Enfinity.Erp.Test.UI
                 sp.ClickOnSaveSupplier();
                 await WaitHelper.WaitForSeconds(1);
                 sp.ClickOnContactPersonTab();
+                await WaitHelper.WaitForSeconds(2);
 
                 foreach (var person in supplier.Persons)
                 {
@@ -203,7 +204,7 @@ namespace Enfinity.Erp.Test.UI
                     await WaitHelper.WaitForSeconds(1);
 
                     sp.ClickOnPrefix();
-                    CommonPageActions.SelectDropdownOption(person.Prefix);
+                    CommonPageActions.SelectDropDownListOption(person.Prefix);
 
                     sp.ProvideFirstName(person.FirstName);
                     sp.ProvideMiddleName(person.MiddleName);
@@ -220,6 +221,7 @@ namespace Enfinity.Erp.Test.UI
                     //sp.ClickOnDefault();
                     //sp.ClickOnFreezed();
                     sp.ClickOnSavePerson();
+                    await WaitHelper.WaitForSeconds(2);
 
                     #region Validate the contact person name 
                     IWebElement personName = _driver.FindElement(By.XPath($"//div//h2[contains(text(),'{person.Prefix + " " + person.FirstName + " " + person.MiddleName + " " +person.LastName}')]"));
@@ -227,9 +229,9 @@ namespace Enfinity.Erp.Test.UI
                     StringAssert.Contains(person.Prefix + " " + person.FirstName + " " + person.MiddleName + " " + person.LastName, actualName);
                     #endregion
 
-                    sp.ClickOnBack();
-                    await WaitHelper.WaitForSeconds(2);
                 }
+                sp.ClickOnBack();
+                await WaitHelper.WaitForSeconds(2);
             }
         }
         #endregion
@@ -239,7 +241,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task CreateSupplierWithAddressDetail()
         {
             #region MyRegion
-            Login(Product);
+           Login(ErpProduct);
             #endregion
 
             var supplierFile = FileHelper.GetDataFile("Erp", "Purchase", "Supplier", "SupplierData");
@@ -267,10 +269,10 @@ namespace Enfinity.Erp.Test.UI
                 sp.ClickOnSaveSupplier();
                 await WaitHelper.WaitForSeconds(2);
                 sp.ClickOnAddressTab();
+                await WaitHelper.WaitForSeconds(2);
 
                 foreach (var address in supplier.Addresses)
-                {
-                    await WaitHelper.WaitForSeconds(1);
+                {              
                     sp.ClickOnAdd();
                     await WaitHelper.WaitForSeconds(1);                 
 
@@ -293,16 +295,16 @@ namespace Enfinity.Erp.Test.UI
                     //sp.ClickOnDefault();
                     //sp.ClickOnFreezed();
                     sp.ClickOnSaveAddress();
+                    await WaitHelper.WaitForSeconds(1);
 
                     #region Validate the address description
                     IWebElement addressDescElement = _driver.FindElement(By.XPath($"//div//p//strong[contains(text(),'{address.Description}')]"));
                     string actualName = addressDescElement.Text;
                     StringAssert.Contains(address.Description, actualName);
-                    #endregion
-
-                    sp.ClickOnBack();
-                    await WaitHelper.WaitForSeconds(2);
+                    #endregion                                        
                 }
+                sp.ClickOnBack();
+                await WaitHelper.WaitForSeconds(2);
             }
         }
         #endregion
@@ -312,7 +314,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task CreateSupplierWithItemDetail()
         {
             #region MyRegion
-            Login(Product);
+           Login(ErpProduct);
             #endregion
 
             var supplierFile = FileHelper.GetDataFile("Erp", "Purchase", "Supplier", "SupplierData");
@@ -352,13 +354,12 @@ namespace Enfinity.Erp.Test.UI
                     sp.ClickOnSaveItem();
                     await WaitHelper.WaitForSeconds(2);
 
-                    //#region Validate the address description
+                    #region Validate the item 
                     IWebElement element = _driver.FindElement(By.XPath($"//div[@class='item-details']//div//p[contains(text(),'{item.Item}')]"));
                     string actualName = element.Text;
                     StringAssert.Contains(item.Item, actualName);
-                    //#endregion
+                    #endregion
                 }
-
                 sp.ClickOnBack();
                 await WaitHelper.WaitForSeconds(2);
             }
@@ -370,7 +371,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task CreateSupplierWithDocumentDetail()
         {
             #region MyRegion
-            Login(Product);
+           Login(ErpProduct);
             #endregion
 
             var supplierFile = FileHelper.GetDataFile("Erp", "Purchase", "Supplier", "SupplierData");
@@ -423,7 +424,6 @@ namespace Enfinity.Erp.Test.UI
                     #endregion
                 }
                 #endregion
-
                 sp.ClickOnBack();
                 await WaitHelper.WaitForSeconds(2);
             }
@@ -435,7 +435,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task ValidateSupplierWithSameNameOrCodeNotAllowed()
         {
             #region MyRegion
-            Login(Product);
+           Login(ErpProduct);
             #endregion
 
             var supplierFile = FileHelper.GetDataFile("Erp", "Purchase", "Supplier", "SupplierData");
@@ -460,7 +460,7 @@ namespace Enfinity.Erp.Test.UI
                 await WaitHelper.WaitForSeconds(1);
 
                 #region Validate the same name customer not create
-                CommonPageActions.Validate("already exists");
+                CommonPageActions.ValidateMessage("already exists");
                 #endregion
                 await WaitHelper.WaitForSeconds(3);
 
@@ -470,7 +470,7 @@ namespace Enfinity.Erp.Test.UI
                 await WaitHelper.WaitForSeconds(1);
 
                 #region Validate the same code customer not create
-                CommonPageActions.Validate("already exists");
+                CommonPageActions.ValidateMessage("already exists");
                 #endregion
             }
         }
@@ -481,7 +481,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task DeleteSupplier()
         {
             #region MyRegion
-            Login(Product);
+           Login(ErpProduct);
             #endregion
 
             var supplierFile = FileHelper.GetDataFile("Erp", "Purchase", "Supplier", "SupplierData");

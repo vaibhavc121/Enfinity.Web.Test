@@ -1,0 +1,22 @@
+{
+  "new": [
+    {
+      "Code": "CH01",
+      "Name": "Swift Charge",
+      "ArabicName": "Swift Charge",
+      "DefaultValue": "10",
+      "Description": "Swift Charge"
+    }
+  ],
+  "delete": [
+    {
+      "Name": "Swift Charge"
+    }
+  ],
+  "update": [
+    {
+      "Code": "CH01",
+      "Name": "Swift Charge"
+    }
+  ]
+}

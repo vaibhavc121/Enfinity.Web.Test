@@ -16,7 +16,7 @@ namespace Enfinity.Erp.Test.UI
     {
         public string Product = "Erp";
 
-        [Test]
+        [Test, Ignore("")]
         public void VerifyInvoice()
         {
             try

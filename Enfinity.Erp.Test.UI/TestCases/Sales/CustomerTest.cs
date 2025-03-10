@@ -18,7 +18,7 @@ namespace Enfinity.Erp.Test.UI
     [TestFixture]
     public class CustomerTest : BaseTest
     {
-        private string Product = "Erp";
+        //private string Product = "Erp";
 
         #region Constructor
         public CustomerTest()
@@ -30,7 +30,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task CreateCustomer()
         {
             #region MyRegion
-            Login(Product);
+           Login(ErpProduct);
             #endregion
 
             var customerFile = FileHelper.GetDataFile("Erp", "Sales", "Customer", "CustomerData");
@@ -75,7 +75,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task CreateCustomerWithKeyInfoDetail()
         {
             #region MyRegion
-            Login(Product);
+           Login(ErpProduct);
             #endregion
 
             var customerFile = FileHelper.GetDataFile("Erp", "Sales", "Customer", "CustomerData");
@@ -102,7 +102,7 @@ namespace Enfinity.Erp.Test.UI
                 //cp.ClickOnCurrency();
                 //CommonPageActions.SelectDropdownOption(customer.Currency);
                 cp.ClickOnSaveCustomer();
-                await WaitHelper.WaitForSeconds(1);
+                await WaitHelper.WaitForSeconds(2);
                 cp.ClickOnKeyInfoTab();
 
                 cp.ClickOnCustomerGroup();
@@ -144,6 +144,7 @@ namespace Enfinity.Erp.Test.UI
                 ScrollHelper.ScrollToElement(saveElement);
                 await WaitHelper.WaitForSeconds(2);
                 cp.ClickOnSaveKeyInfo();
+                await WaitHelper.WaitForSeconds(1);
 
                 #region Validate the credit limit is added or not
                 IWebElement creditLimit = _driver.FindElement(By.XPath("(//input[contains(@id, '_CreditLimitAmount')])"));
@@ -168,7 +169,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task CreateCustomerWithAddressDetail()
         {
             #region MyRegion
-            Login(Product);
+           Login(ErpProduct);
             #endregion
 
             var customerFile = FileHelper.GetDataFile("Erp", "Sales", "Customer", "CustomerData");
@@ -265,7 +266,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task CreateCustomerWithContactPersonDetail()
         {
             #region MyRegion
-            Login(Product);
+           Login(ErpProduct);
             #endregion
 
             var customerFile = FileHelper.GetDataFile("Erp", "Sales", "Customer", "CustomerData");
@@ -302,14 +303,14 @@ namespace Enfinity.Erp.Test.UI
                     cp.ClickOnAdd();
                     await WaitHelper.WaitForSeconds(1);
                     cp.ClickOnPrefix();
-                    CommonPageActions.SelectDropdownOption(person.Prefix);
+                    CommonPageActions.SelectDropDownListOption(person.Prefix);
                     cp.ProvideFirstName(person.FirstName);
                     cp.ProvideLastName(person.LastName);
                     cp.ProvideJobTitle(person.JobTitle);
 
                     cp.ClickOnGender();
                     await WaitHelper.WaitForSeconds(1);
-                    CommonPageActions.SelectDropdownOption(person.Gender);
+                    CommonPageActions.SelectDropDownListOption(person.Gender);
 
                     IWebElement emaiElement = _driver.FindElement(By.XPath("(//input[contains(@id, '_Email')])[2]"));
                     ScrollHelper.ScrollToElement(emaiElement);
@@ -345,7 +346,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task CreateCustomerWithDocumentDetail()
         {
             #region MyRegion
-            Login(Product);
+           Login(ErpProduct);
             #endregion
 
             var customerFile = FileHelper.GetDataFile("Erp", "Sales", "Customer", "CustomerData");
@@ -410,7 +411,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task ValidateCustomerWithSameNameOrCodeNotAllowed()
         {
             #region MyRegion
-            Login(Product);
+           Login(ErpProduct);
             #endregion
 
             var customerFile = FileHelper.GetDataFile("Erp", "Sales", "Customer", "CustomerData");
@@ -435,7 +436,7 @@ namespace Enfinity.Erp.Test.UI
                 await WaitHelper.WaitForSeconds(1);
 
                 #region Validate the same name customer not create
-                CommonPageActions.Validate("already exists");
+                CommonPageActions.ValidateMessage("already exists");
                 #endregion
                 await WaitHelper.WaitForSeconds(3);
 
@@ -445,7 +446,7 @@ namespace Enfinity.Erp.Test.UI
                 await WaitHelper.WaitForSeconds(1);
                 
                 #region Validate the same code customer not create
-                CommonPageActions.Validate("already exists");
+                CommonPageActions.ValidateMessage("already exists");
                 #endregion
 
             }
@@ -457,7 +458,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task DeleteCustomer()
         {
             #region MyRegion
-            Login(Product);
+           Login(ErpProduct);
             #endregion
 
             var customerFile = FileHelper.GetDataFile("Erp", "Sales", "Customer", "CustomerData");

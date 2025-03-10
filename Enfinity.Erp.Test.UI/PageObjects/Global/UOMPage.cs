@@ -61,12 +61,12 @@ namespace Enfinity.Erp.Test.UI
         public void ProvideUOMCode(string data)
         {
             //_driver.FindElement(code).SendKeys(data);
-            CommonPageActions.ClearAndProvide(code, data);
+            CommonPageActions.ClearAndProvideValue(code, data);
         }
         public void ProvideUOMName(string data)
         {
             //_driver.FindElement(name).SendKeys(data);
-            CommonPageActions.ClearAndProvide(name, data);
+            CommonPageActions.ClearAndProvideValue(name, data);
         }
         public void ProvideUOMArabicName(string data)
         {

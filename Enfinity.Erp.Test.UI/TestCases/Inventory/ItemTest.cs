@@ -19,7 +19,7 @@ namespace Enfinity.Erp.Test.UI
     [TestFixture]
     public class ItemTest : BaseTest
     {
-        private string Product = "Erp";
+        //private string Product = "Erp";
 
         #region Constructor
         public ItemTest()
@@ -31,7 +31,7 @@ namespace Enfinity.Erp.Test.UI
         public void CreateItem()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -81,7 +81,7 @@ namespace Enfinity.Erp.Test.UI
         public void CreateItemWithKeyInfoDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -139,7 +139,7 @@ namespace Enfinity.Erp.Test.UI
                 //IWebElement itemName = _driver.FindElement(By.CssSelector("input[name='Name']"));
                 //string actualName = itemName.GetDomProperty("value");
                 //ClassicAssert.AreEqual(item.Name, actualName);
-                CommonPageActions.Validate("Item updated successfully.");
+                CommonPageActions.ValidateMessage("Item updated successfully.");
                 #endregion
 
                 itemPage.ClickOnBack();
@@ -153,7 +153,7 @@ namespace Enfinity.Erp.Test.UI
         public void CreateItemWithBOMDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -215,7 +215,7 @@ namespace Enfinity.Erp.Test.UI
         public void CreateItemWithUOMDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -274,7 +274,7 @@ namespace Enfinity.Erp.Test.UI
         public void CreateItemWithSupplierDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -339,7 +339,7 @@ namespace Enfinity.Erp.Test.UI
         public void CreateItemWithPriceListDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -402,7 +402,7 @@ namespace Enfinity.Erp.Test.UI
         public void CreateItemWithWarehouseDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -465,7 +465,7 @@ namespace Enfinity.Erp.Test.UI
         public void CreateItemWithBarcodeDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -522,7 +522,7 @@ namespace Enfinity.Erp.Test.UI
         public void CreateItemWithDocumentDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -585,7 +585,7 @@ namespace Enfinity.Erp.Test.UI
         public void CreateItemWithAccountSetupDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -650,7 +650,7 @@ namespace Enfinity.Erp.Test.UI
         public void CreateItemWithDimensionDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -728,7 +728,7 @@ namespace Enfinity.Erp.Test.UI
         public void CreateItemWithAllTabDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -1026,7 +1026,7 @@ namespace Enfinity.Erp.Test.UI
         public void UpdateItemWithKeyInfoDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -1078,7 +1078,7 @@ namespace Enfinity.Erp.Test.UI
                 //#endregion
 
                 #region Validate updated message
-                CommonPageActions.Validate("Item updated successfully.");
+                CommonPageActions.ValidateMessage("Item updated successfully.");
                 #endregion
 
                 #endregion
@@ -1091,7 +1091,7 @@ namespace Enfinity.Erp.Test.UI
         public void UpdateItemWithBOMDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -1147,7 +1147,7 @@ namespace Enfinity.Erp.Test.UI
         public void UpdateItemWithUOMDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -1208,7 +1208,7 @@ namespace Enfinity.Erp.Test.UI
         public void UpdateItemWithSupplierDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -1274,7 +1274,7 @@ namespace Enfinity.Erp.Test.UI
         public void UpdateItemWithPriceListDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -1328,7 +1328,7 @@ namespace Enfinity.Erp.Test.UI
         public void UpdateItemWithWarehouseDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -1387,7 +1387,7 @@ namespace Enfinity.Erp.Test.UI
         public void UpdateItemWithBarcodeDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -1438,7 +1438,7 @@ namespace Enfinity.Erp.Test.UI
         public void UpdateItemWithDocumentDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -1472,7 +1472,7 @@ namespace Enfinity.Erp.Test.UI
                 //#endregion
 
                 #region Validate the document update message
-                CommonPageActions.Validate("Document Updated Successfully");
+                CommonPageActions.ValidateMessage("Document Updated Successfully");
                 #endregion
 
                 itemPage.DeleteSecondDocument();
@@ -1497,7 +1497,7 @@ namespace Enfinity.Erp.Test.UI
         public void UpdateItemWithAccountSetupDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -1554,7 +1554,7 @@ namespace Enfinity.Erp.Test.UI
         public void UpdateItemWithDimensionDetail()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -1634,7 +1634,7 @@ namespace Enfinity.Erp.Test.UI
         public void DeleteItem()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -1662,7 +1662,7 @@ namespace Enfinity.Erp.Test.UI
                 Thread.Sleep(2000);
 
                 #region Validate deleted message
-                CommonPageActions.Validate("Item deleted successfully");
+                CommonPageActions.ValidateMessage("Item deleted successfully");
                 #endregion
             }
         }
@@ -1673,7 +1673,7 @@ namespace Enfinity.Erp.Test.UI
         public void createItemWithoutBaseUOM()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");
@@ -1697,7 +1697,7 @@ namespace Enfinity.Erp.Test.UI
                 Thread.Sleep(1000);
 
                 #region Validate the base unit of measure is required while creating new item
-                CommonPageActions.Validate("Item base unit of measure is required!");
+                CommonPageActions.ValidateMessage("Item base unit of measure is required!");
                 #endregion
             }
         }
@@ -1708,7 +1708,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task ApplyFiltersOnItemQuery()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var itemFile = FileHelper.GetDataFile("Erp", "Inventory", "Item", "ItemData");

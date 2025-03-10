@@ -1,0 +1,17 @@
+{
+  "new": [
+    {
+      "Code": "PM001",
+      "Name": "Cash",
+      "ArabicName": "Cash",
+      "Type": "Cash",
+      "BankAccount": "Cash-in-Hand",
+      "Description": "Payment Method Cash"
+    }
+  ],
+  "delete": [
+    {
+      "Name": "Cash"
+    }
+  ]
+}

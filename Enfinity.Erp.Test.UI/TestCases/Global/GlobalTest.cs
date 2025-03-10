@@ -14,7 +14,7 @@ namespace Enfinity.Erp.Test.UI
     [TestFixture]
     public class GlobalTest:BaseTest
     {
-        private string Product = "Erp";
+        //private string Product = "Erp";
 
         #region Constructor
         public GlobalTest()
@@ -26,7 +26,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task CreateUnitOfMeasure()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var uomFile = FileHelper.GetDataFile("Erp", "Global", "UOM", "UOMData");
@@ -42,7 +42,7 @@ namespace Enfinity.Erp.Test.UI
                 nbp.ClickOnGlobalSearch();
                 
                 nbp.ProvideSearchText(uom.SearchText);
-                CommonPageActions.SelectDropdownOption(uom.SearchText);
+                CommonPageActions.SelectDropDownListOption(uom.SearchText);
                 await WaitHelper.WaitForSeconds(2);
 
                 ulp.ClickOnNewUOM();
@@ -73,7 +73,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task ValidateUOMSameNameOrCodeNotAllowed()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var uomFile = FileHelper.GetDataFile("Erp", "Global", "UOM", "UOMData");
@@ -89,7 +89,7 @@ namespace Enfinity.Erp.Test.UI
                 nbp.ClickOnGlobalSearch();
 
                 nbp.ProvideSearchText(uom.SearchText);
-                CommonPageActions.SelectDropdownOption(uom.SearchText);
+                CommonPageActions.SelectDropDownListOption(uom.SearchText);
                 await WaitHelper.WaitForSeconds(2);
 
                 ulp.ClickOnNewUOM();
@@ -120,7 +120,7 @@ namespace Enfinity.Erp.Test.UI
         public async Task DeleteUnitOfMeasure()
         {
             #region MyRegion
-            Login(Product);
+            Login(ErpProduct);
             #endregion
 
             var uomFile = FileHelper.GetDataFile("Erp", "Global", "UOM", "UOMData");
@@ -136,7 +136,7 @@ namespace Enfinity.Erp.Test.UI
                 nbp.ClickOnGlobalSearch();
 
                 nbp.ProvideSearchText(uom.SearchText);
-                CommonPageActions.SelectDropdownOption(uom.SearchText);
+                CommonPageActions.SelectDropDownListOption(uom.SearchText);
                 await WaitHelper.WaitForSeconds(2);
 
                 ulp.ProvideUOMName(uom.Name);
@@ -148,7 +148,7 @@ namespace Enfinity.Erp.Test.UI
                 await WaitHelper.WaitForSeconds(1);
 
                 #region Validate record deleted message
-                CommonPageActions.Validate("Record deleted successfully!");
+                CommonPageActions.ValidateMessage("Record deleted successfully!");
                 #endregion
             }
         }
