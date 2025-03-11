@@ -709,11 +709,57 @@ namespace Enfinity.Common.Test
             //Thread.Sleep(2000);
             //Find(deleteBasicSalaryComponent).Click();
         }
+        #region keyboard actions
+        public static void PressKey(string key)
+        {
+            Actions actions = new Actions(BaseTest._driver);
+            actions.SendKeys(GetKeyFromString(key)).Perform();
+        }
 
+        private static string GetKeyFromString(string key)
+        {
+            switch (key.ToLower())  // Traditional switch to avoid "recursive pattern" error
+            {
+                case "enter": return Keys.Enter;
+                case "tab": return Keys.Tab;
+                case "control": return Keys.Control;
+                case "shift": return Keys.Shift;
+                case "alt": return Keys.Alt;
+                case "escape": return Keys.Escape;
+                case "backspace": return Keys.Backspace;
+                case "delete": return Keys.Delete;
+                case "space": return Keys.Space;
+                default: throw new ArgumentException("Invalid key name");
+            }
+        }
         public static void PressTab()
         {
-            Actions actions = new Actions(BaseTest._driver);             
+            Actions actions = new Actions(BaseTest._driver);
             actions.SendKeys(Keys.Tab).Perform();
+        }
+        public static void PressEnter()
+        {
+            Actions actions = new Actions(BaseTest._driver);
+            actions.SendKeys(Keys.Enter).Perform();
+        }
+        #endregion
+        
+        public static void DeleteTxn()
+        {
+           
+            IWebElement status= BaseTest._driver.FindElement(By.XPath(" (//tr)[11]//td[8]"));
+            status.Click();
+            //status.SendKeys("active");
+            BaseTest._driver.FindElement(By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[6]/div[1]/table[1]/tbody[1]/tr[2]/td[8]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]")).SendKeys("active");
+            BaseTest._driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
+            ClickView();
+            BaseTest._driver.FindElement(By.XPath("//img[@id='MainMenu_DXI18_PImg']")).Click();
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Delete']")).Click();
+            Thread.Sleep(1000);
+
+            PressKey("enter");
+
+
         }
     }
 }

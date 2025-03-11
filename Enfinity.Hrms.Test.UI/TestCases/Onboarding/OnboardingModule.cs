@@ -86,5 +86,22 @@ namespace Enfinity.Hrms.Test.UI
 
             }
         }
+        #region 
+        [Test]
+        public void Test()
+        {
+
+        }
+        #endregion
+
+        #region 
+        [Test]
+        public void Test2()
+        {
+
+        }
+        #endregion
+
+       
     }
 }

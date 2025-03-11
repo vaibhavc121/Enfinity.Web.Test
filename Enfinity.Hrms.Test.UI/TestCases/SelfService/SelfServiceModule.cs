@@ -596,6 +596,42 @@ namespace Enfinity.Hrms.Test.UI
         }
         #endregion
 
+        #region Delete time off
+        [Test, Repeat(2)]
+        public void DeleteTimeOff()
+        {
+            try
+            {
+                Login(Product);
+
+                var timeOffFile = FileHelper.GetDataFile("Hrms", "SelfService", "TimeOff", "TimeOffData");
+                var timeOffData = JsonHelper.ConvertJsonListDataModel<TimeOffModel>(timeOffFile, "createTimeOff");
+
+                //self service page
+                SelfServicePage ss = new SelfServicePage(_driver);
+                ss.ClickSelfService();
+                ss.ClickTransactions();
+
+                //time off page                
+                TimeOffPage to = new TimeOffPage(_driver);
+                to.ClickTimeOff();
+                //to.SelectRow();
+                //to.ClickView();
+                //to.ClickContextMenu();
+                //to.ClickDelete();
+                //to.ClickOk();
+                CommonPageActions.DeleteTxn();
+
+            }
+            catch (Exception e)
+            {
+
+                ClassicAssert.Fail("Test case failed: " + e);
+
+            }
+        }
+        #endregion
+
 
     }
 }

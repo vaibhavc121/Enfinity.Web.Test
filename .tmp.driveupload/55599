@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
@@ -23,6 +24,13 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         private By uptoTime = By.Name("LatePermission.UptoTime");
 
         private By timeOff = By.XPath("//a[@id='TxnInstanceView_I0i3_T']//span[@class='dx-vam'][normalize-space()='Time Sheet Entry']//following::span[@class='dx-vam'][normalize-space()='Time Off']");
+
+
+        private By  selectRow= By.XPath("(//tr)[12]//td[2]");
+        private By contextMenu = By.XPath("//img[@id='MainMenu_DXI18_PImg']");
+        private By delete = By.XPath("//span[normalize-space()='Delete']");
+        private By ok = By.XPath("//div[@aria-label='Ok']//div[@class='dx-button-content']");
+        private By ok1 = By.XPath("//span[normalize-space()='Ok']");
         #endregion
 
         #region action methods
@@ -79,7 +87,34 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             }
         }
 
-        
+        //delete time off
+        public void SelectRow()
+        {
+            Find(selectRow).Click();
+        }
+        public void ClickView()
+        {
+            CommonPageActions.ClickView();
+        }
+        public void ClickContextMenu()
+        {
+            Find(contextMenu).Click();
+        }
+        public void ClickDelete()
+        {
+            Find(delete).Click();
+            Thread.Sleep(1000);
+        }
+        public void ClickOk()
+        {
+            //Find(ok).Click();
+            CommonPageActions.PressKey("enter");
+            Thread.Sleep(1000);
+            CommonPageActions.PressKey("enter");
+        }
+
+
+
 
         #endregion
 

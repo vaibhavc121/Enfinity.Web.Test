@@ -35,7 +35,7 @@
   <ul class="nav-right">
    <li class="m-r-10"><a href="#"><span class="badge badge-primary"></span></a></li>
    <li class="m-r-10">
-    <a href="#"><span class="badge badge-primary">10-03-2025 06:39:13</span></a>
+    <a href="#"><span class="badge badge-primary">11-03-2025 06:49:30</span></a>
    </li>
   </ul>
  </div>
@@ -84,9 +84,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">CreateSuccessionPlan</p>
+            <p class="name">DeleteTimeOff</p>
             <p class="text-sm">
-              <span>06:39:13</span> / <span>19085.69 ms</span>
+              <span>06:49:30</span> / <span>28428.43 ms</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -94,10 +94,10 @@
             <div class="detail-head">
               <div class="p-v-10">
                 <div class="info">
-                  <h5 class="test-status text-fail">CreateSuccessionPlan</h5>
-                  <span class='badge badge-success'>10-03-2025 06:39:13</span>
-                  <span class='badge badge-danger'>10-03-2025 06:39:32</span>
-                  <span class='badge badge-default'>19085.69 ms</span>
+                  <h5 class="test-status text-fail">DeleteTimeOff</h5>
+                  <span class='badge badge-success'>11-03-2025 06:49:30</span>
+                  <span class='badge badge-danger'>11-03-2025 06:49:59</span>
+                  <span class='badge badge-default'>28428.43 ms</span>
                   &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
                   <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
                   <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -109,7 +109,7 @@
 
   <div class="row mb-3">
    <div class="col-md-3">
-         <img data-featherlight='D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\bin\Debug\Screenshots\CreateSuccessionPlan.png' src="D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\bin\Debug\Screenshots\CreateSuccessionPlan.png">
+         <img data-featherlight='D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\bin\Debug\Screenshots\DeleteTimeOff.png' src="D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\bin\Debug\Screenshots\DeleteTimeOff.png">
       </div>
  </div>
 
@@ -121,28 +121,24 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>Mar 10, 2025 18:39:32</td>
+        <td>Mar 11, 2025 18:49:59</td>
         <td>
-Test Failed: Multiple failures or warnings in test:
-  1)   Assert.That(condition, Is.True)
-  Expected: True
-  But was:  False
-
-  2) Test case failed: NUnit.Framework.AssertionException:   Assert.That(condition, Is.True)
-  Expected: True
-  But was:  False
-
-   at NUnit.Framework.Assert.ReportFailure(String message)
-   at NUnit.Framework.Assert.That[TActual](TActual actual, IResolveConstraint expression, NUnitString message, String actualExpression, String constraintExpression)
-   at NUnit.Framework.Legacy.ClassicAssert.IsTrue(Boolean condition)
-   at Enfinity.Hrms.Test.UI.SuccessionModule.CreateSuccessionPlan() in D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\TestCases\SuccessionPlanning\SuccessionModule.cs:line 54
-                  </td>
+Test Failed: Test case failed: OpenQA.Selenium.ElementNotInteractableException: element not interactable
+  (Session info: chrome=133.0.6943.143)
+   at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)
+   at OpenQA.Selenium.WebDriver.<ExecuteAsync>d__63.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at OpenQA.Selenium.WebDriver.InternalExecute(String driverCommandToExecute, Dictionary`2 parameters)
+   at Enfinity.Common.Test.CommonPageActions.DeleteTxn() in D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Common.Test\Utilities\CommonPageActions.cs:line 752
+   at Enfinity.Hrms.Test.UI.SelfServiceModule.DeleteTimeOff() in D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\TestCases\SelfService\SelfServiceModule.cs:line 623                  </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>Mar 10, 2025 18:39:32</td>
+        <td>Mar 11, 2025 18:49:59</td>
         <td>
-Execution Time: 10-03-2025 06:39:32                  </td>
+Execution Time: 11-03-2025 06:49:59                  </td>
       </tr>
   </tbody>
 </table></div>
@@ -166,13 +162,13 @@ Execution Time: 10-03-2025 06:39:32                  </td>
     <div class="col-md-3">
       <div class="card"><div class="card-body">
           <p class="m-b-0">Started</p>
-          <h3>10-03-2025 06:39:13</h3>
+          <h3>11-03-2025 06:49:30</h3>
       </div></div>
     </div>
     <div class="col-md-3">
       <div class="card"><div class="card-body">
           <p class="m-b-0">Ended</p>
-          <h3>10-03-2025 06:39:32</h3>
+          <h3>11-03-2025 06:49:59</h3>
       </div></div>
     </div>
     <div class="col-md-3">
@@ -241,7 +237,7 @@ Execution Time: 10-03-2025 06:39:32                  </td>
     </div>
   </div></div>
   <script>
-	var timeline = { "CreateSuccessionPlan":19085.6902 };
+	var timeline = { "DeleteTimeOff":28428.4257 };
   </script>
   <div class="row">
                   <div class="col-md-4 sysenv-container">

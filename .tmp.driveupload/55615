@@ -210,6 +210,7 @@
     <Compile Include="PageObjects\SuccessionPlanning\SuccessionPage.cs" />
     <Compile Include="PageObjects\SuccessionPlanning\SuccessionPlanPage.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\AttendanceTabTest.cs" />
+    <Compile Include="TestCases\Attendance\AttendanceModule.cs" />
     <Compile Include="TestCases\HrCore\CreateFullEmployeeTest.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\DependentsTabTest.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\DocumentsTabTest.cs" />
@@ -230,9 +231,12 @@
     <Compile Include="TestCases\Archive\EmployeeTabs\TimeOffTabTest.cs" />
     <Compile Include="TestCases\Learning\LearningModule.cs" />
     <Compile Include="TestCases\Onboarding\OnboardingModule.cs" />
+    <Compile Include="TestCases\Payroll\PayrollModule.cs" />
+    <Compile Include="TestCases\Performance\PerformanceModule.cs" />
     <Compile Include="TestCases\Recruitment\RecruitmentModule.cs" />
     <Compile Include="TestCases\SelfService\SelfServiceModule.cs" />
     <Compile Include="TestCases\SuccessionPlanning\SuccessionModule.cs" />
+    <Compile Include="TestCases\WorkforcePlanning\WorkforceModule.cs" />
     <Compile Include="TestData\DataProviders\HRCore\HRCoreDataProvider.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -266,11 +270,7 @@
     <Folder Include="PageObjects\Payroll\" />
     <Folder Include="PageObjects\Performance\" />
     <Folder Include="PageObjects\WorkforcePlanning\" />
-    <Folder Include="TestCases\Attendance\" />
     <Folder Include="TestCases\Base\" />
-    <Folder Include="TestCases\Payroll\" />
-    <Folder Include="TestCases\Performance\" />
-    <Folder Include="TestCases\WorkforcePlanning\" />
     <Folder Include="Utilities\" />
   </ItemGroup>
   <ItemGroup>
