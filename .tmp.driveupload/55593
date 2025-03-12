@@ -1,4 +1,5 @@
-﻿using Enfinity.Common.Test;
+﻿using AventStack.ExtentReports.Gherkin.Model;
+using Enfinity.Common.Test;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -97,6 +98,12 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         public void ClickApprove()
         {
             CommonPageActions.ClickApprove();
+        }
+
+        public void Test()
+        {
+            string value= BaseTest._driver.FindElement(By.XPath("(//tbody//tr)[12]//td[2]")).Text;
+            Console.WriteLine(value);
         }
         #endregion
     }

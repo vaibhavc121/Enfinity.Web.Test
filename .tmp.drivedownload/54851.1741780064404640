@@ -1,0 +1,247 @@
+﻿using Bogus.DataSets;
+using Enfinity.Common.Test;
+using NUnit.Framework.Legacy;
+using OpenQA.Selenium;
+using OpenQA.Selenium.BiDi.Modules.BrowsingContext;
+using OpenQA.Selenium.Interactions;
+using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Metadata;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Enfinity.Common.Test
+{
+    public static class CommonPageActions
+    {
+        #region Action Methods for ERP Products
+
+        #region Module related Action Methods
+        public static void ClickOnAccountingModule()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Accounting']")).Click();
+        }
+        public static void ClickOnSalesModule()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Sales']")).Click();
+        }
+        public static void ClickOnPurchaseModule()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Purchase']")).Click();
+        }
+        public static void ClickOnInventoryModule()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Inventory']")).Click();
+        }
+        #endregion
+
+        #region Left menu bar Action Methods
+        public static void ClickOnHome()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and contains(text(), 'Home')]")).Click();
+        }
+        public static void ClickOnCustomer()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and contains(text(), 'Customer')]")).Click();
+        }
+        public static void ClickOnSupplier()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and contains(text(), 'Supplier')]")).Click();
+        }
+        public static void ClickOnItem()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and contains(text(), 'Item')]")).Click();
+        }
+        public static void ClickOnReports()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and contains(text(), 'Reports')]")).Click();
+        }
+        public static void ClickOnAnalytics()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and contains(text(), 'Analytics')]")).Click();
+        }
+        public static void ClickOnPeriodicProcess()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and contains(text(), 'Periodic Process')]")).Click();
+        }
+        public static void ClickOnSetups()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and contains(text(), 'Setups')]")).Click();
+        }
+        #endregion
+
+        #region Conext Menu items Action Methods
+        public static void ClickOnDelete()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and text()='Delete']")).Click();
+            Thread.Sleep(1000);
+        }
+        public static void ClickOnOk()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-button-text') and text()='Ok']")).Click();
+            Thread.Sleep(1000);
+        }
+        public static void ClickOnCancel()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-button-text') and text()='Cancel']")).Click();
+        }
+        #endregion
+
+        #region Listing Action Methods
+        public static void ClickOnNew()
+        {
+            BaseTest._driver.FindElement(By.XPath("//div//span[contains(@class, 'dx-vam') and text()='New']")).Click();
+        }
+        public static void ClickOnView()
+        {
+            BaseTest._driver.FindElement(By.XPath("//div//span[contains(@class, 'dx-vam') and text()='View']")).Click();
+        }
+        public static void ClickOnEdit()
+        {
+            BaseTest._driver.FindElement(By.XPath("//div//span[contains(@class, 'dx-vam') and text()='Edit']")).Click();
+        }
+        public static void ProvideNameOnListing(string name)
+        {
+            BaseTest._driver.FindElement(By.XPath("//input[@aria-describedby='dx-col-3']")).SendKeys(name);
+            Thread.Sleep(2000);
+        }
+        public static void ClickOnSelectedName()
+        {
+            //_driver.FindElement(itemSelect).Click();     // Use this option when you want to open the selected item in another tab 
+            IWebElement element = BaseTest._driver.FindElement(By.XPath("(//td[@aria-describedby='dx-col-3' and @role='gridcell' and @aria-colindex='2'])[2]"));
+            ((IJavaScriptExecutor)BaseTest._driver).ExecuteScript("arguments[0].click();", element);
+            Thread.Sleep(1000);
+        }
+        #endregion
+
+        #region Transaction form related Action Methods
+        public static void ProvideCode(string data)
+        {
+            ClearAndProvideValue(By.XPath("//input[contains(@id, 'Code')]"), data);
+        }
+        public static void ProvideName(string data)
+        {
+            ClearAndProvideValue(By.XPath("//input[contains(@id, 'Name')]"), data);
+        }
+        public static void ProvideArabicName(string data)
+        {
+            ClearAndProvideValue(By.XPath("//input[contains(@id, 'NameL2')]"), data);
+        }
+        public static void ProvideDescription(string data)
+        {
+            BaseTest._driver.FindElement(By.XPath("//textarea[contains(@id, 'Description')]")).SendKeys(data);
+        }
+        public static void ClickOnSave()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and text()='Save']")).Click();
+        }
+        #endregion
+
+        #region Documents related Action Methods         
+        public static void clickOnDocumentType()
+        {
+            BaseTest._driver.FindElement(By.XPath("(//input[contains(@id, 'DocumentTypeId')])")).Click();
+        }
+        public static void provideDocumentNumber(string documentnum)
+        {
+            //_driver.FindElement(documentNumber).SendKeys(documentnum);
+            ClearAndProvide(By.XPath("(//input[contains(@id, 'DocumentNumber')])"), documentnum);
+        }
+        public static void provideDateOfIssue(string date)
+        {
+            BaseTest._driver.FindElement(By.XPath("(//input[contains(@id, 'DateOfIssue')])")).SendKeys(date);
+        }
+        public static void provideDateOfExpiry(string date)
+        {
+            BaseTest._driver.FindElement(By.XPath("(//input[contains(@id, 'DateOfExpiry')])")).SendKeys(date);
+        }
+        public static void providePlaceOfIssue(string place)
+        {
+            BaseTest._driver.FindElement(By.XPath("(//input[contains(@id, 'PlaceOfIssue')])")).SendKeys(place);
+        }
+        public static void clickSaveDocument()
+        {
+            BaseTest._driver.FindElement(By.XPath("(//span[normalize-space()='Save'])[2]")).Click();
+        }
+        #endregion
+
+        #region Validate message Action Methods
+        public static void ValidateSucess(string expectedMessage)
+        {
+            IWebElement element = BaseTest._driver.FindElement(By.ClassName("dx-toast-success"));
+            string actualMessage = element.Text;
+            StringAssert.Contains(expectedMessage, actualMessage);
+        }
+        public static void ValidateMessage(string expectedMessage)
+        {
+            IWebElement element = BaseTest._driver.FindElement(By.ClassName("dx-toast-message"));
+            string actualMessage = element.Text;
+            StringAssert.Contains(expectedMessage, actualMessage);
+        }
+        public static void ValidateSummary(string expectedMessage)
+        {
+            IWebElement element = BaseTest._driver.FindElement(By.Id("ValidationSummary"));
+            string actualMessage = element.Text;
+            StringAssert.Contains(expectedMessage, actualMessage);
+        }
+        #endregion
+
+        #region Common methods
+        public static void SelectDropDownOption(string option)
+        {
+            Thread.Sleep(1000);
+            var options = BaseTest._driver.FindElements(By.CssSelector(".dx-item-content, .dx-list-item-content"));
+
+            foreach (var valueElement in options)
+            {
+                string actualValue = valueElement.Text;
+                if (actualValue.Contains(option))
+                {
+                    valueElement.Click();
+                    //Thread.Sleep(1000);
+                    return;
+                }
+            }
+        }
+        public static void SelectDropDownListOption(string expectedValue)
+        {
+            // Find the list of dropdown elements
+            IList<IWebElement> dropdownList = BaseTest._driver.FindElements(By.XPath("//div[@class='dx-item dx-list-item']"));
+
+            // Loop through each dropdown element
+            Thread.Sleep(500);
+            foreach (var dropdownElement in dropdownList)
+            {
+                string actualValue = dropdownElement.Text;
+
+                // If the dropdown name matches the desired one, click it
+                if (actualValue.Contains(expectedValue))
+                {
+                    dropdownElement.Click();
+                    break;
+                }
+            }
+        }
+        public static void SelectDropDownValue(string expectedValue)
+        {
+            // Find the list of dropdown elements
+            IList<IWebElement> dropdownList = BaseTest._driver.FindElements(By.XPath("//tr[@class='dxeListBoxItemRow_Office365']"));
+
+            // Loop through each dropdown element
+            Thread.Sleep(500);
+            foreach (var dropdownElement in dropdownList)
+            {
+                string actualValue = dropdownElement.Text;
+
+                // If the dropdown name matches the desired one, click it
+                if (actualValue.Contains(expectedValue))
+                {
+                    dropdownElement.Click();
+                    break;
+                }
+            }
+        }
+        public static void 

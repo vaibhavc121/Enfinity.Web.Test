@@ -620,7 +620,7 @@ namespace Enfinity.Hrms.Test.UI
                 //to.ClickContextMenu();
                 //to.ClickDelete();
                 //to.ClickOk();
-                CommonPageActions.DeleteTxn();
+                CommonPageActions.DeleteTxn(8, "active");
 
             }
             catch (Exception e)
@@ -632,6 +632,27 @@ namespace Enfinity.Hrms.Test.UI
         }
         #endregion
 
+        #region
+        [Test, Repeat(10)]
+        public void DeleteHRAssetRequest()
+        {
+            Login(Product);
+
+            var HRAssetRequestFile = FileHelper.GetDataFile("Hrms", "SelfService", "HRAssetRequest", "HRAssetRequestData");
+            var HRAssetRequestData = JsonHelper.ConvertJsonListDataModel<HRAssetRequestModel>(HRAssetRequestFile, "createHRAssetRequest");
+
+            //self service page
+            SelfServicePage ss = new SelfServicePage(_driver);
+            ss.ClickSelfService();
+            ss.ClickTransactions();
+
+            //HR asset request page                
+            HRAssetRequestPage ar = new HRAssetRequestPage(_driver);
+            ar.ClickHRAssetRequest();
+            ar.Test();
+            CommonPageActions.DeleteTxn(6, "active");
+        }
+        #endregion
 
     }
 }

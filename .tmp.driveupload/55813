@@ -3,6 +3,7 @@ using Enfinity.Hrms.Test.UI.Models.Employee;
 using Enfinity.Hrms.Test.UI.Models.HRCore;
 using Enfinity.Hrms.Test.UI.Models.HRCore.Bank;
 using Enfinity.Hrms.Test.UI.Models.HRCore.Calendar;
+using Enfinity.Hrms.Test.UI.Models.HRCore.Designation;
 using Enfinity.Hrms.Test.UI.Models.HRCore.DocumentType;
 using Enfinity.Hrms.Test.UI.Models.HRCore.Employee;
 using Enfinity.Hrms.Test.UI.Models.HRCore.Grade;
@@ -216,7 +217,7 @@ namespace Enfinity.Hrms.Test.UI
         #region Delete Employee
         [Test]
         //[Ignore("")]
-        public void DeleteEmployee1()
+        public void DeleteEmployee()
         {
             try
             {
@@ -319,8 +320,8 @@ namespace Enfinity.Hrms.Test.UI
             {
                 Login(Product);
 
-                var departmentFile = FileHelper.GetDataFile("Hrms", "HRCore", "Department", "DepartmentData");
-                var departmentData = JsonHelper.ConvertJsonListDataModel<DepartmentModel>(departmentFile, "createDepartment");
+                var designationFile = FileHelper.GetDataFile("Hrms", "HRCore", "Designation", "DesignationData");
+                var designationData = JsonHelper.ConvertJsonListDataModel<DesignationModel>(designationFile, "createDesignation");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -650,5 +651,209 @@ namespace Enfinity.Hrms.Test.UI
             }
         }
         #endregion
+
+        #region Delete Department
+        [Test]
+        public void DeleteDepartment()
+        {
+            Login(Product);
+
+            var departmentFile = FileHelper.GetDataFile("Hrms", "HRCore", "Department", "DepartmentData");
+            var departmentData = JsonHelper.ConvertJsonListDataModel<DepartmentModel>(departmentFile, "createDepartment");
+
+            //hr core page
+            HRCorePage hc = new HRCorePage(_driver);
+            Thread.Sleep(5000);
+            hc.ClickHRCore();
+            hc.ClickSetupForm();
+
+            //setup page
+            SetupPage sp = new SetupPage(_driver);
+            sp.ClickDepartment();
+            Thread.Sleep(2000);
+            CommonPageActions.DeleteHrCoreTxn(3, "ofmIiG");
+        }
+        #endregion
+
+        #region Delete Designation
+        [Test]
+        public void DeleteDesignation()
+        {
+            Login(Product);
+
+            var departmentFile = FileHelper.GetDataFile("Hrms", "HRCore", "Department", "DepartmentData");
+            var departmentData = JsonHelper.ConvertJsonListDataModel<DepartmentModel>(departmentFile, "createDepartment");
+
+            //hr core page
+            HRCorePage hc = new HRCorePage(_driver);
+            Thread.Sleep(5000);
+            hc.ClickHRCore();
+            hc.ClickSetupForm();
+
+            //setup page
+            SetupPage sp = new SetupPage(_driver);
+            sp.ClickDesignation();
+            Thread.Sleep(2000);
+            CommonPageActions.DeleteHrCoreTxn(3, "vRStFZ");
+        }
+        #endregion
+
+        #region Delete Grade
+        [Test]
+        public void DeleteGrade()
+        {
+            Login(Product);
+
+            var gradeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Grade", "GradeData");
+            var gradeData = JsonHelper.ConvertJsonListDataModel<GradeModel>(gradeFile, "createGrade");
+
+            //hr core page
+            HRCorePage hc = new HRCorePage(_driver);
+            Thread.Sleep(5000);
+            hc.ClickHRCore();
+            hc.ClickSetupForm();
+
+            //setup page
+            SetupPage sp = new SetupPage(_driver);
+            sp.ClickGrade();
+            Thread.Sleep(2000);
+            CommonPageActions.DeleteHrCoreTxn(3, "iMasaN");
+        }
+        #endregion
+
+        #region Delete Calendar
+        [Test]
+        public void DeleteCalendar()
+        {
+            Login(Product);
+
+            var calendarFile = FileHelper.GetDataFile("Hrms", "HRCore", "Calendar", "CalendarData");
+            var calendarData = JsonHelper.ConvertJsonListDataModel<CalendarModel>(calendarFile, "createCalendar");
+
+            //hr core page
+            HRCorePage hc = new HRCorePage(_driver);
+            hc.ClickHRCore();
+            hc.ClickSetupForm();
+
+            //setup page
+            SetupPage sp = new SetupPage(_driver);
+            sp.ClickCalendar();
+            Thread.Sleep(2000);
+            CommonPageActions.DeleteHrCoreTxn(3, "DCXdzp");
+        }
+        #endregion
+
+        #region Delete Religion
+        [Test]
+        public void DeleteReligion()
+        {
+            Login(Product);
+
+            var ReligionFile = FileHelper.GetDataFile("Hrms", "HRCore", "Religion", "ReligionData");
+            var ReligionData = JsonHelper.ConvertJsonListDataModel<ReligionModel>(ReligionFile, "createReligion");
+
+            //hr core page
+            HRCorePage hc = new HRCorePage(_driver);
+            hc.ClickHRCore();
+            hc.ClickSetupForm();
+
+            //setup page
+            SetupPage sp = new SetupPage(_driver);
+            sp.ClickReligion();
+            Thread.Sleep(2000);
+            CommonPageActions.DeleteHrCoreTxn(3, "ofmIiG");
+        }
+        #endregion
+
+        #region Delete Work Location
+        [Test]
+        public void DeleteWorkLocation()
+        {
+
+            Login(Product);
+
+            var workLocationFile = FileHelper.GetDataFile("Hrms", "HRCore", "WorkLocation", "WorkLocationData");
+            var workLocationData = JsonHelper.ConvertJsonListDataModel<WorkLocationModel>(workLocationFile, "createWorkLocation");
+
+            //hr core page
+            HRCorePage hc = new HRCorePage(_driver);
+            hc.ClickHRCore();
+            hc.ClickSetupForm();
+
+            //setup page
+            SetupPage sp = new SetupPage(_driver);
+            sp.ClickWorkLocation();
+            Thread.Sleep(2000);
+            CommonPageActions.DeleteHrCoreTxn(3, "ofmIiG");
+        }
+        #endregion
+
+        #region Delete Bank
+        [Test]
+        public void DeleteBank()
+        {
+            Login(Product);
+
+            var bankFile = FileHelper.GetDataFile("Hrms", "HRCore", "Bank", "BankData");
+            var bankData = JsonHelper.ConvertJsonListDataModel<BankModel>(bankFile, "createBank");
+
+            //hr core page
+            HRCorePage hc = new HRCorePage(_driver);
+            hc.ClickHRCore();
+            hc.ClickSetupForm();
+
+            //setup page
+            SetupPage sp = new SetupPage(_driver);
+            sp.ClickBank();
+            Thread.Sleep(2000);
+            CommonPageActions.DeleteHrCoreTxn(3, "ofmIiG");
+        }
+        #endregion
+
+        #region Delete Qualification
+        [Test]
+        public void DeleteQualification()
+        {
+            Login(Product);
+
+            var qualificationFile = FileHelper.GetDataFile("Hrms", "HRCore", "Qualification", "QualificationData");
+            var qualificationData = JsonHelper.ConvertJsonListDataModel<QualificationModel>(qualificationFile, "createQualification");
+
+            //hr core page
+            HRCorePage hc = new HRCorePage(_driver);
+            hc.ClickHRCore();
+            hc.ClickSetupForm();
+
+            //setup page
+            SetupPage sp = new SetupPage(_driver);
+            sp.ClickQualification();
+            Thread.Sleep(2000);
+            CommonPageActions.DeleteHrCoreTxn(3, "ofmIiG");
+        }
+        #endregion
+
+        #region Delete Document Type
+        [Test]
+        public void DeleteDocumentType()
+        {
+            Login(Product);
+
+            var documentTypeFile = FileHelper.GetDataFile("Hrms", "HRCore", "DocumentType", "DocumentTypeData");
+            var documentTypeData = JsonHelper.ConvertJsonListDataModel<DocumentTypeModel>(documentTypeFile, "createDocumentType");
+
+            //hr core page
+            HRCorePage hc = new HRCorePage(_driver);
+            hc.ClickHRCore();
+            hc.ClickSetupForm();
+
+            //setup page
+            SetupPage sp = new SetupPage(_driver);
+            sp.ClickDocumentType();
+            Thread.Sleep(2000);
+            CommonPageActions.DeleteHrCoreTxn(3, "ofmIiG");
+        }
+        #endregion
+
+        
     }
 }

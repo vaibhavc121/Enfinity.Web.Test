@@ -8,6 +8,7 @@ using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -330,7 +331,90 @@ namespace Enfinity.Common.Test
 
         #endregion
 
-        #region listing filter result (Relative xpath)
+        #region Listing Filters (Relative xpath)
+
+        //I expect the index to change dynamically
+        public static void FilterByIndex(int ColumnIndex, string value)
+        {
+            string xpath = $"(//input[@class='dx-texteditor-input'])[{ColumnIndex}]";
+            BaseTest._driver.FindElement(By.XPath(xpath)).SendKeys(value);
+        }
+        public static void filter1(string value)
+        {
+            BaseTest._driver.FindElement(By.XPath(
+                    "(//input[@class='dx-texteditor-input'])[1]")).SendKeys(value);
+           
+        }
+        public static void filter2(string value)
+        {
+            BaseTest._driver.FindElement(By.XPath(
+                "(//input[@class='dx-texteditor-input'])[2]"))
+                .SendKeys(value);
+
+        }
+
+        public static void filter3(string value)
+        {
+            BaseTest._driver.FindElement(By.XPath(
+                "(//input[@class='dx-texteditor-input'])[3]"))
+                .SendKeys(value);
+
+        }
+
+        public static void filter4(string value)
+        {
+            BaseTest._driver.FindElement(By.XPath(
+                "(//input[@class='dx-texteditor-input'])[4]"))
+                .SendKeys(value);
+
+        }
+
+        public static void filter5(string value)
+        {
+            BaseTest._driver.FindElement(By.XPath(
+                "(//input[@class='dx-texteditor-input'])[5]"))
+                .SendKeys(value);
+
+        }
+
+        public static void filter6(string value)
+        {
+            BaseTest._driver.FindElement(By.XPath(
+                "(//input[@class='dx-texteditor-input'])[6]"))
+                .SendKeys(value);
+
+        }
+        public static void filter7(string value)
+        {
+            BaseTest._driver.FindElement(By.XPath(
+                "(//input[@class='dx-texteditor-input'])[7]"))
+                .SendKeys(value);
+
+        }
+        public static void filter8(string value)
+        {
+            BaseTest._driver.FindElement(By.XPath(
+                "(//input[@class='dx-texteditor-input'])[8]"))
+                .SendKeys(value);
+
+        }
+        public static void filter9(string value)
+        {
+            BaseTest._driver.FindElement(By.XPath(
+                "(//input[@class='dx-texteditor-input'])[9]"))
+                .SendKeys(value);
+
+        }
+        public static void filter10(string value)
+        {
+            BaseTest._driver.FindElement(By.XPath(
+                "(//input[@class='dx-texteditor-input'])[10]"))
+               .SendKeys(value);
+
+        }
+        #endregion
+
+        #region listing result (Relative xpath)
         public static String Result55()
         {
             string result = BaseTest._driver.FindElement(By.XPath(
@@ -377,6 +461,19 @@ namespace Enfinity.Common.Test
             return result;
         }
         #endregion
+
+        #region listing result (Relative xpath- Better)
+        public static string ResultValue(int columnIndex)
+        {
+            //string result = BaseTest._driver.FindElement(By.XPath("(//tbody//tr)[12]//td[2]")).Text;
+            //return result;
+            string xpath = $"(//tbody//tr)[12]//td[{columnIndex}]";
+            string result = BaseTest._driver.FindElement(By.XPath(xpath)).Text;
+            return result;
+        }
+        
+        #endregion
+
         // Method to click on Save
         public static void ClickSave()
         {
@@ -392,6 +489,10 @@ namespace Enfinity.Common.Test
         public static void ClickView()
         {
             BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='View']")).Click();
+        }
+        public static void ClickEdit()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Edit']")).Click();
         }
 
         // Method to click on Approve and navigate back
@@ -744,22 +845,68 @@ namespace Enfinity.Common.Test
         }
         #endregion
         
-        public static void DeleteTxn()
+        public static void DeleteTxn(int index, string value)
         {
-           
-            IWebElement status= BaseTest._driver.FindElement(By.XPath(" (//tr)[11]//td[8]"));
-            status.Click();
+            FilterByIndex(index, value);
+            //IWebElement status= BaseTest._driver.FindElement(By.XPath("(//tr)[11]//td[8]"));
+            //status.Click();
             //status.SendKeys("active");
-            BaseTest._driver.FindElement(By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[6]/div[1]/table[1]/tbody[1]/tr[2]/td[8]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]")).SendKeys("active");
-            BaseTest._driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
+            //BaseTest._driver.FindElement(By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[6]/div[1]/table[1]/tbody[1]/tr[2]/td[8]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]")).SendKeys("active");
+            //BaseTest._driver.FindElement(By.XPath("(//input[@class='dx-texteditor-input'])[8]")).SendKeys("active");
+
+            Thread.Sleep(2000);
+            try
+            {
+                //need to select row to click on view
+                BaseTest._driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
+            }
+            catch(Exception e)
+            {
+                ClassicAssert.Fail("Vaibhav- There is no active records.." );
+                //Console.WriteLine("There is no active records: " + e);
+                Environment.Exit(1);  // Exits the application with a non-zero status
+            }
+            
             ClickView();
-            BaseTest._driver.FindElement(By.XPath("//img[@id='MainMenu_DXI18_PImg']")).Click();
+            Thread.Sleep(5000);           
+            BaseTest._driver.FindElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
             BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Delete']")).Click();
             Thread.Sleep(1000);
 
             PressKey("enter");
 
 
+        }
+
+        public static void DeleteHrCoreTxn(int ColumnIndex, string value)
+        {
+            FilterByIndex(ColumnIndex, value);
+            Thread.Sleep(2000);
+            try
+            {
+                BaseTest._driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
+            }
+            catch (Exception e)
+            {
+                ClassicAssert.Fail("Vaibhav- There is no active records..");
+                //Console.WriteLine("There is no active records: " + e);
+                Environment.Exit(1);  // Exits the application with a non-zero status
+            }
+            try
+            {
+                ClickView();
+            }
+            catch(Exception e)
+            {
+                ClickEdit();
+            }
+            
+            Thread.Sleep(5000);
+            BaseTest._driver.FindElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Delete']")).Click();
+            Thread.Sleep(1000);
+
+            PressKey("enter");
         }
     }
 }
