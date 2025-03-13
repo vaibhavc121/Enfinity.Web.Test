@@ -884,7 +884,16 @@ namespace Enfinity.Common.Test
             Thread.Sleep(2000);
             try
             {
-                BaseTest._driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
+                //added this condition bcos there is only single column on bank listing
+                if(ColumnIndex==2)
+                {
+                    BaseTest._driver.FindElement(By.XPath("(//tr)[12]//td[1]")).Click();                   
+                }
+                else
+                {
+                    BaseTest._driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
+                }
+                
             }
             catch (Exception e)
             {

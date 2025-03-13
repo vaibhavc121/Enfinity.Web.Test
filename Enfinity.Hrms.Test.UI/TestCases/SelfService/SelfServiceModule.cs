@@ -11,6 +11,7 @@ using NUnit.Framework.Legacy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ using System.Threading.Tasks;
 namespace Enfinity.Hrms.Test.UI
 {
     [TestFixture]
-    public class SelfServiceModule:BaseTest
+    public class SelfServiceModule : BaseTest
     {
         public string Product = "Hrms";
 
@@ -285,7 +286,7 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region create Loan Request
-        [Test, Order(7)]          
+        [Test, Order(7)]
         public void VerifyLoanRequestCreation()
         {
             try
@@ -596,6 +597,29 @@ namespace Enfinity.Hrms.Test.UI
         }
         #endregion
 
+        #region Delete Expense Claim
+        [Test, Repeat(22)]
+        public void DeleteExpenseClaim()
+        {
+            Login(Product);
+
+            var ExpenseClaimFile = FileHelper.GetDataFile("Hrms", "SelfService", "ExpenseClaim", "ExpenseClaimData");
+            var ExpenseClaimData = JsonHelper.ConvertJsonListDataModel<ExpenseClaimModel>(ExpenseClaimFile, "createExpenseClaim");
+
+            //self service page
+            SelfServicePage ss = new SelfServicePage(_driver);
+            ss.ClickSelfService();
+            ss.ClickTransactions();
+
+            //ExpenseClaim page                
+            ExpenseClaimPage ec = new ExpenseClaimPage(_driver);
+            ec.ClickExpenseClaim();
+
+            CommonPageActions.DeleteTxn(8, "active");
+
+        }
+        #endregion
+
         #region Delete time off
         [Test, Repeat(2)]
         public void DeleteTimeOff()
@@ -632,7 +656,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         #endregion
 
-        #region
+        #region Delete HRAsset Request
         [Test, Repeat(10)]
         public void DeleteHRAssetRequest()
         {
@@ -652,7 +676,139 @@ namespace Enfinity.Hrms.Test.UI
             ar.Test();
             CommonPageActions.DeleteTxn(6, "active");
         }
+        #endregion        
+
+        #region Delete HR Expense
+        [Test]
+        public void DeleteHRExpense()
+        {
+        }
         #endregion
 
-    }
-}
+        #region Delete Business Trip Claim
+        [Test]
+        public void test2()
+        {
+        }
+        #endregion
+
+        #region Delete Time Sheet Entry
+        [Test]
+        public void test3()
+        {
+        }
+        #endregion       
+
+        #region Delete Exception Request
+        [Test]
+        public void test4()
+        {
+        }
+        #endregion
+
+        #region Delete Leave Request
+        [Test, Repeat(5)]
+        public void DeleteLeaveRequest()
+        {
+            Login(Product);
+
+            var LeaveRequestFile = FileHelper.GetDataFile("Hrms", "SelfService", "LeaveRequest", "LeaveRequestData");
+            var LeaveRequestData = JsonHelper.ConvertJsonListDataModel<LeaveRequestModel>(LeaveRequestFile, "createLeaveRequest");
+
+            //self service page
+            SelfServicePage ss = new SelfServicePage(_driver);
+            ss.ClickSelfService();
+            ss.ClickTransactions();
+
+            //Leave Request page                
+            LeaveRequestPage lr = new LeaveRequestPage(_driver);
+            lr.ClickLeaveRequest();
+
+            CommonPageActions.DeleteTxn(9, "active");
+        }
+
+        #endregion
+
+        #region Delete Leave Extension
+
+        #endregion
+
+        #region Delete Leave Resumption
+        [Test]
+        public void test7()
+        {
+        }
+        #endregion
+
+        #region Delete Leave Res
+        [Test]
+        public void test8()
+        {
+        }
+        #endregion
+
+        #region Delete IT Support
+        [Test]
+        public void test9()
+        {
+        }
+        #endregion
+
+        #region Delete Admin Support
+        [Test]
+        public void test10()
+        {
+        }
+        #endregion
+
+        #region Delete Loan Request
+        [Test]
+        public void test11()
+        {
+        }
+        #endregion
+
+        #region Delete Benefit Claim
+        [Test]
+        public void test12()
+        {
+        }
+        #endregion
+
+        #region Delete Travel Request
+        [Test]
+        public void test13()
+        {
+        }
+        #endregion
+
+        #region Delete Promotion Request
+        [Test]
+        public void test14()
+        {
+        }
+        #endregion
+
+        #region Delete Overtime Request
+        [Test]
+        public void test15()
+        {
+        }
+        #endregion
+
+        #region Delete Resignation
+        [Test]
+        public void test16()
+        {
+        }
+        #endregion
+
+        #region Delete Profile Update
+        [Test]
+        public void test17()
+        {
+        }
+        #endregion
+    } 
+} 
+

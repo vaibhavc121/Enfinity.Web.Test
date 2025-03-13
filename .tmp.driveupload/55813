@@ -761,7 +761,7 @@ namespace Enfinity.Hrms.Test.UI
             SetupPage sp = new SetupPage(_driver);
             sp.ClickReligion();
             Thread.Sleep(2000);
-            CommonPageActions.DeleteHrCoreTxn(3, "ofmIiG");
+            CommonPageActions.DeleteHrCoreTxn(3, "NSHfFt");
         }
         #endregion
 
@@ -784,7 +784,7 @@ namespace Enfinity.Hrms.Test.UI
             SetupPage sp = new SetupPage(_driver);
             sp.ClickWorkLocation();
             Thread.Sleep(2000);
-            CommonPageActions.DeleteHrCoreTxn(3, "ofmIiG");
+            CommonPageActions.DeleteHrCoreTxn(3, "HjPXhI");
         }
         #endregion
 
@@ -806,7 +806,9 @@ namespace Enfinity.Hrms.Test.UI
             SetupPage sp = new SetupPage(_driver);
             sp.ClickBank();
             Thread.Sleep(2000);
-            CommonPageActions.DeleteHrCoreTxn(3, "ofmIiG");
+            CommonPageActions.DeleteHrCoreTxn(2, "azTRAB");
+
+            ClassicAssert.IsTrue(CommonPageActions.IsTxnCreated());
         }
         #endregion
 
@@ -828,7 +830,7 @@ namespace Enfinity.Hrms.Test.UI
             SetupPage sp = new SetupPage(_driver);
             sp.ClickQualification();
             Thread.Sleep(2000);
-            CommonPageActions.DeleteHrCoreTxn(3, "ofmIiG");
+            CommonPageActions.DeleteHrCoreTxn(3, "ZCGkck");
         }
         #endregion
 
@@ -850,7 +852,7 @@ namespace Enfinity.Hrms.Test.UI
             SetupPage sp = new SetupPage(_driver);
             sp.ClickDocumentType();
             Thread.Sleep(2000);
-            CommonPageActions.DeleteHrCoreTxn(3, "ofmIiG");
+            CommonPageActions.DeleteHrCoreTxn(3, "saiHWJ");
         }
         #endregion
 
