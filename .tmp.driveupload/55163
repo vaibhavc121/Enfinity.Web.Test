@@ -153,14 +153,23 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Sales\PaymentMethod\PaymentMethodModel.cs" />
+    <Compile Include="Models\Sales\PriceList\PriceListModel.cs" />
+    <Compile Include="PageObjects\Sales\PaymentMethodPage.cs" />
+    <Compile Include="PageObjects\Sales\PriceListPage.cs" />
+    <Compile Include="TestCases\Sales\PaymentMethodTest.cs" />
+    <Compile Include="TestCases\Sales\PriceListTest.cs" />
+    <Compile Include="TestCases\Sales\SalesmanTest.cs" />
     <None Include="Models\Global\UOM\UOMData.json" />
     <Compile Include="Models\Global\UOM\UOMModel.cs" />
     <Compile Include="Models\Inventory\Item\ItemModel.cs" />
     <Compile Include="Models\Inventory\Warehouse\WarehouseModel.cs" />
+    <Compile Include="Models\Purchase\Charge\ChargeModel.cs" />
     <Compile Include="Models\Purchase\PaymentTerm\PaymentTermModel.cs" />
     <Compile Include="Models\Purchase\Supplier\SupplierModel.cs" />
     <Compile Include="Models\Sales\Customer\CustomerModel.cs" />
     <Compile Include="Models\Sales\Invoice\InvoiceModel.cs" />
+    <Compile Include="Models\Sales\Salesman\SalesmanModel.cs" />
     <Compile Include="PageObjects\Global\NavigationBarPage.cs" />
     <Compile Include="PageObjects\Global\UOMListingPage.cs" />
     <Compile Include="PageObjects\Global\UOMPage.cs" />
@@ -169,8 +178,9 @@
     <Compile Include="PageObjects\Inventory\InventorySetupPage.cs" />
     <Compile Include="PageObjects\Inventory\ItemPage.cs" />
     <Compile Include="PageObjects\Inventory\ItemQueryPage.cs" />
-    <Compile Include="PageObjects\Inventory\PaymentTermPage.cs" />
     <Compile Include="PageObjects\Inventory\WarehousePage.cs" />
+    <Compile Include="PageObjects\Purchase\ChargePage.cs" />
+    <Compile Include="PageObjects\Purchase\PaymentTermPage.cs" />
     <Compile Include="PageObjects\Purchase\PurchasePage.cs" />
     <Compile Include="PageObjects\Purchase\PurchaseSetupPage.cs" />
     <Compile Include="PageObjects\Purchase\SupplierListingPage.cs" />
@@ -178,6 +188,7 @@
     <Compile Include="PageObjects\Sales\CustomerListingPage.cs" />
     <Compile Include="PageObjects\Sales\CustomerPage.cs" />
     <Compile Include="PageObjects\Sales\InvoicePage.cs" />
+    <Compile Include="PageObjects\Sales\SalesmanPage.cs" />
     <Compile Include="PageObjects\Sales\SalesPage.cs" />
     <Compile Include="PageObjects\Sales\SalesSetupPage.cs" />
     <Compile Include="Program.cs" />
@@ -185,6 +196,8 @@
     <Compile Include="TestCases\Global\GlobalTest.cs" />
     <Compile Include="TestCases\Inventory\ItemTest.cs" />
     <Compile Include="TestCases\Inventory\WarehouseTest.cs" />
+    <Compile Include="TestCases\Purchase\ChargeTest.cs" />
+    <Compile Include="TestCases\Purchase\PaymentTermTest.cs" />
     <Compile Include="TestCases\Purchase\SupplierTest.cs" />
     <Compile Include="TestCases\Sales\CreateInvoiceTest.cs" />
     <Compile Include="TestCases\Sales\CustomerTest.cs" />
@@ -193,10 +206,14 @@
     <None Include="App.config" />
     <None Include="Models\Global\LoginData.json" />
     <None Include="Models\Inventory\Warehouse\WarehouseData.json" />
+    <None Include="Models\Purchase\Charge\ChargeData.json" />
     <None Include="Models\Purchase\PaymentTerm\PaymentTermData.json" />
     <None Include="Models\Purchase\Supplier\SupplierData.json" />
     <None Include="Models\Sales\Customer\CustomerData.json" />
     <None Include="Models\Sales\Invoice\InvoiceData.json" />
+    <None Include="Models\Sales\PaymentMethod\PaymentMethodData.json" />
+    <None Include="Models\Sales\PriceList\PriceListData.json" />
+    <None Include="Models\Sales\Salesman\SalesmanData.json" />
     <None Include="packages.config" />
     <None Include="Models\Inventory\Item\ItemData.json" />
   </ItemGroup>

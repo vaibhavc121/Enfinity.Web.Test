@@ -12,6 +12,7 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+//using System.Windows.Forms;
 
 namespace Enfinity.Common.Test
 {
@@ -23,18 +24,22 @@ namespace Enfinity.Common.Test
         public static void ClickOnAccountingModule()
         {
             BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Accounting']")).Click();
+            Thread.Sleep(2000);
         }
         public static void ClickOnSalesModule()
         {
             BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Sales']")).Click();
+            Thread.Sleep(2000);
         }
         public static void ClickOnPurchaseModule()
         {
             BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Purchase']")).Click();
+            Thread.Sleep(2000);
         }
         public static void ClickOnInventoryModule()
         {
             BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Inventory']")).Click();
+            Thread.Sleep(2000);
         }
         #endregion
 
@@ -74,6 +79,11 @@ namespace Enfinity.Common.Test
         #endregion
 
         #region Conext Menu items Action Methods
+        public static void ClickOnContextMenu()
+        {
+            BaseTest._driver.FindElement(By.Id("MainMenu_DXI12_P")).Click();
+            Thread.Sleep(500);
+        }
         public static void ClickOnDelete()
         {
             BaseTest._driver.FindElement(By.XPath("//span[contains(@class, 'dx-vam') and text()='Delete']")).Click();
@@ -281,6 +291,8 @@ namespace Enfinity.Common.Test
 
         #endregion
 
+        #region Action Methods for HRMS Product
+
         #region listing filter result (Absolute xpath)
         public static String Result5()
         {
@@ -343,7 +355,7 @@ namespace Enfinity.Common.Test
         {
             BaseTest._driver.FindElement(By.XPath(
                     "(//input[@class='dx-texteditor-input'])[1]")).SendKeys(value);
-           
+
         }
         public static void filter2(string value)
         {
@@ -471,8 +483,10 @@ namespace Enfinity.Common.Test
             string result = BaseTest._driver.FindElement(By.XPath(xpath)).Text;
             return result;
         }
-        
+
         #endregion
+
+        #region  Save, View, Select Methods
 
         // Method to click on Save
         public static void ClickSave()
@@ -578,11 +592,13 @@ namespace Enfinity.Common.Test
                 string actualValue = valueElement.Text;
                 if (actualValue.Contains(value))
                 {
-                    return true;                    
+                    return true;
                 }
             }
             return false;
         }
+
+        #endregion
 
         #region Common Actions for HRMS
         //written for employee listing
@@ -677,7 +693,7 @@ namespace Enfinity.Common.Test
 
         #endregion
 
-
+        #region   Txn Related
 
         public static bool IsTxnCreated()
         {
@@ -741,7 +757,7 @@ namespace Enfinity.Common.Test
             // Wait for a few seconds to see the scroll effect
             //System.Threading.Thread.Sleep(2000);
 
-            IWebElement element = BaseTest._driver.FindElement(By.XPath("//input[contains(@id,'OldContractSalary')]"));             
+            IWebElement element = BaseTest._driver.FindElement(By.XPath("//input[contains(@id,'OldContractSalary')]"));
             jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
         }
 
@@ -844,7 +860,7 @@ namespace Enfinity.Common.Test
             actions.SendKeys(Keys.Enter).Perform();
         }
         #endregion
-        
+
         public static void DeleteTxn(int index, string value)
         {
             FilterByIndex(index, value);
@@ -860,15 +876,15 @@ namespace Enfinity.Common.Test
                 //need to select row to click on view
                 BaseTest._driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                ClassicAssert.Fail("Vaibhav- There is no active records.." );
+                ClassicAssert.Fail("Vaibhav- There is no active records..");
                 //Console.WriteLine("There is no active records: " + e);
                 Environment.Exit(1);  // Exits the application with a non-zero status
             }
-            
+
             ClickView();
-            Thread.Sleep(5000);           
+            Thread.Sleep(5000);
             BaseTest._driver.FindElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
             BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Delete']")).Click();
             Thread.Sleep(1000);
@@ -885,15 +901,15 @@ namespace Enfinity.Common.Test
             try
             {
                 //added this condition bcos there is only single column on bank listing
-                if(ColumnIndex==2)
+                if (ColumnIndex == 2)
                 {
-                    BaseTest._driver.FindElement(By.XPath("(//tr)[12]//td[1]")).Click();                   
+                    BaseTest._driver.FindElement(By.XPath("(//tr)[12]//td[1]")).Click();
                 }
                 else
                 {
                     BaseTest._driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
                 }
-                
+
             }
             catch (Exception e)
             {
@@ -905,11 +921,11 @@ namespace Enfinity.Common.Test
             {
                 ClickView();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 ClickEdit();
             }
-            
+
             Thread.Sleep(5000);
             BaseTest._driver.FindElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
             BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Delete']")).Click();
@@ -917,6 +933,12 @@ namespace Enfinity.Common.Test
 
             PressKey("enter");
         }
+
+        #endregion
+
+        #endregion
+
+
     }
 }
 

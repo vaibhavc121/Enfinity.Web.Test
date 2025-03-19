@@ -108,9 +108,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         public void ClickOk()
         {
             //Find(ok).Click();
-            CommonPageActions.PressKey("enter");
+            //CommonPageActions.PressKey("enter");
             Thread.Sleep(1000);
-            CommonPageActions.PressKey("enter");
+            //CommonPageActions.PressKey("enter");
         }
 
 

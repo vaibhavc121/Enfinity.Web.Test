@@ -1,0 +1,30 @@
+{
+  "new": [
+    {
+      "Code": "PL003",
+      "Name": "Pricetopia",
+      "ArabicName": "Pricetopia",
+      "Description": "Pricetopia Price List",
+      "Currency": "AED | UAE Dirham",
+      "EffectiveFromDate": "",
+      "EffectiveToDate": ""
+    }
+  ],
+  "markup": [
+    {
+      "Code": "PL004",
+      "Name": "Markup Price List",
+      "ArabicName": "Markup Price List",
+      "Description": "Markup Price List",
+      "EffectiveFromDate": "",
+      "EffectiveToDate": "",
+      "PercentageType": "Markup",
+      "Percentage": "10"
+    }
+  ],
+  "delete": [
+    {
+      "Name": "Pricetopia"
+    }
+  ]
+}

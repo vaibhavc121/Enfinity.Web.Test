@@ -154,8 +154,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Sales\PaymentMethod\PaymentMethodModel.cs" />
+    <Compile Include="Models\Sales\PriceList\PriceListModel.cs" />
     <Compile Include="PageObjects\Sales\PaymentMethodPage.cs" />
+    <Compile Include="PageObjects\Sales\PriceListPage.cs" />
     <Compile Include="TestCases\Sales\PaymentMethodTest.cs" />
+    <Compile Include="TestCases\Sales\PriceListTest.cs" />
     <Compile Include="TestCases\Sales\SalesmanTest.cs" />
     <None Include="Models\Global\UOM\UOMData.json" />
     <Compile Include="Models\Global\UOM\UOMModel.cs" />
@@ -209,6 +212,7 @@
     <None Include="Models\Sales\Customer\CustomerData.json" />
     <None Include="Models\Sales\Invoice\InvoiceData.json" />
     <None Include="Models\Sales\PaymentMethod\PaymentMethodData.json" />
+    <None Include="Models\Sales\PriceList\PriceListData.json" />
     <None Include="Models\Sales\Salesman\SalesmanData.json" />
     <None Include="packages.config" />
     <None Include="Models\Inventory\Item\ItemData.json" />

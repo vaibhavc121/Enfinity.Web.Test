@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,46 +21,96 @@ namespace Enfinity.Erp.Test.UI
         [Test, Category("Sales"), Order(1)]
         public async Task CreatePaymentMethod()
         {
-            #region MyRegion
-            Login(ErpProduct);
-            #endregion
-
-            var paymentMethodFile = FileHelper.GetDataFile("Erp", "Sales", "PaymentMethod", "PaymentMethodData");
-            var paymentMethod = JsonHelper.ConvertJsonListDataModel<PaymentMethodModel>(paymentMethodFile, "new");
-
-            var ssp = new SalesSetupPage(_driver);
-            var pmp = new PaymentMethodPage(_driver);
-
-            foreach (var paymentmethod in paymentMethod)
+            try
             {
-                CommonPageActions.ClickOnSalesModule();
-                await WaitHelper.WaitForSeconds(2);
-
-                CommonPageActions.ClickOnSetups();
-                ssp.ClickOnPaymentMethod();
-                CommonPageActions.ClickOnNew();
-                await WaitHelper.WaitForSeconds(1);
-
-                CommonPageActions.ProvideCode(paymentmethod.Code);
-                CommonPageActions.ProvideName(paymentmethod.Name);
-                CommonPageActions.ProvideArabicName(paymentmethod.ArabicName);
-                CommonPageActions.ProvideDescription(paymentmethod.Description);
-
-                pmp.ClickOnType();                 
-                CommonPageActions.SelectDropDownValue(paymentmethod.Type);
-                pmp.ClickOnBankAccount();
-                CommonPageActions.SelectDropDownOptionValue(paymentmethod.BankAccount);
-                await WaitHelper.WaitForSeconds(1);
-
-                CommonPageActions.ClickOnSave();
-                await WaitHelper.WaitForSeconds(1);
-
-                #region Validate the created message
-                CommonPageActions.ValidateMessage("Payment Method created successfully!");
+                #region MyRegion
+                Login(ErpProduct);
                 #endregion
 
-                pmp.ClickOnPaymentMethod();
-                await WaitHelper.WaitForSeconds(2);
+                var paymentMethodFile = FileHelper.GetDataFile("Erp", "Sales", "PaymentMethod", "PaymentMethodData");
+                var paymentMethod = JsonHelper.ConvertJsonListDataModel<PaymentMethodModel>(paymentMethodFile, "new");
+
+                var ssp = new SalesSetupPage(_driver);
+                var pmp = new PaymentMethodPage(_driver);
+
+                foreach (var paymentmethod in paymentMethod)
+                {
+                    CommonPageActions.ClickOnSalesModule();
+                    await WaitHelper.WaitForSeconds(2);
+
+                    CommonPageActions.ClickOnSetups();
+                    ssp.ClickOnPaymentMethod();
+                    CommonPageActions.ClickOnNew();
+                    await WaitHelper.WaitForSeconds(1);
+
+                    //CommonPageActions.ProvideCode(paymentmethod.Code);
+                    CommonPageActions.ProvideName(paymentmethod.Name);
+                    CommonPageActions.ProvideArabicName(paymentmethod.ArabicName);
+                    CommonPageActions.ProvideDescription(paymentmethod.Description);
+
+                    pmp.ClickOnType();
+                    CommonPageActions.SelectDropDownValue(paymentmethod.Type);
+                    pmp.ClickOnBankAccount();
+                    CommonPageActions.SelectDropDownOptionValue(paymentmethod.BankAccount);
+                    await WaitHelper.WaitForSeconds(1);
+
+                    CommonPageActions.ClickOnSave();
+                    await WaitHelper.WaitForSeconds(1);
+
+                    #region Validate the created message
+                    CommonPageActions.ValidateMessage("Payment Method created successfully!");
+                    #endregion
+
+                    pmp.ClickOnPaymentMethod();
+                    await WaitHelper.WaitForSeconds(2);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Test case failed at: {MethodBase.GetCurrentMethod().Name}", ex);
+            }
+        }
+
+        #endregion
+
+        #region Delete Payment Method
+        [Test, Category("Sales"), Order(2)]
+        public async Task DeletePaymentMethod()
+        {
+            try
+            {
+                #region MyRegion
+                Login(ErpProduct);
+                #endregion
+
+                var paymentMethodFile = FileHelper.GetDataFile("Erp", "Sales", "PaymentMethod", "PaymentMethodData");
+                var paymentMethod = JsonHelper.ConvertJsonListDataModel<PaymentMethodModel>(paymentMethodFile, "new");
+
+                var ssp = new SalesSetupPage(_driver);
+                var pmp = new PaymentMethodPage(_driver);
+
+                foreach (var paymentmethod in paymentMethod)
+                {
+                    CommonPageActions.ClickOnSalesModule();
+                    await WaitHelper.WaitForSeconds(2);
+
+                    CommonPageActions.ClickOnSetups();
+                    ssp.ClickOnPaymentMethod();
+
+                    CommonPageActions.ProvideNameOnListing(paymentmethod.Name);
+                    CommonPageActions.ClickOnSelectedName();
+                    pmp.ClickOnContextMenu();
+                    CommonPageActions.ClickOnDelete();
+                    CommonPageActions.ClickOnOk();
+
+                    #region Validate payment method deleted message
+                    CommonPageActions.ValidateMessage("Record deleted successfully!");
+                    #endregion
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Test case failed at: {MethodBase.GetCurrentMethod().Name}", ex);
             }
         }
         #endregion
