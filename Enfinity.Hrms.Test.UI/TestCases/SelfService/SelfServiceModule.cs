@@ -527,13 +527,14 @@ namespace Enfinity.Hrms.Test.UI
                     or.ProvideOvertimeType(overtimeRequest.overtimeType);
                     or.ProvideHrs(overtimeRequest.hrs);
                     or.ProvideRemarks(overtimeRequest.remarks);
-                    or.ClickSave();
+                    //or.ClickSave();
 
                     #region additional code
                     CommonPageActions.ClickSave();
                     if (CommonPageActions.IsTxnCreated())
                     {
-                        or.ClickSave();
+                        //or.ClickSaveAndBack();
+                        CommonPageActions.ClickSaveAndBack();
                     }
                     else
                     {

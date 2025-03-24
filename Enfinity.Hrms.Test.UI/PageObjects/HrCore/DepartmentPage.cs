@@ -32,10 +32,10 @@ namespace Enfinity.Hrms.Test.UI
             CommonPageActions.ClickNew();
         }
 
-        public string temp = BasePage.RandomString();
-        public void ProvideDepartmentName(string value)
+        public string deptNm = BasePage.RandomString();
+        public void ProvideDepartmentName()
         {            
-            Find(deptName).SendKeys(value);               
+            Find(deptName).SendKeys(deptNm);               
         }
 
         public void SelfServiceDD()
@@ -61,13 +61,13 @@ namespace Enfinity.Hrms.Test.UI
 
         public void ClickSave()
         {
-            CommonPageActions.ClickSave();
+            CommonPageActions.ClickSaveAndBack();
             //Find(save).Click();
         }       
 
         public bool IsDeptCreated()
         {
-            if (CommonPageActions.Result().Contains(temp))
+            if (CommonPageActions.ResultValue(2).Contains(deptNm))
             {
                 return true;
             }

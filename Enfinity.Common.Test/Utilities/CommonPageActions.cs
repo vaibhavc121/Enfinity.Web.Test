@@ -351,6 +351,12 @@ namespace Enfinity.Common.Test
             string xpath = $"(//input[@class='dx-texteditor-input'])[{ColumnIndex}]";
             BaseTest._driver.FindElement(By.XPath(xpath)).SendKeys(value);
         }
+        //other approach
+        public static void FilterValue(int columnIndex, string value)
+        {
+            string xpath = $"(//tbody//tr)[11]//td[{columnIndex}]";
+            BaseTest._driver.FindElement(By.XPath(xpath)).SendKeys(value);
+        }
         public static void filter1(string value)
         {
             BaseTest._driver.FindElement(By.XPath(
@@ -427,6 +433,14 @@ namespace Enfinity.Common.Test
         #endregion
 
         #region listing result (Relative xpath)
+        public static string ResultValue(int columnIndex)
+        {
+            //string result = BaseTest._driver.FindElement(By.XPath("(//tbody//tr)[12]//td[2]")).Text;
+            //return result;
+            string xpath = $"(//tbody//tr)[12]//td[{columnIndex}]";
+            string result = BaseTest._driver.FindElement(By.XPath(xpath)).Text;
+            return result;
+        }
         public static String Result55()
         {
             string result = BaseTest._driver.FindElement(By.XPath(
@@ -472,23 +486,10 @@ namespace Enfinity.Common.Test
                 .Text;
             return result;
         }
-        #endregion
+        #endregion       
 
-        #region listing result (Relative xpath- Better)
-        public static string ResultValue(int columnIndex)
-        {
-            //string result = BaseTest._driver.FindElement(By.XPath("(//tbody//tr)[12]//td[2]")).Text;
-            //return result;
-            string xpath = $"(//tbody//tr)[12]//td[{columnIndex}]";
-            string result = BaseTest._driver.FindElement(By.XPath(xpath)).Text;
-            return result;
-        }
+        #region Transaction form related Action Methods
 
-        #endregion
-
-        #region  Save, View, Select Methods
-
-        // Method to click on Save
         public static void ClickSave()
         {
             BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Save']")).Click();
@@ -497,9 +498,7 @@ namespace Enfinity.Common.Test
         {
             BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Save']")).Click();
             BaseTest._driver.Navigate().Back();
-        }
-
-        // Method to click on View
+        }       
         public static void ClickView()
         {
             BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='View']")).Click();
@@ -507,22 +506,16 @@ namespace Enfinity.Common.Test
         public static void ClickEdit()
         {
             BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Edit']")).Click();
-        }
-
-        // Method to click on Approve and navigate back
+        }        
         public static void ClickApprove()
         {
             BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Approve']")).Click();
             BaseTest._driver.Navigate().Back();
-        }
-
-        // Method to click on New
+        }        
         public static void ClickNew()
         {
             BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='New']")).Click();
-        }
-
-        // Method to set the dropdown value with a specific value
+        }        
         public static void SelectDropdownOption(string expectedValue)
         {
             // Find the list of dropdown elements
@@ -540,9 +533,7 @@ namespace Enfinity.Common.Test
                     break;
                 }
             }
-        }
-
-        // Method to set the dropdown value with a specific value
+        }       
         public static void SelectDropdownValue(string value)
         {
             while (true)
@@ -564,9 +555,7 @@ namespace Enfinity.Common.Test
                 BaseTest._driver.FindElement(By.XPath("//i[@class='dx-icon dx-icon-next-icon']")).Click();
                 Thread.Sleep(3000);  // Wait for 3 seconds for next page to load
             }
-        }
-
-        // Method to set dropdown value for Office 365
+        }       
         public static void SelectDropdownValueOffice365(string value)
         {
             // Find all values in the Office 365 dropdown
@@ -582,26 +571,179 @@ namespace Enfinity.Common.Test
                 }
             }
         }
-        public static bool IsValuePresent(By locator, string value)
+        public static void ClearAndProvide(By locator, string value)
         {
-            // Find all values in the Office 365 dropdown
-            IList<IWebElement> valuesList = BaseTest._driver.FindElements(locator);
+            BaseTest._driver.FindElement(locator).Click();
+            BaseTest._driver.FindElement(locator).Clear();
+            BaseTest._driver.FindElement(locator).SendKeys(value);
 
-            foreach (var valueElement in valuesList)
+        }
+        public static void ClearAndProvide1(By locator, string value)
+        {
+            var element = BaseTest._driver.FindElement(locator);
+            element.Click();
+            Actions actions = new Actions(BaseTest._driver);
+            actions.KeyDown(Keys.Control)
+                   .SendKeys("a")
+                   .KeyUp(Keys.Control)
+                   .SendKeys(Keys.Delete)
+                   .Perform();
+            element.SendKeys(value);
+        }
+        public static void ProvideAndEnter(By locator, string value)
+        {
+            var element = BaseTest._driver.FindElement(locator);
+            element.Click();
+            Actions actions = new Actions(BaseTest._driver);
+            actions.KeyDown(Keys.Control)
+                   .SendKeys("a")
+                   .KeyUp(Keys.Control)
+                   .SendKeys(Keys.Delete)
+                   .Perform();
+            element.SendKeys(value);
+            Thread.Sleep(2000);
+
+            element.SendKeys(Keys.Enter);
+        }
+        public static void ProvideValue(By locator, string value)
+        {
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)BaseTest._driver;
+            IWebElement element = BaseTest._driver.FindElement(locator);
+            //js.ExecuteScript("arguments[0].value='Test Value';", inputField);
+            jsExecutor.ExecuteScript($"arguments[0].value='{value}';", element);
+        }
+        public static void ScrollDownWebPageSample()
+        {
+            //Cast driver to IJavaScriptExecutor
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)BaseTest._driver;
+
+            // Scroll down by a specific number of pixels
+            //jsExecutor.ExecuteScript("window.scrollBy(0, 50);");
+            //Thread.Sleep(2000);
+
+            // Scroll to the bottom of the page
+            //jsExecutor.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
+
+            //If you want to scroll to a specific element, you can use:
+            //IWebElement element = driver.FindElement(By.Id("elementId"));
+            //jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
+
+            // Initialize Actions class
+            //Actions actions = new Actions(BaseTest._driver);
+
+            // Perform Page Down key press
+            //actions.SendKeys(Keys.PageDown).Perform();
+
+            // Wait for a few seconds to see the scroll effect
+            //System.Threading.Thread.Sleep(2000);
+
+            // Perform multiple Arrow Down key presses
+            //actions.SendKeys(Keys.ArrowDown).Perform();
+            //actions.SendKeys(Keys.ArrowDown).Perform();
+
+            // Wait for a few seconds to see the scroll effect
+            //System.Threading.Thread.Sleep(2000);
+
+            IWebElement element = BaseTest._driver.FindElement(By.XPath("//input[contains(@id,'OldContractSalary')]"));
+            jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
+        }     
+        public static void ScrollDownWebPage(By locator)
+        {
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)BaseTest._driver;
+            IWebElement element = BaseTest._driver.FindElement(locator);
+            jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
+        }       
+        public static void ClickNewLine()
+        {
+            BaseTest._driver.FindElement(By.XPath("//i[@class='dx-icon dx-icon-new-icon']")).Click();
+        }
+        public static void HoverAndClick(By locator, By locator1)
+        {
+
+            IWebElement elementToHover = BaseTest._driver.FindElement(locator);
+            Actions actions = new Actions(BaseTest._driver);
+            actions.MoveToElement(elementToHover).Perform();
+            BaseTest._driver.FindElement(locator1).Click();
+            //Find(deleteBasicSalBtn).Click();
+            //Thread.Sleep(2000);
+            //Find(deleteBasicSalaryComponent).Click();
+        }
+        public static void DeleteTxn(int index, string value)
+        {
+            FilterByIndex(index, value);
+            //IWebElement status= BaseTest._driver.FindElement(By.XPath("(//tr)[11]//td[8]"));
+            //status.Click();
+            //status.SendKeys("active");
+            //BaseTest._driver.FindElement(By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[6]/div[1]/table[1]/tbody[1]/tr[2]/td[8]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]")).SendKeys("active");
+            //BaseTest._driver.FindElement(By.XPath("(//input[@class='dx-texteditor-input'])[8]")).SendKeys("active");
+
+            Thread.Sleep(2000);
+            try
             {
-                string actualValue = valueElement.Text;
-                if (actualValue.Contains(value))
-                {
-                    return true;
-                }
+                //need to select row to click on view
+                BaseTest._driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
             }
-            return false;
+            catch (Exception e)
+            {
+                ClassicAssert.Fail("Vaibhav- There is no active records..");
+                //Console.WriteLine("There is no active records: " + e);
+                Environment.Exit(1);  // Exits the application with a non-zero status
+            }
+
+            ClickView();
+            Thread.Sleep(5000);
+            BaseTest._driver.FindElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Delete']")).Click();
+            Thread.Sleep(1000);
+
+            PressKey("enter");
+
+
+        }
+        public static void DeleteHrCoreTxn(int ColumnIndex, string value)
+        {
+            FilterByIndex(ColumnIndex, value);
+            Thread.Sleep(2000);
+            try
+            {
+                //added this condition bcos there is only single column on bank listing
+                if (ColumnIndex == 2)
+                {
+                    BaseTest._driver.FindElement(By.XPath("(//tr)[12]//td[1]")).Click();
+                }
+                else
+                {
+                    BaseTest._driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
+                }
+
+            }
+            catch (Exception e)
+            {
+                ClassicAssert.Fail("Vaibhav- There is no active records..");
+                //Console.WriteLine("There is no active records: " + e);
+                Environment.Exit(1);  // Exits the application with a non-zero status
+            }
+            try
+            {
+                ClickView();
+            }
+            catch (Exception e)
+            {
+                ClickEdit();
+            }
+
+            Thread.Sleep(5000);
+            BaseTest._driver.FindElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Delete']")).Click();
+            Thread.Sleep(1000);
+
+            PressKey("enter");
         }
 
         #endregion
 
-        #region Common Actions for HRMS
-        //written for employee listing
+        #region Written for employee listing
+
 
         public static void FilterEmployee(string value)
         {
@@ -693,146 +835,12 @@ namespace Enfinity.Common.Test
 
         #endregion
 
-        #region   Txn Related
-
-        public static bool IsTxnCreated()
-        {
-            string message = BaseTest._driver.FindElement(By.XPath("//div[@class='dx-toast-message']")).Text;
-            //return message;            
-            if (message.Contains("created successfully"))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-
-            }
-        }
-
-        public static bool IsEmployeeDeleted()
-        {
-            string message = BaseTest._driver.FindElement(By.XPath("//div[@class='dx-toast-message']")).Text;
-            //return message;
-            if (message.Contains("deleted successfully"))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-
-            }
-        }
-
-        public static void ScrollDownWebPageSample()
-        {
-            //Cast driver to IJavaScriptExecutor
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)BaseTest._driver;
-
-            // Scroll down by a specific number of pixels
-            //jsExecutor.ExecuteScript("window.scrollBy(0, 50);");
-            //Thread.Sleep(2000);
-
-            // Scroll to the bottom of the page
-            //jsExecutor.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
-
-            //If you want to scroll to a specific element, you can use:
-            //IWebElement element = driver.FindElement(By.Id("elementId"));
-            //jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
-
-            // Initialize Actions class
-            //Actions actions = new Actions(BaseTest._driver);
-
-            // Perform Page Down key press
-            //actions.SendKeys(Keys.PageDown).Perform();
-
-            // Wait for a few seconds to see the scroll effect
-            //System.Threading.Thread.Sleep(2000);
-
-            // Perform multiple Arrow Down key presses
-            //actions.SendKeys(Keys.ArrowDown).Perform();
-            //actions.SendKeys(Keys.ArrowDown).Perform();
-
-            // Wait for a few seconds to see the scroll effect
-            //System.Threading.Thread.Sleep(2000);
-
-            IWebElement element = BaseTest._driver.FindElement(By.XPath("//input[contains(@id,'OldContractSalary')]"));
-            jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
-        }
-
-        public static void ClearAndProvide(By locator, string value)
-        {
-            BaseTest._driver.FindElement(locator).Click();
-            BaseTest._driver.FindElement(locator).Clear();
-            BaseTest._driver.FindElement(locator).SendKeys(value);
-
-        }
-        public static void ClearAndProvide1(By locator, string value)
-        {
-            var element = BaseTest._driver.FindElement(locator);
-            element.Click();
-            Actions actions = new Actions(BaseTest._driver);
-            actions.KeyDown(Keys.Control)
-                   .SendKeys("a")
-                   .KeyUp(Keys.Control)
-                   .SendKeys(Keys.Delete)
-                   .Perform();
-            element.SendKeys(value);
-        }
-        public static void ProvideAndEnter(By locator, string value)
-        {
-            var element = BaseTest._driver.FindElement(locator);
-            element.Click();
-            Actions actions = new Actions(BaseTest._driver);
-            actions.KeyDown(Keys.Control)
-                   .SendKeys("a")
-                   .KeyUp(Keys.Control)
-                   .SendKeys(Keys.Delete)
-                   .Perform();
-            element.SendKeys(value);
-            Thread.Sleep(2000);
-
-            element.SendKeys(Keys.Enter);
-        }
-
-        public static void ScrollDownWebPage(By locator)
-        {
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)BaseTest._driver;
-            IWebElement element = BaseTest._driver.FindElement(locator);
-            jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
-        }
-        public static void ProvideValue(By locator, string value)
-        {
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)BaseTest._driver;
-            IWebElement element = BaseTest._driver.FindElement(locator);
-            //js.ExecuteScript("arguments[0].value='Test Value';", inputField);
-            jsExecutor.ExecuteScript($"arguments[0].value='{value}';", element);
-        }
-
-        public static void ClickNewLine()
-        {
-            BaseTest._driver.FindElement(By.XPath("//i[@class='dx-icon dx-icon-new-icon']")).Click();
-        }
-
-        public static void HoverAndClick(By locator, By locator1)
-        {
-
-            IWebElement elementToHover = BaseTest._driver.FindElement(locator);
-            Actions actions = new Actions(BaseTest._driver);
-            actions.MoveToElement(elementToHover).Perform();
-            BaseTest._driver.FindElement(locator1).Click();
-            //Find(deleteBasicSalBtn).Click();
-            //Thread.Sleep(2000);
-            //Find(deleteBasicSalaryComponent).Click();
-        }
         #region keyboard actions
         public static void PressKey(string key)
         {
             Actions actions = new Actions(BaseTest._driver);
             actions.SendKeys(GetKeyFromString(key)).Perform();
         }
-
         private static string GetKeyFromString(string key)
         {
             switch (key.ToLower())  // Traditional switch to avoid "recursive pattern" error
@@ -859,81 +867,58 @@ namespace Enfinity.Common.Test
             Actions actions = new Actions(BaseTest._driver);
             actions.SendKeys(Keys.Enter).Perform();
         }
-        #endregion
+        #endregion               
 
-        public static void DeleteTxn(int index, string value)
+        #region Validations
+        public static bool IsValuePresent(By locator, string value)
         {
-            FilterByIndex(index, value);
-            //IWebElement status= BaseTest._driver.FindElement(By.XPath("(//tr)[11]//td[8]"));
-            //status.Click();
-            //status.SendKeys("active");
-            //BaseTest._driver.FindElement(By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[6]/div[1]/table[1]/tbody[1]/tr[2]/td[8]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]")).SendKeys("active");
-            //BaseTest._driver.FindElement(By.XPath("(//input[@class='dx-texteditor-input'])[8]")).SendKeys("active");
+            // Find all values in the Office 365 dropdown
+            IList<IWebElement> valuesList = BaseTest._driver.FindElements(locator);
 
-            Thread.Sleep(2000);
-            try
+            foreach (var valueElement in valuesList)
             {
-                //need to select row to click on view
-                BaseTest._driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
+                string actualValue = valueElement.Text;
+                if (actualValue.Contains(value))
+                {
+                    return true;
+                }
             }
-            catch (Exception e)
-            {
-                ClassicAssert.Fail("Vaibhav- There is no active records..");
-                //Console.WriteLine("There is no active records: " + e);
-                Environment.Exit(1);  // Exits the application with a non-zero status
-            }
-
-            ClickView();
-            Thread.Sleep(5000);
-            BaseTest._driver.FindElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
-            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Delete']")).Click();
-            Thread.Sleep(1000);
-
-            PressKey("enter");
-
-
+            return false;
         }
-
-        public static void DeleteHrCoreTxn(int ColumnIndex, string value)
+        public static bool IsTxnCreated()
         {
-            FilterByIndex(ColumnIndex, value);
-            Thread.Sleep(2000);
-            try
+            string message = BaseTest._driver.FindElement(By.XPath("//div[@class='dx-toast-message']")).Text;
+            //return message;            
+            if (message.Contains("created successfully"))
             {
-                //added this condition bcos there is only single column on bank listing
-                if (ColumnIndex == 2)
-                {
-                    BaseTest._driver.FindElement(By.XPath("(//tr)[12]//td[1]")).Click();
-                }
-                else
-                {
-                    BaseTest._driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
-                }
+                return true;
+            }
+            else
+            {
+                return false;
 
             }
-            catch (Exception e)
-            {
-                ClassicAssert.Fail("Vaibhav- There is no active records..");
-                //Console.WriteLine("There is no active records: " + e);
-                Environment.Exit(1);  // Exits the application with a non-zero status
-            }
-            try
-            {
-                ClickView();
-            }
-            catch (Exception e)
-            {
-                ClickEdit();
-            }
-
-            Thread.Sleep(5000);
-            BaseTest._driver.FindElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
-            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='Delete']")).Click();
-            Thread.Sleep(1000);
-
-            PressKey("enter");
         }
+        public static bool IsEmployeeDeleted()
+        {
+            string message = BaseTest._driver.FindElement(By.XPath("//div[@class='dx-toast-message']")).Text;
+            //return message;
+            if (message.Contains("deleted successfully"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
 
+            }
+        }
+        public static void Validation(string expectedMessage)
+        {
+            IWebElement element = BaseTest._driver.FindElement(By.ClassName("dx-toast-message"));
+            string actualMessage = element.Text;
+            StringAssert.Contains(expectedMessage, actualMessage);
+        }
         #endregion
 
         #endregion

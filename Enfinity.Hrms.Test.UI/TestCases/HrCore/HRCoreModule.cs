@@ -22,6 +22,8 @@ using System.Threading.Tasks;
 namespace Enfinity.Hrms.Test.UI
 {
     [TestFixture]
+  
+
     public class HRCoreModule:BaseTest
     {
         public string Product = "Hrms";
@@ -264,7 +266,7 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region create department
-        [Test, Order(1)]
+        [Test, Order(1), Category("hrcore_create")]
         //[Ignore("")]
         public void VerifyDepartmentCreation()
         {
@@ -293,16 +295,18 @@ namespace Enfinity.Hrms.Test.UI
                 {
                     dp.ClickNew();
                     //dp.ProvideDepartmentName(department.deptname);
-                    dp.ProvideDepartmentName(faker.Name.JobArea());
+                    dp.ProvideDepartmentName();
                     dp.SelfServiceDD();
                     dp.ClickDeptMgrDD();
                     dp.SelectDeptMgrName();
                     //dp.SelectDeptMgr();               
                     dp.ClickSave();
+                   
                 }
 
 
                 //ClassicAssert.IsTrue(CommonPageActions.IsTxnCreated());
+
             }
             catch (Exception e)
             {
@@ -313,7 +317,7 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region create designation 
-        [Test, Order(2)]
+        [Test, Order(2), Category("hrcore_create")]
         public void VerifyDesignationCreation()
         {
             try
@@ -353,7 +357,7 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region create grade  
-        [Test, Order(3)]
+        [Test, Order(3), Category("hrcore_create")]
         public void VerifyGradeCreation()
         {
             try

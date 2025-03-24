@@ -55,7 +55,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(remarks).SendKeys(value);
         }
-        public void ClickSave()
+        public void ClickSaveAndBack()
         {
              CommonPageActions.ClickSaveAndBack();
         }
@@ -66,7 +66,16 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public bool IsTxnCreated(string overtimeType, string hrs)
         {
-            if (CommonPageActions.Result6().Contains(overtimeType) && CommonPageActions.Result6().Contains(hrs))
+            //if (CommonPageActions.Result6().Contains(overtimeType) && CommonPageActions.Result6().Contains(hrs))
+            //{
+            //    return true;
+            //}
+            //else
+            //{
+            //    return false;
+            //}
+
+            if(CommonPageActions.ResultValue(6).Contains(overtimeType) && CommonPageActions.ResultValue(6).Contains(hrs))
             {
                 return true;
             }

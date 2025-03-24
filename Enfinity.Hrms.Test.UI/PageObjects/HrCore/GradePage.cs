@@ -25,6 +25,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
         {
             CommonPageActions.ClickNew();
         }
+
         public void ProvideGradeName()
         {
             Find(gradeName).SendKeys(RandomString());
