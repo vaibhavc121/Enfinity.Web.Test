@@ -731,6 +731,26 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Delete Leave Extension
+        [Test]
+        public void DeleteLeaveExtension()
+        {
+            Login(Product);
+
+            var LeaveRequestFile = FileHelper.GetDataFile("Hrms", "SelfService", "LeaveRequest", "LeaveRequestData");
+            var LeaveRequestData = JsonHelper.ConvertJsonListDataModel<LeaveRequestModel>(LeaveRequestFile, "createLeaveRequest");
+
+            //self service page
+            SelfServicePage ss = new SelfServicePage(_driver);
+            ss.ClickSelfService();
+            ss.ClickTransactions();
+
+            //Leave extension page                
+            LeaveExtensionPage le = new LeaveExtensionPage(_driver);
+            le.ClickLeaveExtension();
+
+            CommonPageActions.DeleteTxn(7, "active");
+
+        }
 
         #endregion
 

@@ -1,0 +1,26 @@
+﻿{
+  "removeSalComponent": [    
+    { "code": "SC019" },
+    { "code": "SC020" },
+    { "code": "SC009" },
+    { "code": "SC022" },
+    { "code": "SC023" },
+    { "code": "SC021" },
+    { "code": "SC014" },
+    { "code": "SC011" },
+    { "code": "SC006" },
+    { "code": "SC010" },
+    { "code": "SC002" },
+    { "code": "SC013" },
+    { "code": "SC001" },
+    { "code": "SC007" },
+    { "code": "SC012" },
+    { "code": "SC003" },
+    { "code": "SC005" },
+    { "code": "SC008" },
+    { "code": "SC016" },
+    { "code": "SC017" },
+    { "code": "SC015" },
+    { "code": "SC004" }
+  ]
+}

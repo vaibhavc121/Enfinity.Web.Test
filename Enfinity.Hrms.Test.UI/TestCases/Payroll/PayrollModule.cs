@@ -1,4 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Enfinity.Common.Test;
+using Enfinity.Hrms.Test.UI.Models.Payroll.Payroll;
+using Enfinity.Hrms.Test.UI.PageObjects.Payroll;
+using NUnit.Framework;
+using NUnit.Framework.Legacy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +12,7 @@ using System.Threading.Tasks;
 namespace Enfinity.Hrms.Test.UI
 {
     [TestFixture]
-    public class PayrollModule
+    public class PayrollModule:BaseTest
     {
         #region Create Benefit Scheme
         [Test, Order(1)]
@@ -147,6 +151,47 @@ namespace Enfinity.Hrms.Test.UI
         [Test, Order(20)]
         public void CreatePayrollJournal()
         {
+            
+        }
+
+        [Test, Order(21)]
+        public void RemoveDuplicateSalComponenet()
+        {
+            try
+            {
+                Login(HrmsProduct);
+
+                var payrollFile = FileHelper.GetDataFile("Hrms", "Payroll", "Payroll", "PayrollData");
+                var payrollData = JsonHelper.ConvertJsonListDataModel<PayrollModel>(payrollFile, "removeSalComponent");
+
+                //payroll module
+                PayrollPage pp = new PayrollPage(_driver);
+                pp.ClickPayroll();
+                pp.ClickSetups();
+
+                //setup pg
+                PayrollSetupPage sp = new PayrollSetupPage(_driver);
+                sp.ClickSalaryComponent();
+
+                //SalaryComponent PG
+                SalaryComponentPage sc = new SalaryComponentPage(_driver);
+                foreach (var salComponent in payrollData)
+                {
+                    sc.FilterCode(salComponent.code);
+                    sc.SelectRow();
+                    sc.ClickEdit();
+                    sc.ClickGeneral();
+                    sc.SelectRestrictToCompany("Grand Stream Solutions");
+                    sc.ClickSaveAndBack();
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                ClassicAssert.Fail("Test case failed: " + e);
+
+            }
         }
         #endregion
 

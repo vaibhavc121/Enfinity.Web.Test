@@ -165,6 +165,7 @@
     <Compile Include="Models\HRCore\WorkLocation\WorkLocationModel.cs" />
     <Compile Include="Models\Learning\Learning\LearningModel.cs" />
     <Compile Include="Models\Onboarding\Onboarding\OnboardingModel.cs" />
+    <Compile Include="Models\Payroll\Payroll\PayrollModel.cs" />
     <Compile Include="Models\Recruitment\Recruitment\RecruitmentModel.cs" />
     <Compile Include="Models\SelfService\AdminSupport\AdminSupportModel.cs" />
     <Compile Include="Models\SelfService\ExpenseClaim\ExpenseClaimModel.cs" />
@@ -192,6 +193,9 @@
     <Compile Include="PageObjects\Learning\LearningPage.cs" />
     <Compile Include="PageObjects\Onboarding\CandidatePage.cs" />
     <Compile Include="PageObjects\Onboarding\OnboardingPage.cs" />
+    <Compile Include="PageObjects\Payroll\PayrollPage.cs" />
+    <Compile Include="PageObjects\Payroll\SalaryComponentPage.cs" />
+    <Compile Include="PageObjects\Payroll\PayrollSetupPage.cs" />
     <Compile Include="PageObjects\Recruitment\JobPage.cs" />
     <Compile Include="PageObjects\Recruitment\RecruitmentPage.cs" />
     <Compile Include="PageObjects\SelfService\AdminSupportPage.cs" />
@@ -199,6 +203,7 @@
     <Compile Include="PageObjects\SelfService\ExpenseClaimPage.cs" />
     <Compile Include="PageObjects\SelfService\HRAssetRequestPage.cs" />
     <Compile Include="PageObjects\SelfService\ITSupportPage.cs" />
+    <Compile Include="PageObjects\SelfService\LeaveExtensionPage.cs" />
     <Compile Include="PageObjects\SelfService\LeaveRequestPage.cs" />
     <Compile Include="PageObjects\SelfService\LoanRequestPage.cs" />
     <Compile Include="PageObjects\SelfService\OvertimeRequestPage.cs" />
@@ -254,6 +259,7 @@
     <None Include="Models\HRCore\WorkLocation\WorkLocationData.json" />
     <None Include="Models\Learning\Learning\LearningData.json" />
     <None Include="Models\Onboarding\Onboarding\OnboardingData.json" />
+    <None Include="Models\Payroll\Payroll\PayrollData.json" />
     <None Include="Models\Recruitment\Recruitment\RecruitmentData.json" />
     <None Include="Models\SelfService\AdminSupport\AdminSupportData.json" />
     <None Include="Models\SelfService\ExpenseClaim\ExpenseClaimData.json" />
@@ -267,7 +273,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PageObjects\Attendance\" />
-    <Folder Include="PageObjects\Payroll\" />
     <Folder Include="PageObjects\Performance\" />
     <Folder Include="PageObjects\WorkforcePlanning\" />
     <Folder Include="TestCases\Base\" />
