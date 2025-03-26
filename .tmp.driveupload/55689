@@ -1,7 +1,13 @@
 ﻿{
   "createWorkLocation": [
     {
-      "workLocationName": "Mumbai"
+      "workLocationName": "NIBM Pune"
+
+    }
+  ],
+  "deleteWorkLocation": [
+    {
+      "workLocationName": "NIBM Pune"
 
     }
   ]

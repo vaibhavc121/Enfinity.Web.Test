@@ -1,7 +1,13 @@
 ﻿{
   "createDocumentType": [
     {
-      "documentTypeName": "Licence"
+      "documentTypeName": "Emp Document"
+
+    }
+  ],
+  "deleteDocumentType": [
+    {
+      "documentTypeName": "Emp Document"
 
     }
   ]

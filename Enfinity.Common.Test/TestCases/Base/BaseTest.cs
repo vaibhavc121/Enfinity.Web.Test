@@ -65,8 +65,8 @@ namespace Enfinity.Common.Test
             if (_driver != null)
             {
                 ExtentReportsUtility.LogTestResult();
-                _driver.Quit();
-                _driver.Dispose();
+                //_driver.Quit();
+                //_driver.Dispose();
                 ExtentReportsUtility.FlushReport();
             }
         }

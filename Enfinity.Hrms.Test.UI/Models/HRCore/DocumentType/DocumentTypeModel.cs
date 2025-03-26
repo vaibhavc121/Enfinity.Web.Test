@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Enfinity.Hrms.Test.UI.Models.HRCore.DocumentType
 {
-    public class DocumentTypeModel
+    public class CreateDocumentTypeModel
     {
         public string documentTypeName {  get; set; }
+    }
+    public class DeleteDocumentTypeModel
+    {
+        public string documentTypeName { get; set; }
     }
 }

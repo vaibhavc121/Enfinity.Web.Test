@@ -44,9 +44,9 @@ namespace Enfinity.Hrms.Test.UI
         {
             Find(restdaycheckbox).Click();
         }
-        public void ClickSave()
+        public void ClickSaveBack()
         {
-            CommonPageActions.ClickSave();
+            CommonPageActions.ClickSaveAndBack();
         }
         
 

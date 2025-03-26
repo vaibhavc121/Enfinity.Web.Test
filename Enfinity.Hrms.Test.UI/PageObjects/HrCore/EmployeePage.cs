@@ -3,6 +3,7 @@ using Bogus.DataSets;
 using Enfinity.Common.Test;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using RazorEngine.Compilation.ImpromptuInterface.Optimization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -86,6 +87,7 @@ namespace Enfinity.Hrms.Test.UI
         private readonly By result = By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[2]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/p[1]/span[1]/a[1]");
 
         private readonly By clkfilteredemp = By.XPath("//a[normalize-space()='001 | Vaibhav Chavan']");
+        private By empText = By.TagName("h2");
         #endregion
 
         #region Tab Page Objects
@@ -402,9 +404,9 @@ namespace Enfinity.Hrms.Test.UI
             Find(workEmail).SendKeys(email);
         }
 
-        public void ProvideName()
+        public void ProvideName(string value)
         {
-            Find(name).SendKeys(faker.Name.FirstName());
+            Find(name).SendKeys(value);
             
         }
 
@@ -572,6 +574,22 @@ namespace Enfinity.Hrms.Test.UI
         public void ClickSave()
         {
             CommonPageActions.ClickSave();
+        }
+
+        public bool Validation(string value)
+        {
+            string empNm = Find(empText).Text;
+
+            if(empNm.Contains(value))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
         }
 
         public bool IsEmployeeCreated(string empname)
@@ -1833,6 +1851,24 @@ namespace Enfinity.Hrms.Test.UI
         public void ClicklogOff()
         {
             Find(logOff).Click();            
+        }
+
+        public bool ValidateEmpDelete(string value)
+        {
+            CommonPageActions.FilterByIndex(2, value);
+            Thread.Sleep(2000);
+
+            string employee = CommonPageActions.ResultValue(1);
+            //Thread.Sleep(2000);
+            if (employee.Contains(value))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
 
         #endregion

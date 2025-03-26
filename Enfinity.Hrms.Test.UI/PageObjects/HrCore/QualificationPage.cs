@@ -31,9 +31,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
             Find(qualificationName).SendKeys(RandomString());
         }
 
-        public void ClickSave()
+        public void ClickSaveBack()
         {
-            CommonPageActions.ClickSave();
+            CommonPageActions.ClickSaveAndBack();
         }
 
         public bool IsTxnCreated()

@@ -26,7 +26,7 @@ namespace Enfinity.Hrms.Test.UI
         #region create expense claim
         [Test, Order(1)]
         //[Ignore("locator issue")]
-        public void VerifyExpenseClaimCreation()
+        public void CreateExpenseClaim()
         {
             try
             {
@@ -72,7 +72,7 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create time off
         [Test, Order(2)]
-        public void VerifyTimeOffCreation()
+        public void CreateTimeOff()
         {
             try
             {
@@ -115,7 +115,7 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create hr asset request
         [Test, Order(3)]
-        public void VerifyHRAssetRequestCreation()
+        public void CreateHRAssetRequest()
         {
             try
             {
@@ -160,7 +160,7 @@ namespace Enfinity.Hrms.Test.UI
         #region create leave request
         [Test, Order(4)]
         //[Ignore("issue in create new btn")]
-        public void VerifyLeaveRequestCreation()
+        public void CreateLeaveRequest()
         {
             try
             {
@@ -204,7 +204,7 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create IT support
         [Test, Order(5)]
-        public void VerifyITSupportCreation()
+        public void CreateITSupport()
         {
             try
             {
@@ -246,7 +246,7 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create admin support
         [Test, Order(6)]
-        public void VerifyAdminSupportCreation()
+        public void CreateAdminSupport()
         {
             try
             {
@@ -287,7 +287,7 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create Loan Request
         [Test, Order(7)]
-        public void VerifyLoanRequestCreation()
+        public void CreateLoanRequest()
         {
             try
             {
@@ -331,7 +331,7 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create Benefit Claim
         [Test, Order(8)]
-        public void VerifyBenefitClaimCreation()
+        public void CreateBenefitClaim()
         {
             try
             {
@@ -378,7 +378,7 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create Travel Request
         [Test, Order(9)]
-        public void VerifyTravelRequestCreation()
+        public void CreateTravelRequest()
         {
             try
             {
@@ -429,7 +429,7 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create Promotion Request
         [Test, Order(10)]
-        public void VerifyPromotionRequestCreation()
+        public void CreatePromotionRequest()
         {
             try
             {
@@ -501,7 +501,7 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create Overtime Request
         [Test, Order(11)]
-        public void VerifyOvertimeCreation()
+        public void CreateOvertime()
         {
             try
             {
@@ -556,7 +556,7 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create Resignation
         [Test, Order(12)]
-        public void ResignationCreation()
+        public void CreateResignation()
         {
             try
             {

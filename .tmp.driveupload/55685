@@ -1,8 +1,14 @@
 ﻿{
   "createGrade": [
     {
+      "gradeName": "CEO",
       "minSal": "100",
       "maxSal": "200"
+    }
+  ],
+  "deleteGrade": [
+    {
+      "gradeName": "CEO"
     }
   ]
 }

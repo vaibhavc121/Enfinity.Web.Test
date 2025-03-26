@@ -1,8 +1,14 @@
 ﻿{
   "createReligion": [
     {
-      "religionName": "Test"
-      
+      "religionName": "Jain"
+
+    }
+  ],
+  "deleteReligion": [
+    {
+      "religionName": "Jain"
+
     }
   ]
 }

@@ -26,9 +26,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
             CommonPageActions.ClickNew();
         }
 
-        public void ProvideGradeName()
+        public void ProvideGradeName(string value)
         {
-            Find(gradeName).SendKeys(RandomString());
+            Find(gradeName).SendKeys(value);
         }
         public void ProvideMinSal(string value)
         {
@@ -40,9 +40,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
             //Find(maximumSalary).SendKeys(value);
             CommonPageActions.ClearAndProvide1(maximumSalary, value);
         }
-        public void ClickSave()
+        public void ClickSaveBack()
         {
-            CommonPageActions.ClickSave();
+            CommonPageActions.ClickSaveAndBack();
         }
 
         #endregion

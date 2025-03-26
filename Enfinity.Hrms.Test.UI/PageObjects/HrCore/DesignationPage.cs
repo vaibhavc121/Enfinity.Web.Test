@@ -55,9 +55,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
             Find(jobDescription).SendKeys(RandomString());
         }
 
-        public void ClickSave()
+        public void ClickSaveBack()
         {
-            CommonPageActions.ClickSave();
+            CommonPageActions.ClickSaveAndBack();
         }
 
 

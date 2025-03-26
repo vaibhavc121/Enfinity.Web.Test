@@ -251,8 +251,9 @@ namespace Enfinity.Hrms.Test.UI.Models.Employee
 
     public class DeleteEmpModel
     {
-        public string EMPID { get; set; }
-        
+        //public string EMPID { get; set; }
+        public string empName { get; set; }
+
     }
 
 

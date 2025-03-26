@@ -19,13 +19,15 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Payroll
         private By selectRow = By.XPath("(//tr)[12]//td[2]");
         private By general = By.XPath("//td[@id='General_HC']");
         private By restrictToCompany = By.XPath("//input[@id='SalaryComponent.SalaryComponentCompanyIdLookup_I']");
+        private By restrictToCompanyDD = By.XPath("//img[@id='SalaryComponent.SalaryComponentCompanyIdLookup_B-1Img']");
         #endregion
 
         #region action methods
 
         public void FilterCode(string value)
         {
-            CommonPageActions.FilterByIndex(1, value);
+            CommonPageActions.FilterByIndex(2, value);
+            Thread.Sleep(2000);
         }
         public void SelectRow()
         {
@@ -41,11 +43,13 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Payroll
         }
         public void SelectRestrictToCompany(string value)
         {
+            //Find(restrictToCompanyDD).Click();
             CommonPageActions.ClearAndProvide1(restrictToCompany, value);
+            //CommonPageActions.SelectDropdownValueOffice365(value);
         }
         public void ClickSaveAndBack()
         {
-            CommonPageActions.ClickSaveAndBack();
+            CommonPageActions.ClickViewAndBack();
             
         }
         #endregion

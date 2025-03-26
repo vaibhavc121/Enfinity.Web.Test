@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace Enfinity.Hrms.Test.UI.Models.HRCore.Calendar
 {
-    public class CalendarModel
+    public class CreateCalendarModel
     {
         public string calendarName { get; set; }
         public string fromDate { get; set; }
+    }
+    public class DeleteCalendarModel
+    {
+        public string calendarName { get; set; }
+        
     }
 }

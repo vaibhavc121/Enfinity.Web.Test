@@ -44,7 +44,7 @@ namespace Enfinity.Hrms.Test.UI
                 {
                     pe.ClickNewBtn();
                     pe.ProvideWorkEmail(employee.email);
-                    pe.ProvideName();
+                    pe.ProvideName(employee.name);
                     pe.ClickMgrDropdown();
                     pe.SelectMgr();
                     pe.ProvideMobileNumber(employee.mobile);

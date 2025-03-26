@@ -2,17 +2,17 @@
   "newEmployee": [
     {
       "email": "abc121@gmail.com",
-      "name": "Mohan",
+      "name": "Mohan Patil",
       "mobile": "7769765434",
       "DOJ": "01-Jan-2024",
-      "department": "prod",
-      "designation": "Systems Analyst",
-      "payrollSet": "Test",
-      "calendar": "for flipkart",
-      "indemnity": "Indemnity2",
+      "department": "Finance",
+      "designation": "SR Accountant",
+      "payrollSet": "PS0- Calendar days",
+      "calendar": "Default Calendar",
+      "indemnity": "Indemnity",
       "grade": "Contributor",
       "gender": "Male",
-      "religion": "Muslim",
+      "religion": "Hindu",
       "maritalStatus": "Married"
     }
   ],
@@ -280,7 +280,9 @@
 
   "deleteEmployee": [
     {
-      "EMPID": "219"
+      //"EMPID": "219"
+      "empName": "Mohan Patil"
+      
     }
   ],
 

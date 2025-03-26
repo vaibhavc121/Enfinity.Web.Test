@@ -20,13 +20,13 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
         {
             CommonPageActions.ClickNew();
         }
-        public void ProvideReligionName()
+        public void ProvideReligionName(string value)
         {
-            Find(religionName).SendKeys(RandomString());
+            Find(religionName).SendKeys(value);
         }
-        public void ClickSave()
+        public void ClickSaveBack()
         {
-            CommonPageActions.ClickSave();
+            CommonPageActions.ClickSaveAndBack();
         }
        
     }

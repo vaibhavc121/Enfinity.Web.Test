@@ -1,7 +1,13 @@
 ﻿{
   "createBank": [
     {
-      "bankName": "Axis"
+      "bankName": "HDFC"
+
+    }
+  ],
+  "deleteBank": [
+    {
+      "bankName": "HDFC"
 
     }
   ]

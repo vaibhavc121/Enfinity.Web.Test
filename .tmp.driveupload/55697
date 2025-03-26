@@ -4,5 +4,11 @@
       "qualificationName": "MBBS"
 
     }
+  ],
+  "deleteQualification": [
+    {
+      "qualificationName": "MBBS"
+
+    }
   ]
 }

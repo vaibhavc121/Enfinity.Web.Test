@@ -1,7 +1,15 @@
 {
   "createDepartment": [
     {
-      "deptname": "Test123"
+      "deptname": "IT"
+    }
+  ],
+
+  "deleteDepartment": [
+    {
+      "deptname": "IT"
     }
   ]
+
+
 }

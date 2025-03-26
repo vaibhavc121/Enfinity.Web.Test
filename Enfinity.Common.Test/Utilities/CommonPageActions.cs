@@ -349,6 +349,7 @@ namespace Enfinity.Common.Test
         public static void FilterByIndex(int ColumnIndex, string value)
         {
             string xpath = $"(//input[@class='dx-texteditor-input'])[{ColumnIndex}]";
+            BaseTest._driver.FindElement(By.XPath(xpath)).Clear();
             BaseTest._driver.FindElement(By.XPath(xpath)).SendKeys(value);
         }
         //other approach
@@ -433,6 +434,10 @@ namespace Enfinity.Common.Test
         #endregion
 
         #region listing result (Relative xpath)
+        public static void SelectRow()
+        {
+            BaseTest._driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
+        }
         public static string ResultValue(int columnIndex)
         {
             //string result = BaseTest._driver.FindElement(By.XPath("(//tbody//tr)[12]//td[2]")).Text;
@@ -502,6 +507,14 @@ namespace Enfinity.Common.Test
         public static void ClickView()
         {
             BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='View']")).Click();
+        }
+        public static void ClickViewAndBack()
+        {
+            BaseTest._driver.FindElement(By.XPath("//span[normalize-space()='View']")).Click();
+            Thread.Sleep(2000);
+            ClickEdit();
+            ClickView();
+            BaseTest._driver.Navigate().Back();
         }
         public static void ClickEdit()
         {
@@ -583,11 +596,13 @@ namespace Enfinity.Common.Test
             var element = BaseTest._driver.FindElement(locator);
             element.Click();
             Actions actions = new Actions(BaseTest._driver);
+            Thread.Sleep(1000);
             actions.KeyDown(Keys.Control)
                    .SendKeys("a")
                    .KeyUp(Keys.Control)
                    .SendKeys(Keys.Delete)
                    .Perform();
+            Thread.Sleep(1000);
             element.SendKeys(value);
         }
         public static void ProvideAndEnter(By locator, string value)
@@ -738,6 +753,7 @@ namespace Enfinity.Common.Test
             Thread.Sleep(1000);
 
             PressKey("enter");
+            BaseTest._driver.Navigate().Back();
         }
 
         #endregion
@@ -777,23 +793,20 @@ namespace Enfinity.Common.Test
         }
 
         public static void NavigateToEmployee(string value)
-        {
-            BaseTest._driver.FindElement(By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[2]/div[1]/div[6]/div[1]/table[1]/tbody[1]/tr[2]/td[1]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]")).SendKeys(value);
+        {             
+            FilterByIndex(2, value);
             Thread.Sleep(2000);
-            IWebElement result = BaseTest._driver.FindElement(By.XPath(
-                    "/html[1]/body[1]/div[6]/div[2]/div[1]/div[2]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/p[1]/span[1]/a[1]"));
-
-            //IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)BaseTest._driver;
-
-            //filterCell.SendKeys(value);
-            Thread.Sleep(2000);
-            string employee = result.Text;
-            Thread.Sleep(2000);
+           
+            string employee = ResultValue(1);
+            //Thread.Sleep(2000);
             if (employee.Contains(value))
             {
-                result.Click();
-                //jsExecutor.ExecuteScript("arguments[0].click();", result);
-                Thread.Sleep(2000);
+                SelectRow();
+                ClickView(); 
+            }
+            else
+            {
+                throw new Exception("VRC- No matching record found");
             }
 
         }
@@ -918,6 +931,23 @@ namespace Enfinity.Common.Test
             IWebElement element = BaseTest._driver.FindElement(By.ClassName("dx-toast-message"));
             string actualMessage = element.Text;
             StringAssert.Contains(expectedMessage, actualMessage);
+        }
+        public static bool ValidateListing(string value, int filterIndex, int resultIndex)
+        {
+            FilterByIndex(filterIndex, value);
+            Thread.Sleep(2000);
+
+            string employee = ResultValue(resultIndex);
+            //Thread.Sleep(2000);
+            if (employee.Contains(value))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
         #endregion
 

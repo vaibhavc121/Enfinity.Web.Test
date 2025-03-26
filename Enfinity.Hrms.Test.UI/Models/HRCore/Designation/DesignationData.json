@@ -1,7 +1,12 @@
 ﻿{
   "createDesignation": [
     {
-      "designationName": "Test"
+      "designationName": "SDET"
+    }
+  ],
+  "deleteDesignation": [
+    {
+      "designationName": "SDET"
     }
   ]
 }

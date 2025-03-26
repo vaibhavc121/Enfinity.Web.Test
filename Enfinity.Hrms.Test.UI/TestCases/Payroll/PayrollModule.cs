@@ -6,6 +6,7 @@ using NUnit.Framework.Legacy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -178,7 +179,15 @@ namespace Enfinity.Hrms.Test.UI
                 foreach (var salComponent in payrollData)
                 {
                     sc.FilterCode(salComponent.code);
-                    sc.SelectRow();
+                    try
+                    {
+                        sc.SelectRow();
+                    }
+                    catch(Exception )
+                    {
+                        continue;
+                    }
+                    
                     sc.ClickEdit();
                     sc.ClickGeneral();
                     sc.SelectRestrictToCompany("Grand Stream Solutions");

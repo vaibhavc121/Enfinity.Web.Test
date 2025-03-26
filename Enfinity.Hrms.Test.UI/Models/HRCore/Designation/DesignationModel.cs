@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Enfinity.Hrms.Test.UI.Models.HRCore.Designation
 {
-    public class DesignationModel
+    public class CreateDesignationModel
+    {
+        public string designationName { get; set; }
+    }
+    public class DeleteDesignationModel
     {
         public string designationName { get; set; }
     }

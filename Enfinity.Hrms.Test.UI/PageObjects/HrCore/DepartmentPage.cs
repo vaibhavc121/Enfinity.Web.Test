@@ -33,9 +33,9 @@ namespace Enfinity.Hrms.Test.UI
         }
 
         public string deptNm = BasePage.RandomString();
-        public void ProvideDepartmentName()
+        public void ProvideDepartmentName(string value)
         {            
-            Find(deptName).SendKeys(deptNm);               
+            Find(deptName).SendKeys(value);               
         }
 
         public void SelfServiceDD()
@@ -59,7 +59,7 @@ namespace Enfinity.Hrms.Test.UI
             Find(deptMgrName).Click();
         }
 
-        public void ClickSave()
+        public void ClickSaveBack()
         {
             CommonPageActions.ClickSaveAndBack();
             //Find(save).Click();

@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace Enfinity.Hrms.Test.UI.Models.HRCore.Religion
 {
-    public class ReligionModel
+    public class CreateReligionModel
     {
         public string religionName { get; set; }
         
+    }
+    public class DeleteReligionModel
+    {
+        public string religionName { get; set; }
+
     }
 }
