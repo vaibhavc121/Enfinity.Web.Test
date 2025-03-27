@@ -10,6 +10,7 @@ using Enfinity.Hrms.Test.UI.Models.HRCore.Grade;
 using Enfinity.Hrms.Test.UI.Models.HRCore.Qualification;
 using Enfinity.Hrms.Test.UI.Models.HRCore.Religion;
 using Enfinity.Hrms.Test.UI.PageObjects.HrCore;
+using Enfinity.Hrms.Test.UI.PageObjects.Login;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 using System;
@@ -24,9 +25,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 namespace Enfinity.Hrms.Test.UI
 {
     [TestFixture]
-  
 
-    public class HRCoreModule:BaseTest
+
+    public class HRCoreModule : BaseTest
     {
         public string Product = "Hrms";
 
@@ -36,7 +37,7 @@ namespace Enfinity.Hrms.Test.UI
         [Test]
         //[Ignore("")]
         [TestCaseSource(typeof(HRCoreDataProvider), nameof(HRCoreDataProvider.EmployeeWithSystemAccess))]
-        public void ValidateEmployeeCreationWithValidAccess(string email, string name, string mbl, string doj, string dept, string desg, string payrollset, string calendar, string indemnity, string grade, string gender, string religion, string martitalStatus, string username, string roles)
+        public void CreateEmployeeWithValidAccess(string email, string name, string mbl, string doj, string dept, string desg, string payrollset, string calendar, string indemnity, string grade, string gender, string religion, string martitalStatus, string username, string roles)
         {
             try
             {
@@ -53,40 +54,64 @@ namespace Enfinity.Hrms.Test.UI
                 Thread.Sleep(2000);
 
                 //PayrollEmployee page
-                EmployeePage pe = new EmployeePage(_driver);
-                pe.ClickNewBtn();
-                pe.ProvideWorkEmail(email);
-                pe.ProvideName(name);
-                //pe.ClickMgrDropdown();
-                //pe.SelectMgr();
-                pe.ProvideMobileNumber(mbl);
-                pe.ProvideDOJ(doj);
-                pe.ClickDepartment();
-                pe.SelectDepartment(dept);
-                pe.ClickDesignation();
-                pe.SelectDesignation(desg);
-                //pe.ClearPayrollSet();
-                pe.ClickPayrollSet();
-                pe.SelectPayrollSet(payrollset);
-                pe.ClickCalendar();
-                pe.SelectCalendar(calendar);
-                pe.ClickIndemnity();
-                pe.SelectIndemnity(indemnity);
-                pe.ClickGrade();
-                pe.SelectGrade(grade);
-                pe.ClickGender();
-                pe.SelectGender(gender);
-                pe.ClickReligion();
-                pe.SelectReligion(religion);
-                pe.ClickMaritalStatus();
-                pe.SelectMaritalStatus(martitalStatus);
-                pe.ClickSystemAccessBtn();
-                pe.ProvideUserName(username);
-                pe.ClickRoles();
-                pe.SelectRole(roles);
-                pe.ClickSave();
+                EmployeePage ep = new EmployeePage(_driver);
+                ep.ClickNewBtn();
+                ep.ProvideWorkEmail(email);
+                ep.ProvideName(name);
+                //ep.ClickMgrDropdown();
+                //ep.SelectMgr();
+                ep.ProvideMobileNumber(mbl);
+                ep.ProvideDOJ(doj);
+                ep.SelectDepartment(dept);               
+                ep.SelectDesignation(desg);
+                ep.SelectPayrollSet(payrollset);                
+                ep.SelectCalendar(calendar);               
+                ep.SelectIndemnity(indemnity);               
+                ep.SelectGrade(grade);               
+                ep.SelectGender(gender);              
+                ep.SelectReligion(religion);             
+                ep.SelectMaritalStatus(martitalStatus);
+                ep.ClickSystemAccessBtn();
+                //ep.ProvideUserName(username);
+                //ep.ClickRoles();
+                ep.SelectRole(roles);
+                ep.ClickSave();
+                ep.ClickSettingButton();
+                ep.ClickResetPwd();
 
-                ClassicAssert.IsTrue(pe.IsEmployeeCreated(name));
+                //reset pwd page
+                ResetPasswordPage rp = new ResetPasswordPage(_driver);
+                rp.ResetPwd("123");
+
+                ep.ClickRightAreaMenu();
+                ep.ClicklogOff();
+
+                //login page
+                LoginPage lp = new LoginPage(_driver);
+                lp.Login(email, "123");
+
+                ClassicAssert.IsTrue(ep.MyInfoValidation(name));
+
+                HRCorePage hr = new HRCorePage(_driver);
+                hr.ClickHRCore();
+                hr.ClickSetupForm();
+
+                SetupPage stp = new SetupPage(_driver);
+                stp.ClickEmployee();
+
+                CommonPageActions.NavigateToEmployee(name);
+
+                ep.ClickSettingButton();
+                ep.ClickDelete();
+                ep.ClickOk(); 
+                ClassicAssert.IsFalse(ep.ValidateEmpDelete(name));
+
+                ep.ClickRightAreaMenu();
+                ep.ClicklogOff();
+                lp.Login("vaibhav@test.com", "123");
+                UserPage up= new UserPage(_driver);
+                up.FreezeUser(username);
+                //ClassicAssert.IsTrue(ep.IsEmployeeCreated(name));
 
             }
             catch (Exception e)
@@ -118,26 +143,26 @@ namespace Enfinity.Hrms.Test.UI
                 Thread.Sleep(2000);
 
                 //PayrollEmployee page
-                EmployeePage pe = new EmployeePage(_driver);
-                pe.ClickNewBtn();
-                pe.ProvideWorkEmail(email);
-                pe.ProvideName(name);
-                pe.ClickMgrDropdown();
-                pe.SelectMgr();
-                pe.ProvideMobileNumber(mbl);
-                pe.ProvideDOJ(doj);
-                pe.ClickNonPayrollBtn();
-                pe.ClickGrade();
-                pe.SelectGrade(grade);
-                pe.ClickGender();
-                pe.SelectGender(gender);
-                pe.ClickReligion();
-                pe.SelectReligion(religion);
-                pe.ClickMaritalStatus();
-                pe.SelectMaritalStatus(martitalStatus);
-                pe.ClickSave();
+                EmployeePage ep = new EmployeePage(_driver);
+                ep.ClickNewBtn();
+                ep.ProvideWorkEmail(email);
+                ep.ProvideName(name);
+             
+               
+                ep.ProvideMobileNumber(mbl);
+                ep.ProvideDOJ(doj);
+                ep.ClickNonPayrollBtn();
+             
+                ep.SelectGrade(grade);
+            
+                ep.SelectGender(gender);
+               
+                ep.SelectReligion(religion);
+              
+                ep.SelectMaritalStatus(martitalStatus);
+                ep.ClickSave();
 
-                ClassicAssert.IsTrue(pe.IsEmployeeCreated(name));
+                ClassicAssert.IsTrue(ep.IsEmployeeCreated(name));
 
             }
             catch (Exception e)
@@ -173,41 +198,41 @@ namespace Enfinity.Hrms.Test.UI
                 Thread.Sleep(2000);
 
                 //PayrollEmployee page
-                EmployeePage pe = new EmployeePage(_driver);
+                EmployeePage ep = new EmployeePage(_driver);
 
                 foreach (var employee in employeeInfo)
                 {
-                    pe.ClickNewBtn();
-                    pe.ProvideWorkEmail(employee.email);
-                    pe.ProvideName(employee.name);
-                    pe.ClickMgrDropdown();
-                    pe.SelectMgr();
-                    pe.ProvideMobileNumber(employee.mobile);
-                    pe.ProvideDOJ(employee.DOJ);
-                    pe.ClickDepartment();
-                    pe.SelectDepartment(employee.department);
-                    pe.ClickDesignation();
-                    pe.SelectDesignation(employee.designation);
-                    //pe.ClearPayrollSet();
-                    pe.ClickPayrollSet();
-                    pe.SelectPayrollSet(employee.payrollSet);
-                    pe.ClickCalendar();
-                    pe.SelectCalendar(employee.calendar);
-                    pe.ClickIndemnity();
-                    pe.SelectIndemnity(employee.indemnity);
-                    pe.ClickGrade();
-                    pe.SelectGrade(employee.grade);
-                    pe.ClickGender();
-                    pe.SelectGender(employee.gender);
-                    pe.ClickReligion();
-                    pe.SelectReligion(employee.religion);
-                    pe.ClickMaritalStatus();
-                    pe.SelectMaritalStatus(employee.maritalStatus);
-                    pe.ClickSave();
+                    ep.ClickNewBtn();
+                    ep.ProvideWorkEmail(employee.email);
+                    ep.ProvideName(employee.name);
+                
+                  
+                    ep.ProvideMobileNumber(employee.mobile);
+                    ep.ProvideDOJ(employee.DOJ);
+               
+                    ep.SelectDepartment(employee.department);
+                
+                    ep.SelectDesignation(employee.designation);
+                    //ep.ClearPayrollSet();
+                 
+                    ep.SelectPayrollSet(employee.payrollSet);
+                  
+                    ep.SelectCalendar(employee.calendar);
+                 
+                    ep.SelectIndemnity(employee.indemnity);
+                   
+                    ep.SelectGrade(employee.grade);
+                  
+                    ep.SelectGender(employee.gender);
+              
+                    ep.SelectReligion(employee.religion);
+              
+                    ep.SelectMaritalStatus(employee.maritalStatus);
+                    ep.ClickSave();
                 }
 
 
-                //ClassicAssert.IsTrue(pe.IsEmployeeCreated(name));
+                //ClassicAssert.IsTrue(ep.IsEmployeeCreated(name));
 
             }
             catch (Exception e)
@@ -305,7 +330,7 @@ namespace Enfinity.Hrms.Test.UI
                     dp.ClickSaveBack();
 
                     ClassicAssert.IsTrue(CommonPageActions.ValidateListing(department.deptname, 3, 2));
-                   
+
                 }
 
 
@@ -344,7 +369,7 @@ namespace Enfinity.Hrms.Test.UI
                 //desg pg
                 DesignationPage dp = new DesignationPage(_driver);
 
-                foreach(var desg in designationData)
+                foreach (var desg in designationData)
                 {
                     dp.ClickNewButton();
                     //dp.SetDesignationCode();
@@ -355,7 +380,7 @@ namespace Enfinity.Hrms.Test.UI
                     dp.SetJobDescription();
                     dp.ClickSaveBack();
 
-                    CommonPageActions.ValidateListing(desg.designationName, 3,2);
+                    CommonPageActions.ValidateListing(desg.designationName, 3, 2);
                     //ClassicAssert.IsTrue(CommonPageActions.IsTxnCreated());
                 }
 
@@ -485,7 +510,7 @@ namespace Enfinity.Hrms.Test.UI
                 foreach (var religion in ReligionData)
                 {
                     rp.ClickNew();
-                    rp.ProvideReligionName(religion.religionName);                   
+                    rp.ProvideReligionName(religion.religionName);
                     rp.ClickSaveBack();
 
                     CommonPageActions.ValidateListing(religion.religionName, 2, 1);
@@ -528,7 +553,7 @@ namespace Enfinity.Hrms.Test.UI
                 foreach (var workLocation in workLocationData)
                 {
                     wl.ClickNew();
-                    wl.ProvideWorkLocName(workLocation.workLocationName);                    
+                    wl.ProvideWorkLocName(workLocation.workLocationName);
                     wl.ClickSaveBack();
 
                     CommonPageActions.ValidateListing(workLocation.workLocationName, 2, 1);
@@ -573,7 +598,7 @@ namespace Enfinity.Hrms.Test.UI
                 foreach (var bank in bankData)
                 {
                     bp.ClickNew();
-                    bp.provideBankName(bank.bankName);                     
+                    bp.provideBankName(bank.bankName);
                     bp.clickSaveBack();
 
                     CommonPageActions.ValidateListing(bank.bankName, 2, 1);
@@ -616,7 +641,7 @@ namespace Enfinity.Hrms.Test.UI
                 foreach (var qualification in qualificationData)
                 {
                     qp.ClickNew();
-                    qp.ProvideQualificationName(qualification.qualificationName);                    
+                    qp.ProvideQualificationName(qualification.qualificationName);
                     qp.ClickSaveBack();
 
                     CommonPageActions.ValidateListing(qualification.qualificationName, 2, 1);
@@ -659,7 +684,7 @@ namespace Enfinity.Hrms.Test.UI
                 foreach (var document in documentTypeData)
                 {
                     dt.ClickNew();
-                    dt.ProvideDocumentTypeName(document.documentTypeName);                    
+                    dt.ProvideDocumentTypeName(document.documentTypeName);
                     dt.ClickSaveBack();
 
                     CommonPageActions.ValidateListing(document.documentTypeName, 2, 1);
@@ -693,7 +718,7 @@ namespace Enfinity.Hrms.Test.UI
 
             //setup page
             SetupPage sp = new SetupPage(_driver);
-            foreach(var dept in departmentData)
+            foreach (var dept in departmentData)
             {
                 sp.ClickDepartment();
                 Thread.Sleep(2000);
@@ -701,7 +726,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 ClassicAssert.IsFalse(CommonPageActions.ValidateListing(dept.deptname, 3, 2));
             }
-            
+
         }
         #endregion
 
@@ -722,7 +747,7 @@ namespace Enfinity.Hrms.Test.UI
 
             //setup page
             SetupPage sp = new SetupPage(_driver);
-            foreach(var desg in DesignationData)
+            foreach (var desg in DesignationData)
             {
                 sp.ClickDesignation();
                 Thread.Sleep(2000);
@@ -730,7 +755,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 ClassicAssert.IsFalse(CommonPageActions.ValidateListing(desg.designationName, 3, 2));
             }
-            
+
         }
         #endregion
 
@@ -751,7 +776,7 @@ namespace Enfinity.Hrms.Test.UI
 
             //setup page
             SetupPage sp = new SetupPage(_driver);
-            foreach(var grade in gradeData)
+            foreach (var grade in gradeData)
             {
                 sp.ClickGrade();
                 Thread.Sleep(2000);
@@ -759,7 +784,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 ClassicAssert.IsFalse(CommonPageActions.ValidateListing(grade.gradeName, 2, 1));
             }
-            
+
         }
         #endregion
 
@@ -779,7 +804,7 @@ namespace Enfinity.Hrms.Test.UI
 
             //setup page
             SetupPage sp = new SetupPage(_driver);
-            foreach(var calendar in calendarData)
+            foreach (var calendar in calendarData)
             {
                 sp.ClickCalendar();
                 Thread.Sleep(2000);
@@ -787,7 +812,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 ClassicAssert.IsFalse(CommonPageActions.ValidateListing(calendar.calendarName, 2, 1));
             }
-            
+
         }
         #endregion
 
@@ -807,7 +832,7 @@ namespace Enfinity.Hrms.Test.UI
 
             //setup page
             SetupPage sp = new SetupPage(_driver);
-            foreach(var religion in ReligionData)
+            foreach (var religion in ReligionData)
             {
                 sp.ClickReligion();
                 Thread.Sleep(2000);
@@ -815,7 +840,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 ClassicAssert.IsFalse(CommonPageActions.ValidateListing(religion.religionName, 2, 1));
             }
-            
+
         }
         #endregion
 
@@ -836,7 +861,7 @@ namespace Enfinity.Hrms.Test.UI
 
             //setup page
             SetupPage sp = new SetupPage(_driver);
-            foreach(var wl in workLocationData)
+            foreach (var wl in workLocationData)
             {
                 sp.ClickWorkLocation();
                 Thread.Sleep(2000);
@@ -844,7 +869,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 ClassicAssert.IsFalse(CommonPageActions.ValidateListing(wl.workLocationName, 2, 1));
             }
-            
+
         }
         #endregion
 
@@ -864,16 +889,16 @@ namespace Enfinity.Hrms.Test.UI
 
             //setup page
             SetupPage sp = new SetupPage(_driver);
-            foreach(var bank in bankData)
+            foreach (var bank in bankData)
             {
                 sp.ClickBank();
                 Thread.Sleep(2000);
-                CommonPageActions.DeleteHrCoreTxn(2, bank.bankName); 
+                CommonPageActions.DeleteHrCoreTxn(2, bank.bankName);
 
                 ClassicAssert.IsFalse(CommonPageActions.ValidateListing(bank.bankName, 2, 1));
                 //ClassicAssert.IsTrue(CommonPageActions.IsTxnCreated());
             }
-           
+
         }
         #endregion
 
@@ -893,7 +918,7 @@ namespace Enfinity.Hrms.Test.UI
 
             //setup page
             SetupPage sp = new SetupPage(_driver);
-            foreach(var qualification in qualificationData)
+            foreach (var qualification in qualificationData)
             {
                 sp.ClickQualification();
                 Thread.Sleep(2000);
@@ -901,7 +926,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 ClassicAssert.IsFalse(CommonPageActions.ValidateListing(qualification.qualificationName, 2, 1));
             }
-            
+
         }
         #endregion
 
@@ -921,7 +946,7 @@ namespace Enfinity.Hrms.Test.UI
 
             //setup page
             SetupPage sp = new SetupPage(_driver);
-            foreach(var doc in documentTypeData)
+            foreach (var doc in documentTypeData)
             {
                 sp.ClickDocumentType();
                 Thread.Sleep(2000);
@@ -929,7 +954,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 ClassicAssert.IsFalse(CommonPageActions.ValidateListing(doc.documentTypeName, 2, 1));
             }
-            
+
         }
         #endregion
 
@@ -957,43 +982,43 @@ namespace Enfinity.Hrms.Test.UI
                 Thread.Sleep(2000);
 
                 //PayrollEmployee page
-                EmployeePage pe = new EmployeePage(_driver);
+                EmployeePage ep = new EmployeePage(_driver);
 
                 foreach (var employee in employeeInfo)
                 {
-                    pe.ClickNewBtn();
-                    pe.ProvideWorkEmail(employee.email);
-                    pe.ProvideName(employee.name);
-                    //pe.ClickMgrDropdown();
-                    //pe.SelectMgr();
-                    pe.ProvideMobileNumber(employee.mobile);
-                    pe.ProvideDOJ(employee.DOJ);
-                    pe.ClickDepartment();
-                    pe.SelectDepartment(employee.department);
-                    pe.ClickDesignation();
-                    pe.SelectDesignation(employee.designation);
-                    //pe.ClearPayrollSet();
-                    pe.ClickPayrollSet();
-                    pe.SelectPayrollSet(employee.payrollSet);
-                    pe.ClickCalendar();
-                    pe.SelectCalendar(employee.calendar);
-                    pe.ClickIndemnity();
-                    pe.SelectIndemnity(employee.indemnity);
-                    pe.ClickGrade();
-                    pe.SelectGrade(employee.grade);
-                    pe.ClickGender();
-                    pe.SelectGender(employee.gender);
-                    pe.ClickReligion();
-                    pe.SelectReligion(employee.religion);
-                    pe.ClickMaritalStatus();
-                    pe.SelectMaritalStatus(employee.maritalStatus);
-                    pe.ClickSave();
+                    ep.ClickNewBtn();
+                    ep.ProvideWorkEmail(employee.email);
+                    ep.ProvideName(employee.name);
+                    //ep.ClickMgrDropdown();
+                    //ep.SelectMgr();
+                    ep.ProvideMobileNumber(employee.mobile);
+                    ep.ProvideDOJ(employee.DOJ);
+               
+                    ep.SelectDepartment(employee.department);
+                
+                    ep.SelectDesignation(employee.designation);
+                    //ep.ClearPayrollSet();
+                 
+                    ep.SelectPayrollSet(employee.payrollSet);
+                  
+                    ep.SelectCalendar(employee.calendar);
+               
+                    ep.SelectIndemnity(employee.indemnity);
+               
+                    ep.SelectGrade(employee.grade);
+                   
+                    ep.SelectGender(employee.gender);
+                  
+                    ep.SelectReligion(employee.religion);
+                 
+                    ep.SelectMaritalStatus(employee.maritalStatus);
+                    ep.ClickSave();
 
-                    ClassicAssert.IsTrue(pe.Validation(employee.name));
+                    ClassicAssert.IsTrue(ep.Validation(employee.name));
                 }
 
 
-                //ClassicAssert.IsTrue(pe.IsEmployeeCreated(name));
+                //ClassicAssert.IsTrue(ep.IsEmployeeCreated(name));
 
             }
             catch (Exception e)

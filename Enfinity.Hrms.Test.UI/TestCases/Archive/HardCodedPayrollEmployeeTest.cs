@@ -33,31 +33,31 @@ namespace Enfinity.Hrms.Test.UI
                 Thread.Sleep(2000);
 
                 //PayrollEmployee page
-                HardCodedPayrollEmployeePage pe = new HardCodedPayrollEmployeePage(_driver);
-                pe.ClickNewBtn();
-                pe.ProvideWorkEmail();
-                pe.SetName();
-                pe.ClickMgrDropdown();
-                pe.SelectMgr();
-                pe.SetMobileNumber();
-                pe.SetDOJ();
-                pe.ClickDept();
-                pe.SelectDept();
-                pe.ClickDesig();
-                pe.SelectDesig();
-                pe.ClickCalendar();
-                pe.SelectCalendar();
-                pe.ClickGrade();
-                pe.SetGrade();
-                pe.ClickGender();
-                pe.SetGender();
-                pe.ClickReligion();
-                pe.SetReligion();
-                pe.ClickMaritalStatus();
-                pe.SetMaritalStatus();
-                pe.ClickSave();
+                HardCodedPayrollEmployeePage ep = new HardCodedPayrollEmployeePage(_driver);
+                ep.ClickNewBtn();
+                ep.ProvideWorkEmail();
+                ep.SetName();
+                ep.ClickMgrDropdown();
+                ep.SelectMgr();
+                ep.SetMobileNumber();
+                ep.SetDOJ();
+                ep.ClickDept();
+                ep.SelectDept();
+                ep.ClickDesig();
+                ep.SelectDesig();
+                ep.ClickCalendar();
+                ep.SelectCalendar();
+                ep.ClickGrade();
+                ep.SetGrade();
+                ep.ClickGender();
+                ep.SetGender();
+                ep.ClickReligion();
+                ep.SetReligion();
+                ep.ClickMaritalStatus();
+                ep.SetMaritalStatus();
+                ep.ClickSave();
 
-                ClassicAssert.IsTrue(pe.IsEmployeeCreated());
+                ClassicAssert.IsTrue(ep.IsEmployeeCreated());
 
             }
             catch (Exception e)

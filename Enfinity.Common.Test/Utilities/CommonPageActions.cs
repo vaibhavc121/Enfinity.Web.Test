@@ -627,6 +627,13 @@ namespace Enfinity.Common.Test
             //js.ExecuteScript("arguments[0].value='Test Value';", inputField);
             jsExecutor.ExecuteScript($"arguments[0].value='{value}';", element);
         }
+        public static void GlobalSearch(string value)
+        {
+            BaseTest._driver.FindElement(By.Id("GlobalSearch")).Click();
+            BaseTest._driver.FindElement(By.XPath("//input[@role='combobox']")).SendKeys(value);
+            Thread.Sleep(2000);
+            SelectDropdownOption(value);
+        }
         public static void ScrollDownWebPageSample()
         {
             //Cast driver to IJavaScriptExecutor

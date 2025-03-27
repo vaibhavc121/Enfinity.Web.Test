@@ -38,37 +38,37 @@ namespace Enfinity.Hrms.Test.UI
                 Thread.Sleep(2000);
 
                 //PayrollEmployee page
-                EmployeePage pe = new EmployeePage(_driver);
+                EmployeePage ep = new EmployeePage(_driver);
 
                 foreach (var employee in employeeInfo)
                 {
-                    pe.ClickNewBtn();
-                    pe.ProvideWorkEmail(employee.email);
-                    pe.ProvideName(employee.name);
-                    pe.ClickMgrDropdown();
-                    pe.SelectMgr();
-                    pe.ProvideMobileNumber(employee.mobile);
-                    pe.ProvideDOJ(employee.DOJ);
-                    pe.ClickDepartment();
-                    pe.SelectDepartment(employee.department);
-                    pe.ClickDesignation();
-                    pe.SelectDesignation(employee.designation);
-                    //pe.ClearPayrollSet();
-                    pe.ClickPayrollSet();
-                    pe.SelectPayrollSet(employee.payrollSet);
-                    pe.ClickCalendar();
-                    pe.SelectCalendar(employee.calendar);
-                    pe.ClickIndemnity();
-                    pe.SelectIndemnity(employee.indemnity);
-                    pe.ClickGrade();
-                    pe.SelectGrade(employee.grade);
-                    pe.ClickGender();
-                    pe.SelectGender(employee.gender);
-                    pe.ClickReligion();
-                    pe.SelectReligion(employee.religion);
-                    pe.ClickMaritalStatus();
-                    pe.SelectMaritalStatus(employee.maritalStatus);
-                    pe.ClickSave();
+                    ep.ClickNewBtn();
+                    ep.ProvideWorkEmail(employee.email);
+                    ep.ProvideName(employee.name);
+                  
+                    //ep.SelectMgr();
+                    ep.ProvideMobileNumber(employee.mobile);
+                    ep.ProvideDOJ(employee.DOJ);
+                   
+                    ep.SelectDepartment(employee.department);
+                  
+                    ep.SelectDesignation(employee.designation);
+                    //ep.ClearPayrollSet();
+                 
+                    ep.SelectPayrollSet(employee.payrollSet);
+                 
+                    ep.SelectCalendar(employee.calendar);
+               
+                    ep.SelectIndemnity(employee.indemnity);
+                  
+                    ep.SelectGrade(employee.grade);
+                  
+                    ep.SelectGender(employee.gender);
+                
+                    ep.SelectReligion(employee.religion);
+                  
+                    ep.SelectMaritalStatus(employee.maritalStatus);
+                    ep.ClickSave();
                 }
             }
             catch (Exception e)

@@ -15,68 +15,63 @@ namespace Enfinity.Hrms.Test.UI
 {
     public class EmployeePage : BasePage
     {
-        //private readonly IWebDriver _driver;
-        //public static Faker faker = new Faker();
-        //string expname = faker.Name.FirstName();
-        //string expname = "Suraj";
-
         public EmployeePage(IWebDriver driver) : base(driver)
         {
         }
 
-        //Page Objects
-        #region Create Page Objects
+        #region Page Objects
+
+        #region Setting Button Page Objects
+
+        private By settingButton = By.XPath("//i[@class='dx-icon dx-icon-setup-icon']");
+        private By delete = By.XPath("//div[contains(text(),'Delete')]");
+        private By timeline = By.XPath("(//div[@class='dx-item-content dx-list-item-content'])[15]");
+        private By accessRights = By.XPath("(//div[@class='dx-item-content dx-list-item-content'])[16]");
+        private By disableLoginAccess = By.XPath("(//div[@class='dx-item-content dx-list-item-content'])[17]");        
+        private By resetPassword = By.XPath("//div[contains(text(),'Reset Password')]");
+        private By setting = By.XPath("(//div[@class='dx-item-content dx-list-item-content'])[19]");
+        private By severance = By.XPath("(//div[@class='dx-item-content dx-list-item-content'])[20]");
+
+        #endregion       
+
+        #region Create Employee Page Objects
         private readonly By newbtn = By.CssSelector("#MainMenu_DXI0_Img");
 
         private readonly By workEmail = By.Name("Email");
 
         private readonly By name = By.Name("Name");
 
-        private readonly By clkmgr = By.CssSelector("div[class='dx-first-col dx-last-col dx-last-row dx-field-item dx-col-0 dx-field-item-optional dx-field-item-has-group'] div[class='dx-dropdowneditor-icon']");
+        private readonly By slctmgr = By.XPath("//input[contains(@id,'ParentId')]");
 
-        private readonly By slctmgr = By.XPath("//div[contains(text(),'001 | Vaibhav Chavan')]");
+        private readonly By mobileNumber = By.XPath("//input[contains(@id,'MobileNumber')]");
 
-        private readonly By mobileNumber = By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
-
-        private readonly By joiningDate = By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
+        private readonly By joiningDate = By.XPath("//input[contains(@id,'JoiningDate')]");
 
         By nonpayroll = By.XPath("//div[normalize-space()='OFF']");
 
-        private readonly By clkdept = By.CssSelector("div[class='dx-first-row dx-first-col dx-last-row dx-field-item dx-col-0 dx-field-item-required dx-flex-layout dx-label-v-align'] div[class='dx-show-invalid-badge dx-selectbox dx-textbox dx-texteditor dx-show-clear-button dx-dropdowneditor-button-visible dx-editor-outlined dx-texteditor-empty dx-widget dx-dropdowneditor dx-dropdowneditor-field-clickable dx-validator dx-visibility-change-handler'] div[class='dx-dropdowneditor-icon']");
+        private readonly By slctdept = By.XPath("//input[contains(@id,'DepartmentId')]");
 
-        private readonly By slctdept = By.XPath("//div[contains(text(),'prod')]");
+        private readonly By slctdesg = By.XPath("//input[contains(@id,'DesignationId')]");
 
-        private readonly By clkdesg = By.CssSelector("div[class='dx-first-row dx-last-row dx-field-item dx-col-1 dx-field-item-required dx-flex-layout dx-label-v-align'] div[class='dx-show-invalid-badge dx-selectbox dx-textbox dx-texteditor dx-show-clear-button dx-dropdowneditor-button-visible dx-editor-outlined dx-texteditor-empty dx-widget dx-dropdowneditor dx-dropdowneditor-field-clickable dx-validator dx-visibility-change-handler'] div[class='dx-dropdowneditor-icon']");
+        private By payrollset = By.XPath("//input[contains(@id,'PayrollSetId')]");
 
-        private readonly By slctdesg = By.XPath("//div[contains(text(),'Systems Analyst')]");
+        private readonly By slctcalendar = By.XPath("//input[contains(@id,'CalendarId')]");
 
-        private By clearpayrollSet = By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
+        private By indemnity = By.XPath("//input[contains(@id,'GratuityId')]");
 
-        private By payrollset = By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]");
+        private readonly By grade = By.XPath("//input[contains(@id,'GradeId')]");
 
-        private readonly By clkcalendar = By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]");
+        private readonly By gender = By.XPath("//input[contains(@id,'Gender')]");
 
-        private By clkindemnity = By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]");
+        private readonly By religion = By.XPath("//input[contains(@id,'ReligionId')]");
 
-        private readonly By clkgrade = By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]");
-
-        private readonly By clkgender = By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]");
-
-        private readonly By clkreligion = By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]");
-
-        private readonly By clkmaritalstatus = By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]");
+        private readonly By maritalstatus = By.XPath("//input[contains(@id,'MaritalStatus')]");
 
         private By systemaccess = By.XPath("//div[normalize-space()='No']");
 
-        //private By username = By.XPath("/html[1]/body[1]/div[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
-        //private By username=By.Id("dx_dx-4d99a9bc-290c-2c0c-16c8-c7017645bb87_CustomUsername");
-        private By username = By.XPath("//div[@aria-label='Yes']//div[@class='dx-switch-handle']//following::input[@id='dx_dx-4d99a9bc-290c-2c0c-16c8-c7017645bb87_CustomUsername']");
+        private By username = By.XPath("//input[contains(@id,'CustomUsername')]");
 
-        private By roles = By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
-        ////div[@class='dx-texteditor-input-container dx-tag-container']
-        //private By roles = By.XPath("//div[@class='dx-texteditor-input-container dx-tag-container']");
-        //private By roles = By.CssSelector(".dx-texteditor-input-container.dx-tag-container");
-        //private By roles = By.XPath("//div[@class='dx-texteditor-input-container dx-tag-container']");        
+        private By roles = By.XPath("//input[contains(@id,'RoleIds')]");
 
         private readonly By save = By.XPath("//span[normalize-space()='Save']");
 
@@ -88,6 +83,7 @@ namespace Enfinity.Hrms.Test.UI
 
         private readonly By clkfilteredemp = By.XPath("//a[normalize-space()='001 | Vaibhav Chavan']");
         private By empText = By.TagName("h2");
+        private By myInfoEmp = By.XPath("//h4[@class='font-size-h2']");
         #endregion
 
         #region Tab Page Objects
@@ -209,7 +205,7 @@ namespace Enfinity.Hrms.Test.UI
         private By miscellaneousAccrualSave = By.XPath("//div[@class='dx-overlay-content dx-popup-normal dx-popup-draggable dx-resizable']//span[@class='dx-button-text'][normalize-space()='Save']");
 
         //Benefit Schemes section
-        private By addBenefitScheme = By.XPath("//div[@title='Add Benefit Scheme']//i[@class='dx-icon dx-icon-edit-button-addrow']");      
+        private By addBenefitScheme = By.XPath("//div[@title='Add Benefit Scheme']//i[@class='dx-icon dx-icon-edit-button-addrow']");
         private By BSrelationshipType = By.XPath("//input[contains(@id,'RelationshipType')]");
         private By benefitScheme = By.XPath("//input[contains(@id,'BenefitSchemeId')]");
         private By BSeffectiveFromDate = By.XPath("/html[1]/body[1]/div[12]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
@@ -245,7 +241,7 @@ namespace Enfinity.Hrms.Test.UI
         private By dateOfExpiry = By.XPath("//input[contains(@id,'DateOfExpiry')]");
         private By placeOfDocument = By.XPath("//input[contains(@id,'PlaceOfDocument')]");
         private By addAttachment = By.XPath("//span[normalize-space()='Add Attachment']");
-       
+
         //save
 
         #endregion
@@ -382,8 +378,8 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Delete Employee Page Objects
-        private By settingButton = By.XPath("//i[@class='dx-icon dx-icon-setup-icon']");
-        private By delete = By.XPath("//div[contains(text(),'Delete')]");
+        //private By settingButton = By.XPath("//i[@class='dx-icon dx-icon-setup-icon']");
+        //private By delete = By.XPath("//div[contains(text(),'Delete')]");
         //private By ok = By.XPath("//span[normalize-space()='Ok']");
         //private By ok = By.XPath("/html[1]/body[1]/div[9]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]");
         //private By ok = By.XPath("div[aria-label='Ok'] span[class='dx-button-text']");
@@ -392,8 +388,18 @@ namespace Enfinity.Hrms.Test.UI
         private By logOff = By.XPath("//span[normalize-space()='Log Off']");
         #endregion
 
-        //Action Methods
-        #region Create Action Methods
+        #endregion
+
+        #region Action Methods
+
+        #region Setting Button Action Methods
+        public void ClickResetPwd()
+        {
+            Find(resetPassword).Click();
+        }
+        #endregion
+
+        #region Create Employee Action Methods
         public void ClickNewBtn()
         {
             CommonPageActions.ClickNew();
@@ -407,19 +413,13 @@ namespace Enfinity.Hrms.Test.UI
         public void ProvideName(string value)
         {
             Find(name).SendKeys(value);
-            
+
         }
 
-        public void ClickMgrDropdown()
-        {
-            Find(clkmgr).Click();
-            Thread.Sleep(1000);
-        }
-
-        public void SelectMgr()
+        public void SelectMgr(string value)
         {
             //CommonActions.SelectDropdownOption("Vaibhav Chavan");
-            Find(slctmgr).Click();
+            CommonPageActions.ProvideAndEnter(slctmgr, value);
         }
 
         public void ProvideMobileNumber(string mbl)
@@ -429,8 +429,8 @@ namespace Enfinity.Hrms.Test.UI
 
         public void ProvideDOJ(string doj)
         {
-            Find(joiningDate).Clear();
-            Find(joiningDate).SendKeys(doj);
+
+            CommonPageActions.ProvideAndEnter(joiningDate, doj);
 
         }
 
@@ -439,109 +439,47 @@ namespace Enfinity.Hrms.Test.UI
             Find(nonpayroll).Click();
         }
 
-        public void ClickDepartment()
-        {
-            Find(clkdept).Click();
-            Thread.Sleep(1000);
-        }
-
         public void SelectDepartment(string dept)
         {
-            CommonPageActions.SelectDropdownOption(dept);
-        }
-
-        public void ClickDesignation()
-        {
-            Find(clkdesg).Click();
-            Thread.Sleep(1000);
+            CommonPageActions.ProvideAndEnter(slctdept, dept);
         }
 
         public void SelectDesignation(string desg)
         {
-            CommonPageActions.SelectDropdownOption(desg);
+            CommonPageActions.ProvideAndEnter(slctdesg, desg);
         }
 
-        public void ClearPayrollSet()
+        public void SelectPayrollSet(string value)
         {
-            Find(clearpayrollSet).Click();
-            Find(clearpayrollSet).Clear();
+            CommonPageActions.ProvideAndEnter(payrollset ,value);
+        }       
 
-        }
-        public void ClickPayrollSet()
+        public void SelectCalendar(string value)
         {
-            Find(payrollset).Click();
-            Thread.Sleep(1000);
+            CommonPageActions.ProvideAndEnter(slctcalendar, value);
         }
+       
+        public void SelectIndemnity(string value)
+        {
+            CommonPageActions.ProvideAndEnter(indemnity, value);
+        }       
+        public void SelectGrade(string value)
+        {
+            CommonPageActions.ProvideAndEnter(grade, value);
+        }       
+        public void SelectGender(string value)
+        {
+            CommonPageActions.ProvideAndEnter(gender, value);
+        }        
 
-        public void SelectPayrollSet(string payrollset)
+        public void SelectReligion(string value)
         {
-            CommonPageActions.SelectDropdownOption(payrollset);
-        }
+            CommonPageActions.ProvideAndEnter(religion, value);
+        }      
 
-        public void ClickCalendar()
+        public void SelectMaritalStatus(string value)
         {
-            Find(clkcalendar).Click();
-            Thread.Sleep(1000);
-        }
-
-        public void SelectCalendar(string calendar)
-        {
-            CommonPageActions.SelectDropdownOption(calendar);
-        }
-
-        public void ClickIndemnity()
-        {
-            Find(clkindemnity).Click();
-            Thread.Sleep(1000);
-        }
-
-        public void SelectIndemnity(string indemnity)
-        {
-            CommonPageActions.SelectDropdownOption(indemnity);
-        }
-
-        public void ClickGrade()
-        {
-            Find(clkgrade).Click();
-            Thread.Sleep(1000);
-        }
-
-        public void SelectGrade(string grade)
-        {
-            CommonPageActions.SelectDropdownOption(grade);
-        }
-
-        public void ClickGender()
-        {
-            Find(clkgender).Click();
-            Thread.Sleep(1000);
-        }
-
-        public void SelectGender(string gender)
-        {
-            CommonPageActions.SelectDropdownOption(gender);
-        }
-
-        public void ClickReligion()
-        {
-            Find(clkreligion).Click();
-            Thread.Sleep(1000);
-        }
-
-        public void SelectReligion(string religion)
-        {
-            CommonPageActions.SelectDropdownOption(religion);
-        }
-
-        public void ClickMaritalStatus()
-        {
-            Find(clkmaritalstatus).Click();
-            Thread.Sleep(1000);
-        }
-
-        public void SelectMaritalStatus(string maritalStatus)
-        {
-            CommonPageActions.SelectDropdownOption(maritalStatus);
+            CommonPageActions.ProvideAndEnter(maritalstatus, value);
         }
 
         public void ClickSystemAccessBtn()
@@ -551,36 +489,48 @@ namespace Enfinity.Hrms.Test.UI
 
         public void ProvideUserName(string actusername)
         {
-            //Find(username).SendKeys(actusername);
+            Find(username).SendKeys(actusername);
 
-            IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
-            IWebElement element = Find(By.Id("dx_dx-4d99a9bc-290c-2c0c-16c8-c7017645bb87_CustomUsername"));
-            js.ExecuteScript("arguments[0].value='mohan@test.com';", element);
+            //IJavaScriptExecutor js = (IJavaScriptExecutor)_driver;
+            //IWebElement element = Find(By.Id("dx_dx-4d99a9bc-290c-2c0c-16c8-c7017645bb87_CustomUsername"));
+            //js.ExecuteScript("arguments[0].value='mohan@test.com';", element);
 
-            Thread.Sleep(2000);
+            //Thread.Sleep(2000);
+
+
         }
-
         public void ClickRoles()
         {
             Find(roles).Click();
             Thread.Sleep(1000);
         }
-
-        public void SelectRole(string role)
+        public void SelectRole(string value)
         {
-            CommonPageActions.SelectDropdownOption(role);
+            //CommonPageActions.SelectDropdownOption(role);
+            CommonPageActions.ProvideAndEnter(roles, value);
         }
-
         public void ClickSave()
         {
             CommonPageActions.ClickSave();
         }
-
         public bool Validation(string value)
         {
             string empNm = Find(empText).Text;
 
-            if(empNm.Contains(value))
+            if (empNm.Contains(value))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool MyInfoValidation(string value)
+        {
+            string empNm = Find(myInfoEmp).Text;
+
+            if (empNm.Contains(value))
             {
                 return true;
             }
@@ -989,8 +939,8 @@ namespace Enfinity.Hrms.Test.UI
             Find(editBasicSalBtn).Click();
             Thread.Sleep(1000);
             Find(changeSalary).Click();
-            Find(incrementAmount).Click();            
-            Find(incrementAmount).SendKeys(Keys.Control + "a");           
+            Find(incrementAmount).Click();
+            Find(incrementAmount).SendKeys(Keys.Control + "a");
             Find(incrementAmount).SendKeys(Keys.Delete);
             Find(incrementAmount).SendKeys(value);
             Thread.Sleep(1000);
@@ -1739,7 +1689,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             Find(OldContractSalary).SendKeys(value);
         }
-        
+
         //Address Details
         public void ProvideBlock(string value)
         {
@@ -1778,7 +1728,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             Find(Qasima).SendKeys(value);
         }
-        
+
         public void ProvideArea(string value)
         {
             Find(Area).SendKeys(value);
@@ -1820,7 +1770,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             Find(OldGovernmentLicense).SendKeys(value);
         }
-        
+
         public void SaveResidencyInfo()
         {
             CommonPageActions.ClickSave();
@@ -1831,6 +1781,7 @@ namespace Enfinity.Hrms.Test.UI
         public void ClickSettingButton()
         {
             Find(settingButton).Click();
+            Thread.Sleep(2000);
         }
         public void ClickDelete()
         {
@@ -1850,7 +1801,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void ClicklogOff()
         {
-            Find(logOff).Click();            
+            Find(logOff).Click();
         }
 
         public bool ValidateEmpDelete(string value)
@@ -1872,5 +1823,8 @@ namespace Enfinity.Hrms.Test.UI
         }
 
         #endregion
+
+        #endregion
+
     }
 }

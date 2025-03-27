@@ -188,9 +188,12 @@
     <Compile Include="PageObjects\Archive\HardCodedPayrollEmployeePage.cs" />
     <Compile Include="PageObjects\HrCore\QualificationPage.cs" />
     <Compile Include="PageObjects\HrCore\ReligionPage.cs" />
+    <Compile Include="PageObjects\HrCore\ResetPasswordPage.cs" />
+    <Compile Include="PageObjects\HrCore\UserPage.cs" />
     <Compile Include="PageObjects\HrCore\WorkLocationPage.cs" />
     <Compile Include="PageObjects\Learning\CoursePage.cs" />
     <Compile Include="PageObjects\Learning\LearningPage.cs" />
+    <Compile Include="PageObjects\Login\LoginPage.cs" />
     <Compile Include="PageObjects\Onboarding\CandidatePage.cs" />
     <Compile Include="PageObjects\Onboarding\OnboardingPage.cs" />
     <Compile Include="PageObjects\Payroll\PayrollPage.cs" />
