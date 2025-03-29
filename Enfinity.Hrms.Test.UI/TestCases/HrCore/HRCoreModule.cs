@@ -16,6 +16,7 @@ using NUnit.Framework.Legacy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
@@ -34,6 +35,8 @@ namespace Enfinity.Hrms.Test.UI
         #region Employee Test
 
         #region Create Employee With System Access 
+        //Scenario- EmployeeWithValidAccess, delete created employee and freeze the user
+
         [Test]
         //[Ignore("")]
         [TestCaseSource(typeof(HRCoreDataProvider), nameof(HRCoreDataProvider.EmployeeWithSystemAccess))]
@@ -45,9 +48,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
-                hc.ClickHRCore();
-                hc.ClickSetupForm();
-
+                hc.ClickHRCore();                     
                 //setup page
                 SetupPage sp = new SetupPage(_driver);
                 sp.ClickEmployee();
@@ -89,8 +90,9 @@ namespace Enfinity.Hrms.Test.UI
                 //login page
                 LoginPage lp = new LoginPage(_driver);
                 lp.Login(email, "123");
-
                 ClassicAssert.IsTrue(ep.MyInfoValidation(name));
+
+                #region want to delete created employee
 
                 HRCorePage hr = new HRCorePage(_driver);
                 hr.ClickHRCore();
@@ -103,15 +105,23 @@ namespace Enfinity.Hrms.Test.UI
 
                 ep.ClickSettingButton();
                 ep.ClickDelete();
-                ep.ClickOk(); 
+                ep.ClickOk();
                 ClassicAssert.IsFalse(ep.ValidateEmpDelete(name));
+
+                #endregion
+
+                #region want to freeze the user
 
                 ep.ClickRightAreaMenu();
                 ep.ClicklogOff();
                 lp.Login("vaibhav@test.com", "123");
-                UserPage up= new UserPage(_driver);
+                UserPage up = new UserPage(_driver);
                 up.FreezeUser(username);
                 //ClassicAssert.IsTrue(ep.IsEmployeeCreated(name));
+
+                #endregion
+
+
 
             }
             catch (Exception e)
@@ -987,7 +997,7 @@ namespace Enfinity.Hrms.Test.UI
                 foreach (var employee in employeeInfo)
                 {
                     ep.ClickNewBtn();
-                    ep.ProvideWorkEmail(employee.email);
+                    ep.ProvideWorkEmail(employee.email);                   
                     ep.ProvideName(employee.name);
                     //ep.ClickMgrDropdown();
                     //ep.SelectMgr();
@@ -1015,6 +1025,8 @@ namespace Enfinity.Hrms.Test.UI
                     ep.ClickSave();
 
                     ClassicAssert.IsTrue(ep.Validation(employee.name));
+                   
+
                 }
 
 
@@ -1023,7 +1035,7 @@ namespace Enfinity.Hrms.Test.UI
             }
             catch (Exception e)
             {
-                ClassicAssert.Fail("Test case failed: " + e);
+                ClassicAssert.Fail("VRC- Test case failed: " + e);  
             }
 
         }

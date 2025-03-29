@@ -58,7 +58,8 @@ namespace Enfinity.Erp.Test.UI
                     #region Validate the created price list name
                     IWebElement priceListNameElement = _driver.FindElement(By.CssSelector("input[name='Name']"));
                     string actualName = priceListNameElement.GetAttribute("value");
-                    StringAssert.Contains(priceList.Name, actualName);
+                    ClassicAssert.IsTrue(false);
+                    //StringAssert.Contains(priceList.Name, actualName);
                     #endregion
 
                     plp.ClickOnPriceList();

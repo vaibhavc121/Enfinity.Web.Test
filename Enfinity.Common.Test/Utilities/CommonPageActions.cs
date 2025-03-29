@@ -4,6 +4,7 @@ using NUnit.Framework.Legacy;
 using OpenQA.Selenium;
 using OpenQA.Selenium.BiDi.Modules.BrowsingContext;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
@@ -767,7 +768,6 @@ namespace Enfinity.Common.Test
 
         #region Written for employee listing
 
-
         public static void FilterEmployee(string value)
         {
             BaseTest._driver.FindElement(By.Id("//input[@aria-describedby='dx-col-4']")).SendKeys(value);
@@ -779,7 +779,6 @@ namespace Enfinity.Common.Test
                     .Text;
             return result;
         }
-
         public static string Result()
         {
             string result = BaseTest._driver.FindElement(By.XPath(
@@ -798,7 +797,6 @@ namespace Enfinity.Common.Test
                 employee.Click();
             }
         }
-
         public static void NavigateToEmployee(string value)
         {             
             FilterByIndex(2, value);
@@ -817,7 +815,6 @@ namespace Enfinity.Common.Test
             }
 
         }
-
         public static void SwitchTab()
         {
             string originalWindow = BaseTest._driver.CurrentWindowHandle;
@@ -834,7 +831,6 @@ namespace Enfinity.Common.Test
                 }
             }
         }
-
         public static void CloseTab()
         {
             string originalWindow = BaseTest._driver.CurrentWindowHandle;
@@ -887,7 +883,39 @@ namespace Enfinity.Common.Test
             Actions actions = new Actions(BaseTest._driver);
             actions.SendKeys(Keys.Enter).Perform();
         }
-        #endregion               
+        #endregion
+
+        #region Waits
+
+        public static void WaitUntil(By locator)
+        {
+            DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(BaseTest._driver)
+            {
+                Timeout = TimeSpan.FromSeconds(10), // Maximum wait time
+                PollingInterval = TimeSpan.FromMilliseconds(500) // Poll every 500ms
+            };
+            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(StaleElementReferenceException));
+
+            IWebElement element = fluentWait.Until(driver =>
+            {
+                IWebElement el = driver.FindElement(locator);
+                return (el.Displayed && el.Enabled) ? el : null; // Ensures visibility & clickability
+            });
+
+            element.Click(); // Click after ensuring element is ready
+        }
+
+        public static async Task Wait(int seconds)
+        {
+            await Task.Delay(seconds * 1000);
+        }
+
+        public static void WaitTS(int seconds)
+        {            
+            Thread.Sleep(seconds * 1000);
+        }
+
+        #endregion
 
         #region Validations
         public static bool IsValuePresent(By locator, string value)
@@ -959,6 +987,9 @@ namespace Enfinity.Common.Test
         #endregion
 
         #endregion
+
+
+
 
 
     }

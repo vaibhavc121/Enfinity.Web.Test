@@ -35,7 +35,7 @@
   <ul class="nav-right">
    <li class="m-r-10"><a href="#"><span class="badge badge-primary"></span></a></li>
    <li class="m-r-10">
-    <a href="#"><span class="badge badge-primary">01-03-2025 07:01:40</span></a>
+    <a href="#"><span class="badge badge-primary">29-03-2025 07:50:02</span></a>
    </li>
   </ul>
  </div>
@@ -84,9 +84,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">VerifyInvoice</p>
+            <p class="name">CreatePriceList</p>
             <p class="text-sm">
-              <span>07:01:40</span> / <span>110876.32 ms</span>
+              <span>07:50:02</span> / <span>31884.95 ms</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -94,10 +94,10 @@
             <div class="detail-head">
               <div class="p-v-10">
                 <div class="info">
-                  <h5 class="test-status text-fail">VerifyInvoice</h5>
-                  <span class='badge badge-success'>01-03-2025 07:01:40</span>
-                  <span class='badge badge-danger'>01-03-2025 07:03:31</span>
-                  <span class='badge badge-default'>110876.32 ms</span>
+                  <h5 class="test-status text-fail">CreatePriceList</h5>
+                  <span class='badge badge-success'>29-03-2025 07:50:02</span>
+                  <span class='badge badge-danger'>29-03-2025 07:50:34</span>
+                  <span class='badge badge-default'>31884.95 ms</span>
                   &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
                   <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
                   <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -109,7 +109,7 @@
 
   <div class="row mb-3">
    <div class="col-md-3">
-         <img data-featherlight='D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Erp.Test.UI\bin\Debug\Screenshots\VerifyInvoice.png' src="D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Erp.Test.UI\bin\Debug\Screenshots\VerifyInvoice.png">
+         <img data-featherlight='D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Erp.Test.UI\bin\Debug\Screenshots\CreatePriceList.png' src="D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Erp.Test.UI\bin\Debug\Screenshots\CreatePriceList.png">
       </div>
  </div>
 
@@ -121,25 +121,25 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>Mar 01, 2025 19:03:31</td>
+        <td>Mar 29, 2025 19:50:34</td>
         <td>
-Test Failed: Test case failed: OpenQA.Selenium.ElementClickInterceptedException: element click intercepted: Element <input autocomplete="off" placeholder="Select Item...For more options, press F2" id="dx_dx-38d4d3fe-7d72-b4e8-39ba-8320a25f51a6_ItemId" class="dx-texteditor-input" aria-haspopup="listbox" aria-autocomplete="list" role="combobox" type="text" spellcheck="false" tabindex="0" aria-expanded="false" aria-required="true" aria-controls="dx-c91bdcad-d4b4-fee4-a652-4a107a46392d" aria-owns="dx-1774d15e-762a-b945-75d9-0189554abc31"> is not clickable at point (1151, 174). Other element would receive the click: <nav style="display:flex;align-items:flex-start;justify-content:space-between;padding:0.5rem 1rem 0.5rem 1.3rem;">...</nav>
-  (Session info: chrome=133.0.6943.127)
-   at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)
-   at OpenQA.Selenium.WebDriver.<ExecuteAsync>d__63.MoveNext()
---- End of stack trace from previous location where exception was thrown ---
-   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
-   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-   at OpenQA.Selenium.WebDriver.InternalExecute(String driverCommandToExecute, Dictionary`2 parameters)
-   at Enfinity.Common.Test.CommonPageActions.ProvideAndEnter(By locator, String value) in D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Common.Test\Utilities\CommonPageActions.cs:line 480
-   at Enfinity.Erp.Test.UI.PageObjects.Sales.InvoicePage.ProvideItem(String value) in D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Erp.Test.UI\PageObjects\Sales\InvoicePage.cs:line 50
-   at Enfinity.Erp.Test.UI.CreateInvoiceTest.VerifyInvoice() in D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Erp.Test.UI\TestCases\Sales\CreateInvoiceTest.cs:line 38                  </td>
+Test Failed: System.Exception : Test case failed at: MoveNext
+  ----> NUnit.Framework.AssertionException :   Assert.That(condition, Is.True)
+  Expected: True
+  But was:  False
+
+
+  1)   Assert.That(condition, Is.True)
+  Expected: True
+  But was:  False
+
+                  </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>Mar 01, 2025 19:03:31</td>
+        <td>Mar 29, 2025 19:50:34</td>
         <td>
-Execution Time: 01-03-2025 07:03:31                  </td>
+Execution Time: 29-03-2025 07:50:34                  </td>
       </tr>
   </tbody>
 </table></div>
@@ -163,13 +163,13 @@ Execution Time: 01-03-2025 07:03:31                  </td>
     <div class="col-md-3">
       <div class="card"><div class="card-body">
           <p class="m-b-0">Started</p>
-          <h3>01-03-2025 07:01:40</h3>
+          <h3>29-03-2025 07:50:02</h3>
       </div></div>
     </div>
     <div class="col-md-3">
       <div class="card"><div class="card-body">
           <p class="m-b-0">Ended</p>
-          <h3>01-03-2025 07:03:31</h3>
+          <h3>29-03-2025 07:50:34</h3>
       </div></div>
     </div>
     <div class="col-md-3">
@@ -238,7 +238,7 @@ Execution Time: 01-03-2025 07:03:31                  </td>
     </div>
   </div></div>
   <script>
-	var timeline = { "VerifyInvoice":110876.3241 };
+	var timeline = { "CreatePriceList":31884.9519 };
   </script>
   <div class="row">
                   <div class="col-md-4 sysenv-container">
