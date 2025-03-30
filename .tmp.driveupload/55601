@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
 {
-    public class BenefitClaimPage : BasePage
+    public class BusinessTripPage : BasePage
     {
-        public BenefitClaimPage(IWebDriver driver) : base(driver)
+        public BusinessTripPage(IWebDriver driver) : base(driver)
         {
         }
 

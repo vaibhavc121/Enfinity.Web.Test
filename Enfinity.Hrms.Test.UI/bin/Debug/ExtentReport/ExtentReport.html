@@ -35,7 +35,7 @@
   <ul class="nav-right">
    <li class="m-r-10"><a href="#"><span class="badge badge-primary"></span></a></li>
    <li class="m-r-10">
-    <a href="#"><span class="badge badge-primary">29-03-2025 10:22:40</span></a>
+    <a href="#"><span class="badge badge-primary">30-03-2025 06:40:47</span></a>
    </li>
   </ul>
  </div>
@@ -84,9 +84,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">CreateEmployee</p>
+            <p class="name">CreateExpenseClaim</p>
             <p class="text-sm">
-              <span>10:22:40</span> / <span>17583.84 ms</span>
+              <span>06:40:47</span> / <span>19206.58 ms</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -94,10 +94,10 @@
             <div class="detail-head">
               <div class="p-v-10">
                 <div class="info">
-                  <h5 class="test-status text-fail">CreateEmployee</h5>
-                  <span class='badge badge-success'>29-03-2025 10:22:40</span>
-                  <span class='badge badge-danger'>29-03-2025 10:22:57</span>
-                  <span class='badge badge-default'>17583.84 ms</span>
+                  <h5 class="test-status text-fail">CreateExpenseClaim</h5>
+                  <span class='badge badge-success'>30-03-2025 06:40:47</span>
+                  <span class='badge badge-danger'>30-03-2025 06:41:06</span>
+                  <span class='badge badge-default'>19206.58 ms</span>
                   &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
                   <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
                   <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -109,7 +109,7 @@
 
   <div class="row mb-3">
    <div class="col-md-3">
-         <img data-featherlight='D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\bin\Debug\Screenshots\CreateEmployee.png' src="D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\bin\Debug\Screenshots\CreateEmployee.png">
+         <img data-featherlight='D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\bin\Debug\Screenshots\CreateExpenseClaim.png' src="D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\bin\Debug\Screenshots\CreateExpenseClaim.png">
       </div>
  </div>
 
@@ -121,18 +121,26 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>Mar 29, 2025 22:22:57</td>
+        <td>Mar 30, 2025 18:41:06</td>
         <td>
-Test Failed:   Assert.That(condition, Is.True)
-  Expected: True
-  But was:  False
-                  </td>
+Test Failed: Test case failed: OpenQA.Selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//span[normalize-space()='Expense Claim']"}
+  (Session info: chrome=134.0.6998.178); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+   at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)
+   at OpenQA.Selenium.WebDriver.<ExecuteAsync>d__63.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.FindElement(String mechanism, String value)
+   at Enfinity.Hrms.Test.UI.BasePage.Find(By locator) in D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\PageObjects\Base\BasePage.cs:line 20
+   at Enfinity.Hrms.Test.UI.PageObjects.SelfService.ExpenseClaimPage.ClickExpenseClaim() in D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\PageObjects\SelfService\ExpenseClaimPage.cs:line 35
+   at Enfinity.Hrms.Test.UI.SelfServiceModule.CreateExpenseClaim() in D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\TestCases\SelfService\SelfServiceModule.cs:line 49                  </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>Mar 29, 2025 22:22:57</td>
+        <td>Mar 30, 2025 18:41:06</td>
         <td>
-Execution Time: 29-03-2025 10:22:57                  </td>
+Execution Time: 30-03-2025 06:41:06                  </td>
       </tr>
   </tbody>
 </table></div>
@@ -156,13 +164,13 @@ Execution Time: 29-03-2025 10:22:57                  </td>
     <div class="col-md-3">
       <div class="card"><div class="card-body">
           <p class="m-b-0">Started</p>
-          <h3>29-03-2025 10:22:40</h3>
+          <h3>30-03-2025 06:40:47</h3>
       </div></div>
     </div>
     <div class="col-md-3">
       <div class="card"><div class="card-body">
           <p class="m-b-0">Ended</p>
-          <h3>29-03-2025 10:22:57</h3>
+          <h3>30-03-2025 06:41:06</h3>
       </div></div>
     </div>
     <div class="col-md-3">
@@ -231,7 +239,7 @@ Execution Time: 29-03-2025 10:22:57                  </td>
     </div>
   </div></div>
   <script>
-	var timeline = { "CreateEmployee":17583.84 };
+	var timeline = { "CreateExpenseClaim":19206.5839 };
   </script>
   <div class="row">
                   <div class="col-md-4 sysenv-container">

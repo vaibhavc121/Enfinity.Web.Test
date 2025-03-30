@@ -43,7 +43,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public void ClickBenefitSchemeDD()
         {
-            Find(benefitSchemeDD).Click();   
+            Find(benefitSchemeDD).Click();
         }
         public void SelectBenefitScheme(string value)
         {

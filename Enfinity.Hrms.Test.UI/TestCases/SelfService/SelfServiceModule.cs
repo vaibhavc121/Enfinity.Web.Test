@@ -1,6 +1,7 @@
 ﻿using Enfinity.Common.Test;
 using Enfinity.Hrms.Test.UI.Models.SelfService;
 using Enfinity.Hrms.Test.UI.Models.SelfService.AdminSupport;
+using Enfinity.Hrms.Test.UI.Models.SelfService.BusinessTripClaim;
 using Enfinity.Hrms.Test.UI.Models.SelfService.ExpenseClaim;
 using Enfinity.Hrms.Test.UI.Models.SelfService.HRAssetRequest;
 using Enfinity.Hrms.Test.UI.Models.SelfService.ITSupport;
@@ -33,7 +34,7 @@ namespace Enfinity.Hrms.Test.UI
                 Login(Product);
 
                 var ExpenseClaimFile = FileHelper.GetDataFile("Hrms", "SelfService", "ExpenseClaim", "ExpenseClaimData");
-                var ExpenseClaimData = JsonHelper.ConvertJsonListDataModel<ExpenseClaimModel>(ExpenseClaimFile, "createExpenseClaim");
+                var ExpenseClaimData = JsonHelper.ConvertJsonListDataModel<BusinessTripClaimModel>(ExpenseClaimFile, "createExpenseClaim");
 
                 //self service page
                 SelfServicePage ss = new SelfServicePage(_driver);
@@ -57,6 +58,53 @@ namespace Enfinity.Hrms.Test.UI
                     ec.ProvideExpenseClaimCategory(ExpenseClaim.claimCategory);
                     ec.ProvideCurrency(ExpenseClaim.currency);
                     ec.ProvideAmount(ExpenseClaim.amount);
+                }
+
+                ClassicAssert.IsTrue(ec.IsTxnCreated());
+            }
+            catch (Exception e)
+            {
+
+                ClassicAssert.Fail("Test case failed: " + e);
+
+            }
+        }
+        #endregion
+
+        #region Create Business Trip Claim
+        [Test, Order(1)]
+        //[Ignore("locator issue")]
+        public void CreateBusinessTripClaim()
+        {
+            try
+            {
+                Login(Product);
+
+                var BusinessTripClaimFile = FileHelper.GetDataFile("Hrms", "SelfService", "BusinessTripClaim", "BusinessTripClaimData");
+                var BusinessTripClaimData = JsonHelper.ConvertJsonListDataModel<BusinessTripClaimModel>(BusinessTripClaimFile, "createBusinessTripClaim");
+
+                //self service page
+                SelfServicePage ss = new SelfServicePage(_driver);
+                ss.ClickSelfService();
+                ss.ClickTransactions();
+
+                //ExpenseClaim page                
+                BusinessTripClaimPage ec = new BusinessTripClaimPage(_driver);
+
+                foreach (var BusinessTripClaim in BusinessTripClaimData)
+                {
+                    ec.ClickBusinessTripClaim();
+                    ec.ClickNew();
+                    ec.ClickSave();
+                    ec.ScrollDownWebPage();
+                    ec.ClickNewLine();
+                    //ec.ProvideExpenseDate(ExpenseClaim.expenseDate);
+                    ec.ProvideRemarks(BusinessTripClaim.remarks);
+                    //ec.ClickExpenseClaimCategoryDD();
+                    //ec.SelectExpenseClaimCategory(ExpenseClaim.claimCategory);
+                    ec.ProvideExpenseClaimCategory(BusinessTripClaim.claimCategory);
+                    ec.ProvideCurrency(BusinessTripClaim.currency);
+                    ec.ProvideAmount(BusinessTripClaim.amount);
                 }
 
                 ClassicAssert.IsTrue(ec.IsTxnCreated());
@@ -605,7 +653,7 @@ namespace Enfinity.Hrms.Test.UI
             Login(Product);
 
             var ExpenseClaimFile = FileHelper.GetDataFile("Hrms", "SelfService", "ExpenseClaim", "ExpenseClaimData");
-            var ExpenseClaimData = JsonHelper.ConvertJsonListDataModel<ExpenseClaimModel>(ExpenseClaimFile, "createExpenseClaim");
+            var ExpenseClaimData = JsonHelper.ConvertJsonListDataModel<BusinessTripClaimModel>(ExpenseClaimFile, "createExpenseClaim");
 
             //self service page
             SelfServicePage ss = new SelfServicePage(_driver);

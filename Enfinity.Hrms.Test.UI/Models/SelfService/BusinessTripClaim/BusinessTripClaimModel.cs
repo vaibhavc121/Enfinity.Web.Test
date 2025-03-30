@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Enfinity.Hrms.Test.UI.Models.SelfService.ExpenseClaim
+namespace Enfinity.Hrms.Test.UI.Models.SelfService.BusinessTripClaim
 {
     public class BusinessTripClaimModel
     {

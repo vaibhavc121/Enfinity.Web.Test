@@ -55,8 +55,6 @@ namespace Enfinity.Common.Test
             ExtentReportsUtility.CreateTest(TestContext.CurrentContext.Test.Name);
         }
 
-
-
         [TearDown]
         //[OneTimeTearDown]
         public void TearDown()

@@ -168,6 +168,7 @@
     <Compile Include="Models\Payroll\Payroll\PayrollModel.cs" />
     <Compile Include="Models\Recruitment\Recruitment\RecruitmentModel.cs" />
     <Compile Include="Models\SelfService\AdminSupport\AdminSupportModel.cs" />
+    <Compile Include="Models\SelfService\BusinessTripClaim\BusinessTripClaimModel.cs" />
     <Compile Include="Models\SelfService\ExpenseClaim\ExpenseClaimModel.cs" />
     <Compile Include="Models\SelfService\HRAssetRequest\HRAssetRequestModel.cs" />
     <Compile Include="Models\SelfService\ITSupport\ITSupportModel.cs" />
@@ -203,6 +204,7 @@
     <Compile Include="PageObjects\Recruitment\RecruitmentPage.cs" />
     <Compile Include="PageObjects\SelfService\AdminSupportPage.cs" />
     <Compile Include="PageObjects\SelfService\BenefitClaimPage.cs" />
+    <Compile Include="PageObjects\SelfService\BusinessTripClaimPage.cs" />
     <Compile Include="PageObjects\SelfService\ExpenseClaimPage.cs" />
     <Compile Include="PageObjects\SelfService\HRAssetRequestPage.cs" />
     <Compile Include="PageObjects\SelfService\ITSupportPage.cs" />
@@ -265,6 +267,7 @@
     <None Include="Models\Payroll\Payroll\PayrollData.json" />
     <None Include="Models\Recruitment\Recruitment\RecruitmentData.json" />
     <None Include="Models\SelfService\AdminSupport\AdminSupportData.json" />
+    <None Include="Models\SelfService\BusinessTripClaim\BusinessTripClaimData.json" />
     <None Include="Models\SelfService\ExpenseClaim\ExpenseClaimData.json" />
     <None Include="Models\SelfService\HRAssetRequest\HRAssetRequestData.json" />
     <None Include="Models\SelfService\ITSupport\ITSupportData.json" />
