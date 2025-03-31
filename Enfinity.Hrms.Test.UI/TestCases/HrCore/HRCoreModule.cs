@@ -11,6 +11,7 @@ using Enfinity.Hrms.Test.UI.Models.HRCore.Qualification;
 using Enfinity.Hrms.Test.UI.Models.HRCore.Religion;
 using Enfinity.Hrms.Test.UI.PageObjects.HrCore;
 using Enfinity.Hrms.Test.UI.PageObjects.Login;
+using Enfinity.Hrms.Test.UI.Utilities;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 using System;
@@ -38,13 +39,13 @@ namespace Enfinity.Hrms.Test.UI
         //Scenario- EmployeeWithValidAccess, delete created employee and freeze the user
 
         [Test]
-        //[Ignore("")]
+        [Ignore("")]
         [TestCaseSource(typeof(HRCoreDataProvider), nameof(HRCoreDataProvider.EmployeeWithSystemAccess))]
         public void CreateEmployeeWithValidAccess(string email, string name, string mbl, string doj, string dept, string desg, string payrollset, string calendar, string indemnity, string grade, string gender, string religion, string martitalStatus, string username, string roles)
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -76,7 +77,7 @@ namespace Enfinity.Hrms.Test.UI
                 //ep.ProvideUserName(username);
                 //ep.ClickRoles();
                 ep.SelectRole(roles);
-                ep.ClickSave();
+                ep.ClickOnSave();
                 ep.ClickSettingButton();
                 ep.ClickResetPwd();
 
@@ -87,7 +88,7 @@ namespace Enfinity.Hrms.Test.UI
                 ep.ClickRightAreaMenu();
                 ep.ClicklogOff();
 
-                //login page
+                //Login page
                 LoginPage lp = new LoginPage(_driver);
                 lp.Login(email, "123");
                 ClassicAssert.IsTrue(ep.MyInfoValidation(name));
@@ -101,7 +102,7 @@ namespace Enfinity.Hrms.Test.UI
                 SetupPage stp = new SetupPage(_driver);
                 stp.ClickEmployee();
 
-                CommonPageActions.NavigateToEmployee(name);
+                BasePage.NavigateToEmployee(name);
 
                 ep.ClickSettingButton();
                 ep.ClickDelete();
@@ -140,7 +141,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -170,7 +171,7 @@ namespace Enfinity.Hrms.Test.UI
                 ep.SelectReligion(religion);
               
                 ep.SelectMaritalStatus(martitalStatus);
-                ep.ClickSave();
+                ep.ClickOnSave();
 
                 ClassicAssert.IsTrue(ep.IsEmployeeCreated(name));
 
@@ -192,10 +193,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                ////Login(Product);
 
-                var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
-                var employeeInfo = JsonHelper.ConvertJsonListDataModel<NewEmployeeModel>(employeeFile, "newEmployee");
+                var employeeFile = FileUtils.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                var employeeInfo = JsonUtils.ConvertJsonListDataModel<NewEmployeeModel>(employeeFile, "newEmployee");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -238,7 +239,7 @@ namespace Enfinity.Hrms.Test.UI
                     ep.SelectReligion(employee.religion);
               
                     ep.SelectMaritalStatus(employee.maritalStatus);
-                    ep.ClickSave();
+                    ep.ClickOnSave();
                 }
 
 
@@ -262,7 +263,7 @@ namespace Enfinity.Hrms.Test.UI
             {
                 for (int i = 1; i <= 1; i++)
                 {
-                    Login(Product);
+                    //Login(Product);
 
                     var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
                     var deleteEmployee = JsonHelper.ConvertJsonListDataModel<DeleteEmpModel>(employeeFile, "deleteEmployee");
@@ -277,17 +278,17 @@ namespace Enfinity.Hrms.Test.UI
 
                     foreach (var delete in deleteEmployee)
                     {
-                        CommonPageActions.NavigateToEmployee(delete.empName);
-                        CommonPageActions.SwitchTab();
+                        BasePage.NavigateToEmployee(delete.empName);
+                        BasePage.SwitchTab();
 
                         EmployeePage ep = new EmployeePage(_driver);
                         ep.ClickSettingButton();
                         ep.ClickDelete();
                         ep.ClickOk();
-                        //ClassicAssert.IsTrue(CommonPageActions.IsEmployeeDeleted(), "Employee not deleted");
+                        //ClassicAssert.IsTrue(BasePage.IsEmployeeDeleted(), "Employee not deleted");
                         ep.ClickRightAreaMenu();
                         ep.ClicklogOff();
-                        //CommonPageActions.CloseTab();
+                        //BasePage.CloseTab();
 
                     }
 
@@ -309,7 +310,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 var departmentFile = FileHelper.GetDataFile("Hrms", "HRCore", "Department", "DepartmentData");
                 var departmentData = JsonHelper.ConvertJsonListDataModel<CreateDepartmentModel>(departmentFile, "createDepartment");
@@ -330,7 +331,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach (var department in departmentData)
                 {
-                    dp.ClickNew();
+                    dp.ClickOnNew();
                     dp.ProvideDepartmentName(department.deptname);
                     //dp.ProvideDepartmentName();
                     //dp.SelfServiceDD();
@@ -339,12 +340,12 @@ namespace Enfinity.Hrms.Test.UI
                     //dp.SelectDeptMgr();               
                     dp.ClickSaveBack();
 
-                    ClassicAssert.IsTrue(CommonPageActions.ValidateListing(department.deptname, 3, 2));
+                    ClassicAssert.IsTrue(BasePage.ValidateListing(department.deptname, 3, 2));
 
                 }
 
 
-                //ClassicAssert.IsTrue(CommonPageActions.IsTxnCreated());
+                //ClassicAssert.IsTrue(BasePage.IsTxnCreated());
 
             }
             catch (Exception e)
@@ -361,7 +362,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 var designationFile = FileHelper.GetDataFile("Hrms", "HRCore", "Designation", "DesignationData");
                 var designationData = JsonHelper.ConvertJsonListDataModel<CreateDesignationModel>(designationFile, "createDesignation");
@@ -390,8 +391,8 @@ namespace Enfinity.Hrms.Test.UI
                     dp.SetJobDescription();
                     dp.ClickSaveBack();
 
-                    CommonPageActions.ValidateListing(desg.designationName, 3, 2);
-                    //ClassicAssert.IsTrue(CommonPageActions.IsTxnCreated());
+                    BasePage.ValidateListing(desg.designationName, 3, 2);
+                    //ClassicAssert.IsTrue(BasePage.IsTxnCreated());
                 }
 
             }
@@ -408,7 +409,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 var gradeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Grade", "GradeData");
                 var gradeData = JsonHelper.ConvertJsonListDataModel<CreateGradeModel>(gradeFile, "createGrade");
@@ -429,13 +430,13 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach (var grade in gradeData)
                 {
-                    gp.ClickNew();
+                    gp.ClickOnNew();
                     gp.ProvideGradeName(grade.gradeName);
                     gp.ProvideMinSal(grade.minSal);
                     gp.ProvideMaxSal(grade.maxSal);
                     gp.ClickSaveBack();
 
-                    CommonPageActions.ValidateListing(grade.gradeName, 2, 1);
+                    BasePage.ValidateListing(grade.gradeName, 2, 1);
                 }
 
             }
@@ -452,7 +453,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 var calendarFile = FileHelper.GetDataFile("Hrms", "HRCore", "Calendar", "CalendarData");
                 var calendarData = JsonHelper.ConvertJsonListDataModel<CreateCalendarModel>(calendarFile, "createCalendar");
@@ -479,11 +480,11 @@ namespace Enfinity.Hrms.Test.UI
                     cp.SetRestday();
                     cp.ClickSaveBack();
 
-                    CommonPageActions.ValidateListing(calendar.calendarName, 2, 1);
+                    BasePage.ValidateListing(calendar.calendarName, 2, 1);
                 }
 
 
-                //ClassicAssert.IsTrue(CommonPageActions.IsTxnCreated());
+                //ClassicAssert.IsTrue(BasePage.IsTxnCreated());
             }
             catch (Exception e)
             {
@@ -500,7 +501,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 var ReligionFile = FileHelper.GetDataFile("Hrms", "HRCore", "Religion", "ReligionData");
                 var ReligionData = JsonHelper.ConvertJsonListDataModel<CreateReligionModel>(ReligionFile, "createReligion");
@@ -519,13 +520,13 @@ namespace Enfinity.Hrms.Test.UI
                 ReligionPage rp = new ReligionPage(_driver);
                 foreach (var religion in ReligionData)
                 {
-                    rp.ClickNew();
+                    rp.ClickOnNew();
                     rp.ProvideReligionName(religion.religionName);
                     rp.ClickSaveBack();
 
-                    CommonPageActions.ValidateListing(religion.religionName, 2, 1);
+                    BasePage.ValidateListing(religion.religionName, 2, 1);
                 }
-                //ClassicAssert.IsTrue(CommonPageActions.IsTxnCreated());
+                //ClassicAssert.IsTrue(BasePage.IsTxnCreated());
 
             }
             catch (Exception e)
@@ -543,7 +544,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 var workLocationFile = FileHelper.GetDataFile("Hrms", "HRCore", "WorkLocation", "WorkLocationData");
                 var workLocationData = JsonHelper.ConvertJsonListDataModel<CreateWorkLocationModel>(workLocationFile, "createWorkLocation");
@@ -562,11 +563,11 @@ namespace Enfinity.Hrms.Test.UI
                 WorkLocationPage wl = new WorkLocationPage(_driver);
                 foreach (var workLocation in workLocationData)
                 {
-                    wl.ClickNew();
+                    wl.ClickOnNew();
                     wl.ProvideWorkLocName(workLocation.workLocationName);
                     wl.ClickSaveBack();
 
-                    CommonPageActions.ValidateListing(workLocation.workLocationName, 2, 1);
+                    BasePage.ValidateListing(workLocation.workLocationName, 2, 1);
                 }
                 //ClassicAssert.IsTrue(wl.IsTxnCreated());
 
@@ -587,7 +588,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                ////Login(Product);
 
                 var bankFile = FileHelper.GetDataFile("Hrms", "HRCore", "Bank", "BankData");
                 var bankData = JsonHelper.ConvertJsonListDataModel<CreateBankModel>(bankFile, "createBank");
@@ -607,11 +608,11 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach (var bank in bankData)
                 {
-                    bp.ClickNew();
+                    bp.ClickOnNew();
                     bp.provideBankName(bank.bankName);
                     bp.clickSaveBack();
 
-                    CommonPageActions.ValidateListing(bank.bankName, 2, 1);
+                    BasePage.ValidateListing(bank.bankName, 2, 1);
                 }
                 //ClassicAssert.IsTrue(bp.IsTxnCreated());
             }
@@ -630,7 +631,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 var qualificationFile = FileHelper.GetDataFile("Hrms", "HRCore", "Qualification", "QualificationData");
                 var qualificationData = JsonHelper.ConvertJsonListDataModel<CreateQualificationModel>(qualificationFile, "createQualification");
@@ -650,11 +651,11 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach (var qualification in qualificationData)
                 {
-                    qp.ClickNew();
+                    qp.ClickOnNew();
                     qp.ProvideQualificationName(qualification.qualificationName);
                     qp.ClickSaveBack();
 
-                    CommonPageActions.ValidateListing(qualification.qualificationName, 2, 1);
+                    BasePage.ValidateListing(qualification.qualificationName, 2, 1);
                 }
                 //ClassicAssert.IsTrue(qp.IsTxnCreated());
             }
@@ -673,7 +674,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 var documentTypeFile = FileHelper.GetDataFile("Hrms", "HRCore", "DocumentType", "DocumentTypeData");
                 var documentTypeData = JsonHelper.ConvertJsonListDataModel<CreateDocumentTypeModel>(documentTypeFile, "createDocumentType");
@@ -693,11 +694,11 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach (var document in documentTypeData)
                 {
-                    dt.ClickNew();
+                    dt.ClickOnNew();
                     dt.ProvideDocumentTypeName(document.documentTypeName);
                     dt.ClickSaveBack();
 
-                    CommonPageActions.ValidateListing(document.documentTypeName, 2, 1);
+                    BasePage.ValidateListing(document.documentTypeName, 2, 1);
                 }
                 //ClassicAssert.IsTrue(dt.IsTxnCreated());
                 //ClassicAssert.IsTrue(true);
@@ -715,7 +716,7 @@ namespace Enfinity.Hrms.Test.UI
         [Test, Order(10)]
         public void DeleteDepartment()
         {
-            Login(Product);
+            //Login(Product);
 
             var departmentFile = FileHelper.GetDataFile("Hrms", "HRCore", "Department", "DepartmentData");
             var departmentData = JsonHelper.ConvertJsonListDataModel<DeleteDepartmentModel>(departmentFile, "deleteDepartment");
@@ -732,9 +733,9 @@ namespace Enfinity.Hrms.Test.UI
             {
                 sp.ClickDepartment();
                 Thread.Sleep(2000);
-                CommonPageActions.DeleteHrCoreTxn(3, dept.deptname);
+                BasePage.DeleteHrCoreTxn(3, dept.deptname);
 
-                ClassicAssert.IsFalse(CommonPageActions.ValidateListing(dept.deptname, 3, 2));
+                ClassicAssert.IsFalse(BasePage.ValidateListing(dept.deptname, 3, 2));
             }
 
         }
@@ -744,7 +745,7 @@ namespace Enfinity.Hrms.Test.UI
         [Test, Order(11)]
         public void DeleteDesignation()
         {
-            Login(Product);
+            //Login(Product);
 
             var DesignationFile = FileHelper.GetDataFile("Hrms", "HRCore", "Designation", "DesignationData");
             var DesignationData = JsonHelper.ConvertJsonListDataModel<DeleteDesignationModel>(DesignationFile, "deleteDesignation");
@@ -761,9 +762,9 @@ namespace Enfinity.Hrms.Test.UI
             {
                 sp.ClickDesignation();
                 Thread.Sleep(2000);
-                CommonPageActions.DeleteHrCoreTxn(3, desg.designationName);
+                BasePage.DeleteHrCoreTxn(3, desg.designationName);
 
-                ClassicAssert.IsFalse(CommonPageActions.ValidateListing(desg.designationName, 3, 2));
+                ClassicAssert.IsFalse(BasePage.ValidateListing(desg.designationName, 3, 2));
             }
 
         }
@@ -773,7 +774,7 @@ namespace Enfinity.Hrms.Test.UI
         [Test, Order(12)]
         public void DeleteGrade()
         {
-            Login(Product);
+            //Login(Product);
 
             var gradeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Grade", "GradeData");
             var gradeData = JsonHelper.ConvertJsonListDataModel<DeleteGradeModel>(gradeFile, "deleteGrade");
@@ -790,9 +791,9 @@ namespace Enfinity.Hrms.Test.UI
             {
                 sp.ClickGrade();
                 Thread.Sleep(2000);
-                CommonPageActions.DeleteHrCoreTxn(2, grade.gradeName);
+                BasePage.DeleteHrCoreTxn(2, grade.gradeName);
 
-                ClassicAssert.IsFalse(CommonPageActions.ValidateListing(grade.gradeName, 2, 1));
+                ClassicAssert.IsFalse(BasePage.ValidateListing(grade.gradeName, 2, 1));
             }
 
         }
@@ -802,7 +803,7 @@ namespace Enfinity.Hrms.Test.UI
         [Test, Order(13)]
         public void DeleteCalendar()
         {
-            Login(Product);
+            //Login(Product);
 
             var calendarFile = FileHelper.GetDataFile("Hrms", "HRCore", "Calendar", "CalendarData");
             var calendarData = JsonHelper.ConvertJsonListDataModel<DeleteCalendarModel>(calendarFile, "deleteCalendar");
@@ -818,9 +819,9 @@ namespace Enfinity.Hrms.Test.UI
             {
                 sp.ClickCalendar();
                 Thread.Sleep(2000);
-                CommonPageActions.DeleteHrCoreTxn(2, calendar.calendarName);
+                BasePage.DeleteHrCoreTxn(2, calendar.calendarName);
 
-                ClassicAssert.IsFalse(CommonPageActions.ValidateListing(calendar.calendarName, 2, 1));
+                ClassicAssert.IsFalse(BasePage.ValidateListing(calendar.calendarName, 2, 1));
             }
 
         }
@@ -830,7 +831,7 @@ namespace Enfinity.Hrms.Test.UI
         [Test, Order(14)]
         public void DeleteReligion()
         {
-            Login(Product);
+            //Login(Product);
 
             var ReligionFile = FileHelper.GetDataFile("Hrms", "HRCore", "Religion", "ReligionData");
             var ReligionData = JsonHelper.ConvertJsonListDataModel<DeleteReligionModel>(ReligionFile, "createReligion");
@@ -846,9 +847,9 @@ namespace Enfinity.Hrms.Test.UI
             {
                 sp.ClickReligion();
                 Thread.Sleep(2000);
-                CommonPageActions.DeleteHrCoreTxn(2, religion.religionName);
+                BasePage.DeleteHrCoreTxn(2, religion.religionName);
 
-                ClassicAssert.IsFalse(CommonPageActions.ValidateListing(religion.religionName, 2, 1));
+                ClassicAssert.IsFalse(BasePage.ValidateListing(religion.religionName, 2, 1));
             }
 
         }
@@ -859,7 +860,7 @@ namespace Enfinity.Hrms.Test.UI
         public void DeleteWorkLocation()
         {
 
-            Login(Product);
+            //Login(Product);
 
             var workLocationFile = FileHelper.GetDataFile("Hrms", "HRCore", "WorkLocation", "WorkLocationData");
             var workLocationData = JsonHelper.ConvertJsonListDataModel<DeleteWorkLocationModel>(workLocationFile, "createWorkLocation");
@@ -875,9 +876,9 @@ namespace Enfinity.Hrms.Test.UI
             {
                 sp.ClickWorkLocation();
                 Thread.Sleep(2000);
-                CommonPageActions.DeleteHrCoreTxn(2, wl.workLocationName);
+                BasePage.DeleteHrCoreTxn(2, wl.workLocationName);
 
-                ClassicAssert.IsFalse(CommonPageActions.ValidateListing(wl.workLocationName, 2, 1));
+                ClassicAssert.IsFalse(BasePage.ValidateListing(wl.workLocationName, 2, 1));
             }
 
         }
@@ -887,10 +888,10 @@ namespace Enfinity.Hrms.Test.UI
         [Test, Order(16)]
         public void DeleteBank()
         {
-            Login(Product);
+            ////Login(Product);
 
             var bankFile = FileHelper.GetDataFile("Hrms", "HRCore", "Bank", "BankData");
-            var bankData = JsonHelper.ConvertJsonListDataModel<DeleteBankModel>(bankFile, "createBank");
+            var bankData = JsonHelper.ConvertJsonListDataModel<DeleteBankModel>(bankFile, "deleteBank");
 
             //hr core page
             HRCorePage hc = new HRCorePage(_driver);
@@ -903,10 +904,10 @@ namespace Enfinity.Hrms.Test.UI
             {
                 sp.ClickBank();
                 Thread.Sleep(2000);
-                CommonPageActions.DeleteHrCoreTxn(2, bank.bankName);
+                BasePage.DeleteHrCoreTxn(2, bank.bankName);
 
-                ClassicAssert.IsFalse(CommonPageActions.ValidateListing(bank.bankName, 2, 1));
-                //ClassicAssert.IsTrue(CommonPageActions.IsTxnCreated());
+                ClassicAssert.IsFalse(BasePage.ValidateListing(bank.bankName, 2, 1));
+                //ClassicAssert.IsTrue(BasePage.IsTxnCreated());
             }
 
         }
@@ -916,7 +917,7 @@ namespace Enfinity.Hrms.Test.UI
         [Test, Order(17)]
         public void DeleteQualification()
         {
-            Login(Product);
+            //Login(Product);
 
             var qualificationFile = FileHelper.GetDataFile("Hrms", "HRCore", "Qualification", "QualificationData");
             var qualificationData = JsonHelper.ConvertJsonListDataModel<DeleteQualificationModel>(qualificationFile, "deleteQualification");
@@ -932,9 +933,9 @@ namespace Enfinity.Hrms.Test.UI
             {
                 sp.ClickQualification();
                 Thread.Sleep(2000);
-                CommonPageActions.DeleteHrCoreTxn(2, qualification.qualificationName);
+                BasePage.DeleteHrCoreTxn(2, qualification.qualificationName);
 
-                ClassicAssert.IsFalse(CommonPageActions.ValidateListing(qualification.qualificationName, 2, 1));
+                ClassicAssert.IsFalse(BasePage.ValidateListing(qualification.qualificationName, 2, 1));
             }
 
         }
@@ -944,7 +945,7 @@ namespace Enfinity.Hrms.Test.UI
         [Test, Order(18)]
         public void DeleteDocumentType()
         {
-            Login(Product);
+            //Login(Product);
 
             var documentTypeFile = FileHelper.GetDataFile("Hrms", "HRCore", "DocumentType", "DocumentTypeData");
             var documentTypeData = JsonHelper.ConvertJsonListDataModel<DeleteDocumentTypeModel>(documentTypeFile, "createDocumentType");
@@ -960,9 +961,9 @@ namespace Enfinity.Hrms.Test.UI
             {
                 sp.ClickDocumentType();
                 Thread.Sleep(2000);
-                CommonPageActions.DeleteHrCoreTxn(2, doc.documentTypeName);
+                BasePage.DeleteHrCoreTxn(2, doc.documentTypeName);
 
-                ClassicAssert.IsFalse(CommonPageActions.ValidateListing(doc.documentTypeName, 2, 1));
+                ClassicAssert.IsFalse(BasePage.ValidateListing(doc.documentTypeName, 2, 1));
             }
 
         }
@@ -976,7 +977,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
                 var employeeInfo = JsonHelper.ConvertJsonListDataModel<NewEmployeeModel>(employeeFile, "newEmployee");
@@ -1022,9 +1023,9 @@ namespace Enfinity.Hrms.Test.UI
                     ep.SelectReligion(employee.religion);
                  
                     ep.SelectMaritalStatus(employee.maritalStatus);
-                    ep.ClickSave();
+                    ep.ClickOnSave();
 
-                    ClassicAssert.IsTrue(ep.Validation(employee.name));
+                    ClassicAssert.IsTrue(ep.Validate(employee.name));
                    
 
                 }
@@ -1051,7 +1052,7 @@ namespace Enfinity.Hrms.Test.UI
                 //instead of for loop you can use repeat attribute 
                 for (int i = 1; i <= 1; i++)
                 {
-                    Login(Product);
+                    //Login(Product);
 
                     var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
                     var deleteEmployee = JsonHelper.ConvertJsonListDataModel<DeleteEmpModel>(employeeFile, "deleteEmployee");
@@ -1066,17 +1067,17 @@ namespace Enfinity.Hrms.Test.UI
 
                     foreach (var delete in deleteEmployee)
                     {
-                        CommonPageActions.NavigateToEmployee(delete.empName);
-                        CommonPageActions.SwitchTab();
+                        BasePage.NavigateToEmployee(delete.empName);
+                        BasePage.SwitchTab();
 
                         EmployeePage ep = new EmployeePage(_driver);
                         ep.ClickSettingButton();
                         ep.ClickDelete();
                         ep.ClickOk();
-                        //ClassicAssert.IsTrue(CommonPageActions.IsEmployeeDeleted(), "Employee not deleted");
+                        //ClassicAssert.IsTrue(BasePage.IsEmployeeDeleted(), "Employee not deleted");
                         //ep.ClickRightAreaMenu();
                         //ep.ClicklogOff();
-                        //CommonPageActions.CloseTab();
+                        //BasePage.CloseTab();
 
                         ClassicAssert.IsFalse(ep.ValidateEmpDelete(delete.empName));
 

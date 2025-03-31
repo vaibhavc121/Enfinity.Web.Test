@@ -27,9 +27,9 @@ namespace Enfinity.Hrms.Test.UI
         
         
 
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
 
         public string deptNm = BasePage.RandomString();
@@ -51,7 +51,7 @@ namespace Enfinity.Hrms.Test.UI
         public void SelectDeptMgrName()
         {
             //Find(deptMgrDD).SendKeys("vaibhav chavan");
-            CommonPageActions.SelectDropdownValue("Mary Kom");
+            SelectDropdownValue("Mary Kom");
         }
 
         public void SelectDeptMgr()
@@ -61,13 +61,13 @@ namespace Enfinity.Hrms.Test.UI
 
         public void ClickSaveBack()
         {
-            CommonPageActions.ClickSaveAndBack();
+            ClickSaveAndBack();
             //Find(save).Click();
         }       
 
         public bool IsDeptCreated()
         {
-            if (CommonPageActions.ResultValue(2).Contains(deptNm))
+            if (ResultValue(2).Contains(deptNm))
             {
                 return true;
             }

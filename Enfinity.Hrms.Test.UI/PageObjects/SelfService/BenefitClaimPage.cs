@@ -27,19 +27,19 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         #region action methods
         public void ScrollDownWebpage()
         {
-            CommonPageActions.ScrollDownWebPage(profileUpdate);
+            ScrollDownWebPage(profileUpdate);
         }
         public void ClickBenefitClaim()
         {
             Find(benefitClaim).Click();
         }
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
         public void ProvideClaimDate(string value)
         {
-            CommonPageActions.ClearAndProvide1(claimDate, value);
+            ClearAndProvide1(claimDate, value);
         }
         public void ClickBenefitSchemeDD()
         {
@@ -47,7 +47,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public void SelectBenefitScheme(string value)
         {
-            CommonPageActions.SelectDropdownValue(value);
+            SelectDropdownValue(value);
 
         }
         public void ProvideClaimAmt(string value)
@@ -60,20 +60,20 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public void SelectPaymentType(string value)
         {
-            CommonPageActions.SelectDropdownValueOffice365(value);
+            SelectDropdownValueOffice365(value);
         }
         public void ProvideRemarks(string value)
         {
             Find(remarks).SendKeys(value);
         }
-        public void ClickSave()
+        public void ClickOnSave()
         {
-            //CommonPageActions.ClickSaveAndBack();
-            CommonPageActions.ClickSave();
+            //ClickSaveAndBack();
+            ClickSave();
         }
         public bool IsTxnCreated(string emp, string claimAmt)
         {
-            if (CommonPageActions.Result6().Contains(emp) && CommonPageActions.Result8().Contains(claimAmt))
+            if (Result6().Contains(emp) && Result8().Contains(claimAmt))
             {
                 return true;
             }

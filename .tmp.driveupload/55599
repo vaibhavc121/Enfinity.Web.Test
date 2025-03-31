@@ -38,14 +38,14 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(timeOff).Click();
         }
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
 
         public void ProvidePermissonDate(string value)
         {
-            CommonPageActions.ClearAndProvide(permissionDate, value);
+            ClearAndProvide(permissionDate, value);
 
         }
 
@@ -56,28 +56,28 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
 
         public void SelectPermissionType(string value)
         {
-            CommonPageActions.SelectDropdownValueOffice365(value);
+            SelectDropdownValueOffice365(value);
         }
 
         public void ProvideFromTime(string value)
         {
-            CommonPageActions.ClearAndProvide1(fromTime, value);
+            ClearAndProvide1(fromTime, value);
         }
 
         public void ProvideUptoTime(string value)
         {
-            CommonPageActions.ClearAndProvide1(uptoTime, value);
+            ClearAndProvide1(uptoTime, value);
         }
 
-        public void ClickSave()
+        public void ClickOnSave()
         {
-            CommonPageActions.ClickSaveAndBack();
+            ClickSaveAndBack();
         }
        
 
         public bool IsTxnCreated(string value)
         {            
-            if(CommonPageActions.Result7().Contains(value))
+            if(Result7().Contains(value))
             {
                 return true;
             }
@@ -88,13 +88,13 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
 
         //delete time off
-        public void SelectRow()
+        public void SelectTheRow()
         {
             Find(selectRow).Click();
         }
-        public void ClickView()
+        public void ClickOnView()
         {
-            CommonPageActions.ClickView();
+            ClickView();
         }
         public void ClickContextMenu()
         {
@@ -108,9 +108,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         public void ClickOk()
         {
             //Find(ok).Click();
-            //CommonPageActions.PressKey("enter");
+            //PressKey("enter");
             Thread.Sleep(1000);
-            //CommonPageActions.PressKey("enter");
+            //PressKey("enter");
         }
 
 

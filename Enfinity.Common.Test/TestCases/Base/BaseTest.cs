@@ -53,6 +53,8 @@ namespace Enfinity.Common.Test
             ExtentReportsUtility.InitializeReport(reportPath);
             ExtentReportsUtility.SetDriver(_driver); // Set driver for screenshot capture
             ExtentReportsUtility.CreateTest(TestContext.CurrentContext.Test.Name);
+
+            Login(HrmsProduct);
         }
 
         [TearDown]

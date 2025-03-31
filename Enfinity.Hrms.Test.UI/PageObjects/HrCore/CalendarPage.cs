@@ -21,7 +21,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void ClickNewButton()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
         public void ProvideCalendarName()
         {
@@ -46,7 +46,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void ClickSaveBack()
         {
-            CommonPageActions.ClickSaveAndBack();
+            ClickSaveAndBack();
         }
         
 

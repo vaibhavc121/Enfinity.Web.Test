@@ -38,7 +38,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach (var successionPlan in successionPlanData)
                 {
-                    sp.ClickNew();
+                    sp.ClickOnNew();
                     //cp.ProvideNameArabic(candidate.nameArabic);
                     sp.ProvideName(successionPlan.name);
                     sp.ProvideDesignation(successionPlan.designation);
@@ -50,9 +50,9 @@ namespace Enfinity.Hrms.Test.UI
                     sp.ProvideAppraisalPercentage(successionPlan.appraisalPercentage);
                     sp.ProvideCoursePercentage(successionPlan.coursePercentage);
                     sp.ProvideDescription(successionPlan.description);
-                    sp.ClickSave();
+                    sp.ClickOnSave();
 
-                    //ClassicAssert.IsTrue(sp.IsTxnCreated(successionPlan.name));
+                    //ClassicAssert.IsTrue(sp.IsTransactionCreated(successionPlan.name));
                     ClassicAssert.IsTrue(true);
 
 

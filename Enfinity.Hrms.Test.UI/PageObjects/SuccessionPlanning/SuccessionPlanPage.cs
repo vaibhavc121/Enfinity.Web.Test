@@ -30,9 +30,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SuccessionPlanning
         #endregion
 
         #region action methods
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
         public void ProvideName(string value)
         {
@@ -40,57 +40,57 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SuccessionPlanning
         }
         public void ProvideNameArabic(string value)
         {
-            CommonPageActions.ClearAndProvide1(nameArabic, value);
+            ClearAndProvide1(nameArabic, value);
         }
 
         public void ProvideDesignation(string value)
         {
-            CommonPageActions.ProvideAndEnter(designation, value);
+            ProvideAndEnter(designation, value);
         }
 
         public void ProvideEmployee(string value)
         {
-            CommonPageActions.ProvideAndEnter(employee, value);
+            ProvideAndEnter(employee, value);
         }
 
         public void ProvideMinimumPercentage(string value)
         {
-            CommonPageActions.ClearAndProvide1(minimumPercentage, value);
+            ClearAndProvide1(minimumPercentage, value);
         }
 
         public void ProvideQualificationPercentage(string value)
         {
-            CommonPageActions.ClearAndProvide1(qualificationPercentage, value);
+            ClearAndProvide1(qualificationPercentage, value);
         }
 
         public void ProvideExperiencePercentage(string value)
         {
-            CommonPageActions.ClearAndProvide1(experiencePercentage, value);
+            ClearAndProvide1(experiencePercentage, value);
         }
 
         public void ProvideSkillsPercentage(string value)
         {
-            CommonPageActions.ClearAndProvide1(skillsPercentage, value);
+            ClearAndProvide1(skillsPercentage, value);
         }
 
         public void ProvideAppraisalPercentage(string value)
         {
-            CommonPageActions.ClearAndProvide1(appraisalPercentage, value);
+            ClearAndProvide1(appraisalPercentage, value);
         }
 
         public void ProvideCoursePercentage(string value)
         {
-            CommonPageActions.ClearAndProvide1(coursePercentage, value);
+            ClearAndProvide1(coursePercentage, value);
         }
 
         public void ProvideDescription(string value)
         {
-            CommonPageActions.ClearAndProvide1(description, value);
+            ClearAndProvide1(description, value);
         }
 
-        public void ClickSave()
+        public void ClickOnSave()
         {
-            CommonPageActions.ClickSaveAndBack();
+            ClickSaveAndBack();
         }
         public bool IsTxnCreated(string value)
         {

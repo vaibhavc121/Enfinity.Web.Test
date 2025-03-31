@@ -37,8 +37,8 @@ namespace Enfinity.Hrms.Test.UI
                 Thread.Sleep(2000);
 
                 //navigate to desired employee
-                CommonPageActions.NavigateToEmployee("213");
-                CommonPageActions.SwitchTab();
+                BasePage.NavigateToEmployee("213");
+                BasePage.SwitchTab();
 
                 //payroll tab
                 EmployeePage ep = new EmployeePage(_driver);

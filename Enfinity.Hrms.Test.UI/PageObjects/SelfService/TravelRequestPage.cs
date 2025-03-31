@@ -34,23 +34,23 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         #region action methods
         public void ScrollDownWebpage()
         {
-            CommonPageActions.ScrollDownWebPage(profileUpdate);
+            ScrollDownWebPage(profileUpdate);
         }
         public void ClickTravelRequest()
         {
             Find(travelRequest).Click();
         }
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
         public void ProvideFromDate(string value)
         {
-            CommonPageActions.ClearAndProvide1(fromDate, value);
+            ClearAndProvide1(fromDate, value);
         }
         public void ProvideUptoDate(string value)
         {
-            CommonPageActions.ClearAndProvide1(uptoDate, value);
+            ClearAndProvide1(uptoDate, value);
         }
         public void ClickCategoryDD()
         {
@@ -58,15 +58,15 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public void SelectCategory(string value)
         {
-            CommonPageActions.SelectDropdownValueOffice365(value);
+            SelectDropdownValueOffice365(value);
         }
         public void ProvideCategory(string value)
         {
-            CommonPageActions.ClearAndProvide1(category, value);
+            ClearAndProvide1(category, value);
         }
         public void ProvideToCountry(string value)
         {
-            CommonPageActions.ClearAndProvide1(ToCountry, value);
+            ClearAndProvide1(ToCountry, value);
         }
         public void ProvideCity(string value)
         {
@@ -78,7 +78,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public void ProvideTicketDestination(string value)
         {
-            CommonPageActions.ClearAndProvide1(ticketDestination, value);
+            ClearAndProvide1(ticketDestination, value);
         }
         public void ProvideTicketAmt(string value)
         {
@@ -86,23 +86,23 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public void ProvidePurpose(string value)
         {
-            CommonPageActions.ClearAndProvide1(purpose, value);
+            ClearAndProvide1(purpose, value);
         }
         public void ProvidePaymentType(string value)
         {
-            CommonPageActions.ClearAndProvide1(paymentType, value);
+            ClearAndProvide1(paymentType, value);
         }
         public void ProvideRemarks(string value)
         {
             Find(remarks).SendKeys(value);
         }
-        public void ClickSave()
+        public void ClickOnSave()
         {
-            CommonPageActions.ClickSaveAndBack();               
+            ClickSaveAndBack();               
         }
-        public bool IsTxnCreated(string emp, string country)
+        public bool IsTransactionCreated(string emp, string country)
         {
-            if (CommonPageActions.Result5().Contains(emp) && CommonPageActions.Result7().Contains(country))
+            if (Result5().Contains(emp) && Result7().Contains(country))
             {
                 return true;
             }

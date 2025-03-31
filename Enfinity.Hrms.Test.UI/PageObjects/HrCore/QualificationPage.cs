@@ -16,9 +16,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
 
         private By qualificationName = By.XPath("//input[@id='Qualification.Name_I']");
 
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
 
         public void ProvideQualificationName(string value)
@@ -33,12 +33,12 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
 
         public void ClickSaveBack()
         {
-            CommonPageActions.ClickSaveAndBack();
+            ClickSaveAndBack();
         }
 
-        public bool IsTxnCreated()
+        public bool IsTransactionCreated()
         {
-            return CommonPageActions.IsTxnCreated();
+            return IsTxnCreated();
         }
     }
 }

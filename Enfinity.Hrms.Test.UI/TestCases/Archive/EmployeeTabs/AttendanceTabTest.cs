@@ -37,8 +37,8 @@ namespace Enfinity.Hrms.Test.UI
                 Thread.Sleep(2000);
 
                 //navigate to desired employee
-                CommonPageActions.NavigateToEmployee("188");
-                CommonPageActions.SwitchTab();
+                BasePage.NavigateToEmployee("188");
+                BasePage.SwitchTab();
 
                 //attendance tab
                 EmployeePage ep = new EmployeePage(_driver);
@@ -57,7 +57,7 @@ namespace Enfinity.Hrms.Test.UI
                     ep.SelectPolicy(attendance.policy);
                     ep.ClickShiftPreference();
                     ep.SelectShiftPreference(attendance.shiftPreference);
-                    CommonPageActions.ClickSave();
+                    BasePage.ClickSave();
                 }
             }
             catch (Exception e)

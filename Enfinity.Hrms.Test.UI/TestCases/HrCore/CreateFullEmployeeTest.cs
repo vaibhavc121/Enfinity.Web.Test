@@ -68,7 +68,7 @@ namespace Enfinity.Hrms.Test.UI
                     ep.SelectReligion(employee.religion);
                   
                     ep.SelectMaritalStatus(employee.maritalStatus);
-                    ep.ClickSave();
+                    ep.ClickOnSave();
                 }
             }
             catch (Exception e)
@@ -107,7 +107,7 @@ namespace Enfinity.Hrms.Test.UI
                     ep.SelectMblNoVisibility(personal.mobileNumberVisibility);
                     ep.ClickEmailVisibility();
                     ep.SelectEmailVisibility(personal.emailVisibility);
-                    CommonPageActions.ClickSave();
+                    BasePage.ClickSave();
                 }
 
 

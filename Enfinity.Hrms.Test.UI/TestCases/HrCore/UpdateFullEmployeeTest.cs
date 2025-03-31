@@ -42,8 +42,8 @@ namespace Enfinity.Hrms.Test.UI
                 Thread.Sleep(2000);
 
                 //navigate to desired employee
-                CommonPageActions.NavigateToEmployee("213");
-                CommonPageActions.SwitchTab();
+                BasePage.NavigateToEmployee("213");
+                BasePage.SwitchTab();
 
                 var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
                 var personalInfo = JsonHelper.ConvertJsonListDataModel<PersonalTabModel>(employeeFile, "personal");
@@ -67,7 +67,7 @@ namespace Enfinity.Hrms.Test.UI
                     ep.SelectMblNoVisibility(personal.mobileNumberVisibility);
                     ep.ClickEmailVisibility();
                     ep.SelectEmailVisibility(personal.emailVisibility);
-                    //CommonPageActions.ClickSave();
+                    //BasePage.ClickSave();
                 }
 
                 //ClassicAssert.IsTrue(true);
@@ -119,7 +119,7 @@ namespace Enfinity.Hrms.Test.UI
                     //ep.ProvideUniversity(job.university);
                     //ep.ProvideYOP(job.YearOfPassing);
                     //ep.SaveQualification();
-                    //CommonPageActions.ClickSave();
+                    //BasePage.ClickSave();
                 }
 
             }
@@ -241,7 +241,7 @@ namespace Enfinity.Hrms.Test.UI
                         ep.LTClickSave();
                     }
 
-                    //CommonPageActions.ClickSave();
+                    //BasePage.ClickSave();
                 }
 
             }
@@ -279,7 +279,7 @@ namespace Enfinity.Hrms.Test.UI
                     ep.SelectPolicy(attendance.policy);
                     ep.ClickShiftPreference();
                     ep.SelectShiftPreference(attendance.shiftPreference);
-                    //CommonPageActions.ClickSave();
+                    //BasePage.ClickSave();
                 }
             }
             catch (Exception e)

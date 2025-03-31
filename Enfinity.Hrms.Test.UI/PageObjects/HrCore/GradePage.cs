@@ -21,9 +21,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
         #endregion
 
         #region action methods
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
 
         public void ProvideGradeName(string value)
@@ -33,16 +33,16 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
         public void ProvideMinSal(string value)
         {
             //Find(minimumSalary).SendKeys(value);
-            CommonPageActions.ClearAndProvide1(minimumSalary, value);
+            ClearAndProvide1(minimumSalary, value);
         }
         public void ProvideMaxSal(string value)
         {
             //Find(maximumSalary).SendKeys(value);
-            CommonPageActions.ClearAndProvide1(maximumSalary, value);
+            ClearAndProvide1(maximumSalary, value);
         }
         public void ClickSaveBack()
         {
-            CommonPageActions.ClickSaveAndBack();
+            ClickSaveAndBack();
         }
 
         #endregion

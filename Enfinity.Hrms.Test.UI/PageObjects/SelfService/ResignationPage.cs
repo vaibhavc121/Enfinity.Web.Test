@@ -24,31 +24,31 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         #region action methods
         public void ScrollDownWebpage()
         {
-            CommonPageActions.ScrollDownWebPage(profileUpdate);
+            ScrollDownWebPage(profileUpdate);
         }
         public void ClickResignation()
         {
             Find(resignation).Click();
         }
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
         public void ProvideSubmittedDate(string value)
         {
-            CommonPageActions.ClearAndProvide1(submittedDate, value);
+            ClearAndProvide1(submittedDate, value);
         }
         public void ProvideRemarks(string value)
         {
             Find(remarks).SendKeys(value);
         }
-        public void ClickSave()
+        public void ClickOnSave()
         {
-            CommonPageActions.ClickSave();
+            ClickSave();
         }
-        public bool IsTxnCreated()
+        public bool IsTransactionCreated()
         {
-           return CommonPageActions.IsTxnCreated();
+           return IsTxnCreated();
         }
         
         #endregion

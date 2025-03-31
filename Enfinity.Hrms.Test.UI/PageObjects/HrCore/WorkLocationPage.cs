@@ -16,9 +16,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
 
         private By workLocationName = By.XPath("//input[@id='WorkLocation.Name_I']");
 
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
         public void ProvideWorkLocName(string value)
         {
@@ -30,11 +30,11 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
         }
         public void ClickSaveBack()
         {
-            CommonPageActions.ClickSaveAndBack();
+            ClickSaveAndBack();
         }
-        public bool IsTxnCreated()
+        public bool IsTransactionCreated()
         {
-            return CommonPageActions.IsTxnCreated();
+            return IsTxnCreated();
         }
 
     }

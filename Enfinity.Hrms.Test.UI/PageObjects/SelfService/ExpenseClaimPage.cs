@@ -35,40 +35,40 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             Find(expenseClaim).Click();
         }
 
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
 
-        public void ClickSave()
+        public void ClickOnSave()
         {
-            CommonPageActions.ClickSave();
+            ClickSave();
         }
         
         public void ScrollDownWebPage()
         {
-            CommonPageActions.ScrollDownWebPage(newLine);
+            ScrollDownWebPage(newLine);
         }
 
-        public void ClickNewLine()
+        public void ClickOnNewLine()
         {
             Find(newLine).Click();
         }
         public void ProvideExpenseDate(string value)
         {
             Find(expenseDate).Click();
-            CommonPageActions.ProvideValue(expenseDate, value);
+            ProvideValue(expenseDate, value);
         }
 
         public void ProvideRemarks(string value)
         {
             Find(remarks).Click();
             //Find(remarks).SendKeys(value);
-            CommonPageActions.ProvideValue(remarks,value);
+            ProvideValue(remarks,value);
         }
         public void ProvideExpenseClaimCategory(string value)
         {
-            CommonPageActions.ClearAndProvide1(expenseClaimCategory, value);
+            ClearAndProvide1(expenseClaimCategory, value);
         }
         public void ClickExpenseClaimCategoryDD()
         {
@@ -108,12 +108,12 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public void ProvideAmount(string value) 
         {
-            CommonPageActions.ClearAndProvide1(amount, value);
+            ClearAndProvide1(amount, value);
         }
 
-        public bool IsTxnCreated()
+        public bool IsTransactionCreated()
         {
-           return CommonPageActions.IsTxnCreated();
+           return IsTxnCreated();
         }
         #endregion
 

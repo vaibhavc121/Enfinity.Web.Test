@@ -38,9 +38,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             Find(leaveRequest).Click();
         }
 
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            //CommonPageActions.ClickNew();
+            //ClickNew();
             //Find(newBtn).Click();
             Find(plusBtn1).Click(); 
             Thread.Sleep(5000);
@@ -48,31 +48,31 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
 
         public void HoverAndClick()
         {
-            CommonPageActions.HoverAndClick(sickLeave, plusBtn);
+            HoverAndClick(sickLeave, plusBtn);
         }
         public void ProvideFromDate(string value)
         {
-            CommonPageActions.ClearAndProvide1(fromDate, value);
-            CommonPageActions.PressTab();
+            ClearAndProvide1(fromDate, value);
+            PressTab();
         }
 
         public void ProvideToDate(string value)
         {
-            CommonPageActions.ClearAndProvide1(toDate, value);
+            ClearAndProvide1(toDate, value);
         }
 
         public void ClickSaveSubmit()
         {
             Find(saveAndSubmit).Click();
         }
-        public void ClickSave()
+        public void ClickOnSave()
         {
-            CommonPageActions.ClickSaveAndBack();
+            ClickSaveAndBack();
         }
         public bool IsTxnCreate(string fromDate, string toDate)
         {
-            if(CommonPageActions.Result10().Contains(fromDate) &&
-            CommonPageActions.Result10().Contains(toDate))              
+            if(Result10().Contains(fromDate) &&
+            Result10().Contains(toDate))              
             {
                 return true;
             }

@@ -16,9 +16,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
 
         private By religionName = By.XPath("//input[@id='Religion.Name_I']");
 
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
         public void ProvideReligionName(string value)
         {
@@ -26,7 +26,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
         }
         public void ClickSaveBack()
         {
-            CommonPageActions.ClickSaveAndBack();
+            ClickSaveAndBack();
         }
        
     }

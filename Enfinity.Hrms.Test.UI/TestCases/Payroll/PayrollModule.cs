@@ -181,17 +181,17 @@ namespace Enfinity.Hrms.Test.UI
                     sc.FilterCode(salComponent.code);
                     try
                     {
-                        sc.SelectRow();
+                        sc.SelectTheRow();
                     }
                     catch(Exception )
                     {
                         continue;
                     }
                     
-                    sc.ClickEdit();
+                    sc.ClickOnEdit();
                     sc.ClickGeneral();
                     sc.SelectRestrictToCompany("Grand Stream Solutions");
-                    sc.ClickSaveAndBack();
+                    sc.ClickViewBack();
                 }
 
             }

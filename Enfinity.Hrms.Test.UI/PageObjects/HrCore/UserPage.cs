@@ -30,26 +30,26 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
 
         public async void FreezeUser(string username)
         {
-            CommonPageActions.GlobalSearch("User");
+            GlobalSearch("User");
             //Thread.Sleep(2000);
-            CommonPageActions.WaitTS(2);
-            CommonPageActions.NavigateToEmployee(username);
+            WaitTS(2);
+            NavigateToEmployee(username);
             //Thread.Sleep(2000);
-            //CommonPageActions.Wait1(4);
-            await CommonPageActions.Wait(4);
-            //CommonPageActions.WaitUntil(edit);
-            CommonPageActions.ClickEdit();
+            //Wait1(4);
+            await Wait(4);
+            //WaitUntil(edit);
+            ClickEdit();
             Find(contextMenu).Click();
             //Thread.Sleep(2000);
             //Find(freeze).Click();
-            CommonPageActions.WaitUntil(freeze);
+            WaitUntil(freeze);
             _driver.Navigate().Back();
-            CommonPageActions.FilterByIndex(2, username);
-            //string freezed= CommonPageActions.ResultValue(5);
+            FilterByIndex(2, username);
+            //string freezed= ResultValue(5);
 
             ClassicAssert.AreEqual("YES", "YES");
-            //StringAssert.Contains("YES", CommonPageActions.ResultValue(5));
-            //ClassicAssert.That("YES", Is.EqualTo(CommonPageActions.ResultValue(5)).IgnoreCase);
+            //StringAssert.Contains("YES", ResultValue(5));
+            //ClassicAssert.That("YES", Is.EqualTo(ResultValue(5)).IgnoreCase);
 
         }
 

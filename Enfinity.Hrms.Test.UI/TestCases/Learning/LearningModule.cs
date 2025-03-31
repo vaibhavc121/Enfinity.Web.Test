@@ -38,7 +38,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach(var course in courseData)
                 {
-                    cp.ClickNew();
+                    cp.ClickOnNew();
                     cp.ProvideCourseName(course.courseName);
                     cp.ProvideCategory(course.category);
                     cp.ProvideMode(course.mode);
@@ -77,8 +77,8 @@ namespace Enfinity.Hrms.Test.UI
                     cp.ProvideBatchName(course.batchName);
                     cp.ProvideStartDate(course.startDate);
                     cp.ProvideEndDate(course.endDate);
-                    cp.ClickSave();
-                    //CommonPageActions.ClickSave();
+                    cp.ClickSaveBack();
+                    //BasePage.ClickSave();
 
                     //ClassicAssert.IsTrue(cp.IsTxnCreated(course.courseName));
                     ClassicAssert.IsTrue(true);

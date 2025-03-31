@@ -27,7 +27,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
 
         public void ClickNewButton()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
         
         public void SetDesignationCode()            
@@ -57,7 +57,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
 
         public void ClickSaveBack()
         {
-            CommonPageActions.ClickSaveAndBack();
+            ClickSaveAndBack();
         }
 
 

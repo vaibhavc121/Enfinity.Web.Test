@@ -153,6 +153,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\BaseTest.cs" />
+    <Compile Include="Models\Global\LoginModel.cs" />
     <Compile Include="Models\HRCore\Bank\BankModel.cs" />
     <Compile Include="Models\HRCore\Calendar\CalendarModel.cs" />
     <Compile Include="Models\HRCore\Department\DepartmentModel.cs" />
@@ -177,7 +179,7 @@
     <Compile Include="Models\SelfService\TimeOff\TimeOffModel.cs" />
     <Compile Include="Models\SuccessionPlanning\SuccessionPlanning\SuccessionModel.cs" />
     <Compile Include="PageObjects\Archive\TestPage.cs" />
-    <Compile Include="PageObjects\Base\BasePage.cs" />
+    <Compile Include="Base\BasePage.cs" />
     <Compile Include="PageObjects\HrCore\BankPage.cs" />
     <Compile Include="PageObjects\HrCore\CalendarPage.cs" />
     <Compile Include="PageObjects\HrCore\DepartmentPage.cs" />
@@ -248,6 +250,21 @@
     <Compile Include="TestCases\SuccessionPlanning\SuccessionModule.cs" />
     <Compile Include="TestCases\WorkforcePlanning\WorkforceModule.cs" />
     <Compile Include="TestData\DataProviders\HRCore\HRCoreDataProvider.cs" />
+    <Compile Include="Utilities\APIUtils.cs" />
+    <Compile Include="Utilities\BrowserUtils.cs" />
+    <Compile Include="Utilities\ConfigUtils.cs" />
+    <Compile Include="Utilities\DateUtils.cs" />
+    <Compile Include="Utilities\DBUtils.cs" />
+    <Compile Include="Utilities\DriverUtils.cs" />
+    <Compile Include="Utilities\ExcelUtils.cs" />
+    <Compile Include="Utilities\ExtentReportsUtils.cs" />
+    <Compile Include="Utilities\FileUtils.cs" />
+    <Compile Include="Utilities\FrameUtils.cs" />
+    <Compile Include="Utilities\JavaScriptUtils.cs" />
+    <Compile Include="Utilities\JsonUtils.cs" />
+    <Compile Include="Utilities\ScreenshotUtils.cs" />
+    <Compile Include="Utilities\DataUtils.cs" />
+    <Compile Include="Utilities\WaitUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -279,10 +296,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PageObjects\Attendance\" />
+    <Folder Include="PageObjects\Base\" />
     <Folder Include="PageObjects\Performance\" />
     <Folder Include="PageObjects\WorkforcePlanning\" />
     <Folder Include="TestCases\Base\" />
-    <Folder Include="Utilities\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Enfinity.Common.Test\Enfinity.Common.Test.csproj">

@@ -28,9 +28,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(ITSupport).Click();
         }
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
         public void ClickSupportRequestCategoryDD()
         {
@@ -47,20 +47,20 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public void SelectPriority(string value)
         {
-            CommonPageActions.SelectDropdownValueOffice365(value);
+            SelectDropdownValueOffice365(value);
 
         }
         public void ProvideRemarks(string value)
         {
             Find(remarks).SendKeys(value);
         }
-        public void ClickSave()
+        public void ClickOnSave()
         {
-            CommonPageActions.ClickSaveAndBack();
+            ClickSaveAndBack();
         }
         public bool IsTxnCreated(string value)
         {
-            if (CommonPageActions.Result6().Contains(value))
+            if (Result6().Contains(value))
             {
                 return true;
             }

@@ -402,7 +402,7 @@ namespace Enfinity.Hrms.Test.UI
         #region Create Employee Action Methods
         public void ClickNewBtn()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
 
         public void ProvideWorkEmail(string email)
@@ -419,7 +419,7 @@ namespace Enfinity.Hrms.Test.UI
         public void SelectMgr(string value)
         {
             //CommonActions.SelectDropdownOption("Vaibhav Chavan");
-            CommonPageActions.ProvideAndEnter(slctmgr, value);
+            ProvideAndEnter(slctmgr, value);
         }
 
         public void ProvideMobileNumber(string mbl)
@@ -430,7 +430,7 @@ namespace Enfinity.Hrms.Test.UI
         public void ProvideDOJ(string doj)
         {
 
-            CommonPageActions.ProvideAndEnter(joiningDate, doj);
+            ProvideAndEnter(joiningDate, doj);
 
         }
 
@@ -441,45 +441,45 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectDepartment(string dept)
         {
-            CommonPageActions.ProvideAndEnter(slctdept, dept);
+            ProvideAndEnter(slctdept, dept);
         }
 
         public void SelectDesignation(string desg)
         {
-            CommonPageActions.ProvideAndEnter(slctdesg, desg);
+            ProvideAndEnter(slctdesg, desg);
         }
 
         public void SelectPayrollSet(string value)
         {
-            CommonPageActions.ProvideAndEnter(payrollset ,value);
+            ProvideAndEnter(payrollset ,value);
         }       
 
         public void SelectCalendar(string value)
         {
-            CommonPageActions.ProvideAndEnter(slctcalendar, value);
+            ProvideAndEnter(slctcalendar, value);
         }
        
         public void SelectIndemnity(string value)
         {
-            CommonPageActions.ProvideAndEnter(indemnity, value);
+            ProvideAndEnter(indemnity, value);
         }       
         public void SelectGrade(string value)
         {
-            CommonPageActions.ProvideAndEnter(grade, value);
+            ProvideAndEnter(grade, value);
         }       
         public void SelectGender(string value)
         {
-            CommonPageActions.ProvideAndEnter(gender, value);
+            ProvideAndEnter(gender, value);
         }        
 
         public void SelectReligion(string value)
         {
-            CommonPageActions.ProvideAndEnter(religion, value);
+            ProvideAndEnter(religion, value);
         }      
 
         public void SelectMaritalStatus(string value)
         {
-            CommonPageActions.ProvideAndEnter(maritalstatus, value);
+            ProvideAndEnter(maritalstatus, value);
         }
 
         public void ClickSystemAccessBtn()
@@ -506,14 +506,14 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectRole(string value)
         {
-            //CommonPageActions.SelectDropdownOption(role);
-            CommonPageActions.ProvideAndEnter(roles, value);
+            //SelectDropdownOption(role);
+            ProvideAndEnter(roles, value);
         }
-        public void ClickSave()
+        public void ClickOnSave()
         {
-            CommonPageActions.ClickSave();
+            ClickSave();
         }
-        public bool Validation(string value)
+        public bool Validate(string value)
         {
             string empNm = Find(empText).Text;
 
@@ -544,7 +544,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public bool IsEmployeeCreated(string empname)
         {
-            if (CommonPageActions.ResultEmployee().Contains(empname))
+            if (ResultEmployee().Contains(empname))
             {
                 return true;
             }
@@ -647,7 +647,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectNationality(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
 
         }
 
@@ -660,7 +660,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectBloodGroup(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
 
@@ -673,7 +673,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectPhotoVisibility(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
 
@@ -685,7 +685,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectMblNoVisibility(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
 
@@ -697,7 +697,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectEmailVisibility(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
 
@@ -711,7 +711,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectManager(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
 
@@ -728,7 +728,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectSubstituteEmployee(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
 
@@ -739,7 +739,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectEmployeeCategory(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
         public void ClickWorkLocation()
@@ -749,7 +749,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectWorkLocation(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
 
@@ -760,7 +760,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectEmploymentType(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
         public void ProvideProbationPeriod(string value)
@@ -824,7 +824,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectQualification()
         {
-            CommonPageActions.SelectDropdownOption("BCA");
+            SelectDropdownOption("BCA");
             Thread.Sleep(1000);
         }
 
@@ -859,7 +859,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectPayrollSetID(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
 
         public void EnableNonPayrollBtn()
@@ -874,7 +874,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectPaymentMode(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
 
         public void ClickEmpBank()
@@ -885,7 +885,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectEmpBank(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
 
         public void ProvideBankAcNo()
@@ -905,7 +905,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectBankAcType(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
 
         public void ClickGovtLicense()
@@ -916,7 +916,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectGovtLicense(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
 
@@ -970,7 +970,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectSalComponent(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
         public void ProvideAmt(string value)
@@ -1010,7 +1010,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectOvertimeType(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
         public void SaveOvertimeType()
@@ -1036,7 +1036,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectRelationshipType(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
         public void ProvideDesc(string value)
@@ -1051,7 +1051,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectTicketAccrual(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
         public void ClickTicketDestination()
@@ -1061,7 +1061,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectTicketDestination(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
         public void ProvideTicketEffectiveFromDate(string value)
@@ -1086,7 +1086,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectAccrualType(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
         public void ClickResetAvailedDaysMethod()
@@ -1096,7 +1096,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectResetAvailedDaysMethod(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
         public void SaveMiscellaneousAccrual()
@@ -1117,7 +1117,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void BSSelectRelationshipType(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
         public void ClickBenefitScheme()
@@ -1127,7 +1127,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectBenefitScheme(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
         public void ProvideBSEffectiveFromDate(string value)
@@ -1162,7 +1162,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectLeaveType(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
 
         public void LTProvideEffectiveFromDate(string value)
@@ -1178,7 +1178,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void LTClickSave()
         {
-            CommonPageActions.ClickSave();
+            ClickSave();
         }
 
 
@@ -1194,7 +1194,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectAttendanceCalendar(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
 
@@ -1212,7 +1212,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectCheckInType(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
 
@@ -1224,7 +1224,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectDefaultShift(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
 
@@ -1236,7 +1236,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectPolicy(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
 
@@ -1248,7 +1248,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectShiftPreference(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
 
 
@@ -1279,7 +1279,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectDocType(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
 
         public void ProvideDocNumber()
@@ -1299,12 +1299,12 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectPlaceOfDocument(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
 
         public void EmpDocClickSave()
         {
-            CommonPageActions.ClickSave();
+            ClickSave();
             Thread.Sleep(1000);
         }
 
@@ -1330,7 +1330,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectResultAreaName(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
 
         }
         public void ProvideWeightage(string value)
@@ -1353,7 +1353,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectCompetencyName(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ProvideCompetenciesWeightage(string value)
         {
@@ -1376,7 +1376,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectSkillSetName(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ClickLevel()
         {
@@ -1385,7 +1385,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectLevel(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ProvideSkillSetWeightage(string value)
         {
@@ -1419,7 +1419,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectPriority(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ProvideGoalsWeightage(string value)
         {
@@ -1440,7 +1440,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectFinancialIntegrationGroup(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ProvideDivision(string value)
         {
@@ -1471,7 +1471,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectFromPeriod(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ClickToPeriod()
         {
@@ -1480,7 +1480,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectToPeriod(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ClickAddRowBtn()
         {
@@ -1518,7 +1518,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectProject(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ProvideProjectEffectiveFromDate(string value)
         {
@@ -1535,7 +1535,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SaveAllInfo()
         {
-            CommonPageActions.ClickSave();
+            ClickSave();
         }
 
         #endregion
@@ -1645,7 +1645,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectContractQualification(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ClickNewResidencyPeriod()
         {
@@ -1655,7 +1655,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectNewResidencyPeriod(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ClickNewGovtDesignation()
         {
@@ -1664,7 +1664,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectNewGovtDesignation(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ClickGovermenttLicense()
         {
@@ -1673,7 +1673,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectGovermenttLicense(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ProvideNewContractSalary(string value)
         {
@@ -1718,7 +1718,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectTypeOfBuilding(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ProvideStreet(string value)
         {
@@ -1758,7 +1758,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void SelectOldGovtDesignation(string value)
         {
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
             Thread.Sleep(1000);
         }
 
@@ -1773,7 +1773,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SaveResidencyInfo()
         {
-            CommonPageActions.ClickSave();
+            ClickSave();
         }
         #endregion
 
@@ -1806,10 +1806,10 @@ namespace Enfinity.Hrms.Test.UI
 
         public bool ValidateEmpDelete(string value)
         {
-            CommonPageActions.FilterByIndex(2, value);
+            FilterByIndex(2, value);
             Thread.Sleep(2000);
 
-            string employee = CommonPageActions.ResultValue(1);
+            string employee = ResultValue(1);
             //Thread.Sleep(2000);
             if (employee.Contains(value))
             {

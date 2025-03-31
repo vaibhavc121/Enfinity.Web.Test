@@ -49,9 +49,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Recruitment
         #endregion
 
         #region action methods
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
         public void ProvideJobTitle(string value)
         {
@@ -59,20 +59,20 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Recruitment
         }
         public void ProvideDepartment(string value)
         {
-            CommonPageActions.ProvideAndEnter(department, value);
+            ProvideAndEnter(department, value);
         }
         public void ProvideDesignation(string value)
         {
-            CommonPageActions.ProvideAndEnter(designation, value);
+            ProvideAndEnter(designation, value);
         }
         public void ProvideNumberOfPosition(string value)
         {
-            CommonPageActions.ClearAndProvide1(numberOfPosition, value);
+            ClearAndProvide1(numberOfPosition, value);
         }
         public void ProvideEmploymentType(string value)
         {
             Find(employmentType).Click();
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ProvideIndustry(string value)
         {
@@ -80,27 +80,27 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Recruitment
         }
         public void ProvideTargetDate(string value)
         {
-            CommonPageActions.ClearAndProvide1(targetDate, value);
+            ClearAndProvide1(targetDate, value);
         }
         public void ProvideMonthlySal(string value)
         {
-            CommonPageActions.ClearAndProvide1(monthlySalary, value);    
+            ClearAndProvide1(monthlySalary, value);    
         }
         public void ProvideAssignedManager(string value)
         {
-            CommonPageActions.ProvideAndEnter(assignedManager, value);
+            ProvideAndEnter(assignedManager, value);
         }
         public void ProvideAssignedRecruiter(string value)
         {
-            CommonPageActions.ProvideAndEnter(assignedRecruiter, value);
+            ProvideAndEnter(assignedRecruiter, value);
         }
         public void ProvideWorkExperience(string value)
         {
-            CommonPageActions.ClearAndProvide1(workExperience, value);
+            ClearAndProvide1(workExperience, value);
         }
         public void ProvideSkills(string value)
         {
-            CommonPageActions.ProvideAndEnter(skills, value);
+            ProvideAndEnter(skills, value);
         }
         public void ProvideCity(string value)
         {
@@ -112,7 +112,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Recruitment
         }
         public void ProvideCountry(string value)
         {
-            CommonPageActions.ProvideAndEnter(country, value);
+            ProvideAndEnter(country, value);
         }
         public void ProvidePostalCode(string value)
         {
@@ -120,19 +120,19 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Recruitment
         }
         public void ProvideGender(string value)
         {
-            CommonPageActions.ProvideAndEnter(gender, value);
+            ProvideAndEnter(gender, value);
         }
         public void ProvideMaritalStatus(string value)
         {
-            CommonPageActions.ProvideAndEnter(maritalStatus, value);
+            ProvideAndEnter(maritalStatus, value);
         }
         public void ProvideNationality(string value)
         {
-            CommonPageActions.ProvideAndEnter(nationality, value);
+            ProvideAndEnter(nationality, value);
         }
-        public void ClickSave()
+        public void ClickOnSave()
         {
-            CommonPageActions.ClickSaveAndBack();
+            ClickSaveAndBack();
         }
         public bool IsTxnCreated(string value)
         {

@@ -26,16 +26,16 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Payroll
 
         public void FilterCode(string value)
         {
-            CommonPageActions.FilterByIndex(2, value);
+            FilterByIndex(2, value);
             Thread.Sleep(2000);
         }
-        public void SelectRow()
+        public void SelectTheRow()
         {
             Find(selectRow).Click();
         }
-        public void ClickEdit()
+        public void ClickOnEdit()
         {
-            CommonPageActions.ClickEdit();
+            ClickEdit();
         }
         public void ClickGeneral()
         {
@@ -44,12 +44,12 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Payroll
         public void SelectRestrictToCompany(string value)
         {
             //Find(restrictToCompanyDD).Click();
-            CommonPageActions.ClearAndProvide1(restrictToCompany, value);
-            //CommonPageActions.SelectDropdownValueOffice365(value);
+            ClearAndProvide1(restrictToCompany, value);
+            //SelectDropdownValueOffice365(value);
         }
-        public void ClickSaveAndBack()
+        public void ClickViewBack()
         {
-            CommonPageActions.ClickViewAndBack();
+            ClickViewAndBack();
             
         }
         #endregion

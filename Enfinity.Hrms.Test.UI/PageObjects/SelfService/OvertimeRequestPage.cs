@@ -27,37 +27,37 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         #region action methods
         public void ScrollDownWebpage()
         {
-            CommonPageActions.ScrollDownWebPage(profileUpdate);
+            ScrollDownWebPage(profileUpdate);
         }
         public void ClickOvertimeRequest()
         {
             Find(overtimeRequest).Click();
         }
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
         public void ProvideOvertimeDate(string value)
         {
             //Find(overtimeDate).SendKeys(value);
-            CommonPageActions.ClearAndProvide1(overtimeDate, value);
+            ClearAndProvide1(overtimeDate, value);
         }
         public void ProvideOvertimeType(string value)
         {
             //Find(overtimeType).SendKeys(value);
-            CommonPageActions.ClearAndProvide1(overtimeType, value);
+            ClearAndProvide1(overtimeType, value);
         }
         public void ProvideHrs(string value)
         {
-            CommonPageActions.ClearAndProvide1(hours, value);
+            ClearAndProvide1(hours, value);
         }
         public void ProvideRemarks(string value)
         {
             Find(remarks).SendKeys(value);
         }
-        public void ClickSaveAndBack()
+        public void ClickSaveBack()
         {
-             CommonPageActions.ClickSaveAndBack();
+             ClickSaveAndBack();
         }
         public string DisplayErrorMsg()
         {
@@ -66,7 +66,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public bool IsTxnCreated(string overtimeType, string hrs)
         {
-            //if (CommonPageActions.Result6().Contains(overtimeType) && CommonPageActions.Result6().Contains(hrs))
+            //if (Result6().Contains(overtimeType) && Result6().Contains(hrs))
             //{
             //    return true;
             //}
@@ -75,7 +75,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             //    return false;
             //}
 
-            if(CommonPageActions.ResultValue(6).Contains(overtimeType) && CommonPageActions.ResultValue(6).Contains(hrs))
+            if(ResultValue(6).Contains(overtimeType) && ResultValue(6).Contains(hrs))
             {
                 return true;
             }

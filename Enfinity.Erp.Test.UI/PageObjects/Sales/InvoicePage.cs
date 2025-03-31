@@ -39,15 +39,15 @@ namespace Enfinity.Erp.Test.UI.PageObjects.Sales
         }
         public void ClickNew()
         {
-            CommonPageActions.ClickNew();
+            //BasePage.ClickNew();
         }
         public void ProvideCustomer(string value)
         {
-            CommonPageActions.ProvideAndEnter(customer, value);
+            //BasePage.ProvideAndEnter(customer, value);
         }
         public void ProvideItem(string value)
         {
-            CommonPageActions.ProvideAndEnter(item, value);
+            //BasePage.ProvideAndEnter(item, value);
         }
         public void PressTabFourTimes()
         {
@@ -60,7 +60,7 @@ namespace Enfinity.Erp.Test.UI.PageObjects.Sales
         }
         public void ScrollDownPage()
         {
-            CommonPageActions.ScrollDownWebPage(UOM);
+            //BasePage.ScrollDownWebPage(UOM);
         }
         
         public void ClickAdd()
@@ -69,7 +69,7 @@ namespace Enfinity.Erp.Test.UI.PageObjects.Sales
         }
         public void ProvideUnitPrice(string value)
         {
-            CommonPageActions.ClearAndProvideValue(unitPrice, value);
+            //BasePage.ClearAndProvideValue(unitPrice, value);
         }
         public bool CheckUnitPrice()
         {

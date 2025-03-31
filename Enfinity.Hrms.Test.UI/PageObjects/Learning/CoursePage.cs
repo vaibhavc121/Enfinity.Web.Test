@@ -46,9 +46,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Learning
         #endregion
 
         #region action methods
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
         public void ProvideCourseName(string value)
         {
@@ -57,28 +57,28 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Learning
         public void ProvideCategory(string value)
         {
             Find(category).Click();
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ProvideMode(string value)
         {
             Find(mode).Click();
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ProvideCourseTrainer(string value)
         {
             Find(courseTrainer).Click();
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ProvideType(string value)
         {
             Find(type).Click();
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ProvideEnroller(string value)
         {
             Find(enroller).Click();
             Find(hR).Click();
-            //CommonPageActions.SelectDropdownOption(value);
+            //SelectDropdownOption(value);
         }
         public void ClickAddSkillsBtn()
         {
@@ -87,52 +87,52 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Learning
         public void ProvideSkillName1(string value)
         {
             Find(skillName1).Click();
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ProvideLevel1(string value)
         {
             Find(level1).Click();
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ProvideWeightage1(string value)
         {
             //Find(weightage).Click();
-            CommonPageActions.ClearAndProvide1(weightage1, value);
+            ClearAndProvide1(weightage1, value);
         }
         public void ProvideSkillName2(string value)
         {
             Find(skillName2).Click();
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ProvideLevel2(string value)
         {
             Find(level2).Click();
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ProvideWeightage2(string value)
         {
             //Find(weightage).Click();
-            CommonPageActions.ClearAndProvide(weightage2, value);
+            ClearAndProvide(weightage2, value);
         }
         public void ProvideSkillName3(string value)
         {
             Find(skillName3).Click();
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ProvideLevel3(string value)
         {
             Find(level3).Click();
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
         public void ProvideWeightage3(string value)
         {
             //Find(weightage).Click();
-            CommonPageActions.ClearAndProvide1(weightage3, value);
+            ClearAndProvide1(weightage3, value);
         }
 
           public void ScrollWebPage()
           {
-            CommonPageActions.ScrollDownWebPage(addBatch);
+            ScrollDownWebPage(addBatch);
           }
           public void ClickAddBatch()
           {
@@ -144,19 +144,19 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Learning
           }
           public void ProvideStartDate(string value)
           {
-            CommonPageActions.ClearAndProvide1(startDate, value);
+            ClearAndProvide1(startDate, value);
           } 
         public void ProvideEndDate(string value)
         {
-            CommonPageActions.ClearAndProvide1(endDate, value);
+            ClearAndProvide1(endDate, value);
         }
-        public void ClickSave()
+        public void ClickSaveBack()
         {
-            CommonPageActions.ClickSaveAndBack();
+            ClickSaveAndBack();
         }
         public bool IsTxnCreated(string value)
         {
-            return  CommonPageActions.IsValuePresent(courses,value);
+            return  IsValuePresent(courses,value);
         }
 
         #endregion

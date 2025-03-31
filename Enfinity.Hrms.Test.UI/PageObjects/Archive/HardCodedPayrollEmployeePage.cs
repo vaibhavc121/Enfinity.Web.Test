@@ -74,7 +74,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void ClickNewBtn()
         {
-            CommonPageActions.ClickNew(); 
+            BasePage.ClickNew(); 
             
             
             
@@ -138,7 +138,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectDesig()
         {
-            CommonPageActions.SelectDropdownOption("Systems Analyst");
+            BasePage.SelectDropdownOption("Systems Analyst");
         }
 
         public void ClickCalendar()
@@ -149,7 +149,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SelectCalendar()
         {
-            CommonPageActions.SelectDropdownOption("for flipkart");
+            BasePage.SelectDropdownOption("for flipkart");
         }
 
         public void ClickGrade()
@@ -160,7 +160,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SetGrade()
         {
-            CommonPageActions.SelectDropdownOption("Contributor");
+            BasePage.SelectDropdownOption("Contributor");
         }
 
         public void ClickGender()
@@ -171,7 +171,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SetGender()
         {
-            CommonPageActions.SelectDropdownOption("Male");
+            BasePage.SelectDropdownOption("Male");
         }
 
         public void ClickReligion()
@@ -182,7 +182,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SetReligion()
         {
-            CommonPageActions.SelectDropdownOption("Hindu");
+            BasePage.SelectDropdownOption("Hindu");
         }
 
         public void ClickMaritalStatus()
@@ -193,18 +193,18 @@ namespace Enfinity.Hrms.Test.UI
 
         public void SetMaritalStatus()
         {
-            CommonPageActions.SelectDropdownOption("Married");
+            BasePage.SelectDropdownOption("Married");
         }
 
         public void ClickSave()
         {
-            CommonPageActions.ClickSaveAndBack();
+            BasePage.ClickSaveAndBack();
             
         }
 
         public bool IsEmployeeCreated()
         {
-            if (CommonPageActions.ResultEmployee().Contains(expname))
+            if (BasePage.ResultEmployee().Contains(expname))
             {
                 return true;
             }

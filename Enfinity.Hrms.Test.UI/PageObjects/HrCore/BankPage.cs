@@ -1,4 +1,5 @@
 ﻿using Enfinity.Common.Test;
+using Enfinity.Hrms.Test.UI.Base;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -16,9 +17,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
 
         private By  bankName= By.XPath("//input[@id='Bank.Name_I']");
 
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            CommonPageActions.ClickNew();
+           ClickNew();
         }
 
         public void provideBankName(string value)
@@ -33,12 +34,12 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
 
         public void clickSaveBack()
         {
-            CommonPageActions.ClickSaveAndBack();
+            ClickSaveAndBack();
         }
 
-        public bool IsTxnCreated()
+        public bool IsTransactionCreated()
         {
-            return CommonPageActions.IsTxnCreated();
+            return IsTxnCreated();
         }
 
     }

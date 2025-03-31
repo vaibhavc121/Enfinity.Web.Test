@@ -66,9 +66,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Onboarding
         #endregion
 
         #region action methods
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
             Thread.Sleep(2000);
         }
         public string candidateName = RandomString();
@@ -88,94 +88,94 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Onboarding
         }
         public void ProvideDOB(string value)
         {
-            CommonPageActions.ClearAndProvide1(dateOfBirth,value);
+            ClearAndProvide1(dateOfBirth,value);
         }
         public void ProvideGender(string value)
         {
-            CommonPageActions.ProvideAndEnter(gender, value);
+            ProvideAndEnter(gender, value);
         }
         public void ProvideMaritalStatus(string value)
         {
-            CommonPageActions.ProvideAndEnter(maritalStatus, value);
+            ProvideAndEnter(maritalStatus, value);
         }
         public void ProvideCity(string value)
         {
-            CommonPageActions.ClearAndProvide1(city, value);
+            ClearAndProvide1(city, value);
         }
 
         public void ProvideState(string value)
         {
-            CommonPageActions.ClearAndProvide1(state, value);
+            ClearAndProvide1(state, value);
         }
 
         public void ProvideCountry(string value)
         {
-            CommonPageActions.ProvideAndEnter(country, value);
+            ProvideAndEnter(country, value);
         }
 
         public void ProvidePostalCode(string value)
         {
-            CommonPageActions.ClearAndProvide1(postalCode, value);
+            ClearAndProvide1(postalCode, value);
         }
 
         public void ProvideWorkExperienceInYear(string value)
         {
-            CommonPageActions.ClearAndProvide1(workExperienceInYear, value);
+            ClearAndProvide1(workExperienceInYear, value);
         }
 
         public void ProvideCurrentJobTitle(string value)
         {
-            CommonPageActions.ClearAndProvide1(currentJobTitle, value);
+            ClearAndProvide1(currentJobTitle, value);
         }
 
         public void ProvideCurrentEmployer(string value)
         {
-            CommonPageActions.ClearAndProvide1(currentEmployer, value);
+            ClearAndProvide1(currentEmployer, value);
         }
 
         public void ProvideSkills(string value)
         {
-            CommonPageActions.ProvideAndEnter(skills, value);
+            ProvideAndEnter(skills, value);
         }
 
         public void ProvideCurrentSalary(string value)
         {
-            CommonPageActions.ClearAndProvide1(currentSalary, value);
+            ClearAndProvide1(currentSalary, value);
         }
 
         public void ProvideExpectedSalary(string value)
         {
-            CommonPageActions.ClearAndProvide1(expectedSalary, value);
+            ClearAndProvide1(expectedSalary, value);
         }
 
         public void ProvideNoticePeriodInDays(string value)
         {
-            CommonPageActions.ClearAndProvide1(noticePeriodInDays, value);
+            ClearAndProvide1(noticePeriodInDays, value);
         }
 
         public void ProvidePassportNumber(string value)
         {
-            CommonPageActions.ClearAndProvide1(passportNumber, value);
+            ClearAndProvide1(passportNumber, value);
         }
 
         public void ProvidePassportIssueDate(string value)
         {
-            CommonPageActions.ClearAndProvide1(passportIssueDate, value);
+            ClearAndProvide1(passportIssueDate, value);
         }
 
         public void ProvidePassportExpiryDate(string value)
         {
-            CommonPageActions.ClearAndProvide1(passportExpiryDate, value);
+            ClearAndProvide1(passportExpiryDate, value);
         }
                                                                                                             
         public void ProvideVisaType(string value)
         {
-            CommonPageActions.ClearAndProvide1(visaType, value);
+            ClearAndProvide1(visaType, value);
         }
 
         public void ProvideCivilIdNumber(string value)
         {
-            CommonPageActions.ClearAndProvide1(civilIdNumber, value);
+            ClearAndProvide1(civilIdNumber, value);
         }
         public void ClickAddQualification()
         {
@@ -184,23 +184,23 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Onboarding
 
         public void ProvideUniversity(string value)
         {
-            CommonPageActions.ClearAndProvide1(university, value);
+            ClearAndProvide1(university, value);
         }
 
         public void ProvideAcademicDegree(string value)
         {
             Find(academicDegree).Click();
-            CommonPageActions.SelectDropdownOption(value);
+            SelectDropdownOption(value);
         }
 
         public void ProvideMajorDegree(string value)
         {
-            CommonPageActions.ClearAndProvide1(majorDegree, value);
+            ClearAndProvide1(majorDegree, value);
         }
 
         public void ProvideYearOfPassing(string value)
         {
-            CommonPageActions.ClearAndProvide1(yearOfPassing, value);
+            ClearAndProvide1(yearOfPassing, value);
         }
 
         public void ClickCheckbox()
@@ -215,34 +215,34 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Onboarding
 
         public void ProvideJobTitle(string value)
         {
-            CommonPageActions.ClearAndProvide1(jobTitle, value);
+            ClearAndProvide1(jobTitle, value);
         }
 
         public void ProvideCompany(string value)
         {
-            CommonPageActions.ClearAndProvide1(company, value);
+            ClearAndProvide1(company, value);
         }
 
         public void ProvideStartDate(string value)
         {
-            CommonPageActions.ClearAndProvide1(startDate, value);
+            ClearAndProvide1(startDate, value);
         }
 
         public void ProvideEndDate(string value)
         {
-            CommonPageActions.ClearAndProvide1(endDate, value);
+            ClearAndProvide1(endDate, value);
         }
 
         public void ProvideWorkProfile(string value)
         {
-            CommonPageActions.ClearAndProvide1(workProfile, value);
+            ClearAndProvide1(workProfile, value);
         }
-        public void ClickSave()
+        public void ClickOnSave()
         {
-            CommonPageActions.ClickSave();
+            ClickSave();
             Thread.Sleep(2000);
         }
-        public bool IsTxnCreated()
+        public bool IsTransactionCreated()
         {
             String actualCandidateName= _driver.FindElement(By.XPath("//span[@class='bCardHover']")).Text;
             if(actualCandidateName.Equals(candidateName))
@@ -254,7 +254,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Onboarding
                 return false;
             }
                
-            //return CommonPageActions.IsTxnCreated();
+            //return IsTxnCreated();
         }
 
 

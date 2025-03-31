@@ -39,77 +39,77 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         #region action methods
         public void ScrollDownWebpage()
         {
-            CommonPageActions.ScrollDownWebPage(profileUpdate);
+            ScrollDownWebPage(profileUpdate);
         }
         public void ClickPromotionRequest()
         {
             Find(promotionRequest).Click();
         }
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
         public void ProvideTxnDate(string value)
         {
-            CommonPageActions.ClearAndProvide1(txnDate, value);
+            ClearAndProvide1(txnDate, value);
         }
         public void ProvideEffectiveDate(string value)
         {
-            CommonPageActions.ClearAndProvide1(effectiveDate, value);
+            ClearAndProvide1(effectiveDate, value);
         }
         public void ProvideType(string value)
         {
-            CommonPageActions.ClearAndProvide1(type, value);
+            ClearAndProvide1(type, value);
         }
         public void ProvideNewDepartment(string value)
         {
-            CommonPageActions.ClearAndProvide1(newDepartment, value);
+            ClearAndProvide1(newDepartment, value);
         }
         public void ProvideNewDesignation(string value)
         {
-            CommonPageActions.ClearAndProvide1(newDesignation, value);
+            ClearAndProvide1(newDesignation, value);
         }
         public void ProvideNewWorkLocation(string value)
         {
-            CommonPageActions.ClearAndProvide1(newWorkLocation, value);
+            ClearAndProvide1(newWorkLocation, value);
         }
         public void ProvideNewProject(string value)
         {
-            CommonPageActions.ClearAndProvide1(newProject, value);
+            ClearAndProvide1(newProject, value);
         }
         public void ProvideDescription(string value)
         {
-            CommonPageActions.ClearAndProvide1(description, value);
+            ClearAndProvide1(description, value);
         }
         public void ClickSalariesSection()
         {
             Find(salariesSection).Click();
         }
-        public void ClickSave()
+        public void ClickOnSave()
         {
-            CommonPageActions.ClickSave();
+            ClickSave();
             Thread.Sleep(2000);
         }
         public void ClickPlusBtn()
         {
-            CommonPageActions.ClickNewLine();
+            ClickNewLine();
         }
         public void ProvideSalaryComponent(string value)
         {
-            CommonPageActions.ClearAndProvide1(salaryComponent, value);
+            ClearAndProvide1(salaryComponent, value);
         }
         public void ProvideIncrementAmount(string value)
         {
-            //CommonPageActions.ClearAndProvide1(incrementAmount, value);
-            CommonPageActions.ClearAndProvide(incrementAmount, value);
+            //ClearAndProvide1(incrementAmount, value);
+            ClearAndProvide(incrementAmount, value);
         }
         public void ProvideEffectiveFromDate(string value)
         {
-            CommonPageActions.ClearAndProvide1(effectiveFromDate, value);
+            ClearAndProvide1(effectiveFromDate, value);
         }
         public void ProvideEffectiveToDate(string value)
         {
-            CommonPageActions.ClearAndProvide1(effectiveToDate,value);
+            ClearAndProvide1(effectiveToDate,value);
         }
         public void ClickNewBtn()
         {
@@ -118,17 +118,17 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public void SaveAndBack()
         {
-            CommonPageActions.ClickSaveAndBack();
+            ClickSaveAndBack();
         }
-        public bool IsTxnCreated()
+        public bool IsTransactionCreated()
         {
-            CommonPageActions.ClickSave();
-            return CommonPageActions.IsTxnCreated();
+            ClickSave();
+            return IsTxnCreated();
             Thread.Sleep(2000);
         }
         public bool IsTxnCreated(string effectiveDate)
         {
-            if (CommonPageActions.Result5().Contains(effectiveDate))
+            if (Result5().Contains(effectiveDate))
             {
                 return true;
             }

@@ -28,9 +28,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
              Find(loanRequest).Click();
         }
-        public void ClickNew()
+        public void ClickOnNew()
         {
-            CommonPageActions.ClickNew();
+            ClickNew();
         }
         public void ClickRepaymentStartPeriod()
         {
@@ -46,27 +46,27 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public void SelectLoanType(string value)
         {
-            CommonPageActions.SelectDropdownValue(value);
+            SelectDropdownValue(value);
         }
         public void ProvideLoanAmt(string value)
         {
-            CommonPageActions.ClearAndProvide1(loanAmount,value);
+            ClearAndProvide1(loanAmount,value);
         }
         public void ProvideNumberOfInstallments(string value)
         {
-            CommonPageActions.ClearAndProvide1(numberOfInstallments, value);
+            ClearAndProvide1(numberOfInstallments, value);
         }
         public void ProvideRemarks(string value)
         {
             Find(remarks).SendKeys(value);
         }
-        public void ClickSave()
+        public void ClickOnSave()
         {
-             CommonPageActions.ClickSaveAndBack();
+             ClickSaveAndBack();
         }
         public bool IsTxnCreated(string emp, string loanAmt)
         {
-            if (CommonPageActions.Result5().Contains(emp) && CommonPageActions.Result7().Contains(loanAmt))
+            if (Result5().Contains(emp) && Result7().Contains(loanAmt))
             {
                 return true;
             }
