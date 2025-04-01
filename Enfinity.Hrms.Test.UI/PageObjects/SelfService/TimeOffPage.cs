@@ -16,12 +16,20 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
 
         #region page objects
-        private By permissionDate = By.Id("LatePermission.LateDate_I");
-        private By permissionType = By.XPath("//input[@id='LatePermission.PermissionType_I']");
-        private By fromTime = By.XPath("//input[@id='LatePermission.FromTime_I']");
-        //private By uptoTime = By.XPath("//input[@id='LatePermission.UptoTime_I']");
-        //private By uptoTime = By.XPath("/html[1]/body[1]/div[6]/div[2]/form[1]/div[1]/div[1]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/table[1]/tbody[1]/tr[1]/td[1]/input[1]");
-        private By uptoTime = By.Name("LatePermission.UptoTime");
+        private By permissionDate = By.XPath("//input[contains(@id,'LateDate')]");
+        private By personal = By.XPath("(//div[@class='dx-item-content'])[1]");
+        private By business = By.XPath("(//div[@class='dx-item-content'])[2]");
+        private By leave = By.XPath("(//div[@class='dx-item-content'])[3]");
+
+        private By fromTimeField = By.XPath("//input[contains(@id,'FromTime')]");
+        private By uptoTime = By.XPath("//input[contains(@id,'UptoTime')]");
+        private By hrs = By.XPath("//input[@aria-label='hours']");
+        private By minutes = By.XPath("//input[@aria-label='minutes']");
+        private By timeNotation = By.XPath("//div[@class='dx-dropdowneditor-input-wrapper dx-selectbox-container']//div[@class='dx-dropdowneditor-icon']");
+        private By AM = By.XPath("//div[text()='AM']");
+        private By PM = By.XPath("//div[text()='PM']");
+
+       
 
         private By timeOff = By.XPath("//a[@id='TxnInstanceView_I0i3_T']//span[@class='dx-vam'][normalize-space()='Time Sheet Entry']//following::span[@class='dx-vam'][normalize-space()='Time Off']");
 
@@ -48,26 +56,68 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             ClearAndProvide(permissionDate, value);
 
         }
-
-        public void ClickPermissionTypeDD()
+        public void ClickPersoanl()
         {
-            Find(permissionType).Click();
+            Find(personal).Click();
+        }
+        public void ClickBusiness()
+        {
+            Find(business).Click();
+        }
+        public void ClickLeave()
+        {
+            Find(leave).Click();
+        }
+        public void ClickFromTimeField()
+        {
+            Find(fromTimeField).Click();
+        }
+        public void ProvideHrs(string value)
+        {
+            ClearAndProvide1(hrs, value);
+        }
+        public void ProvideMinutes(string value)
+        {
+            ClearAndProvide1(minutes, value);
+        }
+        public void ClickTimeNotation()
+        {
+            Find(timeNotation).Click();
+        }
+        public void SelectTimeNotation()
+        {
+            Find(AM).Click();
+        }
+        public void ClickOnOk()
+        {
+            ClickOk();
         }
 
-        public void SelectPermissionType(string value)
+        public void ClickUpToTimeField()
         {
-            SelectDropdownValueOffice365(value);
+            Find(uptoTime).Click();
         }
-
-        public void ProvideFromTime(string value)
+        public void ProvideUpToHrs(string value)
         {
-            ClearAndProvide1(fromTime, value);
+            ClearAndProvide1(hrs, value);
         }
-
-        public void ProvideUptoTime(string value)
+        public void ProvideUpToMinutes(string value)
         {
-            ClearAndProvide1(uptoTime, value);
+            ClearAndProvide1(minutes, value);
         }
+        public void ClickUpToTimeNotation()
+        {
+            Find(timeNotation).Click();
+        }
+        public void SelectUpToTimeNotation()
+        {
+            Find(AM).Click();
+        }
+        public void ClickUpToOk()
+        {
+            ClickOk();
+        }
+       
 
         public void ClickOnSave()
         {

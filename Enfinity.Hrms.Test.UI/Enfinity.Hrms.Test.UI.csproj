@@ -296,7 +296,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PageObjects\Attendance\" />
-    <Folder Include="PageObjects\Base\" />
     <Folder Include="PageObjects\Performance\" />
     <Folder Include="PageObjects\WorkforcePlanning\" />
     <Folder Include="TestCases\Base\" />

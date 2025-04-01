@@ -267,6 +267,10 @@ namespace Enfinity.Hrms.Test.UI
 
         #region Transaction form related Action Methods
 
+        public static void ClickOk()
+        {
+            _driver.FindElement(By.XPath("//span[normalize-space()='OK']")).Click();
+        }
         public static void ClickSave()
         {
             _driver.FindElement(By.XPath("//span[normalize-space()='Save']")).Click();
