@@ -29,7 +29,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         private By AM = By.XPath("//div[text()='AM']");
         private By PM = By.XPath("//div[text()='PM']");
 
-       
+        private By description = By.XPath("//textarea[contains(@id,'Description')]");
+
+
 
         private By timeOff = By.XPath("//a[@id='TxnInstanceView_I0i3_T']//span[@class='dx-vam'][normalize-space()='Time Sheet Entry']//following::span[@class='dx-vam'][normalize-space()='Time Off']");
 
@@ -117,7 +119,12 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             ClickOk();
         }
-       
+        public void EnterDescription()
+        {
+            ProvideDescription();
+        }
+
+
 
         public void ClickOnSave()
         {

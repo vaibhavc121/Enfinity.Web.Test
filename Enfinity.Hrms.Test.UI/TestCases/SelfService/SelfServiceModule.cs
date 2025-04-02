@@ -142,7 +142,17 @@ namespace Enfinity.Hrms.Test.UI
                     to.ClickTimeOff();
                     to.ClickOnNew();
                     to.ProvidePermissonDate(timeOff.permisionDate);
-                   
+                    to.ClickPersoanl();
+                    to.ClickBusiness();
+                    to.ClickLeave();
+                    to.ClickFromTimeField();
+                    to.ProvideHrs();
+                    to.ProvideMinutes();
+                    to.ClickTimeNotation();
+                    to.SelectTimeNotation();
+
+
+
                     to.ClickOnSave();
                 }
 
