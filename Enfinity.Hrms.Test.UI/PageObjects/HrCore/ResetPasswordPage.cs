@@ -27,12 +27,12 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
         public void ResetPwd(string pwd)
         {
             
-            _driver.SwitchTo().Frame("PopupWindow_CIF-1");
+            driver.SwitchTo().Frame("PopupWindow_CIF-1");
             Thread.Sleep(2000);
             Find(newPassword).SendKeys(pwd);
             Find(confirmPassword).SendKeys(pwd);
             ClickSave();
-            _driver.SwitchTo().DefaultContent();
+            driver.SwitchTo().DefaultContent();
             Find(close).Click();
 
         }

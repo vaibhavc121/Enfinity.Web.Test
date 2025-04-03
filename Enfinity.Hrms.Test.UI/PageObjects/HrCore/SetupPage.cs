@@ -34,7 +34,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void ClickEmployee()
         {
-            _driver.FindElement(Employee).Click();
+            driver.FindElement(Employee).Click();
         }
 
         public void ClickDepartment()

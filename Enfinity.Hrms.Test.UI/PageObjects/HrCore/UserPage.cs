@@ -43,7 +43,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
             //Thread.Sleep(2000);
             //Find(freeze).Click();
             WaitUntil(freeze);
-            _driver.Navigate().Back();
+            driver.Navigate().Back();
             FilterByIndex(2, username);
             //string freezed= ResultValue(5);
 

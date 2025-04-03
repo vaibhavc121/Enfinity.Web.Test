@@ -102,8 +102,18 @@
 
   "createResignation": [
     {
-      "submittedDate": "01-04-2025",       
+      "submittedDate": "01-04-2025",
       "remarks": "test"
+    }
+  ],
+
+  "createTimeOff": [
+    {
+      "permisionDate": "01-01-2025",
+      "hrs": "09",
+      "minutes": "00",
+      "upTohrs": "03",
+      "upToMinutes": "00"
     }
   ]
 

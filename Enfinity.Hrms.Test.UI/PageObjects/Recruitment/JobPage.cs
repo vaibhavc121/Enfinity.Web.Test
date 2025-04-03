@@ -136,7 +136,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Recruitment
         }
         public bool IsTxnCreated(string value)
         {
-            IWebElement element = _driver.FindElement(col1);
+            IWebElement element = driver.FindElement(col1);
            
             string jobTitle = element.Text;
             if(jobTitle.Contains(value))

@@ -21,9 +21,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Login
         #region Action Methods
         public void Login(string uname, string pwd)
         {
-            var usernameField = _driver.FindElement(By.Name("Username"));
-            var passwordField = _driver.FindElement(By.Name("Password"));
-            var loginButton = _driver.FindElement(By.ClassName("login-btn"));
+            var usernameField = driver.FindElement(By.Name("Username"));
+            var passwordField = driver.FindElement(By.Name("Password"));
+            var loginButton = driver.FindElement(By.ClassName("login-btn"));
 
             usernameField.SendKeys(uname);
             passwordField.SendKeys(pwd);

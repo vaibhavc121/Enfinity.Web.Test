@@ -11,8 +11,12 @@
       "RelativeMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|solutionrelative:enfinity.hrms.test.ui\\pageobjects\\selfservice\\timeoffpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|d:\\enfinity.online\\enfinity.web.test\\enfinity.hrms.test.ui\\base\\basepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|D:\\Enfinity.Online\\Enfinity.Web.Test\\enfinity.hrms.test.ui\\base\\basepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|solutionrelative:enfinity.hrms.test.ui\\base\\basepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|d:\\enfinity.online\\enfinity.web.test\\enfinity.hrms.test.ui\\models\\selfservice\\selfservice\\selfservicedata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{D181521C-3D16-417A-B0BC-4F7C86931FD5}|Enfinity.Hrms.Test.UI\\Enfinity.Hrms.Test.UI.csproj|solutionrelative:enfinity.hrms.test.ui\\models\\selfservice\\selfservice\\selfservicedata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +26,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:14:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SelfServiceData.json",
+              "DocumentMoniker": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\Models\\SelfService\\SelfService\\SelfServiceData.json",
+              "RelativeDocumentMoniker": "Enfinity.Hrms.Test.UI\\Models\\SelfService\\SelfService\\SelfServiceData.json",
+              "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\Models\\SelfService\\SelfService\\SelfServiceData.json",
+              "RelativeToolTip": "Enfinity.Hrms.Test.UI\\Models\\SelfService\\SelfService\\SelfServiceData.json",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAqwHIAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-03T13:07:28.852Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -36,7 +53,7 @@
               "RelativeDocumentMoniker": "Enfinity.Hrms.Test.UI\\Base\\BasePage.cs",
               "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\Base\\BasePage.cs",
               "RelativeToolTip": "Enfinity.Hrms.Test.UI\\Base\\BasePage.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAgwA0BAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-01T13:03:48.181Z",
               "EditorCaption": ""
@@ -49,7 +66,7 @@
               "RelativeDocumentMoniker": "Enfinity.Hrms.Test.UI\\PageObjects\\SelfService\\TimeOffPage.cs",
               "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\PageObjects\\SelfService\\TimeOffPage.cs",
               "RelativeToolTip": "Enfinity.Hrms.Test.UI\\PageObjects\\SelfService\\TimeOffPage.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAAAHYAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAADgvxIAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-01T12:33:00.746Z",
               "EditorCaption": ""
@@ -62,7 +79,7 @@
               "RelativeDocumentMoniker": "Enfinity.Hrms.Test.UI\\TestCases\\SelfService\\SelfServiceModule.cs",
               "ToolTip": "D:\\Enfinity.Online\\Enfinity.Web.Test\\Enfinity.Hrms.Test.UI\\TestCases\\SelfService\\SelfServiceModule.cs",
               "RelativeToolTip": "Enfinity.Hrms.Test.UI\\TestCases\\SelfService\\SelfServiceModule.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAQwJAAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAQwIIAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-01T12:27:54.683Z",
               "EditorCaption": ""

@@ -94,7 +94,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SuccessionPlanning
         }
         public bool IsTxnCreated(string value)
         {
-            IList<IWebElement> results =_driver.FindElements(By.XPath("(//tbody)[7]//tr"));
+            IList<IWebElement> results =driver.FindElements(By.XPath("(//tbody)[7]//tr"));
 
             foreach(var result in results)
             {

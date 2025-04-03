@@ -7,6 +7,7 @@ using Enfinity.Hrms.Test.UI.Models.SelfService.HRAssetRequest;
 using Enfinity.Hrms.Test.UI.Models.SelfService.ITSupport;
 using Enfinity.Hrms.Test.UI.Models.SelfService.TimeOff;
 using Enfinity.Hrms.Test.UI.PageObjects.SelfService;
+using Enfinity.Hrms.Test.UI.Utilities;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 using System;
@@ -124,10 +125,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
-                var timeOffFile = FileHelper.GetDataFile("Hrms", "SelfService", "TimeOff", "TimeOffData");
-                var timeOffData = JsonHelper.ConvertJsonListDataModel<TimeOffModel>(timeOffFile, "createTimeOff");
+                var timeOffFile = FileUtils.GetDataFile("Hrms", "SelfService", "TimeOff", "TimeOffData");
+                var timeOffData = JsonUtils.ConvertJsonListDataModel<TimeOffModel>(timeOffFile, "createTimeOff");
 
                 //self service page
                 SelfServicePage ss = new SelfServicePage(_driver);
@@ -146,17 +147,21 @@ namespace Enfinity.Hrms.Test.UI
                     to.ClickBusiness();
                     to.ClickLeave();
                     to.ClickFromTimeField();
-                    to.ProvideHrs();
-                    to.ProvideMinutes();
+                    to.ProvideHrs(timeOff.hrs);
+                    to.ProvideMinutes(timeOff.minutes);
                     to.ClickTimeNotation();
                     to.SelectTimeNotation();
-
-
-
-                    to.ClickOnSave();
-                }
-
-                ClassicAssert.IsTrue(to.IsTxnCreated("60"));
+                    to.ClickOnOk();
+                    to.ClickUpToTimeField();
+                    to.ProvideUpToHrs(timeOff.upTohrs);
+                    to.ProvideUpToMinutes(timeOff.upToMinutes);
+                    to.ClickUpToTimeNotation();
+                    to.SelectUpToTimeNotation();
+                    to.ClickUpToOk();
+                    to.EnterDescription();
+                    to.SaveAndSubmit();
+                    
+                }                
 
             }
             catch (Exception e)

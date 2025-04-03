@@ -16,6 +16,8 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
 
         #region page objects
+        private By timeOff = By.XPath("(//span[text()='Time Off'])[2]");
+
         private By permissionDate = By.XPath("//input[contains(@id,'LateDate')]");
         private By personal = By.XPath("(//div[@class='dx-item-content'])[1]");
         private By business = By.XPath("(//div[@class='dx-item-content'])[2]");
@@ -33,7 +35,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
 
 
 
-        private By timeOff = By.XPath("//a[@id='TxnInstanceView_I0i3_T']//span[@class='dx-vam'][normalize-space()='Time Sheet Entry']//following::span[@class='dx-vam'][normalize-space()='Time Off']");
+        
 
 
         private By  selectRow= By.XPath("(//tr)[12]//td[2]");
@@ -124,7 +126,10 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             ProvideDescription();
         }
 
-
+        public void SaveAndSubmit()
+        {
+            ClickSaveSubmit();
+        }
 
         public void ClickOnSave()
         {

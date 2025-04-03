@@ -244,7 +244,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Onboarding
         }
         public bool IsTransactionCreated()
         {
-            String actualCandidateName= _driver.FindElement(By.XPath("//span[@class='bCardHover']")).Text;
+            String actualCandidateName= driver.FindElement(By.XPath("//span[@class='bCardHover']")).Text;
             if(actualCandidateName.Equals(candidateName))
             {
                 return true;
