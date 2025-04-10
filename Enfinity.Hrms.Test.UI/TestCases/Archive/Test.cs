@@ -26,6 +26,8 @@ namespace Enfinity.Hrms.Test.UI
             tp.ProvidePwd();
             tp.ClickLogin();
 
+            //test
+
         }
     }
 }

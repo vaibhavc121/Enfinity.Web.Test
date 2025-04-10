@@ -10,21 +10,33 @@
       "EffectiveToDate": ""
     }
   ],
-  "markup": [
+  "mark": [
     {
       "Code": "PL004",
       "Name": "Markup Price List",
+      "Name2":"Markdown Price List",
       "ArabicName": "Markup Price List",
       "Description": "Markup Price List",
       "EffectiveFromDate": "",
       "EffectiveToDate": "",
-      "PercentageType": "Markup",
-      "Percentage": "10"
+      "Markup": "Markup",
+      "Markdown": "Markdown",
+      "Percentage": "10",
+      "MinUnitPricePercent": "10",
+      "MaxUnitPricePercent": "15",
+      "DefaultDiscountPercent": "10",
+      "MaxDiscountPrecent": "15"
     }
   ],
   "delete": [
     {
       "Name": "Pricetopia"
+    },
+    {
+      "Name": "Markup Price List"
+    },
+    {
+      "Name": "Markdown Price List"
     }
   ]
 }

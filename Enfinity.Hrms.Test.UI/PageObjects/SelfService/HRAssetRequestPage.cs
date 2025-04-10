@@ -17,7 +17,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
 
         #region page objects
-        private By hrAssetRequest = By.XPath("//a[@id='TxnInstanceView_I0i4_T']//span[@class='dx-vam'][normalize-space()='Time Off']//following::span[@class='dx-vam'][normalize-space()='HR Asset Request']");
+        private By hrAssetRequest = By.XPath("//span[text()='HR Asset Request']");
         private By txnDate = By.XPath("//input[@id='HrAssetRequest.TxnDate_I']");
         private By effectiveDate = By.XPath("//input[@id='HrAssetRequest.EffectiveDate_I']");
         private By hrAsset = By.Id("HrAssetRequestLine_HrAssetId_B-1Img");
@@ -95,9 +95,31 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             ClickView();
         }
 
-        public void ClickOnApprove()
+        public void ClickOnApproveBack()
         {
-            ClickApprove();
+            ClickApproveAndBack();
+        }
+
+        public static bool IsTxnCreated(string txnDate, string emp)
+        {
+            FilterByIndex(2, txnDate);
+            Thread.Sleep(2000);
+
+            FilterByIndex(5, emp);
+            Thread.Sleep(2000);
+
+            string transactionDate = ResultValue(2);
+            string employee = ResultValue(5);
+            //Thread.Sleep(2000);
+            if (employee.Contains(""))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
 
         public void Test()

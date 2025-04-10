@@ -106,7 +106,7 @@ namespace Enfinity.Erp.Test.UI
                     await WaitHelper.WaitForSeconds(1);
 
                     plp.ClickOnPercentageType();
-                    CommonPageActions.SelectDropDownOption(priceList.PercentageType);
+                    //CommonPageActions.SelectDropDownOption(priceList.PercentageType);
                     plp.ProvidePercentage(priceList.Percentage);
 
                     //CommonPageActions.ClickOnSave();

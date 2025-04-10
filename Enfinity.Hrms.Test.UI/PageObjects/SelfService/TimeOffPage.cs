@@ -31,6 +31,12 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         private By AM = By.XPath("//div[text()='AM']");
         private By PM = By.XPath("//div[text()='PM']");
 
+        private By hrs1 = By.XPath("//input[@aria-label='hours']");
+        private By minutes1 = By.XPath("//input[@aria-label='minutes']");
+        private By timeNotation1 = By.XPath("//div[@class='dx-dropdowneditor-input-wrapper dx-selectbox-container']//div[@class='dx-dropdowneditor-icon']");
+        private By AM1 = By.XPath("//div[text()='AM']");
+        private By PM1 = By.XPath("//div[text()='PM']");
+
         private By description = By.XPath("//textarea[contains(@id,'Description')]");
 
 
@@ -103,19 +109,24 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public void ProvideUpToHrs(string value)
         {
-            ClearAndProvide1(hrs, value);
+            ClearAndProvide1(hrs1, value);
+        }
+
+        public void ProvideUpTOHrs1()
+        {
+            //ClickElementByJavaScript(driver, hrs1);
         }
         public void ProvideUpToMinutes(string value)
         {
-            ClearAndProvide1(minutes, value);
+            ClearAndProvide1(minutes1, value);
         }
         public void ClickUpToTimeNotation()
         {
-            Find(timeNotation).Click();
+            Find(timeNotation1).Click();
         }
         public void SelectUpToTimeNotation()
         {
-            Find(AM).Click();
+            Find(AM1).Click();
         }
         public void ClickUpToOk()
         {

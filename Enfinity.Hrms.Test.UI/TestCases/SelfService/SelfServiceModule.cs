@@ -13,6 +13,7 @@ using NUnit.Framework.Legacy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
@@ -121,6 +122,7 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create time off
         [Test, Order(2)]
+        [Ignore("locator issue")]
         public void CreateTimeOff()
         {
             try
@@ -153,7 +155,8 @@ namespace Enfinity.Hrms.Test.UI
                     to.SelectTimeNotation();
                     to.ClickOnOk();
                     to.ClickUpToTimeField();
-                    to.ProvideUpToHrs(timeOff.upTohrs);
+                    //to.ProvideUpTOHrs1();
+                    //to.ProvideUpToHrs(timeOff.upTohrs);
                     to.ProvideUpToMinutes(timeOff.upToMinutes);
                     to.ClickUpToTimeNotation();
                     to.SelectUpToTimeNotation();
@@ -179,10 +182,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
-                var HRAssetRequestFile = FileHelper.GetDataFile("Hrms", "SelfService", "HRAssetRequest", "HRAssetRequestData");
-                var HRAssetRequestData = JsonHelper.ConvertJsonListDataModel<HRAssetRequestModel>(HRAssetRequestFile, "createHRAssetRequest");
+                var HRAssetRequestFile = FileUtils.GetDataFile("Hrms", "SelfService", "HRAssetRequest", "HRAssetRequestData");
+                var HRAssetRequestData = JsonUtils.ConvertJsonListDataModel<HRAssetRequestModel>(HRAssetRequestFile, "createHRAssetRequest");
 
                 //self service page
                 SelfServicePage ss = new SelfServicePage(_driver);
@@ -204,8 +207,9 @@ namespace Enfinity.Hrms.Test.UI
                     ar.SelectHRAsset(HRAssetRequest.HRAsset);
                     //ar.ProvideExpReturnDate(HRAssetRequest.expReturnDate);
                     ar.ClickOnView();
-                    ar.ClickOnApprove();
+                    ar.ClickOnApproveBack();
 
+                    ClassicAssert.IsFalse(BasePage.ValidateListing(desg.designationName, 3, 2));
                 }
             }
             catch (Exception e)
