@@ -74,6 +74,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
                     if (actualValue.Contains(value))
                     {
                         valueElement.Click();
+                        Thread.Sleep(2000);
                         return;
                     }
                 }
@@ -93,6 +94,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         public void ClickOnView()
         {
             ClickView();
+            WaitTS(2);
         }
 
         public void ClickOnApproveBack()
@@ -100,18 +102,23 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             ClickApproveAndBack();
         }
 
-        public static bool IsTxnCreated(string txnDate, string emp)
+        //undone
+        public static bool IsTransactionCreated(string expDate, string expEmp, string expStatus)
         {
-            FilterByIndex(2, txnDate);
+            FilterDateByIndex(2, expDate);
             Thread.Sleep(2000);
 
-            FilterByIndex(5, emp);
+            FilterByIndex(5, expEmp);
             Thread.Sleep(2000);
 
-            string transactionDate = ResultValue(2);
-            string employee = ResultValue(5);
+            FilterByIndex(7, expStatus);
+            Thread.Sleep(2000);
+
+            string actualDate = ResultValue(2);
+            string actualEmp = ResultValue(5);
+            string actualStatus = ResultValue(7);
             //Thread.Sleep(2000);
-            if (employee.Contains(""))
+            if(actualDate.Contains(expDate) && actualEmp.Contains(expEmp) && actualStatus.Contains(expStatus))
             {
                 return true;
             }

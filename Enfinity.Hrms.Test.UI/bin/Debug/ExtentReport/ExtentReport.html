@@ -35,7 +35,7 @@
   <ul class="nav-right">
    <li class="m-r-10"><a href="#"><span class="badge badge-primary"></span></a></li>
    <li class="m-r-10">
-    <a href="#"><span class="badge badge-primary">06-04-2025 06:36:26</span></a>
+    <a href="#"><span class="badge badge-primary">14-04-2025 06:40:00</span></a>
    </li>
   </ul>
  </div>
@@ -84,9 +84,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">CreateTimeOff</p>
+            <p class="name">CreateSupportRequestCategory</p>
             <p class="text-sm">
-              <span>06:36:26</span> / <span>35121.17 ms</span>
+              <span>06:40:00</span> / <span>8091.35 ms</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -94,10 +94,10 @@
             <div class="detail-head">
               <div class="p-v-10">
                 <div class="info">
-                  <h5 class="test-status text-fail">CreateTimeOff</h5>
-                  <span class='badge badge-success'>06-04-2025 06:36:26</span>
-                  <span class='badge badge-danger'>06-04-2025 06:37:01</span>
-                  <span class='badge badge-default'>35121.17 ms</span>
+                  <h5 class="test-status text-fail">CreateSupportRequestCategory</h5>
+                  <span class='badge badge-success'>14-04-2025 06:40:00</span>
+                  <span class='badge badge-danger'>14-04-2025 06:40:08</span>
+                  <span class='badge badge-default'>8091.35 ms</span>
                   &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
                   <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
                   <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -109,7 +109,7 @@
 
   <div class="row mb-3">
    <div class="col-md-3">
-         <img data-featherlight='D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\bin\Debug\Screenshots\CreateTimeOff.png' src="D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\bin\Debug\Screenshots\CreateTimeOff.png">
+         <img data-featherlight='D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\bin\Debug\Screenshots\CreateSupportRequestCategory.png' src="D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\bin\Debug\Screenshots\CreateSupportRequestCategory.png">
       </div>
  </div>
 
@@ -121,25 +121,20 @@
   <tbody>
       <tr class="event-row">
         <td><span class="badge log fail-bg">Fail</span></td>
-        <td>Apr 06, 2025 18:37:01</td>
+        <td>Apr 14, 2025 18:40:08</td>
         <td>
-Test Failed: Test case failed: OpenQA.Selenium.ElementClickInterceptedException: element click intercepted: Element <input autocomplete="off" inputmode="decimal" class="dx-texteditor-input" type="text" min="-1" max="13" step="1" aria-valuemin="-1" aria-valuemax="13" tabindex="0" aria-valuenow="9" role="spinbutton" aria-label="hours"> is not clickable at point (55, 223). Other element would receive the click: <input autocomplete="off" id="dx_dx-c97d6763-ae4b-a0f5-60e6-47eb193e7388_LateDate" class="dx-texteditor-input" aria-haspopup="true" aria-autocomplete="none" role="combobox" type="text" spellcheck="false" tabindex="0" aria-expanded="false" aria-required="true" aria-invalid="true" aria-describedby="dx-1b59fb55-b9d2-2426-33a6-6851c31371eb">
-  (Session info: chrome=134.0.6998.178)
-   at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)
-   at OpenQA.Selenium.WebDriver.<ExecuteAsync>d__63.MoveNext()
---- End of stack trace from previous location where exception was thrown ---
-   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
-   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-   at OpenQA.Selenium.WebDriver.InternalExecute(String driverCommandToExecute, Dictionary`2 parameters)
-   at Enfinity.Hrms.Test.UI.BasePage.ClearAndProvide1(By locator, String value) in D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\Base\BasePage.cs:line 377
-   at Enfinity.Hrms.Test.UI.PageObjects.SelfService.TimeOffPage.ProvideUpToHrs(String value) in D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\PageObjects\SelfService\TimeOffPage.cs:line 106
-   at Enfinity.Hrms.Test.UI.SelfServiceModule.CreateTimeOff() in D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\TestCases\SelfService\SelfServiceModule.cs:line 156                  </td>
+Test Failed: VRC- Test case failed: System.ArgumentNullException: input cannot be null
+Parameter name: input
+   at OpenQA.Selenium.Support.UI.DefaultWait`1..ctor(T input, IClock clock)
+   at Enfinity.Hrms.Test.UI.BasePage.WaitForElement(By locator) in D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\Base\BasePage.cs:line 752
+   at Enfinity.Hrms.Test.UI.BasePage.GlobalSearch(String value) in D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\Base\BasePage.cs:line 455
+   at Enfinity.Hrms.Test.UI.SelfServiceModule.CreateSupportRequestCategory() in D:\Enfinity.Online\Enfinity.Web.Test\Enfinity.Hrms.Test.UI\TestCases\SelfService\SelfServiceModule.cs:line 700                  </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log info-bg">Info</span></td>
-        <td>Apr 06, 2025 18:37:01</td>
+        <td>Apr 14, 2025 18:40:08</td>
         <td>
-Execution Time: 06-04-2025 06:37:01                  </td>
+Execution Time: 14-04-2025 06:40:08                  </td>
       </tr>
   </tbody>
 </table></div>
@@ -163,13 +158,13 @@ Execution Time: 06-04-2025 06:37:01                  </td>
     <div class="col-md-3">
       <div class="card"><div class="card-body">
           <p class="m-b-0">Started</p>
-          <h3>06-04-2025 06:36:26</h3>
+          <h3>14-04-2025 06:40:00</h3>
       </div></div>
     </div>
     <div class="col-md-3">
       <div class="card"><div class="card-body">
           <p class="m-b-0">Ended</p>
-          <h3>06-04-2025 06:37:01</h3>
+          <h3>14-04-2025 06:40:08</h3>
       </div></div>
     </div>
     <div class="col-md-3">
@@ -238,7 +233,7 @@ Execution Time: 06-04-2025 06:37:01                  </td>
     </div>
   </div></div>
   <script>
-	var timeline = { "CreateTimeOff":35121.1723 };
+	var timeline = { "CreateSupportRequestCategory":8091.3542 };
   </script>
   <div class="row">
                   <div class="col-md-4 sysenv-container">

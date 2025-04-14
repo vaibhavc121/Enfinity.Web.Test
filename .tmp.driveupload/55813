@@ -10,79 +10,119 @@ using Enfinity.Hrms.Test.UI.Models.HRCore.Grade;
 using Enfinity.Hrms.Test.UI.Models.HRCore.Qualification;
 using Enfinity.Hrms.Test.UI.Models.HRCore.Religion;
 using Enfinity.Hrms.Test.UI.PageObjects.HrCore;
+using Enfinity.Hrms.Test.UI.PageObjects.Login;
+using Enfinity.Hrms.Test.UI.Utilities;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace Enfinity.Hrms.Test.UI
 {
     [TestFixture]
-    public class HRCoreModule:BaseTest
+
+
+    public class HRCoreModule : BaseTest
     {
         public string Product = "Hrms";
 
         #region Employee Test
 
         #region Create Employee With System Access 
+        //Scenario- EmployeeWithValidAccess, delete created employee and freeze the user
+
         [Test]
         [Ignore("")]
         [TestCaseSource(typeof(HRCoreDataProvider), nameof(HRCoreDataProvider.EmployeeWithSystemAccess))]
-        public void ValidateEmployeeCreationWithValidAccess(string email, string name, string mbl, string doj, string dept, string desg, string payrollset, string calendar, string indemnity, string grade, string gender, string religion, string martitalStatus, string username, string roles)
+        public void CreateEmployeeWithValidAccess(string email, string name, string mbl, string doj, string dept, string desg, string payrollset, string calendar, string indemnity, string grade, string gender, string religion, string martitalStatus, string username, string roles)
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
-                hc.ClickHRCore();
-                hc.ClickSetupForm();
-
+                hc.ClickHRCore();                     
                 //setup page
                 SetupPage sp = new SetupPage(_driver);
                 sp.ClickEmployee();
                 Thread.Sleep(2000);
 
                 //PayrollEmployee page
-                EmployeePage pe = new EmployeePage(_driver);
-                pe.ClickNewBtn();
-                pe.ProvideWorkEmail(email);
-                pe.ProvideName();
-                pe.ClickMgrDropdown();
-                pe.SelectMgr();
-                pe.ProvideMobileNumber(mbl);
-                pe.ProvideDOJ(doj);
-                pe.ClickDepartment();
-                pe.SelectDepartment(dept);
-                pe.ClickDesignation();
-                pe.SelectDesignation(desg);
-                //pe.ClearPayrollSet();
-                pe.ClickPayrollSet();
-                pe.SelectPayrollSet(payrollset);
-                pe.ClickCalendar();
-                pe.SelectCalendar(calendar);
-                pe.ClickIndemnity();
-                pe.SelectIndemnity(indemnity);
-                pe.ClickGrade();
-                pe.SelectGrade(grade);
-                pe.ClickGender();
-                pe.SelectGender(gender);
-                pe.ClickReligion();
-                pe.SelectReligion(religion);
-                pe.ClickMaritalStatus();
-                pe.SelectMaritalStatus(martitalStatus);
-                pe.ClickSystemAccessBtn();
-                //pe.ProvideUserName(username);
-                pe.ClickRoles();
-                pe.SelectRole(roles);
-                pe.ClickSave();
+                EmployeePage ep = new EmployeePage(_driver);
+                ep.ClickNewBtn();
+                ep.ProvideWorkEmail(email);
+                ep.ProvideName(name);
+                //ep.ClickMgrDropdown();
+                //ep.SelectMgr();
+                ep.ProvideMobileNumber(mbl);
+                ep.ProvideDOJ(doj);
+                ep.SelectDepartment(dept);               
+                ep.SelectDesignation(desg);
+                ep.SelectPayrollSet(payrollset);                
+                ep.SelectCalendar(calendar);               
+                ep.SelectIndemnity(indemnity);               
+                ep.SelectGrade(grade);               
+                ep.SelectGender(gender);              
+                ep.SelectReligion(religion);             
+                ep.SelectMaritalStatus(martitalStatus);
+                ep.ClickSystemAccessBtn();
+                //ep.ProvideUserName(username);
+                //ep.ClickRoles();
+                ep.SelectRole(roles);
+                ep.ClickOnSave();
+                ep.ClickSettingButton();
+                ep.ClickResetPwd();
 
-                ClassicAssert.IsTrue(pe.IsEmployeeCreated(name));
+                //reset pwd page
+                ResetPasswordPage rp = new ResetPasswordPage(_driver);
+                rp.ResetPwd("123");
+
+                ep.ClickRightAreaMenu();
+                ep.ClicklogOff();
+
+                //Login page
+                LoginPage lp = new LoginPage(_driver);
+                lp.Login(email, "123");
+                ClassicAssert.IsTrue(ep.MyInfoValidation(name));
+
+                #region want to delete created employee
+
+                HRCorePage hr = new HRCorePage(_driver);
+                hr.ClickHRCore();
+                hr.ClickSetupForm();
+
+                SetupPage stp = new SetupPage(_driver);
+                stp.ClickEmployee();
+
+                BasePage.NavigateToEmployee(name);
+
+                ep.ClickSettingButton();
+                ep.ClickDelete();
+                ep.ClickOk();
+                ClassicAssert.IsFalse(ep.ValidateEmpDelete(name));
+
+                #endregion
+
+                #region want to freeze the user
+
+                ep.ClickRightAreaMenu();
+                ep.ClicklogOff();
+                lp.Login("vaibhav@test.com", "123");
+                UserPage up = new UserPage(_driver);
+                up.FreezeUser(username);
+                //ClassicAssert.IsTrue(ep.IsEmployeeCreated(name));
+
+                #endregion
+
+
 
             }
             catch (Exception e)
@@ -97,11 +137,11 @@ namespace Enfinity.Hrms.Test.UI
         [Test]
         [Ignore("")]
         [TestCaseSource(typeof(HRCoreDataProvider), nameof(HRCoreDataProvider.NonPayrollEmployee))]
-        public void VerifyNonPayrollEmployeeCreation(string email, string name, string mbl, string doj, string grade, string gender, string religion, string martitalStatus)
+        public void CreateNonPayrollEmployee(string email, string name, string mbl, string doj, string grade, string gender, string religion, string martitalStatus)
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -114,26 +154,26 @@ namespace Enfinity.Hrms.Test.UI
                 Thread.Sleep(2000);
 
                 //PayrollEmployee page
-                EmployeePage pe = new EmployeePage(_driver);
-                pe.ClickNewBtn();
-                pe.ProvideWorkEmail(email);
-                pe.ProvideName();
-                pe.ClickMgrDropdown();
-                pe.SelectMgr();
-                pe.ProvideMobileNumber(mbl);
-                pe.ProvideDOJ(doj);
-                pe.ClickNonPayrollBtn();
-                pe.ClickGrade();
-                pe.SelectGrade(grade);
-                pe.ClickGender();
-                pe.SelectGender(gender);
-                pe.ClickReligion();
-                pe.SelectReligion(religion);
-                pe.ClickMaritalStatus();
-                pe.SelectMaritalStatus(martitalStatus);
-                pe.ClickSave();
+                EmployeePage ep = new EmployeePage(_driver);
+                ep.ClickNewBtn();
+                ep.ProvideWorkEmail(email);
+                ep.ProvideName(name);
+             
+               
+                ep.ProvideMobileNumber(mbl);
+                ep.ProvideDOJ(doj);
+                ep.ClickNonPayrollBtn();
+             
+                ep.SelectGrade(grade);
+            
+                ep.SelectGender(gender);
+               
+                ep.SelectReligion(religion);
+              
+                ep.SelectMaritalStatus(martitalStatus);
+                ep.ClickOnSave();
 
-                ClassicAssert.IsTrue(pe.IsEmployeeCreated(name));
+                ClassicAssert.IsTrue(ep.IsEmployeeCreated(name));
 
             }
             catch (Exception e)
@@ -147,16 +187,16 @@ namespace Enfinity.Hrms.Test.UI
 
         #region Create Payroll Employee
         [Test]
-        //[Ignore("")]
+        [Ignore("")]
 
-        public void VerifyPayrollEmployeeCreation()
+        public void CreatePayrollEmployee()
         {
             try
             {
-                Login(Product);
+                ////Login(Product);
 
-                var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
-                var employeeInfo = JsonHelper.ConvertJsonListDataModel<NewEmployeeModel>(employeeFile, "newEmployee");
+                var employeeFile = FileUtils.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                var employeeInfo = JsonUtils.ConvertJsonListDataModel<NewEmployeeModel>(employeeFile, "newEmployee");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -169,41 +209,41 @@ namespace Enfinity.Hrms.Test.UI
                 Thread.Sleep(2000);
 
                 //PayrollEmployee page
-                EmployeePage pe = new EmployeePage(_driver);
+                EmployeePage ep = new EmployeePage(_driver);
 
                 foreach (var employee in employeeInfo)
                 {
-                    pe.ClickNewBtn();
-                    pe.ProvideWorkEmail(employee.email);
-                    pe.ProvideName();
-                    pe.ClickMgrDropdown();
-                    pe.SelectMgr();
-                    pe.ProvideMobileNumber(employee.mobile);
-                    pe.ProvideDOJ(employee.DOJ);
-                    pe.ClickDepartment();
-                    pe.SelectDepartment(employee.department);
-                    pe.ClickDesignation();
-                    pe.SelectDesignation(employee.designation);
-                    //pe.ClearPayrollSet();
-                    pe.ClickPayrollSet();
-                    pe.SelectPayrollSet(employee.payrollSet);
-                    pe.ClickCalendar();
-                    pe.SelectCalendar(employee.calendar);
-                    pe.ClickIndemnity();
-                    pe.SelectIndemnity(employee.indemnity);
-                    pe.ClickGrade();
-                    pe.SelectGrade(employee.grade);
-                    pe.ClickGender();
-                    pe.SelectGender(employee.gender);
-                    pe.ClickReligion();
-                    pe.SelectReligion(employee.religion);
-                    pe.ClickMaritalStatus();
-                    pe.SelectMaritalStatus(employee.maritalStatus);
-                    pe.ClickSave();
+                    ep.ClickNewBtn();
+                    ep.ProvideWorkEmail(employee.email);
+                    ep.ProvideName(employee.name);
+                
+                  
+                    ep.ProvideMobileNumber(employee.mobile);
+                    ep.ProvideDOJ(employee.DOJ);
+               
+                    ep.SelectDepartment(employee.department);
+                
+                    ep.SelectDesignation(employee.designation);
+                    //ep.ClearPayrollSet();
+                 
+                    ep.SelectPayrollSet(employee.payrollSet);
+                  
+                    ep.SelectCalendar(employee.calendar);
+                 
+                    ep.SelectIndemnity(employee.indemnity);
+                   
+                    ep.SelectGrade(employee.grade);
+                  
+                    ep.SelectGender(employee.gender);
+              
+                    ep.SelectReligion(employee.religion);
+              
+                    ep.SelectMaritalStatus(employee.maritalStatus);
+                    ep.ClickOnSave();
                 }
 
 
-                //ClassicAssert.IsTrue(pe.IsEmployeeCreated(name));
+                //ClassicAssert.IsTrue(ep.IsEmployeeCreated(name));
 
             }
             catch (Exception e)
@@ -214,16 +254,16 @@ namespace Enfinity.Hrms.Test.UI
         }
         #endregion
 
-        #region Delete Employee
+        #region Delete Multiple Employees
         [Test]
-        //[Ignore("")]
-        public void DeleteEmployee()
+        [Ignore("")]
+        public void DeleteMultipleEmployees()
         {
             try
             {
                 for (int i = 1; i <= 1; i++)
                 {
-                    Login(Product);
+                    //Login(Product);
 
                     var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
                     var deleteEmployee = JsonHelper.ConvertJsonListDataModel<DeleteEmpModel>(employeeFile, "deleteEmployee");
@@ -238,17 +278,17 @@ namespace Enfinity.Hrms.Test.UI
 
                     foreach (var delete in deleteEmployee)
                     {
-                        CommonPageActions.NavigateToEmployee(delete.EMPID);
-                        CommonPageActions.SwitchTab();
+                        BasePage.NavigateToEmployee(delete.empName);
+                        BasePage.SwitchTab();
 
                         EmployeePage ep = new EmployeePage(_driver);
                         ep.ClickSettingButton();
                         ep.ClickDelete();
                         ep.ClickOk();
-                        //ClassicAssert.IsTrue(CommonPageActions.IsEmployeeDeleted(), "Employee not deleted");
+                        //ClassicAssert.IsTrue(BasePage.IsEmployeeDeleted(), "Employee not deleted");
                         ep.ClickRightAreaMenu();
                         ep.ClicklogOff();
-                        //CommonPageActions.CloseTab();
+                        //BasePage.CloseTab();
 
                     }
 
@@ -264,16 +304,16 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region create department
-        [Test, Order(1)]
+        [Test, Order(1), Category("hrcore_create")]
         //[Ignore("")]
-        public void VerifyDepartmentCreation()
+        public void CreateDepartment()
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 var departmentFile = FileHelper.GetDataFile("Hrms", "HRCore", "Department", "DepartmentData");
-                var departmentData = JsonHelper.ConvertJsonListDataModel<DepartmentModel>(departmentFile, "createDepartment");
+                var departmentData = JsonHelper.ConvertJsonListDataModel<CreateDepartmentModel>(departmentFile, "createDepartment");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -291,18 +331,22 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach (var department in departmentData)
                 {
-                    dp.ClickNew();
-                    //dp.ProvideDepartmentName(department.deptname);
-                    dp.ProvideDepartmentName(faker.Name.JobArea());
-                    dp.SelfServiceDD();
-                    dp.ClickDeptMgrDD();
-                    dp.SelectDeptMgrName();
+                    dp.ClickOnNew();
+                    dp.ProvideDepartmentName(department.deptname);
+                    //dp.ProvideDepartmentName();
+                    //dp.SelfServiceDD();
+                    //dp.ClickDeptMgrDD();
+                    //dp.SelectDeptMgrName();
                     //dp.SelectDeptMgr();               
-                    dp.ClickSave();
+                    dp.ClickSaveBack();
+
+                    ClassicAssert.IsTrue(BasePage.ValidateListing(department.deptname, 3, 2));
+
                 }
 
 
-                //ClassicAssert.IsTrue(CommonPageActions.IsTxnCreated());
+                //ClassicAssert.IsTrue(BasePage.IsTxnCreated());
+
             }
             catch (Exception e)
             {
@@ -313,15 +357,15 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region create designation 
-        [Test, Order(2)]
-        public void VerifyDesignationCreation()
+        [Test, Order(2), Category("hrcore_create")]
+        public void CreateDesignation()
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 var designationFile = FileHelper.GetDataFile("Hrms", "HRCore", "Designation", "DesignationData");
-                var designationData = JsonHelper.ConvertJsonListDataModel<DesignationModel>(designationFile, "createDesignation");
+                var designationData = JsonHelper.ConvertJsonListDataModel<CreateDesignationModel>(designationFile, "createDesignation");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -335,15 +379,22 @@ namespace Enfinity.Hrms.Test.UI
 
                 //desg pg
                 DesignationPage dp = new DesignationPage(_driver);
-                dp.ClickNewButton();
-               //dp.SetDesignationCode();
-                dp.SetDesignation(faker.Name.JobTitle());
-                dp.ClickGrade();
-                dp.SelectGrade();
-                dp.SetJobDescription();
-                dp.ClickSave();
 
-                //ClassicAssert.IsTrue(CommonPageActions.IsTxnCreated());
+                foreach (var desg in designationData)
+                {
+                    dp.ClickNewButton();
+                    //dp.SetDesignationCode();
+                    //dp.SetDesignation(faker.Name.JobTitle());
+                    dp.SetDesignation(desg.designationName);
+                    dp.ClickGrade();
+                    dp.SelectGrade();
+                    dp.SetJobDescription();
+                    dp.ClickSaveBack();
+
+                    BasePage.ValidateListing(desg.designationName, 3, 2);
+                    //ClassicAssert.IsTrue(BasePage.IsTxnCreated());
+                }
+
             }
             catch (Exception e)
             {
@@ -353,15 +404,15 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region create grade  
-        [Test, Order(3)]
-        public void VerifyGradeCreation()
+        [Test, Order(3), Category("hrcore_create")]
+        public void CreateGrade()
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 var gradeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Grade", "GradeData");
-                var gradeData = JsonHelper.ConvertJsonListDataModel<GradeModel>(gradeFile, "createGrade");
+                var gradeData = JsonHelper.ConvertJsonListDataModel<CreateGradeModel>(gradeFile, "createGrade");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -379,11 +430,13 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach (var grade in gradeData)
                 {
-                    gp.ClickNew();
-                    gp.ProvideGradeName();
+                    gp.ClickOnNew();
+                    gp.ProvideGradeName(grade.gradeName);
                     gp.ProvideMinSal(grade.minSal);
                     gp.ProvideMaxSal(grade.maxSal);
-                    gp.ClickSave();
+                    gp.ClickSaveBack();
+
+                    BasePage.ValidateListing(grade.gradeName, 2, 1);
                 }
 
             }
@@ -396,14 +449,14 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create calendar
         [Test, Order(4)]
-        public void verifyCalendarCreation()
+        public void CreateCalendar()
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 var calendarFile = FileHelper.GetDataFile("Hrms", "HRCore", "Calendar", "CalendarData");
-                var calendarData = JsonHelper.ConvertJsonListDataModel<CalendarModel>(calendarFile, "createCalendar");
+                var calendarData = JsonHelper.ConvertJsonListDataModel<CreateCalendarModel>(calendarFile, "createCalendar");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -420,16 +473,18 @@ namespace Enfinity.Hrms.Test.UI
                 foreach (var calendar in calendarData)
                 {
                     cp.ClickNewButton();
-                    cp.ProvideCalendarName();
-                    //cp.ProvideCalendarName(calendar.calendarName);
+                    //cp.ProvideCalendarName();
+                    cp.ProvideCalendarName(calendar.calendarName);
                     cp.ProvideFromDate(calendar.fromDate);
                     cp.SetWeekoff();
                     cp.SetRestday();
-                    cp.ClickSave();
+                    cp.ClickSaveBack();
+
+                    BasePage.ValidateListing(calendar.calendarName, 2, 1);
                 }
 
 
-                //ClassicAssert.IsTrue(CommonPageActions.IsTxnCreated());
+                //ClassicAssert.IsTrue(BasePage.IsTxnCreated());
             }
             catch (Exception e)
             {
@@ -442,14 +497,14 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create religion 
         [Test, Order(5)]
-        public void VerifyReligionCreation()
+        public void CreateReligion()
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 var ReligionFile = FileHelper.GetDataFile("Hrms", "HRCore", "Religion", "ReligionData");
-                var ReligionData = JsonHelper.ConvertJsonListDataModel<ReligionModel>(ReligionFile, "createReligion");
+                var ReligionData = JsonHelper.ConvertJsonListDataModel<CreateReligionModel>(ReligionFile, "createReligion");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -465,12 +520,13 @@ namespace Enfinity.Hrms.Test.UI
                 ReligionPage rp = new ReligionPage(_driver);
                 foreach (var religion in ReligionData)
                 {
-                    rp.ClickNew();
-                    //rp.ProvideReligionName(religion.religionName);
-                    rp.ProvideReligionName();
-                    rp.ClickSave();
+                    rp.ClickOnNew();
+                    rp.ProvideReligionName(religion.religionName);
+                    rp.ClickSaveBack();
+
+                    BasePage.ValidateListing(religion.religionName, 2, 1);
                 }
-                //ClassicAssert.IsTrue(CommonPageActions.IsTxnCreated());
+                //ClassicAssert.IsTrue(BasePage.IsTxnCreated());
 
             }
             catch (Exception e)
@@ -484,14 +540,14 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create work location
         [Test, Order(6)]
-        public void VerifyWorkLocationCreation()
+        public void CreateWorkLocation()
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 var workLocationFile = FileHelper.GetDataFile("Hrms", "HRCore", "WorkLocation", "WorkLocationData");
-                var workLocationData = JsonHelper.ConvertJsonListDataModel<WorkLocationModel>(workLocationFile, "createWorkLocation");
+                var workLocationData = JsonHelper.ConvertJsonListDataModel<CreateWorkLocationModel>(workLocationFile, "createWorkLocation");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -507,10 +563,11 @@ namespace Enfinity.Hrms.Test.UI
                 WorkLocationPage wl = new WorkLocationPage(_driver);
                 foreach (var workLocation in workLocationData)
                 {
-                    wl.ClickNew();
-                    //wl.ProvideWorkLocName(workLocation.workLocationName);
-                    wl.ProvideWorkLocName();
-                    wl.ClickSave();
+                    wl.ClickOnNew();
+                    wl.ProvideWorkLocName(workLocation.workLocationName);
+                    wl.ClickSaveBack();
+
+                    BasePage.ValidateListing(workLocation.workLocationName, 2, 1);
                 }
                 //ClassicAssert.IsTrue(wl.IsTxnCreated());
 
@@ -523,19 +580,19 @@ namespace Enfinity.Hrms.Test.UI
 
             }
         }
-        #endregion
+        #endregion         
 
         #region create bank
         [Test, Order(7)]
-        public void VerifyBankCreation()
+        public void CreateBank()
         {
             try
             {
-                Login(Product);
+                ////Login(Product);
 
                 var bankFile = FileHelper.GetDataFile("Hrms", "HRCore", "Bank", "BankData");
-                var bankData = JsonHelper.ConvertJsonListDataModel<BankModel>(bankFile, "createBank");
-
+                var bankData = JsonHelper.ConvertJsonListDataModel<CreateBankModel>(bankFile, "createBank");
+                
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
                 hc.ClickHRCore();
@@ -548,13 +605,14 @@ namespace Enfinity.Hrms.Test.UI
 
                 //bank page                
                 BankPage bp = new BankPage(_driver);
-
+                
                 foreach (var bank in bankData)
                 {
-                    bp.ClickNew();
-                    //bp.provideBankName(bank.bankName);
-                    bp.provideBankName();
-                    bp.clickSave();
+                    bp.ClickOnNew();
+                    bp.provideBankName(bank.bankName);
+                    bp.clickSaveBack();
+
+                    BasePage.ValidateListing(bank.bankName, 2, 1);
                 }
                 //ClassicAssert.IsTrue(bp.IsTxnCreated());
             }
@@ -569,14 +627,14 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create qualification
         [Test, Order(8)]
-        public void VerifyQualificationCreation()
+        public void CreateQualification()
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 var qualificationFile = FileHelper.GetDataFile("Hrms", "HRCore", "Qualification", "QualificationData");
-                var qualificationData = JsonHelper.ConvertJsonListDataModel<QualificationModel>(qualificationFile, "createQualification");
+                var qualificationData = JsonHelper.ConvertJsonListDataModel<CreateQualificationModel>(qualificationFile, "createQualification");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -593,10 +651,11 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach (var qualification in qualificationData)
                 {
-                    qp.ClickNew();
-                    //qp.ProvideQualificationName(qualification.qualificationName);
-                    qp.ProvideQualificationName();
-                    qp.ClickSave();
+                    qp.ClickOnNew();
+                    qp.ProvideQualificationName(qualification.qualificationName);
+                    qp.ClickSaveBack();
+
+                    BasePage.ValidateListing(qualification.qualificationName, 2, 1);
                 }
                 //ClassicAssert.IsTrue(qp.IsTxnCreated());
             }
@@ -611,14 +670,14 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create document type
         [Test, Order(9)]
-        public void VerifyDocumentTypeCreation()
+        public void CreateDocumentType()
         {
             try
             {
-                Login(Product);
+                //Login(Product);
 
                 var documentTypeFile = FileHelper.GetDataFile("Hrms", "HRCore", "DocumentType", "DocumentTypeData");
-                var documentTypeData = JsonHelper.ConvertJsonListDataModel<DocumentTypeModel>(documentTypeFile, "createDocumentType");
+                var documentTypeData = JsonHelper.ConvertJsonListDataModel<CreateDocumentTypeModel>(documentTypeFile, "createDocumentType");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -635,13 +694,14 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach (var document in documentTypeData)
                 {
-                    dt.ClickNew();
-                    //dt.ProvideDocumentTypeName(document.documentTypeName);
-                    dt.ProvideDocumentTypeName();
-                    dt.ClickSave();
+                    dt.ClickOnNew();
+                    dt.ProvideDocumentTypeName(document.documentTypeName);
+                    dt.ClickSaveBack();
+
+                    BasePage.ValidateListing(document.documentTypeName, 2, 1);
                 }
                 //ClassicAssert.IsTrue(dt.IsTxnCreated());
-                ClassicAssert.IsTrue(true);
+                //ClassicAssert.IsTrue(true);
             }
             catch (Exception e)
             {
@@ -653,13 +713,13 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Delete Department
-        [Test]
+        [Test, Order(10)]
         public void DeleteDepartment()
         {
-            Login(Product);
+            //Login(Product);
 
             var departmentFile = FileHelper.GetDataFile("Hrms", "HRCore", "Department", "DepartmentData");
-            var departmentData = JsonHelper.ConvertJsonListDataModel<DepartmentModel>(departmentFile, "createDepartment");
+            var departmentData = JsonHelper.ConvertJsonListDataModel<DeleteDepartmentModel>(departmentFile, "deleteDepartment");
 
             //hr core page
             HRCorePage hc = new HRCorePage(_driver);
@@ -669,20 +729,26 @@ namespace Enfinity.Hrms.Test.UI
 
             //setup page
             SetupPage sp = new SetupPage(_driver);
-            sp.ClickDepartment();
-            Thread.Sleep(2000);
-            CommonPageActions.DeleteHrCoreTxn(3, "ofmIiG");
+            foreach (var dept in departmentData)
+            {
+                sp.ClickDepartment();
+                Thread.Sleep(2000);
+                BasePage.DeleteHrCoreTxn(3, dept.deptname);
+
+                ClassicAssert.IsFalse(BasePage.ValidateListing(dept.deptname, 3, 2));
+            }
+
         }
         #endregion
 
         #region Delete Designation
-        [Test]
+        [Test, Order(11)]
         public void DeleteDesignation()
         {
-            Login(Product);
+            //Login(Product);
 
-            var departmentFile = FileHelper.GetDataFile("Hrms", "HRCore", "Department", "DepartmentData");
-            var departmentData = JsonHelper.ConvertJsonListDataModel<DepartmentModel>(departmentFile, "createDepartment");
+            var DesignationFile = FileHelper.GetDataFile("Hrms", "HRCore", "Designation", "DesignationData");
+            var DesignationData = JsonHelper.ConvertJsonListDataModel<DeleteDesignationModel>(DesignationFile, "deleteDesignation");
 
             //hr core page
             HRCorePage hc = new HRCorePage(_driver);
@@ -692,20 +758,26 @@ namespace Enfinity.Hrms.Test.UI
 
             //setup page
             SetupPage sp = new SetupPage(_driver);
-            sp.ClickDesignation();
-            Thread.Sleep(2000);
-            CommonPageActions.DeleteHrCoreTxn(3, "vRStFZ");
+            foreach (var desg in DesignationData)
+            {
+                sp.ClickDesignation();
+                Thread.Sleep(2000);
+                BasePage.DeleteHrCoreTxn(3, desg.designationName);
+
+                ClassicAssert.IsFalse(BasePage.ValidateListing(desg.designationName, 3, 2));
+            }
+
         }
         #endregion
 
         #region Delete Grade
-        [Test]
+        [Test, Order(12)]
         public void DeleteGrade()
         {
-            Login(Product);
+            //Login(Product);
 
             var gradeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Grade", "GradeData");
-            var gradeData = JsonHelper.ConvertJsonListDataModel<GradeModel>(gradeFile, "createGrade");
+            var gradeData = JsonHelper.ConvertJsonListDataModel<DeleteGradeModel>(gradeFile, "deleteGrade");
 
             //hr core page
             HRCorePage hc = new HRCorePage(_driver);
@@ -715,20 +787,26 @@ namespace Enfinity.Hrms.Test.UI
 
             //setup page
             SetupPage sp = new SetupPage(_driver);
-            sp.ClickGrade();
-            Thread.Sleep(2000);
-            CommonPageActions.DeleteHrCoreTxn(3, "iMasaN");
+            foreach (var grade in gradeData)
+            {
+                sp.ClickGrade();
+                Thread.Sleep(2000);
+                BasePage.DeleteHrCoreTxn(2, grade.gradeName);
+
+                ClassicAssert.IsFalse(BasePage.ValidateListing(grade.gradeName, 2, 1));
+            }
+
         }
         #endregion
 
         #region Delete Calendar
-        [Test]
+        [Test, Order(13)]
         public void DeleteCalendar()
         {
-            Login(Product);
+            //Login(Product);
 
             var calendarFile = FileHelper.GetDataFile("Hrms", "HRCore", "Calendar", "CalendarData");
-            var calendarData = JsonHelper.ConvertJsonListDataModel<CalendarModel>(calendarFile, "createCalendar");
+            var calendarData = JsonHelper.ConvertJsonListDataModel<DeleteCalendarModel>(calendarFile, "deleteCalendar");
 
             //hr core page
             HRCorePage hc = new HRCorePage(_driver);
@@ -737,20 +815,26 @@ namespace Enfinity.Hrms.Test.UI
 
             //setup page
             SetupPage sp = new SetupPage(_driver);
-            sp.ClickCalendar();
-            Thread.Sleep(2000);
-            CommonPageActions.DeleteHrCoreTxn(3, "DCXdzp");
+            foreach (var calendar in calendarData)
+            {
+                sp.ClickCalendar();
+                Thread.Sleep(2000);
+                BasePage.DeleteHrCoreTxn(2, calendar.calendarName);
+
+                ClassicAssert.IsFalse(BasePage.ValidateListing(calendar.calendarName, 2, 1));
+            }
+
         }
         #endregion
 
         #region Delete Religion
-        [Test]
+        [Test, Order(14)]
         public void DeleteReligion()
         {
-            Login(Product);
+            //Login(Product);
 
             var ReligionFile = FileHelper.GetDataFile("Hrms", "HRCore", "Religion", "ReligionData");
-            var ReligionData = JsonHelper.ConvertJsonListDataModel<ReligionModel>(ReligionFile, "createReligion");
+            var ReligionData = JsonHelper.ConvertJsonListDataModel<DeleteReligionModel>(ReligionFile, "createReligion");
 
             //hr core page
             HRCorePage hc = new HRCorePage(_driver);
@@ -759,21 +843,27 @@ namespace Enfinity.Hrms.Test.UI
 
             //setup page
             SetupPage sp = new SetupPage(_driver);
-            sp.ClickReligion();
-            Thread.Sleep(2000);
-            CommonPageActions.DeleteHrCoreTxn(3, "NSHfFt");
+            foreach (var religion in ReligionData)
+            {
+                sp.ClickReligion();
+                Thread.Sleep(2000);
+                BasePage.DeleteHrCoreTxn(2, religion.religionName);
+
+                ClassicAssert.IsFalse(BasePage.ValidateListing(religion.religionName, 2, 1));
+            }
+
         }
         #endregion
 
         #region Delete Work Location
-        [Test]
+        [Test, Order(15)]
         public void DeleteWorkLocation()
         {
 
-            Login(Product);
+            //Login(Product);
 
             var workLocationFile = FileHelper.GetDataFile("Hrms", "HRCore", "WorkLocation", "WorkLocationData");
-            var workLocationData = JsonHelper.ConvertJsonListDataModel<WorkLocationModel>(workLocationFile, "createWorkLocation");
+            var workLocationData = JsonHelper.ConvertJsonListDataModel<DeleteWorkLocationModel>(workLocationFile, "createWorkLocation");
 
             //hr core page
             HRCorePage hc = new HRCorePage(_driver);
@@ -782,20 +872,26 @@ namespace Enfinity.Hrms.Test.UI
 
             //setup page
             SetupPage sp = new SetupPage(_driver);
-            sp.ClickWorkLocation();
-            Thread.Sleep(2000);
-            CommonPageActions.DeleteHrCoreTxn(3, "HjPXhI");
+            foreach (var wl in workLocationData)
+            {
+                sp.ClickWorkLocation();
+                Thread.Sleep(2000);
+                BasePage.DeleteHrCoreTxn(2, wl.workLocationName);
+
+                ClassicAssert.IsFalse(BasePage.ValidateListing(wl.workLocationName, 2, 1));
+            }
+
         }
         #endregion
 
         #region Delete Bank
-        [Test]
+        [Test, Order(16)]
         public void DeleteBank()
         {
-            Login(Product);
+            ////Login(Product);
 
             var bankFile = FileHelper.GetDataFile("Hrms", "HRCore", "Bank", "BankData");
-            var bankData = JsonHelper.ConvertJsonListDataModel<BankModel>(bankFile, "createBank");
+            var bankData = JsonHelper.ConvertJsonListDataModel<DeleteBankModel>(bankFile, "deleteBank");
 
             //hr core page
             HRCorePage hc = new HRCorePage(_driver);
@@ -804,22 +900,27 @@ namespace Enfinity.Hrms.Test.UI
 
             //setup page
             SetupPage sp = new SetupPage(_driver);
-            sp.ClickBank();
-            Thread.Sleep(2000);
-            CommonPageActions.DeleteHrCoreTxn(2, "azTRAB");
+            foreach (var bank in bankData)
+            {
+                sp.ClickBank();
+                Thread.Sleep(2000);
+                BasePage.DeleteHrCoreTxn(2, bank.bankName);
 
-            ClassicAssert.IsTrue(CommonPageActions.IsTxnCreated());
+                ClassicAssert.IsFalse(BasePage.ValidateListing(bank.bankName, 2, 1));
+                //ClassicAssert.IsTrue(BasePage.IsTxnCreated());
+            }
+
         }
         #endregion
 
         #region Delete Qualification
-        [Test]
+        [Test, Order(17)]
         public void DeleteQualification()
         {
-            Login(Product);
+            //Login(Product);
 
             var qualificationFile = FileHelper.GetDataFile("Hrms", "HRCore", "Qualification", "QualificationData");
-            var qualificationData = JsonHelper.ConvertJsonListDataModel<QualificationModel>(qualificationFile, "createQualification");
+            var qualificationData = JsonHelper.ConvertJsonListDataModel<DeleteQualificationModel>(qualificationFile, "deleteQualification");
 
             //hr core page
             HRCorePage hc = new HRCorePage(_driver);
@@ -828,20 +929,26 @@ namespace Enfinity.Hrms.Test.UI
 
             //setup page
             SetupPage sp = new SetupPage(_driver);
-            sp.ClickQualification();
-            Thread.Sleep(2000);
-            CommonPageActions.DeleteHrCoreTxn(3, "ZCGkck");
+            foreach (var qualification in qualificationData)
+            {
+                sp.ClickQualification();
+                Thread.Sleep(2000);
+                BasePage.DeleteHrCoreTxn(2, qualification.qualificationName);
+
+                ClassicAssert.IsFalse(BasePage.ValidateListing(qualification.qualificationName, 2, 1));
+            }
+
         }
         #endregion
 
         #region Delete Document Type
-        [Test]
+        [Test, Order(18)]
         public void DeleteDocumentType()
         {
-            Login(Product);
+            //Login(Product);
 
             var documentTypeFile = FileHelper.GetDataFile("Hrms", "HRCore", "DocumentType", "DocumentTypeData");
-            var documentTypeData = JsonHelper.ConvertJsonListDataModel<DocumentTypeModel>(documentTypeFile, "createDocumentType");
+            var documentTypeData = JsonHelper.ConvertJsonListDataModel<DeleteDocumentTypeModel>(documentTypeFile, "createDocumentType");
 
             //hr core page
             HRCorePage hc = new HRCorePage(_driver);
@@ -850,12 +957,141 @@ namespace Enfinity.Hrms.Test.UI
 
             //setup page
             SetupPage sp = new SetupPage(_driver);
-            sp.ClickDocumentType();
-            Thread.Sleep(2000);
-            CommonPageActions.DeleteHrCoreTxn(3, "saiHWJ");
+            foreach (var doc in documentTypeData)
+            {
+                sp.ClickDocumentType();
+                Thread.Sleep(2000);
+                BasePage.DeleteHrCoreTxn(2, doc.documentTypeName);
+
+                ClassicAssert.IsFalse(BasePage.ValidateListing(doc.documentTypeName, 2, 1));
+            }
+
         }
         #endregion
 
-        
+        #region Create Employee
+        [Test, Order(19)]
+        //[Ignore("")]
+
+        public void CreateEmployee()
+        {
+            try
+            {
+                //Login(Product);
+
+                var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                var employeeInfo = JsonHelper.ConvertJsonListDataModel<NewEmployeeModel>(employeeFile, "newEmployee");
+
+                //hr core page
+                HRCorePage hc = new HRCorePage(_driver);
+                hc.ClickHRCore();
+                hc.ClickSetupForm();
+
+                //setup page
+                SetupPage sp = new SetupPage(_driver);
+                sp.ClickEmployee();
+                Thread.Sleep(2000);
+
+                //PayrollEmployee page
+                EmployeePage ep = new EmployeePage(_driver);
+
+                foreach (var employee in employeeInfo)
+                {
+                    ep.ClickNewBtn();
+                    ep.ProvideWorkEmail(employee.email);                   
+                    ep.ProvideName(employee.name);
+                    //ep.ClickMgrDropdown();
+                    //ep.SelectMgr();
+                    ep.ProvideMobileNumber(employee.mobile);
+                    ep.ProvideDOJ(employee.DOJ);
+               
+                    ep.SelectDepartment(employee.department);
+                
+                    ep.SelectDesignation(employee.designation);
+                    //ep.ClearPayrollSet();
+                 
+                    ep.SelectPayrollSet(employee.payrollSet);
+                  
+                    ep.SelectCalendar(employee.calendar);
+               
+                    ep.SelectIndemnity(employee.indemnity);
+               
+                    ep.SelectGrade(employee.grade);
+                   
+                    ep.SelectGender(employee.gender);
+                  
+                    ep.SelectReligion(employee.religion);
+                 
+                    ep.SelectMaritalStatus(employee.maritalStatus);
+                    ep.ClickOnSave();
+
+                    ClassicAssert.IsTrue(ep.Validate(employee.name));
+                   
+
+                }
+
+
+                //ClassicAssert.IsTrue(ep.IsEmployeeCreated(name));
+
+            }
+            catch (Exception e)
+            {
+                ClassicAssert.Fail("VRC- Test case failed: " + e);  
+            }
+
+        }
+        #endregion
+
+        #region Delete Employee
+        [Test, Order(20)]
+        //[Ignore("")]
+        public void DeleteEmployee()
+        {
+            try
+            {
+                //instead of for loop you can use repeat attribute 
+                for (int i = 1; i <= 1; i++)
+                {
+                    //Login(Product);
+
+                    var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                    var deleteEmployee = JsonHelper.ConvertJsonListDataModel<DeleteEmpModel>(employeeFile, "deleteEmployee");
+
+                    HRCorePage hc = new HRCorePage(_driver);
+                    hc.ClickHRCore();
+                    hc.ClickSetupForm();
+
+                    SetupPage sp = new SetupPage(_driver);
+                    sp.ClickEmployee();
+                    Thread.Sleep(2000);
+
+                    foreach (var delete in deleteEmployee)
+                    {
+                        BasePage.NavigateToEmployee(delete.empName);
+                        BasePage.SwitchTab();
+
+                        EmployeePage ep = new EmployeePage(_driver);
+                        ep.ClickSettingButton();
+                        ep.ClickDelete();
+                        ep.ClickOk();
+                        //ClassicAssert.IsTrue(BasePage.IsEmployeeDeleted(), "Employee not deleted");
+                        //ep.ClickRightAreaMenu();
+                        //ep.ClicklogOff();
+                        //BasePage.CloseTab();
+
+                        ClassicAssert.IsFalse(ep.ValidateEmpDelete(delete.empName));
+
+                    }
+
+                }
+            }
+            catch (Exception e)
+            {
+                ClassicAssert.Fail("Test case failed: " + e);
+            }
+        }
+        #endregion
+
+
     }
 }

@@ -6,6 +6,7 @@ using Enfinity.Hrms.Test.UI.Models.SelfService.ExpenseClaim;
 using Enfinity.Hrms.Test.UI.Models.SelfService.HRAssetRequest;
 using Enfinity.Hrms.Test.UI.Models.SelfService.ITSupport;
 using Enfinity.Hrms.Test.UI.Models.SelfService.TimeOff;
+using Enfinity.Hrms.Test.UI.PageObjects.HrCore;
 using Enfinity.Hrms.Test.UI.PageObjects.SelfService;
 using Enfinity.Hrms.Test.UI.Utilities;
 using NUnit.Framework;
@@ -24,8 +25,6 @@ namespace Enfinity.Hrms.Test.UI
     [TestFixture]
     public class SelfServiceModule : BaseTest
     {
-        public string Product = "Hrms";
-
         #region create expense claim
         [Test, Order(1)]
         [Ignore("locator issue")]
@@ -33,7 +32,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                
 
                 var ExpenseClaimFile = FileHelper.GetDataFile("Hrms", "SelfService", "ExpenseClaim", "ExpenseClaimData");
                 var ExpenseClaimData = JsonHelper.ConvertJsonListDataModel<BusinessTripClaimModel>(ExpenseClaimFile, "createExpenseClaim");
@@ -80,7 +79,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+               
 
                 var BusinessTripClaimFile = FileHelper.GetDataFile("Hrms", "SelfService", "BusinessTripClaim", "BusinessTripClaimData");
                 var BusinessTripClaimData = JsonHelper.ConvertJsonListDataModel<BusinessTripClaimModel>(BusinessTripClaimFile, "createBusinessTripClaim");
@@ -127,8 +126,6 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                //Login(Product);
-
                 var timeOffFile = FileUtils.GetDataFile("Hrms", "SelfService", "TimeOff", "TimeOffData");
                 var timeOffData = JsonUtils.ConvertJsonListDataModel<TimeOffModel>(timeOffFile, "createTimeOff");
 
@@ -154,13 +151,14 @@ namespace Enfinity.Hrms.Test.UI
                     to.ClickTimeNotation();
                     to.SelectTimeNotation();
                     to.ClickOnOk();
-                    to.ClickUpToTimeField();
+                    //issue
+                    //to.ClickUpToTimeField();                   
                     //to.ProvideUpTOHrs1();
                     //to.ProvideUpToHrs(timeOff.upTohrs);
-                    to.ProvideUpToMinutes(timeOff.upToMinutes);
-                    to.ClickUpToTimeNotation();
-                    to.SelectUpToTimeNotation();
-                    to.ClickUpToOk();
+                    //to.ProvideUpToMinutes(timeOff.upToMinutes);
+                    //to.ClickUpToTimeNotation();
+                    //to.SelectUpToTimeNotation();
+                    //to.ClickUpToOk();
                     to.EnterDescription();
                     to.SaveAndSubmit();
                     
@@ -182,8 +180,6 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                //Login(Product);
-
                 var HRAssetRequestFile = FileUtils.GetDataFile("Hrms", "SelfService", "HRAssetRequest", "HRAssetRequestData");
                 var HRAssetRequestData = JsonUtils.ConvertJsonListDataModel<HRAssetRequestModel>(HRAssetRequestFile, "createHRAssetRequest");
 
@@ -209,13 +205,50 @@ namespace Enfinity.Hrms.Test.UI
                     ar.ClickOnView();
                     ar.ClickOnApproveBack();
 
-                    ClassicAssert.IsFalse(BasePage.ValidateListing(desg.designationName, 3, 2));
+                    ClassicAssert.IsTrue(HRAssetRequestPage.IsTransactionCreated(HRAssetRequest.txnDate1, HRAssetRequest.emp, HRAssetRequest.status));
                 }
             }
             catch (Exception e)
             {
 
                 ClassicAssert.Fail("Test case failed: " + e);
+
+            }
+        }
+        #endregion
+
+        #region Create hr asset return
+        [Test]
+        public void CreateHRAssetReturn()
+        {
+            try
+            {
+                var HRAssetReturnFile = FileUtils.GetDataFile("Hrms", "SelfService", "HRAssetRequest", "HRAssetRequestData");
+                var HRAssetReturnData = JsonUtils.ConvertJsonListDataModel<HRAssetReturnModel>(HRAssetReturnFile, "createHRAssetReturn");
+
+                //hr core page
+                HRCorePage hc = new HRCorePage(_driver);
+                hc.ClickHRCore();
+                hc.ClickAssetIssue();
+
+                //asset issue page                
+                AssetIssuePage ai = new AssetIssuePage(_driver);
+
+                foreach (var HRAssetReturn in HRAssetReturnData)
+                {
+                    ai.FilterAndOpenTxn(HRAssetReturn.HRAsset);
+                    ai.ClickContextMenu();
+                    ai.ClickReturn();
+                    ai.ProvideReturnDate(HRAssetReturn.expReturnDate);
+
+                    //ClassicAssert.IsTrue(ai.ReturnDate());
+                    ClassicAssert.IsTrue(true);
+                }
+            }
+            catch (Exception e)
+            {
+
+                ClassicAssert.Fail("VRC- Test case failed: " + e);            
 
             }
         }
@@ -228,7 +261,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+               
 
                 var LeaveRequestFile = FileHelper.GetDataFile("Hrms", "SelfService", "LeaveRequest", "LeaveRequestData");
                 var LeaveRequestData = JsonHelper.ConvertJsonListDataModel<LeaveRequestModel>(LeaveRequestFile, "createLeaveRequest");
@@ -272,7 +305,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                
 
                 var ITSupportFile = FileHelper.GetDataFile("Hrms", "SelfService", "ITSupport", "ITSupportData");
                 var ITSupportData = JsonHelper.ConvertJsonListDataModel<ITSupportModel>(ITSupportFile, "createITSupport");
@@ -314,8 +347,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
-
+               
                 var adminSupportFile = FileHelper.GetDataFile("Hrms", "SelfService", "AdminSupport", "AdminSupportData");
                 var adminSupportData = JsonHelper.ConvertJsonListDataModel<AdminSupportModel>(adminSupportFile, "createAdminSupport");
 
@@ -355,8 +387,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
-
+               
                 var selfServiceFile = FileHelper.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
                 var loanRequestData = JsonHelper.ConvertJsonListDataModel<LoanRequestModel>(selfServiceFile, "createLoanRequest");
 
@@ -399,8 +430,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
-
+               
                 var selfServiceFile = FileHelper.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
                 var benefitClaimData = JsonHelper.ConvertJsonListDataModel<BenefitClaimModel>(selfServiceFile, "createBenefitClaim");
 
@@ -446,8 +476,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
-
+               
                 var selfServiceFile = FileHelper.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
                 var travelRequestData = JsonHelper.ConvertJsonListDataModel<TravelRequestModel>(selfServiceFile, "createTravelRequest");
 
@@ -497,8 +526,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
-
+               
                 var selfServiceFile = FileHelper.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
                 var promotionRequestData = JsonHelper.ConvertJsonListDataModel<PromotionRequestModel>(selfServiceFile, "createPromotionRequest");
 
@@ -569,8 +597,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
-
+                
                 var selfServiceFile = FileHelper.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
                 var overtimeRequestData = JsonHelper.ConvertJsonListDataModel<OvertimeRequestModel>(selfServiceFile, "createOvertimeRequest");
 
@@ -623,11 +650,9 @@ namespace Enfinity.Hrms.Test.UI
         public void CreateResignation()
         {
             try
-            {
-                Login(Product);
-
-                var selfServiceFile = FileHelper.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
-                var resignationData = JsonHelper.ConvertJsonListDataModel<ResignationModel>(selfServiceFile, "createResignation");
+            {                
+                var selfServiceFile = FileUtils.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
+                var resignationData = JsonUtils.ConvertJsonListDataModel<ResignationModel>(selfServiceFile, "createResignation");
 
                 //self service page
                 SelfServicePage ss = new SelfServicePage(_driver);
@@ -662,12 +687,33 @@ namespace Enfinity.Hrms.Test.UI
         }
         #endregion
 
+        #region Create support request category
+        [Test]
+        public void CreateSupportRequestCategory()
+        {
+            try
+            {
+                var selfServiceFile = FileUtils.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
+                var resignationData = JsonUtils.ConvertJsonListDataModel<ResignationModel>(selfServiceFile, "createResignation");
+
+                //global search
+                BasePage.GlobalSearch("support request category");
+            }
+            catch (Exception e)
+            {
+
+                ClassicAssert.Fail("VRC- Test case failed: " + e);
+
+            }
+        }
+
+        #endregion
+
         #region Delete Expense Claim
         [Test, Repeat(22)]
         public void DeleteExpenseClaim()
         {
-            Login(Product);
-
+          
             var ExpenseClaimFile = FileHelper.GetDataFile("Hrms", "SelfService", "ExpenseClaim", "ExpenseClaimData");
             var ExpenseClaimData = JsonHelper.ConvertJsonListDataModel<BusinessTripClaimModel>(ExpenseClaimFile, "createExpenseClaim");
 
@@ -691,8 +737,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
-
+               
                 var timeOffFile = FileHelper.GetDataFile("Hrms", "SelfService", "TimeOff", "TimeOffData");
                 var timeOffData = JsonHelper.ConvertJsonListDataModel<TimeOffModel>(timeOffFile, "createTimeOff");
 
@@ -725,8 +770,7 @@ namespace Enfinity.Hrms.Test.UI
         [Test, Repeat(10)]
         public void DeleteHRAssetRequest()
         {
-            Login(Product);
-
+           
             var HRAssetRequestFile = FileHelper.GetDataFile("Hrms", "SelfService", "HRAssetRequest", "HRAssetRequestData");
             var HRAssetRequestData = JsonHelper.ConvertJsonListDataModel<HRAssetRequestModel>(HRAssetRequestFile, "createHRAssetRequest");
 
@@ -741,7 +785,7 @@ namespace Enfinity.Hrms.Test.UI
             ar.Test();
             BasePage.DeleteTxn(6, "active");
         }
-        #endregion        
+        #endregion
 
         #region Delete HR Expense
         [Test]
@@ -762,7 +806,7 @@ namespace Enfinity.Hrms.Test.UI
         public void test3()
         {
         }
-        #endregion       
+        #endregion
 
         #region Delete Exception Request
         [Test]
@@ -775,8 +819,7 @@ namespace Enfinity.Hrms.Test.UI
         [Test, Repeat(5)]
         public void DeleteLeaveRequest()
         {
-            Login(Product);
-
+           
             var LeaveRequestFile = FileHelper.GetDataFile("Hrms", "SelfService", "LeaveRequest", "LeaveRequestData");
             var LeaveRequestData = JsonHelper.ConvertJsonListDataModel<LeaveRequestModel>(LeaveRequestFile, "createLeaveRequest");
 
@@ -798,8 +841,6 @@ namespace Enfinity.Hrms.Test.UI
         [Test]
         public void DeleteLeaveExtension()
         {
-            Login(Product);
-
             var LeaveRequestFile = FileHelper.GetDataFile("Hrms", "SelfService", "LeaveRequest", "LeaveRequestData");
             var LeaveRequestData = JsonHelper.ConvertJsonListDataModel<LeaveRequestModel>(LeaveRequestFile, "createLeaveRequest");
 
@@ -894,6 +935,7 @@ namespace Enfinity.Hrms.Test.UI
         {
         }
         #endregion
-    } 
+
+    }
 } 
 

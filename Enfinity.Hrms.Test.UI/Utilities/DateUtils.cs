@@ -54,5 +54,17 @@ namespace Enfinity.Hrms.Test.UI.Utilities
             DateTime parsedDate = DateTime.ParseExact(date, inputFormat, CultureInfo.InvariantCulture);
             return parsedDate.ToString(outputFormat);
         }
+
+        public static string FormattedDateMMM(string dateString)
+        {
+            DateTime date = DateTime.ParseExact(dateString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            return date.ToString("dd-MMM-yyyy", CultureInfo.InvariantCulture);
+        }
+
+        public static string FormattedDateMM(string dateString)
+        {
+            DateTime date = DateTime.ParseExact(dateString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            return date.ToString("dd-MM-yyyy");
+        }
     }
 }

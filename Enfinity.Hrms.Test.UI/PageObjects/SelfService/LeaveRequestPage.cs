@@ -61,7 +61,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             ClearAndProvide1(toDate, value);
         }
 
-        public void ClickSaveSubmit()
+        public void ClickSaveAndSubmit()
         {
             Find(saveAndSubmit).Click();
         }

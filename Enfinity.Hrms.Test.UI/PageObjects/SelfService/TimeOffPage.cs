@@ -178,13 +178,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             Find(delete).Click();
             Thread.Sleep(1000);
         }
-        public void ClickOk()
-        {
-            //Find(ok).Click();
-            //PressKey("enter");
-            Thread.Sleep(1000);
-            //PressKey("enter");
-        }
+        
 
 
 

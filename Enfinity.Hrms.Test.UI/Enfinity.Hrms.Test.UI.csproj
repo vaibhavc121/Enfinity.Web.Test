@@ -180,6 +180,7 @@
     <Compile Include="Models\SuccessionPlanning\SuccessionPlanning\SuccessionModel.cs" />
     <Compile Include="PageObjects\Archive\TestPage.cs" />
     <Compile Include="Base\BasePage.cs" />
+    <Compile Include="PageObjects\HrCore\AssetIssuePage.cs" />
     <Compile Include="PageObjects\HrCore\BankPage.cs" />
     <Compile Include="PageObjects\HrCore\CalendarPage.cs" />
     <Compile Include="PageObjects\HrCore\DepartmentPage.cs" />

@@ -3,6 +3,7 @@ using Enfinity.Hrms.Test.UI.Base;
 using Enfinity.Hrms.Test.UI.Utilities;
 using NUnit.Framework.Legacy;
 using OpenQA.Selenium;
+using OpenQA.Selenium.BiDi.Modules.BrowsingContext;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -17,12 +18,10 @@ namespace Enfinity.Hrms.Test.UI
      public class BasePage
     {
         public static IWebDriver driver;
-
         public BasePage(IWebDriver _driver)
         {
             driver = _driver;
         }
-
         public IWebElement Find(By locator) => driver.FindElement(locator);
 
         #region For fake data generation
@@ -130,6 +129,38 @@ namespace Enfinity.Hrms.Test.UI
             string xpath = $"(//tbody//tr)[11]//td[{columnIndex}]";
             driver.FindElement(By.XPath(xpath)).SendKeys(value);
         }
+        public static void FilterDateByIndex(int ColumnIndex, string value)
+        {
+            string xpath = $"(//input[@class='dx-texteditor-input'])[{ColumnIndex}]";
+            driver.FindElement(By.XPath(xpath)).Clear();
+            driver.FindElement(By.XPath(xpath)).SendKeys(value);
+            PressEnter();
+        }
+        public static void FilterAndOpenTransaction(int filterIndex, int resultIndex, string expValue, string mode)
+        {
+            FilterByIndex(filterIndex, expValue);
+            Thread.Sleep(2000);
+
+            string actValue = ResultValue(resultIndex);
+            //Thread.Sleep(2000);
+            if (actValue.Contains(expValue))
+            {
+                SelectRow();
+                if(mode.Contains("view"))
+                {
+                    ClickView();
+                }
+                else
+                {
+                    ClickEdit();
+                }
+                
+            }
+            else
+            {
+                throw new Exception("VRC- No matching record found");
+            }
+        }
         public static void filter1(string value)
         {
             driver.FindElement(By.XPath(
@@ -208,7 +239,8 @@ namespace Enfinity.Hrms.Test.UI
         #region Listing result (Relative xpath)
         public static void SelectRow()
         {
-            driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
+            //driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
+            WaitForElement(By.XPath("(//tr)[12]//td[2]")).Click();
         }
         public static string ResultValue(int columnIndex)
         {
@@ -269,28 +301,29 @@ namespace Enfinity.Hrms.Test.UI
 
         public static void ClickOk()
         {
-            driver.FindElement(By.XPath("//span[normalize-space()='OK']")).Click();
+            WaitForElement(By.XPath("//span[normalize-space()='OK']")).Click(); 
         }
         public static void ClickSave()
         {
-            driver.FindElement(By.XPath("//span[normalize-space()='Save']")).Click();
+            WaitForElement(By.XPath("//span[normalize-space()='Save']")).Click();
+           
         }
         public void ClickSaveSubmit()
         {
-            driver.FindElement(By.XPath("//span[text()='Save and Submit']"));
+            WaitForElement(By.XPath("//span[text()='Save and Submit']")).Click();
         }
         public static void ClickSaveAndBack()
         {
-            driver.FindElement(By.XPath("//span[normalize-space()='Save']")).Click();
+            WaitForElement(By.XPath("//span[normalize-space()='Save']")).Click();         
             driver.Navigate().Back();
         }
         public static void ClickView()
         {
-            driver.FindElement(By.XPath("//span[normalize-space()='View']")).Click();
+            WaitForElement(By.XPath("//span[normalize-space()='View']")).Click();         
         }
         public static void ClickViewAndBack()
         {
-            driver.FindElement(By.XPath("//span[normalize-space()='View']")).Click();
+            WaitForElement(By.XPath("//span[normalize-space()='View']")).Click();           
             Thread.Sleep(2000);
             ClickEdit();
             ClickView();
@@ -298,16 +331,16 @@ namespace Enfinity.Hrms.Test.UI
         }
         public static void ClickEdit()
         {
-            driver.FindElement(By.XPath("//span[normalize-space()='Edit']")).Click();
+            WaitForElement(By.XPath("//span[normalize-space()='Edit']")).Click();            
         }
         public static void ClickApproveAndBack()
         {
-            driver.FindElement(By.XPath("//span[normalize-space()='Approve']")).Click();
+            WaitForElement(By.XPath("//span[normalize-space()='Approve']")).Click();           
             driver.Navigate().Back();
         }
         public static void ClickNew()
         {
-            driver .FindElement(By.XPath("//span[normalize-space()='New']")).Click();
+            WaitForElement(By.XPath("//span[normalize-space()='New']")).Click();            
         }
         public static void SelectDropdownOption(string expectedValue)
         {
@@ -365,15 +398,16 @@ namespace Enfinity.Hrms.Test.UI
             }
         }
         public static void ClearAndProvide(By locator, string value)
-        {
-            driver.FindElement(locator).Click();
-            driver.FindElement(locator).Clear();
-            driver.FindElement(locator).SendKeys(value);
+        {           
+            var element = WaitForElement(locator);
+            element.Click();
+            element.Clear();
+            element.SendKeys(value);
 
         }
         public static void ClearAndProvide1(By locator, string value)
-        {
-            var element = driver.FindElement(locator);
+        {            
+            var element = WaitForElement(locator);
             element.Click();
             Actions actions = new Actions(driver);
             Thread.Sleep(1000);
@@ -386,8 +420,8 @@ namespace Enfinity.Hrms.Test.UI
             element.SendKeys(value);
         }
         public static void ProvideAndEnter(By locator, string value)
-        {
-            var element = driver.FindElement(locator);
+        {           
+            var element = WaitForElement(locator);
             element.Click();
             Actions actions = new Actions(driver);
             actions.KeyDown(Keys.Control)
@@ -402,8 +436,8 @@ namespace Enfinity.Hrms.Test.UI
         }
         public static void ProvideValue(By locator, string value)
         {
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)driver;
-            IWebElement element = driver.FindElement(locator);
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)driver;            
+            IWebElement element = WaitForElement(locator);
             //js.ExecuteScript("arguments[0].value='Test Value';", inputField);
             jsExecutor.ExecuteScript($"arguments[0].value='{value}';", element);
         }
@@ -413,9 +447,18 @@ namespace Enfinity.Hrms.Test.UI
         }
         public static void GlobalSearch(string value)
         {
-            driver.FindElement(By.Id("GlobalSearch")).Click();
-            driver.FindElement(By.XPath("//input[@role='combobox']")).SendKeys(value);
-            Thread.Sleep(2000);
+            //driver.FindElement(By.Id("GlobalSearch")).Click();
+            //driver.FindElement(By.XPath("//input[@role='combobox']")).SendKeys(value);
+            //Thread.Sleep(2000);
+            //SelectDropdownOption(value);
+
+            IWebElement globalSearchInput = WaitForElement(By.Id("GlobalSearch"));
+            globalSearchInput.Click();
+
+            IWebElement comboBoxInput = WaitForElement(By.XPath("//input[@role='combobox']"));
+            comboBoxInput.SendKeys(value);
+
+            Thread.Sleep(2000); // Optional: use wait for dropdown to be populated
             SelectDropdownOption(value);
         }
         public static void ScrollDownWebPageSample()
@@ -450,26 +493,28 @@ namespace Enfinity.Hrms.Test.UI
             // Wait for a few seconds to see the scroll effect
             //System.Threading.Thread.Sleep(2000);
 
-            IWebElement element = driver.FindElement(By.XPath("//input[contains(@id,'OldContractSalary')]"));
+            //IWebElement element = driver.FindElement(By.XPath("//input[contains(@id,'OldContractSalary')]"));
+            IWebElement element = WaitForElement(By.XPath("//input[contains(@id,'OldContractSalary')]"));
             jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
         }
         public static void ScrollDownWebPage(By locator)
         {
             IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)driver;
-            IWebElement element = driver.FindElement(locator);
+            IWebElement element = WaitForElement(locator);
             jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
         }
         public static void ClickNewLine()
         {
-            driver.FindElement(By.XPath("//i[@class='dx-icon dx-icon-new-icon']")).Click();
+            //driver.FindElement(By.XPath("//i[@class='dx-icon dx-icon-new-icon']")).Click();
+            WaitForElement(By.XPath("//i[@class='dx-icon dx-icon-new-icon']")).Click();
         }
         public static void HoverAndClick(By locator, By locator1)
         {
 
-            IWebElement elementToHover = driver.FindElement(locator);
+            IWebElement elementToHover = WaitForElement(locator);
             Actions actions = new Actions(driver);
             actions.MoveToElement(elementToHover).Perform();
-            driver.FindElement(locator1).Click();
+            WaitForElement(locator1).Click();
             //Find(deleteBasicSalBtn).Click();
             //Thread.Sleep(2000);
             //Find(deleteBasicSalaryComponent).Click();
@@ -487,7 +532,8 @@ namespace Enfinity.Hrms.Test.UI
             try
             {
                 //need to select row to click on view
-                driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
+                //driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
+                WaitForElement(By.XPath("(//tr)[12]//td[2]")).Click();
             }
             catch (Exception)
             {
@@ -498,8 +544,10 @@ namespace Enfinity.Hrms.Test.UI
 
             ClickView();
             Thread.Sleep(5000);
-            driver.FindElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
-            driver.FindElement(By.XPath("//span[normalize-space()='Delete']")).Click();
+            //driver.FindElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
+            WaitForElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
+            //driver.FindElement(By.XPath("//span[normalize-space()='Delete']")).Click();
+            WaitForElement(By.XPath("//span[normalize-space()='Delete']")).Click();
             Thread.Sleep(1000);
 
             PressKey("enter");
@@ -515,11 +563,13 @@ namespace Enfinity.Hrms.Test.UI
                 //added this condition bcos there is only single column on bank listing
                 if (ColumnIndex == 2)
                 {
-                    driver.FindElement(By.XPath("(//tr)[12]//td[1]")).Click();
+                    //driver.FindElement(By.XPath("(//tr)[12]//td[1]")).Click();
+                    WaitForElement(By.XPath("(//tr)[12]//td[1]")).Click();
                 }
                 else
                 {
-                    driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
+                    //driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
+                    WaitForElement(By.XPath("(//tr)[12]//td[2]")).Click();
                 }
 
             }
@@ -539,8 +589,10 @@ namespace Enfinity.Hrms.Test.UI
             }
 
             Thread.Sleep(5000);
-            driver.FindElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
-            driver.FindElement(By.XPath("//span[normalize-space()='Delete']")).Click();
+            //driver.FindElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
+            WaitForElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
+            //driver.FindElement(By.XPath("//span[normalize-space()='Delete']")).Click();
+            WaitForElement(By.XPath("//span[normalize-space()='Delete']")).Click();
             Thread.Sleep(1000);
 
             PressKey("enter");
@@ -553,26 +605,34 @@ namespace Enfinity.Hrms.Test.UI
 
         public static void FilterEmployee(string value)
         {
-            driver.FindElement(By.Id("//input[@aria-describedby='dx-col-4']")).SendKeys(value);
+            //driver.FindElement(By.Id("//input[@aria-describedby='dx-col-4']")).SendKeys(value);
+            WaitForElement(By.Id("//input[@aria-describedby='dx-col-4']")).SendKeys(value);
         }
         public static string ResultEmployee()
         {
-            string result = driver.FindElement(By.XPath(
-                    "/html[1]/body[1]/div[6]/div[2]/div[1]/div[2]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/p[1]/span[1]/a[1]"))
-                    .Text;
+            //string result = driver.FindElement(By.XPath(
+            //        "/html[1]/body[1]/div[6]/div[2]/div[1]/div[2]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/p[1]/span[1]/a[1]"))
+            //        .Text;
+            string result = WaitForElement(By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[2]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]/div[2]/p[1]/span[1]/a[1]")).Text;
+
             return result;
         }
         public static string Result()
         {
-            string result = driver.FindElement(By.XPath(
+            //string result = driver.FindElement(By.XPath(
+            //        "//td[@class='list-hyperlink dx-cell-focus-disabled']"))
+            //        .Text;
+            string result = WaitForElement(By.XPath(
                     "//td[@class='list-hyperlink dx-cell-focus-disabled']"))
                     .Text;
+
             return result;
         }
         public static void ClickResult(string value)
         {
-            IWebElement employee = driver.FindElement(By.XPath(
-                    "//td[@class='list-hyperlink dx-cell-focus-disabled']"));
+            //IWebElement employee = driver.FindElement(By.XPath("//td[@class='list-hyperlink dx-cell-focus-disabled']"));
+            IWebElement employee = WaitForElement(By.XPath("//td[@class='list-hyperlink dx-cell-focus-disabled']"));
+
             string result = employee.Text;
 
             if (result.Contains(value))
@@ -687,6 +747,21 @@ namespace Enfinity.Hrms.Test.UI
 
             element.Click(); // Click after ensuring element is ready
         }
+        public static IWebElement WaitForElement(By locator)
+        {
+            DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(driver)
+            {
+                Timeout = TimeSpan.FromSeconds(10),
+                PollingInterval = TimeSpan.FromMilliseconds(500)
+            };
+            fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException), typeof(StaleElementReferenceException));
+
+            return fluentWait.Until(driver =>
+            {
+                IWebElement el = driver.FindElement(locator);
+                return (el.Displayed && el.Enabled) ? el : null;
+            });
+        }
 
         public static async Task Wait(int seconds)
         {
@@ -705,7 +780,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             // Find all values in the Office 365 dropdown
             IList<IWebElement> valuesList = driver.FindElements(locator);
-
+            
             foreach (var valueElement in valuesList)
             {
                 string actualValue = valueElement.Text;
@@ -718,7 +793,9 @@ namespace Enfinity.Hrms.Test.UI
         }
         public static bool IsTxnCreated()
         {
-            string message = driver.FindElement(By.XPath("//div[@class='dx-toast-message']")).Text;
+            //string message = driver.FindElement(By.XPath("//div[@class='dx-toast-message']")).Text;
+            string message = WaitForElement(By.XPath("//div[@class='dx-toast-message']")).Text;
+
             //return message;            
             if (message.Contains("created successfully"))
             {
@@ -732,7 +809,9 @@ namespace Enfinity.Hrms.Test.UI
         }
         public static bool IsEmployeeDeleted()
         {
-            string message = driver.FindElement(By.XPath("//div[@class='dx-toast-message']")).Text;
+            //string message = driver.FindElement(By.XPath("//div[@class='dx-toast-message']")).Text;
+            string message = WaitForElement(By.XPath("//div[@class='dx-toast-message']")).Text;
+
             //return message;
             if (message.Contains("deleted successfully"))
             {
@@ -746,7 +825,9 @@ namespace Enfinity.Hrms.Test.UI
         }
         public static void Validation(string expectedMessage)
         {
-            IWebElement element = driver.FindElement(By.ClassName("dx-toast-message"));
+            //IWebElement element = driver.FindElement(By.ClassName("dx-toast-message"));
+            IWebElement element = WaitForElement(By.ClassName("dx-toast-message"));
+
             string actualMessage = element.Text;
             StringAssert.Contains(expectedMessage, actualMessage);
         }
@@ -764,7 +845,7 @@ namespace Enfinity.Hrms.Test.UI
             else
             {
                 return false;
-            }
+            }             
 
         }
         #endregion
@@ -825,7 +906,7 @@ namespace Enfinity.Hrms.Test.UI
             ExecuteScript(driver, "window.scrollTo(0, 0);");
         }
 
-        public void ScrollIntoView(IWebDriver driver, IWebElement element)
+        public void ScrollIntoView(IWebElement element)
         {
             ExecuteScript(driver, "arguments[0].scrollIntoView(true);", element);
         }
@@ -863,28 +944,28 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Frame Handling
-        public void SwitchToFrameByIndex(IWebDriver driver, int index)
+        public void SwitchToFrameByIndex(int index)
         {
             driver.SwitchTo().Frame(index);
         }
 
-        public void SwitchToFrameByNameOrId(IWebDriver driver, string nameOrId)
+        public void SwitchToFrameByNameOrId(string nameOrId)
         {
             driver.SwitchTo().Frame(nameOrId);
         }
 
-        public void SwitchToFrameByElement(IWebDriver driver, By locator)
+        public void SwitchToFrameByElement(By locator)
         {
             IWebElement frameElement = driver.FindElement(locator);
             driver.SwitchTo().Frame(frameElement);
         }
 
-        public void SwitchToDefaultContent(IWebDriver driver)
+        public void SwitchToDefaultContent()
         {
             driver.SwitchTo().DefaultContent();
         }
 
-        public void SwitchToParentFrame(IWebDriver driver)
+        public void SwitchToParentFrame()
         {
             driver.SwitchTo().ParentFrame();
         }

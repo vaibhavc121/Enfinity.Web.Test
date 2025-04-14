@@ -592,7 +592,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 var bankFile = FileHelper.GetDataFile("Hrms", "HRCore", "Bank", "BankData");
                 var bankData = JsonHelper.ConvertJsonListDataModel<CreateBankModel>(bankFile, "createBank");
-
+                
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
                 hc.ClickHRCore();
@@ -605,7 +605,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 //bank page                
                 BankPage bp = new BankPage(_driver);
-
+                
                 foreach (var bank in bankData)
                 {
                     bp.ClickOnNew();

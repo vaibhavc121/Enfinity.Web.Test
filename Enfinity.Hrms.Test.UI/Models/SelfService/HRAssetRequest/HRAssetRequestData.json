@@ -2,11 +2,22 @@
   "createHRAssetRequest": [
     {
       "txnDate": "01-01-2025",
+      "txnDate1": "01-Jan-2025",
       "effectiveDate": "01-01-2025",
       "HRAsset": "Headphone",
-      "expReturnDate": "24-02-2025"
-
-
+      "expReturnDate": "31-01-2025",
+      "status": "Approved",
+      "emp": "Vaibhav Chavan"
+    }
+  ],
+  "createHRAssetReturn": [
+    {
+      "txnDate": "01-01-2025",
+      "effectiveDate": "01-01-2025",
+      "HRAsset": "Headphone",
+      "expReturnDate": "31-01-2025",
+      "status": "Approved",
+      "emp": "Vaibhav Chavan"
     }
   ]
 }
