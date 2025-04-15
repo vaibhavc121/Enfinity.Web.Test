@@ -1,8 +1,10 @@
-﻿using Enfinity.Common.Test;
+﻿
+using Enfinity.Hrms.Test.UI.Base;
 using Enfinity.Hrms.Test.UI.Models.Learning.Learning;
 using Enfinity.Hrms.Test.UI.Models.Recruitment.Recruitment;
 using Enfinity.Hrms.Test.UI.PageObjects.Learning;
 using Enfinity.Hrms.Test.UI.PageObjects.Recruitment;
+using Enfinity.Hrms.Test.UI.Utilities;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 using System;
@@ -23,10 +25,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                
 
-                var RecruitmentFile = FileHelper.GetDataFile("Hrms", "Recruitment", "Recruitment", "RecruitmentData");
-                var jobData = JsonHelper.ConvertJsonListDataModel<JobModel>(RecruitmentFile, "createJob");
+                var RecruitmentFile = FileUtils.GetDataFile("Hrms", "Recruitment", "Recruitment", "RecruitmentData");
+                var jobData = JsonUtils.ConvertJsonListDataModel<JobModel>(RecruitmentFile, "createJob");
 
                 //Recruitment page
                 RecruitmentPage rp = new RecruitmentPage(_driver);

@@ -1,5 +1,7 @@
-﻿using Enfinity.Common.Test;
+﻿
+using Enfinity.Hrms.Test.UI.Base;
 using Enfinity.Hrms.Test.UI.Models.Employee;
+using Enfinity.Hrms.Test.UI.Utilities;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 using System;
@@ -23,10 +25,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                
 
-                var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
-                var performanceInfo = JsonHelper.ConvertJsonListDataModel<PerformanceTabModel>(employeeFile, "performance");
+                var employeeFile = FileUtils.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                var performanceInfo = JsonUtils.ConvertJsonListDataModel<PerformanceTabModel>(employeeFile, "performance");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);

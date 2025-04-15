@@ -836,9 +836,9 @@ namespace Enfinity.Hrms.Test.UI
             FilterByIndex(filterIndex, value);
             Thread.Sleep(2000);
 
-            string employee = ResultValue(resultIndex);
+            string actualValue = ResultValue(resultIndex);
             //Thread.Sleep(2000);
-            if (employee.Contains(value))
+            if (actualValue.Contains(value))
             {
                 return true;
             }
@@ -846,6 +846,54 @@ namespace Enfinity.Hrms.Test.UI
             {
                 return false;
             }             
+
+        }
+        //written for to check multiple validations
+        public static bool ValidateListing1(string expDate = null, string expEmp = null, string expStatus = null)
+        {
+            if (!string.IsNullOrEmpty(expDate))
+            {
+                FilterDateByIndex(2, expDate);
+                Thread.Sleep(2000);
+            }
+
+            if (!string.IsNullOrEmpty(expEmp))
+            {
+                FilterByIndex(2, expEmp);
+                Thread.Sleep(2000);
+            }
+
+            if (!string.IsNullOrEmpty(expStatus))
+            {
+                FilterByIndex(7, expStatus);
+                Thread.Sleep(2000);
+            }
+
+            bool isMatch = true;
+
+            if (!string.IsNullOrEmpty(expDate))
+            {
+                string actualDate = ResultValue(2);
+                isMatch &= actualDate.Contains(expDate);
+            }
+
+            if (!string.IsNullOrEmpty(expEmp))
+            {
+                string actualEmp = ResultValue(1);
+                isMatch &= actualEmp.Contains(expEmp);
+            }
+
+            if (!string.IsNullOrEmpty(expStatus))
+            {
+                string actualStatus = ResultValue(7);
+                isMatch &= actualStatus.Contains(expStatus);
+            }
+
+            return isMatch;
+
+            //IsTransactionCreated(expDate: "2025-04-15");                      // Only check date
+            //IsTransactionCreated(expEmp: "John", expStatus: "Completed");     // Check employee and status
+            //IsTransactionCreated("2025-04-15", "John", "Completed");          // Check all three
 
         }
         #endregion

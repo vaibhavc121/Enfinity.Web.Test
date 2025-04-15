@@ -1,4 +1,5 @@
-﻿using Enfinity.Common.Test;
+﻿
+using Enfinity.Hrms.Test.UI.Base;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 using NUnit.Framework.Legacy;

@@ -1,8 +1,10 @@
-﻿using Enfinity.Common.Test;
+﻿
+using Enfinity.Hrms.Test.UI.Base;
 using Enfinity.Hrms.Test.UI.Models.Onboarding.Onboarding;
 using Enfinity.Hrms.Test.UI.Models.SuccessionPlanning.SuccessionPlanning;
 using Enfinity.Hrms.Test.UI.PageObjects.Onboarding;
 using Enfinity.Hrms.Test.UI.PageObjects.SuccessionPlanning;
+using Enfinity.Hrms.Test.UI.Utilities;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 using System;
@@ -24,8 +26,8 @@ namespace Enfinity.Hrms.Test.UI
             {
                 Login(HrmsProduct);
 
-                var SuccessionPlanningFile = FileHelper.GetDataFile("Hrms", "SuccessionPlanning", "SuccessionPlanning", "SuccessionData");
-                var successionPlanData = JsonHelper.ConvertJsonListDataModel<SuccessionModel>(SuccessionPlanningFile, "createSuccessionPlan");
+                var SuccessionPlanningFile = FileUtils.GetDataFile("Hrms", "SuccessionPlanning", "SuccessionPlanning", "SuccessionData");
+                var successionPlanData = JsonUtils.ConvertJsonListDataModel<SuccessionModel>(SuccessionPlanningFile, "createSuccessionPlan");
 
                 //Succession page
                 SuccessionPage op = new SuccessionPage(_driver);

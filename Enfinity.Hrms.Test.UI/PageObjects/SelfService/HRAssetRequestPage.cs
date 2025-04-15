@@ -1,5 +1,5 @@
 ﻿using AventStack.ExtentReports.Gherkin.Model;
-using Enfinity.Common.Test;
+
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -66,7 +66,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             while (true)
             {
                 // Finding all the elements in the dropdown
-                IList<IWebElement> valuesList = BaseTest._driver.FindElements(By.XPath("//div[@class='lookup-text']"));
+                IList<IWebElement> valuesList = driver.FindElements(By.XPath("//div[@class='lookup-text']"));
 
                 foreach (var valueElement in valuesList)
                 {
@@ -80,7 +80,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
                 }
 
                 // Click on the next icon to load more items in the dropdown
-                BaseTest._driver.FindElement(By.XPath("//img[@alt='Next']")).Click();
+                driver.FindElement(By.XPath("//img[@alt='Next']")).Click();
                 Thread.Sleep(3000);  // Wait for 3 seconds for next page to load
             }
         }
@@ -131,7 +131,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
 
         public void Test()
         {
-            string value= BaseTest._driver.FindElement(By.XPath("(//tbody//tr)[12]//td[2]")).Text;
+            string value= driver.FindElement(By.XPath("(//tbody//tr)[12]//td[2]")).Text;
             Console.WriteLine(value);
         }
         #endregion

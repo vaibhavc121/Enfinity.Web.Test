@@ -1,7 +1,9 @@
-﻿using Enfinity.Common.Test;
+﻿
+using Enfinity.Hrms.Test.UI.Base;
 using Enfinity.Hrms.Test.UI.Models.Learning.Learning;
 using Enfinity.Hrms.Test.UI.Models.SelfService.ExpenseClaim;
 using Enfinity.Hrms.Test.UI.PageObjects.Learning;
+using Enfinity.Hrms.Test.UI.Utilities;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 using System;
@@ -15,18 +17,16 @@ namespace Enfinity.Hrms.Test.UI
     [TestFixture]
     public class LearningModule:BaseTest
     {
-        public string Product = "Hrms";
-
         #region Create Course
         [Test]
         public void CreateCourse()
         {
             try
             {
-                Login(Product);
+                
 
-                var LearningFile = FileHelper.GetDataFile("Hrms", "Learning", "Learning", "LearningData");
-                var courseData = JsonHelper.ConvertJsonListDataModel<CourseModel>(LearningFile, "createCourse");
+                var LearningFile = FileUtils.GetDataFile("Hrms", "Learning", "Learning", "LearningData");
+                var courseData = JsonUtils.ConvertJsonListDataModel<CourseModel>(LearningFile, "createCourse");
 
                 //learning page
                 LearningPage lp = new LearningPage(_driver);

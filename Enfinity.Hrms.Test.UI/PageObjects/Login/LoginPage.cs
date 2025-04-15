@@ -1,4 +1,4 @@
-﻿using Enfinity.Common.Test.Models;
+﻿
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;

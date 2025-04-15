@@ -1,6 +1,8 @@
-﻿using Enfinity.Common.Test;
+﻿
+using Enfinity.Hrms.Test.UI.Base;
 using Enfinity.Hrms.Test.UI.Models.Payroll.Payroll;
 using Enfinity.Hrms.Test.UI.PageObjects.Payroll;
+using Enfinity.Hrms.Test.UI.Utilities;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 using System;
@@ -162,8 +164,8 @@ namespace Enfinity.Hrms.Test.UI
             {
                 Login(HrmsProduct);
 
-                var payrollFile = FileHelper.GetDataFile("Hrms", "Payroll", "Payroll", "PayrollData");
-                var payrollData = JsonHelper.ConvertJsonListDataModel<PayrollModel>(payrollFile, "removeSalComponent");
+                var payrollFile = FileUtils.GetDataFile("Hrms", "Payroll", "Payroll", "PayrollData");
+                var payrollData = JsonUtils.ConvertJsonListDataModel<PayrollModel>(payrollFile, "removeSalComponent");
 
                 //payroll module
                 PayrollPage pp = new PayrollPage(_driver);

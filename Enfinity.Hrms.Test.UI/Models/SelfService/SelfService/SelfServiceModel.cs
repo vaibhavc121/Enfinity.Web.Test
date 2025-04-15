@@ -75,7 +75,16 @@ namespace Enfinity.Hrms.Test.UI.Models.SelfService
         public string remarks { get; set; }
 
     }
+    public class SupportRequestCategoryModel
+    {
+        public string categoryName { get; set; }
+        public string requestedTo { get; set; }
+        public string priority { get; set; }
+        public string workflow { get; set; }
+        public string attachment { get; set; }
+        public string desc { get; set; }
 
+    }
 
 
 }

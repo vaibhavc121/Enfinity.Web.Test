@@ -1,19 +1,17 @@
 ﻿using Bogus;
-using Enfinity.Common.Test.Models;
-using Enfinity.Common.Test;
+
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
-using RealTimeProject.Reporting;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Enfinity.Hrms.Test.UI.Utilities;
-using Enfinity.Hrms.Test.UI.Models.Global;
-using LoginModel = Enfinity.Hrms.Test.UI.Models.Global.LoginModel;
+using Enfinity.Hrms.Test.UI.Models.Login;
 
 namespace Enfinity.Hrms.Test.UI.Base
 {
@@ -67,8 +65,8 @@ namespace Enfinity.Hrms.Test.UI.Base
             if (_driver != null)
             {
                 ExtentReportsUtils.LogTestResult();
-                _driver.Quit();
-                _driver.Dispose();
+                //_driver.Quit();
+                //_driver.Dispose();
                 ExtentReportsUtils.FlushReport();
             }
         }

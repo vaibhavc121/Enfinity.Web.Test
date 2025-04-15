@@ -1,5 +1,5 @@
 ﻿using AventStack.ExtentReports.Gherkin.Model;
-using Enfinity.Common.Test;
+
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -77,7 +77,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         public void SelectExpenseClaimCategory(string value)
         {
             // Find all values in the Office 365 dropdown
-            IList<IWebElement> valuesList = BaseTest._driver.FindElements(By.XPath("//div[@class='lookup-text']"));
+            IList<IWebElement> valuesList = driver.FindElements(By.XPath("//div[@class='lookup-text']"));
 
             foreach (var valueElement in valuesList)
             {
@@ -94,7 +94,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(expenseClaimLineCurrency).Click();
             // Find all values in the Office 365 dropdown
-            IList<IWebElement> valuesList = BaseTest._driver.FindElements(By.XPath("//div[@class='lookup-text']"));
+            IList<IWebElement> valuesList = driver.FindElements(By.XPath("//div[@class='lookup-text']"));
 
             foreach (var valueElement in valuesList)
             {

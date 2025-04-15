@@ -1,4 +1,5 @@
-﻿using Enfinity.Common.Test;
+﻿
+using Enfinity.Hrms.Test.UI.Base;
 using Enfinity.Hrms.Test.UI.Models.SelfService;
 using Enfinity.Hrms.Test.UI.Models.SelfService.AdminSupport;
 using Enfinity.Hrms.Test.UI.Models.SelfService.BusinessTripClaim;
@@ -34,8 +35,8 @@ namespace Enfinity.Hrms.Test.UI
             {
                 
 
-                var ExpenseClaimFile = FileHelper.GetDataFile("Hrms", "SelfService", "ExpenseClaim", "ExpenseClaimData");
-                var ExpenseClaimData = JsonHelper.ConvertJsonListDataModel<BusinessTripClaimModel>(ExpenseClaimFile, "createExpenseClaim");
+                var ExpenseClaimFile = FileUtils.GetDataFile("Hrms", "SelfService", "ExpenseClaim", "ExpenseClaimData");
+                var ExpenseClaimData = JsonUtils.ConvertJsonListDataModel<BusinessTripClaimModel>(ExpenseClaimFile, "createExpenseClaim");
 
                 //self service page
                 SelfServicePage ss = new SelfServicePage(_driver);
@@ -81,8 +82,8 @@ namespace Enfinity.Hrms.Test.UI
             {
                
 
-                var BusinessTripClaimFile = FileHelper.GetDataFile("Hrms", "SelfService", "BusinessTripClaim", "BusinessTripClaimData");
-                var BusinessTripClaimData = JsonHelper.ConvertJsonListDataModel<BusinessTripClaimModel>(BusinessTripClaimFile, "createBusinessTripClaim");
+                var BusinessTripClaimFile = FileUtils.GetDataFile("Hrms", "SelfService", "BusinessTripClaim", "BusinessTripClaimData");
+                var BusinessTripClaimData = JsonUtils.ConvertJsonListDataModel<BusinessTripClaimModel>(BusinessTripClaimFile, "createBusinessTripClaim");
 
                 //self service page
                 SelfServicePage ss = new SelfServicePage(_driver);
@@ -263,8 +264,8 @@ namespace Enfinity.Hrms.Test.UI
             {
                
 
-                var LeaveRequestFile = FileHelper.GetDataFile("Hrms", "SelfService", "LeaveRequest", "LeaveRequestData");
-                var LeaveRequestData = JsonHelper.ConvertJsonListDataModel<LeaveRequestModel>(LeaveRequestFile, "createLeaveRequest");
+                var LeaveRequestFile = FileUtils.GetDataFile("Hrms", "SelfService", "LeaveRequest", "LeaveRequestData");
+                var LeaveRequestData = JsonUtils.ConvertJsonListDataModel<LeaveRequestModel>(LeaveRequestFile, "createLeaveRequest");
 
                 //self service page
                 SelfServicePage ss = new SelfServicePage(_driver);
@@ -307,8 +308,8 @@ namespace Enfinity.Hrms.Test.UI
             {
                 
 
-                var ITSupportFile = FileHelper.GetDataFile("Hrms", "SelfService", "ITSupport", "ITSupportData");
-                var ITSupportData = JsonHelper.ConvertJsonListDataModel<ITSupportModel>(ITSupportFile, "createITSupport");
+                var ITSupportFile = FileUtils.GetDataFile("Hrms", "SelfService", "ITSupport", "ITSupportData");
+                var ITSupportData = JsonUtils.ConvertJsonListDataModel<ITSupportModel>(ITSupportFile, "createITSupport");
 
                 //self service page
                 SelfServicePage ss = new SelfServicePage(_driver);
@@ -348,8 +349,8 @@ namespace Enfinity.Hrms.Test.UI
             try
             {
                
-                var adminSupportFile = FileHelper.GetDataFile("Hrms", "SelfService", "AdminSupport", "AdminSupportData");
-                var adminSupportData = JsonHelper.ConvertJsonListDataModel<AdminSupportModel>(adminSupportFile, "createAdminSupport");
+                var adminSupportFile = FileUtils.GetDataFile("Hrms", "SelfService", "AdminSupport", "AdminSupportData");
+                var adminSupportData = JsonUtils.ConvertJsonListDataModel<AdminSupportModel>(adminSupportFile, "createAdminSupport");
 
                 //self service page
                 SelfServicePage ss = new SelfServicePage(_driver);
@@ -388,8 +389,8 @@ namespace Enfinity.Hrms.Test.UI
             try
             {
                
-                var selfServiceFile = FileHelper.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
-                var loanRequestData = JsonHelper.ConvertJsonListDataModel<LoanRequestModel>(selfServiceFile, "createLoanRequest");
+                var selfServiceFile = FileUtils.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
+                var loanRequestData = JsonUtils.ConvertJsonListDataModel<LoanRequestModel>(selfServiceFile, "createLoanRequest");
 
                 //self service page
                 SelfServicePage ss = new SelfServicePage(_driver);
@@ -431,8 +432,8 @@ namespace Enfinity.Hrms.Test.UI
             try
             {
                
-                var selfServiceFile = FileHelper.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
-                var benefitClaimData = JsonHelper.ConvertJsonListDataModel<BenefitClaimModel>(selfServiceFile, "createBenefitClaim");
+                var selfServiceFile = FileUtils.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
+                var benefitClaimData = JsonUtils.ConvertJsonListDataModel<BenefitClaimModel>(selfServiceFile, "createBenefitClaim");
 
                 //self service page
                 SelfServicePage ss = new SelfServicePage(_driver);
@@ -477,8 +478,8 @@ namespace Enfinity.Hrms.Test.UI
             try
             {
                
-                var selfServiceFile = FileHelper.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
-                var travelRequestData = JsonHelper.ConvertJsonListDataModel<TravelRequestModel>(selfServiceFile, "createTravelRequest");
+                var selfServiceFile = FileUtils.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
+                var travelRequestData = JsonUtils.ConvertJsonListDataModel<TravelRequestModel>(selfServiceFile, "createTravelRequest");
 
                 //self service page
                 SelfServicePage ss = new SelfServicePage(_driver);
@@ -527,8 +528,8 @@ namespace Enfinity.Hrms.Test.UI
             try
             {
                
-                var selfServiceFile = FileHelper.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
-                var promotionRequestData = JsonHelper.ConvertJsonListDataModel<PromotionRequestModel>(selfServiceFile, "createPromotionRequest");
+                var selfServiceFile = FileUtils.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
+                var promotionRequestData = JsonUtils.ConvertJsonListDataModel<PromotionRequestModel>(selfServiceFile, "createPromotionRequest");
 
                 //self service page
                 SelfServicePage ss = new SelfServicePage(_driver);
@@ -598,8 +599,8 @@ namespace Enfinity.Hrms.Test.UI
             try
             {
                 
-                var selfServiceFile = FileHelper.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
-                var overtimeRequestData = JsonHelper.ConvertJsonListDataModel<OvertimeRequestModel>(selfServiceFile, "createOvertimeRequest");
+                var selfServiceFile = FileUtils.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
+                var overtimeRequestData = JsonUtils.ConvertJsonListDataModel<OvertimeRequestModel>(selfServiceFile, "createOvertimeRequest");
 
                 //self service page
                 SelfServicePage ss = new SelfServicePage(_driver);
@@ -694,10 +695,27 @@ namespace Enfinity.Hrms.Test.UI
             try
             {
                 var selfServiceFile = FileUtils.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
-                var resignationData = JsonUtils.ConvertJsonListDataModel<ResignationModel>(selfServiceFile, "createResignation");
+                var supportRequestCategoryData = JsonUtils.ConvertJsonListDataModel<SupportRequestCategoryModel>(selfServiceFile, "createSupportRequestCategory");
 
                 //global search
-                BasePage.GlobalSearch("support request category");
+                SupportRequestCategory sr = new SupportRequestCategory(_driver);
+
+                foreach(var src in supportRequestCategoryData)
+                {
+                    sr.GlobalSearch1("support request category");
+                    sr.ClickOnNew();
+                    sr.ProvideCategoryname(src.categoryName);
+                    sr.SelectRequestedTo(src.requestedTo);
+                    sr.SelectPriority(src.priority);
+                    sr.SelectWorkflow(src.workflow);
+                    sr.RequireAttachment(src.attachment);
+                    sr.ProvideDesc(src.desc);
+                    sr.ClickSaveBack();
+
+                    ClassicAssert.IsTrue(BasePage.ValidateListing1(expEmp: src.categoryName));
+                }
+               
+
             }
             catch (Exception e)
             {
@@ -714,8 +732,8 @@ namespace Enfinity.Hrms.Test.UI
         public void DeleteExpenseClaim()
         {
           
-            var ExpenseClaimFile = FileHelper.GetDataFile("Hrms", "SelfService", "ExpenseClaim", "ExpenseClaimData");
-            var ExpenseClaimData = JsonHelper.ConvertJsonListDataModel<BusinessTripClaimModel>(ExpenseClaimFile, "createExpenseClaim");
+            var ExpenseClaimFile = FileUtils.GetDataFile("Hrms", "SelfService", "ExpenseClaim", "ExpenseClaimData");
+            var ExpenseClaimData = JsonUtils.ConvertJsonListDataModel<BusinessTripClaimModel>(ExpenseClaimFile, "createExpenseClaim");
 
             //self service page
             SelfServicePage ss = new SelfServicePage(_driver);
@@ -738,8 +756,8 @@ namespace Enfinity.Hrms.Test.UI
             try
             {
                
-                var timeOffFile = FileHelper.GetDataFile("Hrms", "SelfService", "TimeOff", "TimeOffData");
-                var timeOffData = JsonHelper.ConvertJsonListDataModel<TimeOffModel>(timeOffFile, "createTimeOff");
+                var timeOffFile = FileUtils.GetDataFile("Hrms", "SelfService", "TimeOff", "TimeOffData");
+                var timeOffData = JsonUtils.ConvertJsonListDataModel<TimeOffModel>(timeOffFile, "createTimeOff");
 
                 //self service page
                 SelfServicePage ss = new SelfServicePage(_driver);
@@ -771,8 +789,8 @@ namespace Enfinity.Hrms.Test.UI
         public void DeleteHRAssetRequest()
         {
            
-            var HRAssetRequestFile = FileHelper.GetDataFile("Hrms", "SelfService", "HRAssetRequest", "HRAssetRequestData");
-            var HRAssetRequestData = JsonHelper.ConvertJsonListDataModel<HRAssetRequestModel>(HRAssetRequestFile, "createHRAssetRequest");
+            var HRAssetRequestFile = FileUtils.GetDataFile("Hrms", "SelfService", "HRAssetRequest", "HRAssetRequestData");
+            var HRAssetRequestData = JsonUtils.ConvertJsonListDataModel<HRAssetRequestModel>(HRAssetRequestFile, "createHRAssetRequest");
 
             //self service page
             SelfServicePage ss = new SelfServicePage(_driver);
@@ -820,8 +838,8 @@ namespace Enfinity.Hrms.Test.UI
         public void DeleteLeaveRequest()
         {
            
-            var LeaveRequestFile = FileHelper.GetDataFile("Hrms", "SelfService", "LeaveRequest", "LeaveRequestData");
-            var LeaveRequestData = JsonHelper.ConvertJsonListDataModel<LeaveRequestModel>(LeaveRequestFile, "createLeaveRequest");
+            var LeaveRequestFile = FileUtils.GetDataFile("Hrms", "SelfService", "LeaveRequest", "LeaveRequestData");
+            var LeaveRequestData = JsonUtils.ConvertJsonListDataModel<LeaveRequestModel>(LeaveRequestFile, "createLeaveRequest");
 
             //self service page
             SelfServicePage ss = new SelfServicePage(_driver);
@@ -841,8 +859,8 @@ namespace Enfinity.Hrms.Test.UI
         [Test]
         public void DeleteLeaveExtension()
         {
-            var LeaveRequestFile = FileHelper.GetDataFile("Hrms", "SelfService", "LeaveRequest", "LeaveRequestData");
-            var LeaveRequestData = JsonHelper.ConvertJsonListDataModel<LeaveRequestModel>(LeaveRequestFile, "createLeaveRequest");
+            var LeaveRequestFile = FileUtils.GetDataFile("Hrms", "SelfService", "LeaveRequest", "LeaveRequestData");
+            var LeaveRequestData = JsonUtils.ConvertJsonListDataModel<LeaveRequestModel>(LeaveRequestFile, "createLeaveRequest");
 
             //self service page
             SelfServicePage ss = new SelfServicePage(_driver);
@@ -933,6 +951,29 @@ namespace Enfinity.Hrms.Test.UI
         [Test]
         public void test17()
         {
+        }
+        #endregion
+
+        #region Delete support request category
+        [Test]
+        public void DeleteSupportReqCategory()
+        {
+            try
+            {
+                var selfServiceFile = FileUtils.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
+                var supportRequestCategoryData = JsonUtils.ConvertJsonListDataModel<SupportRequestCategoryModel>(selfServiceFile, "createSupportRequestCategory");
+
+                //SupportRequestCategory
+                SupportRequestCategory sr = new SupportRequestCategory(_driver);
+                sr.GlobalSearch1("support request category");
+
+            }
+            catch (Exception e)
+            {
+
+                ClassicAssert.Fail("VRC- Test case failed: " + e);
+
+            }
         }
         #endregion
 

@@ -105,9 +105,19 @@
       "submittedDate": "01-04-2025",
       "remarks": "test"
     }
+  ],
+  "createSupportRequestCategory": [
+    {
+      "categoryName": "Performance Issue",
+      "requestedTo": "IT",
+      "priority": "High",
+      "workflow": "Self Approval",
+      "attachment": "Submit",
+      "desc": "Performance Issue Category"
+    }
   ]
 
-  
+
 
 
 

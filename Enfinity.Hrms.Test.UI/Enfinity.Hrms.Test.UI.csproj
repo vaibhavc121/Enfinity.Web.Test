@@ -154,7 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseTest.cs" />
-    <Compile Include="Models\Global\LoginModel.cs" />
+    <Compile Include="Models\Login\LoginModel.cs" />
     <Compile Include="Models\HRCore\Bank\BankModel.cs" />
     <Compile Include="Models\HRCore\Calendar\CalendarModel.cs" />
     <Compile Include="Models\HRCore\Department\DepartmentModel.cs" />
@@ -218,6 +218,7 @@
     <Compile Include="PageObjects\SelfService\PromotionRequestPage.cs" />
     <Compile Include="PageObjects\SelfService\ResignationPage.cs" />
     <Compile Include="PageObjects\SelfService\SelfServicePage.cs" />
+    <Compile Include="PageObjects\SelfService\SupportRequestCategory.cs" />
     <Compile Include="PageObjects\SelfService\TimeOffPage.cs" />
     <Compile Include="PageObjects\SelfService\TravelRequestPage.cs" />
     <Compile Include="PageObjects\SuccessionPlanning\SuccessionPage.cs" />
@@ -274,7 +275,7 @@
     <None Include="Models\HRCore\Designation\DesignationData.json" />
     <None Include="Models\HRCore\DocumentType\DocumentTypeData.json" />
     <None Include="Models\HRCore\Employee\EmployeeData.json" />
-    <None Include="Models\Global\LoginData.json" />
+    <None Include="Models\Login\LoginData.json" />
     <None Include="Models\HRCore\Department\DepartmentData.json" />
     <None Include="Models\HRCore\Grade\GradeData.json" />
     <None Include="Models\HRCore\Qualification\QualificationData.json" />
@@ -300,12 +301,6 @@
     <Folder Include="PageObjects\Performance\" />
     <Folder Include="PageObjects\WorkforcePlanning\" />
     <Folder Include="TestCases\Base\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Enfinity.Common.Test\Enfinity.Common.Test.csproj">
-      <Project>{2baf8d7e-bd90-4879-a00c-c2f59dd82933}</Project>
-      <Name>Enfinity.Common.Test</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="TextFile1.txt" />

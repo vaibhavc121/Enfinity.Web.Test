@@ -1,6 +1,7 @@
 ﻿using Bogus.DataSets;
-using Enfinity.Common.Test;
+using Enfinity.Hrms.Test.UI.Base;
 using Enfinity.Hrms.Test.UI.Models.Employee;
+using Enfinity.Hrms.Test.UI.Utilities;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 using System;
@@ -22,7 +23,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -38,8 +39,8 @@ namespace Enfinity.Hrms.Test.UI
                 BasePage.NavigateToEmployee("188");
                 BasePage.SwitchTab(); 
 
-                var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
-                var personalInfo = JsonHelper.ConvertJsonListDataModel<PersonalTabModel>(employeeFile, "personal");
+                var employeeFile = FileUtils.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                var personalInfo = JsonUtils.ConvertJsonListDataModel<PersonalTabModel>(employeeFile, "personal");
 
                 //personal tab
                 EmployeePage ep = new EmployeePage(_driver);

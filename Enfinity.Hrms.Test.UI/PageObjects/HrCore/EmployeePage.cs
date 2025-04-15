@@ -1,6 +1,6 @@
 ﻿//using Bogus;
 using Bogus.DataSets;
-using Enfinity.Common.Test;
+
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using RazorEngine.Compilation.ImpromptuInterface.Optimization;
@@ -924,8 +924,8 @@ namespace Enfinity.Hrms.Test.UI
 
         public void DeleteBasicSalaryComponent()
         {
-            IWebElement elementToHover = BaseTest._driver.FindElement(By.XPath("/html[1]/body[1]/div[6]/div[1]/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/i[1]"));
-            Actions actions = new Actions(BaseTest._driver);
+            IWebElement elementToHover = driver.FindElement(By.XPath("/html[1]/body[1]/div[6]/div[1]/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[2]/div[1]/i[1]"));
+            Actions actions = new Actions(driver);
             actions.MoveToElement(elementToHover).Perform();
             Find(deleteBasicSalBtn).Click();
             Thread.Sleep(2000);
@@ -933,8 +933,8 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void EditBasicSalaryComponent(string value)
         {
-            IWebElement elementToHover = BaseTest._driver.FindElement(By.XPath("/html[1]/body[1]/div[6]/div[1]/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/i[1]"));
-            Actions actions = new Actions(BaseTest._driver);
+            IWebElement elementToHover = driver.FindElement(By.XPath("/html[1]/body[1]/div[6]/div[1]/main[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/i[1]"));
+            Actions actions = new Actions(driver);
             actions.MoveToElement(elementToHover).Perform();
             Find(editBasicSalBtn).Click();
             Thread.Sleep(1000);
@@ -1020,8 +1020,8 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void ScrollDownWebPageTicket()
         {
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)BaseTest._driver;
-            IWebElement element = BaseTest._driver.FindElement(By.XPath("//div[contains(text(),'Tickets')]"));
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)driver;
+            IWebElement element = driver.FindElement(By.XPath("//div[contains(text(),'Tickets')]"));
             jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
         }
         public void AddTicketBtn()
@@ -1681,8 +1681,8 @@ namespace Enfinity.Hrms.Test.UI
         }
         public void ScrollDownWebPageOldContract()
         {
-            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)BaseTest._driver;
-            IWebElement element = BaseTest._driver.FindElement(By.XPath("//input[contains(@id,'OldContractSalary')]"));
+            IJavaScriptExecutor jsExecutor = (IJavaScriptExecutor)driver;
+            IWebElement element = driver.FindElement(By.XPath("//input[contains(@id,'OldContractSalary')]"));
             jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
         }
         public void ProvideOldContractSalary(string value)

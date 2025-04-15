@@ -1,8 +1,10 @@
-﻿using Enfinity.Common.Test;
+﻿
+using Enfinity.Hrms.Test.UI.Base;
 using Enfinity.Hrms.Test.UI.Models.Onboarding.Onboarding;
 using Enfinity.Hrms.Test.UI.Models.Recruitment.Recruitment;
 using Enfinity.Hrms.Test.UI.PageObjects.Onboarding;
 using Enfinity.Hrms.Test.UI.PageObjects.Recruitment;
+using Enfinity.Hrms.Test.UI.Utilities;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 using System;
@@ -16,17 +18,15 @@ namespace Enfinity.Hrms.Test.UI
     [TestFixture]
     public class OnboardingModule:BaseTest
     {
-        public string Product = "Hrms";
-
         [Test]
         public void CreateCandidate()
         {
             try
             {
-                Login(Product);
+                
 
-                var OnboardingFile = FileHelper.GetDataFile("Hrms", "Onboarding", "Onboarding", "OnboardingData");
-                var candidateData = JsonHelper.ConvertJsonListDataModel<CandidateModel>(OnboardingFile, "createCandidate");
+                var OnboardingFile = FileUtils.GetDataFile("Hrms", "Onboarding", "Onboarding", "OnboardingData");
+                var candidateData = JsonUtils.ConvertJsonListDataModel<CandidateModel>(OnboardingFile, "createCandidate");
 
                 //Onboarding page
                 OnboardingPage op = new OnboardingPage(_driver);

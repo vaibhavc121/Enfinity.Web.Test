@@ -1,4 +1,5 @@
-﻿using Enfinity.Common.Test;
+﻿
+using Enfinity.Hrms.Test.UI.Base;
 using Enfinity.Hrms.Test.UI.Models.Employee;
 using Enfinity.Hrms.Test.UI.Models.HRCore;
 using Enfinity.Hrms.Test.UI.Models.HRCore.Bank;
@@ -31,8 +32,6 @@ namespace Enfinity.Hrms.Test.UI
 
     public class HRCoreModule : BaseTest
     {
-        public string Product = "Hrms";
-
         #region Employee Test
 
         #region Create Employee With System Access 
@@ -45,7 +44,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                //Login(Product);
+                //
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -141,7 +140,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                //Login(Product);
+                //
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -193,7 +192,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                ////Login(Product);
+                ////
 
                 var employeeFile = FileUtils.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
                 var employeeInfo = JsonUtils.ConvertJsonListDataModel<NewEmployeeModel>(employeeFile, "newEmployee");
@@ -263,10 +262,10 @@ namespace Enfinity.Hrms.Test.UI
             {
                 for (int i = 1; i <= 1; i++)
                 {
-                    //Login(Product);
+                    //
 
-                    var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
-                    var deleteEmployee = JsonHelper.ConvertJsonListDataModel<DeleteEmpModel>(employeeFile, "deleteEmployee");
+                    var employeeFile = FileUtils.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                    var deleteEmployee = JsonUtils.ConvertJsonListDataModel<DeleteEmpModel>(employeeFile, "deleteEmployee");
 
                     HRCorePage hc = new HRCorePage(_driver);
                     hc.ClickHRCore();
@@ -310,10 +309,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                //Login(Product);
+                //
 
-                var departmentFile = FileHelper.GetDataFile("Hrms", "HRCore", "Department", "DepartmentData");
-                var departmentData = JsonHelper.ConvertJsonListDataModel<CreateDepartmentModel>(departmentFile, "createDepartment");
+                var departmentFile = FileUtils.GetDataFile("Hrms", "HRCore", "Department", "DepartmentData");
+                var departmentData = JsonUtils.ConvertJsonListDataModel<CreateDepartmentModel>(departmentFile, "createDepartment");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -362,10 +361,9 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                //Login(Product);
-
-                var designationFile = FileHelper.GetDataFile("Hrms", "HRCore", "Designation", "DesignationData");
-                var designationData = JsonHelper.ConvertJsonListDataModel<CreateDesignationModel>(designationFile, "createDesignation");
+                
+                var designationFile = FileUtils.GetDataFile("Hrms", "HRCore", "Designation", "DesignationData");
+                var designationData = JsonUtils.ConvertJsonListDataModel<CreateDesignationModel>(designationFile, "createDesignation");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -409,10 +407,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                //Login(Product);
+                //
 
-                var gradeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Grade", "GradeData");
-                var gradeData = JsonHelper.ConvertJsonListDataModel<CreateGradeModel>(gradeFile, "createGrade");
+                var gradeFile = FileUtils.GetDataFile("Hrms", "HRCore", "Grade", "GradeData");
+                var gradeData = JsonUtils.ConvertJsonListDataModel<CreateGradeModel>(gradeFile, "createGrade");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -453,10 +451,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                //Login(Product);
+                //
 
-                var calendarFile = FileHelper.GetDataFile("Hrms", "HRCore", "Calendar", "CalendarData");
-                var calendarData = JsonHelper.ConvertJsonListDataModel<CreateCalendarModel>(calendarFile, "createCalendar");
+                var calendarFile = FileUtils.GetDataFile("Hrms", "HRCore", "Calendar", "CalendarData");
+                var calendarData = JsonUtils.ConvertJsonListDataModel<CreateCalendarModel>(calendarFile, "createCalendar");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -501,10 +499,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                //Login(Product);
+                //
 
-                var ReligionFile = FileHelper.GetDataFile("Hrms", "HRCore", "Religion", "ReligionData");
-                var ReligionData = JsonHelper.ConvertJsonListDataModel<CreateReligionModel>(ReligionFile, "createReligion");
+                var ReligionFile = FileUtils.GetDataFile("Hrms", "HRCore", "Religion", "ReligionData");
+                var ReligionData = JsonUtils.ConvertJsonListDataModel<CreateReligionModel>(ReligionFile, "createReligion");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -544,10 +542,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                //Login(Product);
+                //
 
-                var workLocationFile = FileHelper.GetDataFile("Hrms", "HRCore", "WorkLocation", "WorkLocationData");
-                var workLocationData = JsonHelper.ConvertJsonListDataModel<CreateWorkLocationModel>(workLocationFile, "createWorkLocation");
+                var workLocationFile = FileUtils.GetDataFile("Hrms", "HRCore", "WorkLocation", "WorkLocationData");
+                var workLocationData = JsonUtils.ConvertJsonListDataModel<CreateWorkLocationModel>(workLocationFile, "createWorkLocation");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -588,10 +586,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                ////Login(Product);
+                ////
 
-                var bankFile = FileHelper.GetDataFile("Hrms", "HRCore", "Bank", "BankData");
-                var bankData = JsonHelper.ConvertJsonListDataModel<CreateBankModel>(bankFile, "createBank");
+                var bankFile = FileUtils.GetDataFile("Hrms", "HRCore", "Bank", "BankData");
+                var bankData = JsonUtils.ConvertJsonListDataModel<CreateBankModel>(bankFile, "createBank");
                 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -631,10 +629,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                //Login(Product);
+                //
 
-                var qualificationFile = FileHelper.GetDataFile("Hrms", "HRCore", "Qualification", "QualificationData");
-                var qualificationData = JsonHelper.ConvertJsonListDataModel<CreateQualificationModel>(qualificationFile, "createQualification");
+                var qualificationFile = FileUtils.GetDataFile("Hrms", "HRCore", "Qualification", "QualificationData");
+                var qualificationData = JsonUtils.ConvertJsonListDataModel<CreateQualificationModel>(qualificationFile, "createQualification");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -674,10 +672,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                //Login(Product);
+                //
 
-                var documentTypeFile = FileHelper.GetDataFile("Hrms", "HRCore", "DocumentType", "DocumentTypeData");
-                var documentTypeData = JsonHelper.ConvertJsonListDataModel<CreateDocumentTypeModel>(documentTypeFile, "createDocumentType");
+                var documentTypeFile = FileUtils.GetDataFile("Hrms", "HRCore", "DocumentType", "DocumentTypeData");
+                var documentTypeData = JsonUtils.ConvertJsonListDataModel<CreateDocumentTypeModel>(documentTypeFile, "createDocumentType");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -716,10 +714,10 @@ namespace Enfinity.Hrms.Test.UI
         [Test, Order(10)]
         public void DeleteDepartment()
         {
-            //Login(Product);
+            //
 
-            var departmentFile = FileHelper.GetDataFile("Hrms", "HRCore", "Department", "DepartmentData");
-            var departmentData = JsonHelper.ConvertJsonListDataModel<DeleteDepartmentModel>(departmentFile, "deleteDepartment");
+            var departmentFile = FileUtils.GetDataFile("Hrms", "HRCore", "Department", "DepartmentData");
+            var departmentData = JsonUtils.ConvertJsonListDataModel<DeleteDepartmentModel>(departmentFile, "deleteDepartment");
 
             //hr core page
             HRCorePage hc = new HRCorePage(_driver);
@@ -745,10 +743,10 @@ namespace Enfinity.Hrms.Test.UI
         [Test, Order(11)]
         public void DeleteDesignation()
         {
-            //Login(Product);
+            //
 
-            var DesignationFile = FileHelper.GetDataFile("Hrms", "HRCore", "Designation", "DesignationData");
-            var DesignationData = JsonHelper.ConvertJsonListDataModel<DeleteDesignationModel>(DesignationFile, "deleteDesignation");
+            var DesignationFile = FileUtils.GetDataFile("Hrms", "HRCore", "Designation", "DesignationData");
+            var DesignationData = JsonUtils.ConvertJsonListDataModel<DeleteDesignationModel>(DesignationFile, "deleteDesignation");
 
             //hr core page
             HRCorePage hc = new HRCorePage(_driver);
@@ -774,10 +772,10 @@ namespace Enfinity.Hrms.Test.UI
         [Test, Order(12)]
         public void DeleteGrade()
         {
-            //Login(Product);
+            //
 
-            var gradeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Grade", "GradeData");
-            var gradeData = JsonHelper.ConvertJsonListDataModel<DeleteGradeModel>(gradeFile, "deleteGrade");
+            var gradeFile = FileUtils.GetDataFile("Hrms", "HRCore", "Grade", "GradeData");
+            var gradeData = JsonUtils.ConvertJsonListDataModel<DeleteGradeModel>(gradeFile, "deleteGrade");
 
             //hr core page
             HRCorePage hc = new HRCorePage(_driver);
@@ -803,10 +801,10 @@ namespace Enfinity.Hrms.Test.UI
         [Test, Order(13)]
         public void DeleteCalendar()
         {
-            //Login(Product);
+            //
 
-            var calendarFile = FileHelper.GetDataFile("Hrms", "HRCore", "Calendar", "CalendarData");
-            var calendarData = JsonHelper.ConvertJsonListDataModel<DeleteCalendarModel>(calendarFile, "deleteCalendar");
+            var calendarFile = FileUtils.GetDataFile("Hrms", "HRCore", "Calendar", "CalendarData");
+            var calendarData = JsonUtils.ConvertJsonListDataModel<DeleteCalendarModel>(calendarFile, "deleteCalendar");
 
             //hr core page
             HRCorePage hc = new HRCorePage(_driver);
@@ -831,10 +829,10 @@ namespace Enfinity.Hrms.Test.UI
         [Test, Order(14)]
         public void DeleteReligion()
         {
-            //Login(Product);
+            //
 
-            var ReligionFile = FileHelper.GetDataFile("Hrms", "HRCore", "Religion", "ReligionData");
-            var ReligionData = JsonHelper.ConvertJsonListDataModel<DeleteReligionModel>(ReligionFile, "createReligion");
+            var ReligionFile = FileUtils.GetDataFile("Hrms", "HRCore", "Religion", "ReligionData");
+            var ReligionData = JsonUtils.ConvertJsonListDataModel<DeleteReligionModel>(ReligionFile, "createReligion");
 
             //hr core page
             HRCorePage hc = new HRCorePage(_driver);
@@ -860,10 +858,10 @@ namespace Enfinity.Hrms.Test.UI
         public void DeleteWorkLocation()
         {
 
-            //Login(Product);
+            //
 
-            var workLocationFile = FileHelper.GetDataFile("Hrms", "HRCore", "WorkLocation", "WorkLocationData");
-            var workLocationData = JsonHelper.ConvertJsonListDataModel<DeleteWorkLocationModel>(workLocationFile, "createWorkLocation");
+            var workLocationFile = FileUtils.GetDataFile("Hrms", "HRCore", "WorkLocation", "WorkLocationData");
+            var workLocationData = JsonUtils.ConvertJsonListDataModel<DeleteWorkLocationModel>(workLocationFile, "createWorkLocation");
 
             //hr core page
             HRCorePage hc = new HRCorePage(_driver);
@@ -888,10 +886,10 @@ namespace Enfinity.Hrms.Test.UI
         [Test, Order(16)]
         public void DeleteBank()
         {
-            ////Login(Product);
+            ////
 
-            var bankFile = FileHelper.GetDataFile("Hrms", "HRCore", "Bank", "BankData");
-            var bankData = JsonHelper.ConvertJsonListDataModel<DeleteBankModel>(bankFile, "deleteBank");
+            var bankFile = FileUtils.GetDataFile("Hrms", "HRCore", "Bank", "BankData");
+            var bankData = JsonUtils.ConvertJsonListDataModel<DeleteBankModel>(bankFile, "deleteBank");
 
             //hr core page
             HRCorePage hc = new HRCorePage(_driver);
@@ -917,10 +915,10 @@ namespace Enfinity.Hrms.Test.UI
         [Test, Order(17)]
         public void DeleteQualification()
         {
-            //Login(Product);
+            //
 
-            var qualificationFile = FileHelper.GetDataFile("Hrms", "HRCore", "Qualification", "QualificationData");
-            var qualificationData = JsonHelper.ConvertJsonListDataModel<DeleteQualificationModel>(qualificationFile, "deleteQualification");
+            var qualificationFile = FileUtils.GetDataFile("Hrms", "HRCore", "Qualification", "QualificationData");
+            var qualificationData = JsonUtils.ConvertJsonListDataModel<DeleteQualificationModel>(qualificationFile, "deleteQualification");
 
             //hr core page
             HRCorePage hc = new HRCorePage(_driver);
@@ -945,10 +943,10 @@ namespace Enfinity.Hrms.Test.UI
         [Test, Order(18)]
         public void DeleteDocumentType()
         {
-            //Login(Product);
+            //
 
-            var documentTypeFile = FileHelper.GetDataFile("Hrms", "HRCore", "DocumentType", "DocumentTypeData");
-            var documentTypeData = JsonHelper.ConvertJsonListDataModel<DeleteDocumentTypeModel>(documentTypeFile, "createDocumentType");
+            var documentTypeFile = FileUtils.GetDataFile("Hrms", "HRCore", "DocumentType", "DocumentTypeData");
+            var documentTypeData = JsonUtils.ConvertJsonListDataModel<DeleteDocumentTypeModel>(documentTypeFile, "createDocumentType");
 
             //hr core page
             HRCorePage hc = new HRCorePage(_driver);
@@ -977,10 +975,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                //Login(Product);
+                //
 
-                var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
-                var employeeInfo = JsonHelper.ConvertJsonListDataModel<NewEmployeeModel>(employeeFile, "newEmployee");
+                var employeeFile = FileUtils.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                var employeeInfo = JsonUtils.ConvertJsonListDataModel<NewEmployeeModel>(employeeFile, "newEmployee");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -1052,10 +1050,10 @@ namespace Enfinity.Hrms.Test.UI
                 //instead of for loop you can use repeat attribute 
                 for (int i = 1; i <= 1; i++)
                 {
-                    //Login(Product);
+                    //
 
-                    var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
-                    var deleteEmployee = JsonHelper.ConvertJsonListDataModel<DeleteEmpModel>(employeeFile, "deleteEmployee");
+                    var employeeFile = FileUtils.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                    var deleteEmployee = JsonUtils.ConvertJsonListDataModel<DeleteEmpModel>(employeeFile, "deleteEmployee");
 
                     HRCorePage hc = new HRCorePage(_driver);
                     hc.ClickHRCore();

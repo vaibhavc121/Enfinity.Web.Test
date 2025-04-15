@@ -1,5 +1,7 @@
-﻿using Enfinity.Common.Test;
+﻿
+using Enfinity.Hrms.Test.UI.Base;
 using Enfinity.Hrms.Test.UI.Models.Employee;
+using Enfinity.Hrms.Test.UI.Utilities;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
 using System;
@@ -14,8 +16,6 @@ namespace Enfinity.Hrms.Test.UI
     [TestFixture]
     public class UpdateEmployeeTabwiseTest:BaseTest
     {
-        public string Product = "Hrms";
-
         #region Personal Tab
         [Test, Order(1)]
         //[Ignore("")]       
@@ -23,7 +23,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -39,8 +39,8 @@ namespace Enfinity.Hrms.Test.UI
                 BasePage.NavigateToEmployee("215");
                 BasePage.SwitchTab();
 
-                var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
-                var personalInfo = JsonHelper.ConvertJsonListDataModel<PersonalTabModel>(employeeFile, "personal");
+                var employeeFile = FileUtils.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                var personalInfo = JsonUtils.ConvertJsonListDataModel<PersonalTabModel>(employeeFile, "personal");
 
                 //personal tab
                 EmployeePage ep = new EmployeePage(_driver);
@@ -82,10 +82,10 @@ namespace Enfinity.Hrms.Test.UI
             try
             {
 
-                Login(Product);
+                
 
-                var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
-                var jobInfo = JsonHelper.ConvertJsonListDataModel<JobTabModel>(employeeFile, "job");
+                var employeeFile = FileUtils.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                var jobInfo = JsonUtils.ConvertJsonListDataModel<JobTabModel>(employeeFile, "job");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -146,10 +146,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                
 
-                var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
-                var payrollInfo = JsonHelper.ConvertJsonListDataModel<PayrollTabModel>(employeeFile, "payroll");
+                var employeeFile = FileUtils.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                var payrollInfo = JsonUtils.ConvertJsonListDataModel<PayrollTabModel>(employeeFile, "payroll");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -246,10 +246,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                
 
-                var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
-                var timeOffInfo = JsonHelper.ConvertJsonListDataModel<TimeOffTabModel>(employeeFile, "timeOff");
+                var employeeFile = FileUtils.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                var timeOffInfo = JsonUtils.ConvertJsonListDataModel<TimeOffTabModel>(employeeFile, "timeOff");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -297,10 +297,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                
 
-                var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
-                var attendanceInfo = JsonHelper.ConvertJsonListDataModel<AttendanceTabModel>(employeeFile, "attendance");
+                var employeeFile = FileUtils.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                var attendanceInfo = JsonUtils.ConvertJsonListDataModel<AttendanceTabModel>(employeeFile, "attendance");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -349,10 +349,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                
 
-                var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
-                var documentsInfo = JsonHelper.ConvertJsonListDataModel<DocumentsTabModel>(employeeFile, "documents");
+                var employeeFile = FileUtils.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                var documentsInfo = JsonUtils.ConvertJsonListDataModel<DocumentsTabModel>(employeeFile, "documents");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -399,10 +399,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                
 
-                var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
-                var performanceInfo = JsonHelper.ConvertJsonListDataModel<PerformanceTabModel>(employeeFile, "performance");
+                var employeeFile = FileUtils.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                var performanceInfo = JsonUtils.ConvertJsonListDataModel<PerformanceTabModel>(employeeFile, "performance");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -481,10 +481,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             try
             {
-                Login(Product);
+                
 
-                var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
-                var integrationInfo = JsonHelper.ConvertJsonListDataModel<IntegrationTabModel>(employeeFile, "integration");
+                var employeeFile = FileUtils.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                var integrationInfo = JsonUtils.ConvertJsonListDataModel<IntegrationTabModel>(employeeFile, "integration");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);
@@ -552,10 +552,10 @@ namespace Enfinity.Hrms.Test.UI
             try
             {
 
-                Login(Product);
+                
 
-                var employeeFile = FileHelper.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
-                var residencyInfo = JsonHelper.ConvertJsonListDataModel<ResidencyInfoTabModel>(employeeFile, "residencyInfo");
+                var employeeFile = FileUtils.GetDataFile("Hrms", "HRCore", "Employee", "EmployeeData");
+                var residencyInfo = JsonUtils.ConvertJsonListDataModel<ResidencyInfoTabModel>(employeeFile, "residencyInfo");
 
                 //hr core page
                 HRCorePage hc = new HRCorePage(_driver);

@@ -1,6 +1,6 @@
 ﻿using Bogus;
 using Bogus.DataSets;
-using Enfinity.Common.Test;
+
 using Enfinity.Hrms.Test.UI;
 using OpenQA.Selenium;
 using System;
