@@ -218,7 +218,7 @@
     <Compile Include="PageObjects\SelfService\PromotionRequestPage.cs" />
     <Compile Include="PageObjects\SelfService\ResignationPage.cs" />
     <Compile Include="PageObjects\SelfService\SelfServicePage.cs" />
-    <Compile Include="PageObjects\SelfService\SupportRequestCategory.cs" />
+    <Compile Include="PageObjects\SelfService\SupportRequestCategoryPage.cs" />
     <Compile Include="PageObjects\SelfService\TimeOffPage.cs" />
     <Compile Include="PageObjects\SelfService\TravelRequestPage.cs" />
     <Compile Include="PageObjects\SuccessionPlanning\SuccessionPage.cs" />

@@ -760,7 +760,7 @@ namespace Enfinity.Hrms.Test.UI
             {
                 sp.ClickDesignation();
                 Thread.Sleep(2000);
-                BasePage.DeleteHrCoreTxn(3, desg.designationName);
+                BasePage.DeleteTxn(3, desg.designationName);
 
                 ClassicAssert.IsFalse(BasePage.ValidateListing(desg.designationName, 3, 2));
             }

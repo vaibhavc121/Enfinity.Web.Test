@@ -551,6 +551,7 @@ namespace Enfinity.Hrms.Test.UI
             Thread.Sleep(1000);
 
             PressKey("enter");
+            driver.Navigate().Back();
 
 
         }

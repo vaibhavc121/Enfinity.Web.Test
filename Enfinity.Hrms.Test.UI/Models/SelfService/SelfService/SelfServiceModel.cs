@@ -85,6 +85,11 @@ namespace Enfinity.Hrms.Test.UI.Models.SelfService
         public string desc { get; set; }
 
     }
+    public class DeleteSupportRequestCategoryModel
+    {
+        public string categoryName { get; set; }
+       
+    }
 
 
 }

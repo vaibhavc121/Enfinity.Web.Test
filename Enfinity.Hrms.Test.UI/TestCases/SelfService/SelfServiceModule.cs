@@ -698,7 +698,7 @@ namespace Enfinity.Hrms.Test.UI
                 var supportRequestCategoryData = JsonUtils.ConvertJsonListDataModel<SupportRequestCategoryModel>(selfServiceFile, "createSupportRequestCategory");
 
                 //global search
-                SupportRequestCategory sr = new SupportRequestCategory(_driver);
+                SupportRequestCategoryPage sr = new SupportRequestCategoryPage(_driver);
 
                 foreach(var src in supportRequestCategoryData)
                 {
@@ -712,7 +712,7 @@ namespace Enfinity.Hrms.Test.UI
                     sr.ProvideDesc(src.desc);
                     sr.ClickSaveBack();
 
-                    ClassicAssert.IsTrue(BasePage.ValidateListing1(expEmp: src.categoryName));
+                    ClassicAssert.IsTrue(sr.IsTransactionCreated(expEmp: src.categoryName));
                 }
                
 
@@ -961,11 +961,18 @@ namespace Enfinity.Hrms.Test.UI
             try
             {
                 var selfServiceFile = FileUtils.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
-                var supportRequestCategoryData = JsonUtils.ConvertJsonListDataModel<SupportRequestCategoryModel>(selfServiceFile, "createSupportRequestCategory");
+                var supportRequestCategoryData = JsonUtils.ConvertJsonListDataModel<DeleteSupportRequestCategoryModel>(selfServiceFile, "deleteSupportRequestCategory");
 
                 //SupportRequestCategory
-                SupportRequestCategory sr = new SupportRequestCategory(_driver);
-                sr.GlobalSearch1("support request category");
+                SupportRequestCategoryPage sr = new SupportRequestCategoryPage(_driver);
+                foreach(var SRC in supportRequestCategoryData)
+                {
+                    sr.GlobalSearch1("support request category");
+                    BasePage.DeleteTxn(2, SRC.categoryName);
+
+                    ClassicAssert.IsFalse(BasePage.ValidateListing(SRC.categoryName, 2, 1));
+                }
+                
 
             }
             catch (Exception e)
