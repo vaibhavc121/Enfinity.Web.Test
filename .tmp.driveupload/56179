@@ -15,3 +15,4 @@ If u want run multiple test methods in single class then follow below rule
 //[SetUp]
 [OneTimeSetUp]
 --
+//test
