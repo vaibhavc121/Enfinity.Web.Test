@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework.Legacy;
+using OpenQA.Selenium;
 using OpenQA.Selenium.DevTools.V130.DOM;
 using System;
 using System.Collections.Generic;
@@ -144,6 +145,42 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             return isMatch;
         }
 
+        public void DeleteTransaction(int index, string value)
+        {
+            FilterByIndex(index, value);
+            //IWebElement status= driver.FindElement(By.XPath("(//tr)[11]//td[8]"));
+            //status.Click();
+            //status.SendKeys("active");
+            //driver.FindElement(By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[6]/div[1]/table[1]/tbody[1]/tr[2]/td[8]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]")).SendKeys("active");
+            //driver.FindElement(By.XPath("(//input[@class='dx-texteditor-input'])[8]")).SendKeys("active");
+
+            Thread.Sleep(2000);
+            try
+            {
+                //need to select row to click on view
+                //driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
+                WaitForElement(By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[1]/td[1]")).Click();
+            }
+            catch (Exception)
+            {
+                ClassicAssert.Fail("Vaibhav- There is no active records..");
+                //Console.WriteLine("There is no active records: " + e);
+                Environment.Exit(1);  // Exits the application with a non-zero status
+            }
+
+            ClickEdit();
+            Thread.Sleep(5000);
+            //driver.FindElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
+            WaitForElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
+            //driver.FindElement(By.XPath("//span[normalize-space()='Delete']")).Click();
+            WaitForElement(By.XPath("//span[normalize-space()='Delete']")).Click();
+            Thread.Sleep(1000);
+
+            PressKey("enter");
+            //driver.Navigate().Back();
+
+
+        }
         #endregion
     }
 }

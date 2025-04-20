@@ -16,7 +16,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
 
         #region page objects
-        private By ITSupport = By.XPath("//span[normalize-space()='IT Support']");
+        private By iTSupportRequest = By.XPath("//span[normalize-space()='IT Support Request']");
         private By supportRequestCategory = By.Id("SupportRequest.SupportRequestCategoryIdLookup_B-1Img");
         private By supportRequest = By.XPath("//input[@id='SupportRequest.SupportRequestCategoryIdLookup_I']");
         private By priority = By.Id("SupportRequest.Priority_B-1Img");
@@ -26,7 +26,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         #region action methods
         public void ClickITSupport()
         {
-            Find(ITSupport).Click();
+            Find(iTSupportRequest).Click();
         }
         public void ClickOnNew()
         {

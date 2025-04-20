@@ -727,6 +727,10 @@ namespace Enfinity.Hrms.Test.UI
 
         #endregion
 
+        #region Action Methods
+
+        #endregion
+
         #region Delete Expense Claim
         [Test, Repeat(22)]
         public void DeleteExpenseClaim()
@@ -968,7 +972,7 @@ namespace Enfinity.Hrms.Test.UI
                 foreach(var SRC in supportRequestCategoryData)
                 {
                     sr.GlobalSearch1("support request category");
-                    BasePage.DeleteTxn(2, SRC.categoryName);
+                    sr.DeleteTransaction(2, SRC.categoryName);
 
                     ClassicAssert.IsFalse(BasePage.ValidateListing(SRC.categoryName, 2, 1));
                 }
