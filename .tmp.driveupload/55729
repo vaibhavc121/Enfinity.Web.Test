@@ -1,9 +1,11 @@
 ﻿{
   "createITSupport": [
     {
-      "supportRequestCategory": "Setup computer",
+      "subject": "setup issue",
       "priority": "High",
-      "remarks": "test"
+      "description": "test",
+      "employee": "Vaibhav Chavan",
+      "recordDesc": "Setup computer"
     }
   ]
 }

@@ -300,7 +300,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         #endregion
 
-        #region create IT support
+        #region create IT support request
         [Test, Order(5)]
         public void CreateITSupport()
         {
@@ -317,19 +317,21 @@ namespace Enfinity.Hrms.Test.UI
                 ss.ClickTransactions();
 
                 //ITSupport page                
-                ITSupportPage it = new ITSupportPage(_driver);
+                ITSupportRequestPage it = new ITSupportRequestPage(_driver);
 
                 foreach (var ITSupport in ITSupportData)
                 {
                     it.ClickITSupport();
                     it.ClickOnNew();
-                    it.ClickSupportRequestCategoryDD();
-                    it.SelectSupportRequestCategory(ITSupport.supportRequestCategory);
-                    it.ClickPriorityDD();
+                    it.ClickPlusBtn();
+                    it.ProvideSubject(ITSupport.subject);
                     it.SelectPriority(ITSupport.priority);
-                    it.ProvideRemarks(ITSupport.remarks);
+                    it.ProvideDescription(ITSupport.description);
                     it.ClickOnSave();
-                    ClassicAssert.IsTrue(it.IsTxnCreated(ITSupport.supportRequestCategory));
+                    it.ClickOnContextMenu();
+                    it.ClickOnView();
+                    it.ClickOnApproveBack();
+                    ClassicAssert.IsTrue(it.IsTxnCreated(ITSupport.employee, ITSupport.recordDesc));
                 }
 
             }

@@ -599,6 +599,10 @@ namespace Enfinity.Hrms.Test.UI
             PressKey("enter");
             driver.Navigate().Back();
         }
+        public static void ClickContextMenu()
+        {
+            WaitForElement(By.Id("MainMenu_DXI11_P")).Click();
+        }
 
         #endregion
 
@@ -897,6 +901,7 @@ namespace Enfinity.Hrms.Test.UI
             //IsTransactionCreated("2025-04-15", "John", "Completed");          // Check all three
 
         }
+       
         #endregion
 
         #region Alert Handling
@@ -1032,43 +1037,43 @@ namespace Enfinity.Hrms.Test.UI
             Actions actions = new Actions(driver);
             actions.DragAndDrop(Find(sourceLocator), Find(targetLocator)).Perform();
         }
-        public static void MoveToElement(IWebDriver driver, IWebElement element)
+        public static void MoveToElement(IWebElement element)
         {
             Actions actions = new Actions(driver);
             actions.MoveToElement(element).Perform();
         }
 
-        public static void ClickAndHold(IWebDriver driver, IWebElement element)
+        public static void ClickAndHold(IWebElement element)
         {
             Actions actions = new Actions(driver);
             actions.ClickAndHold(element).Perform();
         }
 
-        public static void Release(IWebDriver driver)
+        public static void Release()
         {
             Actions actions = new Actions(driver);
             actions.Release().Perform();
         }
 
-        public static void DoubleClick(IWebDriver driver, IWebElement element)
+        public static void DoubleClick(IWebElement element)
         {
             Actions actions = new Actions(driver);
             actions.DoubleClick(element).Perform();
         }
 
-        public static void ContextClick(IWebDriver driver, IWebElement element)
+        public static void ContextClick(IWebElement element)
         {
             Actions actions = new Actions(driver);
             actions.ContextClick(element).Perform();
         }
 
-        public static void DragAndDrop(IWebDriver driver, IWebElement source, IWebElement target)
+        public static void DragAndDrop(IWebElement source, IWebElement target)
         {
             Actions actions = new Actions(driver);
             actions.DragAndDrop(source, target).Perform();
         }
 
-        public static void DragAndDropByOffset(IWebDriver driver, IWebElement element, int xOffset, int yOffset)
+        public static void DragAndDropByOffset(IWebElement element, int xOffset, int yOffset)
         {
             Actions actions = new Actions(driver);
             actions.DragAndDropToOffset(element, xOffset, yOffset).Perform();

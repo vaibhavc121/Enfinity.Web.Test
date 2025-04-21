@@ -8,8 +8,10 @@ namespace Enfinity.Hrms.Test.UI.Models.SelfService.ITSupport
 {
     public class ITSupportModel
     {
-        public string supportRequestCategory { get; set; }
+        public string subject { get; set; }
         public string priority { get; set; }
-        public string remarks { get; set; }
+        public string description { get; set; }
+        public string employee { get; set; }
+        public string recordDesc { get; set; }
     }
 }
