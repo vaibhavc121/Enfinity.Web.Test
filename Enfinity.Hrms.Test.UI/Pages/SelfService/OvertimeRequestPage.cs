@@ -16,7 +16,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
 
         #region page objects
         private By profileUpdate = By.XPath("//a[@id='TxnInstanceView_I0i19_T']//span[@class='dx-vam'][normalize-space()='Profile Update']");
-        private By overtimeRequest = By.XPath("//span[normalize-space()='Overtime Request']");
+        private By overtimeApplication = By.XPath("//span[normalize-space()='Overtime Application']");
         private By overtimeDate = By.XPath("//input[@id='OvertimeApplication.OvertimeDate_I']");
         private By overtimeType = By.XPath("//input[@id='OvertimeApplication.OvertimeTypeIdLookup_I']");
         private By hours = By.XPath("//input[@id='OvertimeApplication.Hours_I']");
@@ -31,7 +31,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public void ClickOvertimeRequest()
         {
-            Find(overtimeRequest).Click();
+            Find(overtimeApplication).Click();
         }
         public void ClickOnNew()
         {
@@ -75,7 +75,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             //    return false;
             //}
 
-            if(ResultValue(6).Contains(overtimeType) && ResultValue(6).Contains(hrs))
+            if(ResultValue(7).Contains(overtimeType) && ResultValue(7).Contains(hrs))
             {
                 return true;
             }

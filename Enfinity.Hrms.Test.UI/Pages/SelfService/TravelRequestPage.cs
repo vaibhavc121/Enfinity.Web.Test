@@ -102,7 +102,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public bool IsTransactionCreated(string emp, string country)
         {
-            if (Result5().Contains(emp) && Result7().Contains(country))
+            if (ResultValue(5).Contains(emp) && ResultValue(7).Contains(country))
             {
                 return true;
             }

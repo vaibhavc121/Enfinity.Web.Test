@@ -28,6 +28,16 @@ namespace Enfinity.Hrms.Test.UI.Utilities
         {
             return DateTime.Now.AddDays(days).ToString(format);
         }
+        public static string AddDaysToCurrentDate1(int days)
+        {
+            return DateTime.Now.AddDays(days).ToString("dd-MM-yyyy");
+        }
+        public static string AddDaysToGivenDate(string date, int days)
+        {
+            DateTime parsedDate = DateTime.ParseExact(date, "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            DateTime updatedDate = parsedDate.AddDays(days);
+            return updatedDate.ToString("dd-MMM-yyyy");
+        }
 
         public static string SubtractDaysFromCurrentDate(int days, string format = "yyyy-MM-dd")
         {
@@ -42,7 +52,7 @@ namespace Enfinity.Hrms.Test.UI.Utilities
         public static string AddYearsToCurrentDate(int years, string format = "yyyy-MM-dd")
         {
             return DateTime.Now.AddYears(years).ToString(format);
-        }
+        }        
 
         public static string GetDayOfWeek()
         {
@@ -66,5 +76,10 @@ namespace Enfinity.Hrms.Test.UI.Utilities
             DateTime date = DateTime.ParseExact(dateString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             return date.ToString("dd-MM-yyyy");
         }
+        public static string CurrentDateInCustomFormat()
+        {
+            return DateTime.Now.ToString("dd-MMM-yyyy");
+        }
+        
     }
 }

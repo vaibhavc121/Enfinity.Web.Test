@@ -542,7 +542,14 @@ namespace Enfinity.Hrms.Test.UI
                 Environment.Exit(1);  // Exits the application with a non-zero status
             }
 
-            ClickView();
+            try
+            {
+                ClickView();
+            }
+            catch (Exception)
+            {
+                ClickEdit();
+            }
             Thread.Sleep(5000);
             //driver.FindElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
             WaitForElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();

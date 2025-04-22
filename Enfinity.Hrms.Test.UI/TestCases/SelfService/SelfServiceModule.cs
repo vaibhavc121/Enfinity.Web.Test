@@ -14,12 +14,14 @@ using NUnit.Framework;
 using NUnit.Framework.Legacy;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace Enfinity.Hrms.Test.UI
 {
@@ -302,7 +304,7 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create IT support request
         [Test, Order(5)]
-        public void CreateITSupport()
+        public void CreateITSupportRequest()
         {
             try
             {
@@ -447,21 +449,19 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach (var benefitClaim in benefitClaimData)
                 {
-                    bc.ScrollDownWebpage();
+                    //bc.ScrollDownWebpage();
                     bc.ClickBenefitClaim();
                     bc.ClickOnNew();
-                    bc.ProvideClaimDate(benefitClaim.claimDate);
-                    bc.ClickBenefitSchemeDD();
-                    bc.SelectBenefitScheme(benefitClaim.benefitScheme);
-                    bc.ProvideClaimAmt(benefitClaim.claimAmount);
-                    bc.ClickPaymentType();
-                    bc.SelectPaymentType(benefitClaim.paymentType);
+                    bc.ProvideClaimDate(benefitClaim.claimDate);                   
+                    bc.ProvideBenefitScheme(benefitClaim.benefitScheme);
+                    bc.ProvideClaimAmt(benefitClaim.claimAmount);                   
+                    bc.ProvidePaymentType(benefitClaim.paymentType);
                     bc.ProvideRemarks(benefitClaim.remarks);
                     bc.ClickOnSave();
 
-                    //ClassicAssert.IsTrue(bc.IsTransactionCreated(benefitClaim.empName, benefitClaim.claimAmount));
+                    ClassicAssert.IsTrue(bc.IsTxnCreated(benefitClaim.empName, benefitClaim.claimAmount));
                     //ClassicAssert.IsTrue(BasePage.IsTransactionCreated());
-                    ClassicAssert.IsTrue(true);
+                    //ClassicAssert.IsTrue(true);
                 }
             }
             catch (Exception e)
@@ -493,7 +493,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach (var travelRequest in travelRequestData)
                 {
-                    tr.ScrollDownWebpage();
+                    //tr.ScrollDownWebpage();
                     tr.ClickTravelRequest();
                     tr.ClickOnNew();
                     tr.ProvideFromDate(travelRequest.fromDate);
@@ -596,7 +596,7 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create Overtime Request
         [Test, Order(11)]
-        public void CreateOvertime()
+        public void CreateOvertimeApplication()
         {
             try
             {
@@ -614,7 +614,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach (var overtimeRequest in overtimeRequestData)
                 {
-                    or.ScrollDownWebpage();
+                    //or.ScrollDownWebpage();
                     or.ClickOvertimeRequest();
                     or.ClickOnNew();
                     or.ProvideOvertimeDate(overtimeRequest.overtimeDate);
@@ -667,15 +667,15 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach (var resignation in resignationData)
                 {
-                    rp.ScrollDownWebpage();
+                    //rp.ScrollDownWebpage();
                     rp.ClickResignation();
                     rp.ClickOnNew();
                     rp.ProvideSubmittedDate(resignation.submittedDate);
                     rp.ProvideRemarks(resignation.remarks);
-                    rp.ClickOnSave();
+                    rp.ClickOnSaveAndBack();
 
-                    //ClassicAssert.IsTrue(rp.IsTransactionCreated());
-                    ClassicAssert.IsTrue(true);
+                    ClassicAssert.IsTrue(rp.IsTransactionCreated1());
+                    //ClassicAssert.IsTrue(true);
 
 
 
@@ -920,15 +920,44 @@ namespace Enfinity.Hrms.Test.UI
 
         #region Delete Benefit Claim
         [Test]
-        public void test12()
+        public void DeleteBenefitClaim()
         {
+            var selfServiceFile = FileUtils.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
+            var benefitClaimData = JsonUtils.ConvertJsonListDataModel<BenefitClaimModel>(selfServiceFile, "deleteBenefitClaim");
+
+            //self service page
+            SelfServicePage ss = new SelfServicePage(_driver);
+            ss.ClickSelfService();
+            ss.ClickTransactions();
+
+            //Benefit Claim page                
+            BenefitClaimPage bc = new BenefitClaimPage(_driver);
+            bc.ClickBenefitClaim();
+
+            BasePage.DeleteTxn(9,"active");
+            ClassicAssert.IsFalse(BasePage.ValidateListing("active", 9, 9));
+            
         }
         #endregion
 
         #region Delete Travel Request
         [Test]
-        public void test13()
+        public void DeleteTravelRequest()
         {
+            var selfServiceFile = FileUtils.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
+            var benefitClaimData = JsonUtils.ConvertJsonListDataModel<BenefitClaimModel>(selfServiceFile, "deleteBenefitClaim");
+
+            //self service page
+            SelfServicePage ss = new SelfServicePage(_driver);
+            ss.ClickSelfService();
+            ss.ClickTransactions();
+
+            //TravelRequestPage                
+            TravelRequestPage bc = new TravelRequestPage(_driver);
+            bc.ClickTravelRequest();
+
+            BasePage.DeleteTxn(6,"active");
+            ClassicAssert.IsFalse(BasePage.ValidateListing("active", 6, 6));
         }
         #endregion
 
@@ -941,8 +970,19 @@ namespace Enfinity.Hrms.Test.UI
 
         #region Delete Overtime Request
         [Test]
-        public void test15()
+        public void DeleteOvertimeApplication()
         {
+            //self service page
+            SelfServicePage ss = new SelfServicePage(_driver);
+            ss.ClickSelfService();
+            ss.ClickTransactions();
+
+            //TravelRequestPage                
+            OvertimeRequestPage or = new OvertimeRequestPage(_driver);
+            or.ClickOvertimeRequest();
+
+            BasePage.DeleteTxn(6, "active");
+            ClassicAssert.IsFalse(BasePage.ValidateListing("active", 6, 6));
         }
         #endregion
 

@@ -1,4 +1,5 @@
 ﻿
+using Enfinity.Hrms.Test.UI.Utilities;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
 
         #region page objects
         private By profileUpdate = By.XPath("//a[@id='TxnInstanceView_I0i19_T']//span[@class='dx-vam'][normalize-space()='Profile Update']");
-        private By resignation = By.XPath("//span[normalize-space()='Resignation']");
+        private By resignationApplication = By.XPath("//span[normalize-space()='Resignation Application']");
         private By submittedDate = By.XPath("//input[@id='ResignationApplication.SubmittedDate_I']");
         private By remarks = By.XPath("//textarea[@id='ResignationApplication.Description_I']");
         #endregion
@@ -28,7 +29,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public void ClickResignation()
         {
-            Find(resignation).Click();
+            Find(resignationApplication).Click();
         }
         public void ClickOnNew()
         {
@@ -42,15 +43,29 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(remarks).SendKeys(value);
         }
-        public void ClickOnSave()
+        public void ClickOnSaveAndBack()
         {
-            ClickSave();
+            ClickSaveAndBack();
         }
         public bool IsTransactionCreated()
         {
            return IsTxnCreated();
         }
-        
+        public bool IsTransactionCreated1()
+        {
+            string expectedDate = DateUtils.CurrentDateInCustomFormat();
+            string expectedDesc = DateUtils.AddDaysToGivenDate("01-01-2025",100);
+
+            if (ResultValue(2).Contains(expectedDate) || ResultValue(7).Contains(expectedDesc))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         #endregion
     }
 }
