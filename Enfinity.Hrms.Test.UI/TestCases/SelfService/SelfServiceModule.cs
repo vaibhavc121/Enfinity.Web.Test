@@ -977,9 +977,9 @@ namespace Enfinity.Hrms.Test.UI
             ss.ClickSelfService();
             ss.ClickTransactions();
 
-            //TravelRequestPage                
-            OvertimeRequestPage or = new OvertimeRequestPage(_driver);
-            or.ClickOvertimeRequest();
+            //OvertimeRequestPage                
+            OvertimeRequestPage ot = new OvertimeRequestPage(_driver);
+            ot.ClickOvertimeRequest();
 
             BasePage.DeleteTxn(6, "active");
             ClassicAssert.IsFalse(BasePage.ValidateListing("active", 6, 6));
@@ -987,9 +987,20 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Delete Resignation
-        [Test]
-        public void test16()
+        [Test]       
+        public void DeleteResignation()
         {
+            //self service page
+            SelfServicePage ss = new SelfServicePage(_driver);
+            ss.ClickSelfService();
+            ss.ClickTransactions();
+
+            //ResignationPage                
+            ResignationPage ot = new ResignationPage(_driver);
+            ot.ClickResignation();
+
+            BasePage.DeleteTxn(6, "active");
+            ClassicAssert.IsFalse(BasePage.ValidateListing("active", 6, 6));
         }
         #endregion
 
