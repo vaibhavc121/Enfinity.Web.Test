@@ -9,12 +9,12 @@ namespace Enfinity.Hrms.Test.UI.Models.SelfService
 {
     public class LoanRequestModel 
     {
-        public string repaymentStartPeriod { get;set; }
-        public string loanType { get; set; }
+        public string repaymentStartPeriod { get;set; }       
         public string loanAmt { get; set; }
-        public string numberOfInstallments { get; set; }
+        public string loanType { get; set; }
+        public string installmentAmt { get; set; }
         public string remarks { get; set; }
-        public string empName { get; set; }
+       
         
     }
     public class BenefitClaimModel

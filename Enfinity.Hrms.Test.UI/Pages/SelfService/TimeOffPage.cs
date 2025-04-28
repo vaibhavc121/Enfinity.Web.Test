@@ -132,9 +132,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             ClickOk();
         }
-        public void EnterDescription()
+        public void EnterDescription(string value)
         {
-            ProvideDescription();
+            ProvideDescription(value);
         }
 
         public void SaveAndSubmit()

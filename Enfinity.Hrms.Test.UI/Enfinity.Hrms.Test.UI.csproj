@@ -154,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseTest.cs" />
+    <Compile Include="Models\Attendance\Attendance\AttendanceModel.cs" />
     <Compile Include="Models\Login\LoginModel.cs" />
     <Compile Include="Models\HRCore\Bank\BankModel.cs" />
     <Compile Include="Models\HRCore\Calendar\CalendarModel.cs" />
@@ -180,6 +181,8 @@
     <Compile Include="Models\SuccessionPlanning\SuccessionPlanning\SuccessionModel.cs" />
     <Compile Include="Pages\Archive\TestPage.cs" />
     <Compile Include="Base\BasePage.cs" />
+    <Compile Include="Pages\Attendance\AttendancePage.cs" />
+    <Compile Include="Pages\Attendance\ShiftPage.cs" />
     <Compile Include="Pages\HrCore\AssetIssuePage.cs" />
     <Compile Include="Pages\HrCore\BankPage.cs" />
     <Compile Include="Pages\HrCore\CalendarPage.cs" />
@@ -270,6 +273,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Models\Attendance\Attendance\AttendanceData.json" />
     <None Include="Models\HRCore\Bank\BankData.json" />
     <None Include="Models\HRCore\Calendar\CalendarData.json" />
     <None Include="Models\HRCore\Designation\DesignationData.json" />
@@ -297,10 +301,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pages\Attendance\" />
     <Folder Include="Pages\Performance\" />
     <Folder Include="Pages\WorkforcePlanning\" />
-    <Folder Include="TestCases\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="TextFile1.txt" />

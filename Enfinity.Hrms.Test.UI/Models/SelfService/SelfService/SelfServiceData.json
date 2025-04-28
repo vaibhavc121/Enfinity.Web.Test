@@ -1,12 +1,12 @@
 ﻿{
   "createLoanRequest": [
     {
-      "repaymentStartPeriod": "Apr-2025",
+      "repaymentStartPeriod": "Jan-2023",
+      "loanAmt": "10.0",
       "loanType": "Car Loan",
-      "loanAmt": "100",
-      "numberOfInstallments": "5",
-      "remarks": "test",
-      "empName": "Vaibhav Chavan"
+      "installmentAmt": "5",
+      "remarks": "test"
+
     }
   ],
 

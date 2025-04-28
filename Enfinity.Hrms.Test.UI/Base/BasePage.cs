@@ -22,7 +22,7 @@ namespace Enfinity.Hrms.Test.UI
         {
             driver = _driver;
         }
-        public IWebElement Find(By locator) => driver.FindElement(locator);
+        public static IWebElement Find(By locator) => driver.FindElement(locator);
 
         #region For fake data generation
         public Faker faker = new Faker();
@@ -441,9 +441,10 @@ namespace Enfinity.Hrms.Test.UI
             //js.ExecuteScript("arguments[0].value='Test Value';", inputField);
             jsExecutor.ExecuteScript($"arguments[0].value='{value}';", element);
         }
-        public void ProvideDescription()
-        {
-            driver.FindElement(By.XPath("//textarea[contains(@id,'Description')]"));
+        public void ProvideDescription(string value)
+        {            
+            By description = By.XPath("//textarea[contains(@id,'Description')]");
+            ClearAndProvide1(description, value);
         }
         public static void GlobalSearch(string value)
         {
@@ -1084,6 +1085,16 @@ namespace Enfinity.Hrms.Test.UI
         {
             Actions actions = new Actions(driver);
             actions.DragAndDropToOffset(element, xOffset, yOffset).Perform();
+        }
+
+        public static void MoveSliderByOffset(By locator, int xOffset)
+        {
+            Actions move = new Actions(driver);
+            
+            move.ClickAndHold(Find(locator))
+                .MoveByOffset(xOffset, 0) // Move right horizontally; adjust pixel value as per your slider
+                .Release()
+                .Perform();
         }
 
         #endregion

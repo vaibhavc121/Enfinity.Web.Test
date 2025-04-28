@@ -1,0 +1,9 @@
+﻿{
+  "createShift": [
+    {
+      "shiftName": "Normal",
+      "defaultTimetable": "VRC 9-3"
+
+    }
+  ]
+}
