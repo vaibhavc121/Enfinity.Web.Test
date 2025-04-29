@@ -5,5 +5,14 @@
       "defaultTimetable": "VRC 9-3"
 
     }
+  ],
+  "createRoster": [
+    {
+      "fromDate": "01-01-2025",
+      "upToDate": "01-01-2025",
+      "excludeDay": "Sunday",
+      "applicableFor": "001 | Vaibhav Chavan"
+
+    }
   ]
 }

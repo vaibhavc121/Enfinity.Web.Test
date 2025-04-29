@@ -12,4 +12,11 @@ namespace Enfinity.Hrms.Test.UI.Models.Attendance.Attendance
         public string defaultTimetable { get; set; }
 
     }
-}
+    public class RosterModel
+    {
+        public string fromDate { get; set; }
+        public string upToDate { get; set; }
+        public string excludeDay { get; set; }
+        public string applicableFor { get; set; }
+    }
+}   
