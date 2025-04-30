@@ -56,9 +56,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(timeOff).Click();
         }
-        public void ClickOnNew()
+        public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
         }
 
         public void ProvidePermissonDate(string value)
@@ -98,9 +98,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(AM).Click();
         }
-        public void ClickOnOk()
+        public void ClickOk()
         {
-            ClickOk();
+            ClickOnOk();
         }
 
         public void ClickUpToTimeField()
@@ -142,7 +142,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             ClickSaveSubmit();
         }
 
-        public void ClickOnSave()
+        public void ClickSave()
         {
             ClickSaveAndBack();
         }
@@ -165,9 +165,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(selectRow).Click();
         }
-        public void ClickOnView()
+        public void ClickView()
         {
-            ClickView();
+            ClickOnView();
         }
         public void ClickContextMenu()
         {

@@ -38,7 +38,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach(var course in courseData)
                 {
-                    cp.ClickOnNew();
+                    cp.ClickNew();
                     cp.ProvideCourseName(course.courseName);
                     cp.ProvideCategory(course.category);
                     cp.ProvideMode(course.mode);

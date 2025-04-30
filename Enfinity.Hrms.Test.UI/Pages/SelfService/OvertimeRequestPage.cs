@@ -33,9 +33,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(overtimeApplication).Click();
         }
-        public void ClickOnNew()
+        public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
         }
         public void ProvideOvertimeDate(string value)
         {

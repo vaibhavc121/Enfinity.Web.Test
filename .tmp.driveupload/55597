@@ -27,9 +27,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(adminSupport).Click();
         }
-        public void ClickOnNew()
+        public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
         }
         public void ClickSupportRequestCategory()
         {
@@ -53,7 +53,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(remarks).SendKeys(value);
         }
-        public void ClickOnSave()
+        public void ClickSave()
         {
             ClickSaveAndBack();
         }

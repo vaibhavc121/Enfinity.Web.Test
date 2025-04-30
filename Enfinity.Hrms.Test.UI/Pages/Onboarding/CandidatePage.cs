@@ -66,9 +66,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Onboarding
         #endregion
 
         #region action methods
-        public void ClickOnNew()
+        public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
             Thread.Sleep(2000);
         }
         public string candidateName = RandomString();
@@ -237,9 +237,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Onboarding
         {
             ClearAndProvide1(workProfile, value);
         }
-        public void ClickOnSave()
+        public void ClickSave()
         {
-            ClickSave();
+            ClickOnSave();
             Thread.Sleep(2000);
         }
         public bool IsTransactionCreated()

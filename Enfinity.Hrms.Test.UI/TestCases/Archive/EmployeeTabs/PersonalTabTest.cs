@@ -60,7 +60,7 @@ namespace Enfinity.Hrms.Test.UI
                     ep.SelectMblNoVisibility(personal.mobileNumberVisibility);
                     ep.ClickEmailVisibility();
                     ep.SelectEmailVisibility(personal.emailVisibility);
-                    BasePage.ClickSave();
+                    BasePage.ClickOnSave();
                 }              
 
                 ClassicAssert.IsTrue(true);

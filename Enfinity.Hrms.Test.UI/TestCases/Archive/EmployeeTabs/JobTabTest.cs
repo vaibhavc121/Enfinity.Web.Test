@@ -70,7 +70,7 @@ namespace Enfinity.Hrms.Test.UI
                     //ep.ProvideUniversity(job.university);
                     //ep.ProvideYOP(job.YearOfPassing);
                     //ep.SaveQualification();
-                    BasePage.ClickSave();
+                    BasePage.ClickOnSave();
                 }
                 
 

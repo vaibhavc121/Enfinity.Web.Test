@@ -16,9 +16,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
 
         private By documentType = By.XPath("//input[@id='DocumentType.Name_I']");
 
-        public void ClickOnNew()
+        public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
         }
 
         public void ProvideDocumentTypeName(string value)

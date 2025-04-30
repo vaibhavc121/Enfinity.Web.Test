@@ -38,7 +38,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
             //Wait1(4);
             await Wait(4);
             //WaitUntil(edit);
-            ClickEdit();
+            ClickOnEdit();
             Find(contextMenu).Click();
             //Thread.Sleep(2000);
             //Find(freeze).Click();

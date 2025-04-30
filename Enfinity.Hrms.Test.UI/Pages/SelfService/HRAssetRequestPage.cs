@@ -32,9 +32,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             Find(hrAssetRequest).Click();
         }
 
-        public void ClickOnNew()
+        public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
         }
         public void ProvideTxnDate(string value)
         {
@@ -46,14 +46,14 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             ClearAndProvide1(effectiveDate, value);
         }
 
-        public void ClickOnSave()
+        public void ClickSave()
         {
-            ClickSave();
+            ClickOnSave();
         }
 
-        public void ClickOnNewLine()
+        public void ClickNewLine()
         {
-            ClickNewLine();
+            ClickOnNewLine();
         }
 
         public void ClickHRAssetDD()
@@ -91,9 +91,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             Find(expReturnDate).SendKeys(value);
         }
 
-        public void ClickOnView()
+        public void ClickView()
         {
-            ClickView();
+            ClickOnView();
             WaitTS(2);
         }
 

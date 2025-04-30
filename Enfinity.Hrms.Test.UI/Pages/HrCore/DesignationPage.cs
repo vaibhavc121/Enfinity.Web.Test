@@ -27,7 +27,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
 
         public void ClickNewButton()
         {
-            ClickNew();
+            ClickOnNew();
         }
         
         public void SetDesignationCode()            

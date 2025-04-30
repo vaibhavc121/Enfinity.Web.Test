@@ -33,9 +33,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(benefitClaim).Click();
         }
-        public void ClickOnNew()
+        public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
         }
         public void ProvideClaimDate(string value)
         {
@@ -60,7 +60,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(remarks).SendKeys(value);
         }
-        public void ClickOnSave()
+        public void ClickSave()
         {
             ClickSaveAndBack();
             //ClickSave();

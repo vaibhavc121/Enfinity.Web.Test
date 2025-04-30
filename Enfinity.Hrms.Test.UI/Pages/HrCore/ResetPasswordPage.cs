@@ -31,7 +31,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
             Thread.Sleep(2000);
             Find(newPassword).SendKeys(pwd);
             Find(confirmPassword).SendKeys(pwd);
-            ClickSave();
+            ClickOnSave();
             driver.SwitchTo().DefaultContent();
             Find(close).Click();
 

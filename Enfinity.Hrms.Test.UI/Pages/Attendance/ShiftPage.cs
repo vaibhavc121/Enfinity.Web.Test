@@ -20,17 +20,23 @@ namespace Enfinity.Hrms.Test.UI.Pages.Attendance
         #endregion
 
         #region Action Methods
-        public void ClickOnNew()
+        public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
         }
         public void ProvideShiftName(string value)
         {
             Find(name).SendKeys(value);
         }
+        //public void ProvideDefaultTimetable(string value)
+        //{
+        //    ClearAndProvide1(DefaultTimetableIdLookup, value);
+        //    WaitTS(3);
+        //}
         public void ProvideDefaultTimetable(string value)
         {
-            ClearAndProvide1(DefaultTimetableIdLookup, value);
+            ProvideAndEnter(DefaultTimetableIdLookup, value);
+            WaitTS(3);
         }
         public void ClickSaveBack()
         {

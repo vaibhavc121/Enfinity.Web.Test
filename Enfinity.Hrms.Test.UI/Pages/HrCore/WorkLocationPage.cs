@@ -16,9 +16,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
 
         private By workLocationName = By.XPath("//input[@id='WorkLocation.Name_I']");
 
-        public void ClickOnNew()
+        public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
         }
         public void ProvideWorkLocName(string value)
         {

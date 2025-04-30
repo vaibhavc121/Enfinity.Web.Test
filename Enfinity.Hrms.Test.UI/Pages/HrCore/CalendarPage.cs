@@ -21,7 +21,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void ClickNewButton()
         {
-            ClickNew();
+            ClickOnNew();
         }
         public void ProvideCalendarName()
         {

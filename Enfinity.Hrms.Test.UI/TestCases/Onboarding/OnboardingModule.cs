@@ -39,7 +39,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach(var candidate in candidateData)
                 {
-                    cp.ClickOnNew();
+                    cp.ClickNew();
                     cp.ProvideName();
                     //cp.ProvideNameArabic(candidate.nameArabic);
                     cp.ProvideEmail();
@@ -74,7 +74,7 @@ namespace Enfinity.Hrms.Test.UI
                     cp.ProvideStartDate(candidate.startDate);
                     cp.ProvideEndDate(candidate.endDate);
                     cp.ProvideWorkProfile(candidate.workProfile);
-                    cp.ClickOnSave();
+                    cp.ClickSave();
 
                     ClassicAssert.IsTrue(cp.IsTransactionCreated());
                 }

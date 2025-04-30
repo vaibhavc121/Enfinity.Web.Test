@@ -67,13 +67,13 @@ namespace Enfinity.Hrms.Test.UI.Utilities
 
         public static string FormattedDateMMM(string dateString)
         {
-            DateTime date = DateTime.ParseExact(dateString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            DateTime date = DateTime.ParseExact(dateString, "dd-MM-yyyy", CultureInfo.InvariantCulture);
             return date.ToString("dd-MMM-yyyy", CultureInfo.InvariantCulture);
         }
 
         public static string FormattedDateMM(string dateString)
         {
-            DateTime date = DateTime.ParseExact(dateString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            DateTime date = DateTime.ParseExact(dateString, "dd-MM-yyyy", CultureInfo.InvariantCulture);
             return date.ToString("dd-MM-yyyy");
         }
         public static string CurrentDateInCustomFormat()

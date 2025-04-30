@@ -30,9 +30,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SuccessionPlanning
         #endregion
 
         #region action methods
-        public void ClickOnNew()
+        public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
         }
         public void ProvideName(string value)
         {
@@ -83,12 +83,12 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SuccessionPlanning
             ClearAndProvide1(coursePercentage, value);
         }
 
-        public void ProvideDescription(string value)
+        public void ProvideDesc(string value)
         {
             ClearAndProvide1(description, value);
         }
 
-        public void ClickOnSave()
+        public void ClickSave()
         {
             ClickSaveAndBack();
         }

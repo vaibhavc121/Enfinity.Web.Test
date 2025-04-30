@@ -51,10 +51,10 @@ namespace Enfinity.Hrms.Test.UI
                 foreach (var ExpenseClaim in ExpenseClaimData)
                 {
                     ec.ClickExpenseClaim();
-                    ec.ClickOnNew();
-                    ec.ClickOnSave();
+                    ec.ClickNew();
+                    ec.ClickSave();
                     ec.ScrollDownWebPage();
-                    ec.ClickOnNewLine();
+                    ec.ClickNewLine();
                     //ec.ProvideExpenseDate(ExpenseClaim.expenseDate);
                     ec.ProvideRemarks(ExpenseClaim.remarks);
                     //ec.ClickExpenseClaimCategoryDD();
@@ -98,10 +98,10 @@ namespace Enfinity.Hrms.Test.UI
                 foreach (var BusinessTripClaim in BusinessTripClaimData)
                 {
                     ec.ClickBusinessTripClaim();
-                    ec.ClickOnNew();
-                    ec.ClickOnSave();
+                    ec.ClickNew();
+                    ec.ClickSave();
                     ec.ScrollDownWebPage();
-                    ec.ClickOnNewLine();
+                    ec.ClickNewLine();
                     //ec.ProvideExpenseDate(ExpenseClaim.expenseDate);
                     ec.ProvideRemarks(BusinessTripClaim.remarks);
                     //ec.ClickExpenseClaimCategoryDD();
@@ -143,7 +143,7 @@ namespace Enfinity.Hrms.Test.UI
                 foreach (var timeOff in timeOffData)
                 {
                     to.ClickTimeOff();
-                    to.ClickOnNew();
+                    to.ClickNew();
                     to.ProvidePermissonDate(timeOff.permisionDate);
                     to.ClickPersoanl();
                     to.ClickBusiness();
@@ -153,7 +153,7 @@ namespace Enfinity.Hrms.Test.UI
                     to.ProvideMinutes(timeOff.minutes);
                     to.ClickTimeNotation();
                     to.SelectTimeNotation();
-                    to.ClickOnOk();
+                    to.ClickOk();
                     //issue
                     //to.ClickUpToTimeField();                   
                     //to.ProvideUpTOHrs1();
@@ -197,15 +197,15 @@ namespace Enfinity.Hrms.Test.UI
                 foreach (var HRAssetRequest in HRAssetRequestData)
                 {
                     ar.ClickHRAssetRequest();
-                    ar.ClickOnNew();
+                    ar.ClickNew();
                     ar.ProvideTxnDate(HRAssetRequest.txnDate);
                     ar.ProvideEffectiveDate(HRAssetRequest.effectiveDate);
-                    ar.ClickOnSave();
-                    ar.ClickOnNewLine();
+                    ar.ClickSave();
+                    ar.ClickNewLine();
                     ar.ClickHRAssetDD();
                     ar.SelectHRAsset(HRAssetRequest.HRAsset);
                     //ar.ProvideExpReturnDate(HRAssetRequest.expReturnDate);
-                    ar.ClickOnView();
+                    ar.ClickView();
                     ar.ClickOnApproveBack();
 
                     ClassicAssert.IsTrue(HRAssetRequestPage.IsTransactionCreated(HRAssetRequest.txnDate1, HRAssetRequest.emp, HRAssetRequest.status));
@@ -281,12 +281,12 @@ namespace Enfinity.Hrms.Test.UI
                 {
                     lr.ClickLeaveRequest();
                     Thread.Sleep(5000);
-                    lr.ClickOnNew();
+                    lr.ClickNew();
                     lr.HoverAndClick();
                     lr.ProvideFromDate(leaveRequest.fromDate);
                     lr.ProvideToDate(leaveRequest.toDate);
                     //lr.ClickOnSaveSubmit();
-                    lr.ClickOnSave();
+                    lr.ClickSave();
 
                     ClassicAssert.IsTrue(lr.IsTxnCreate(leaveRequest.fromDate, leaveRequest.toDate));
 
@@ -324,14 +324,14 @@ namespace Enfinity.Hrms.Test.UI
                 foreach (var ITSupport in ITSupportData)
                 {
                     it.ClickITSupport();
-                    it.ClickOnNew();
+                    it.ClickNew();
                     it.ClickPlusBtn();
                     it.ProvideSubject(ITSupport.subject);
                     it.SelectPriority(ITSupport.priority);
                     it.ProvideDescription(ITSupport.description);
-                    it.ClickOnSave();
-                    it.ClickOnContextMenu();
-                    it.ClickOnView();
+                    it.ClickSave();
+                    it.ClickContextMenu();
+                    it.ClickView();
                     it.ClickOnApproveBack();
                     ClassicAssert.IsTrue(it.IsTxnCreated(ITSupport.employee, ITSupport.recordDesc));
                 }
@@ -367,13 +367,13 @@ namespace Enfinity.Hrms.Test.UI
                 foreach (var adminSupport in adminSupportData)
                 {
                     ap.ClickAdminSupport();
-                    ap.ClickOnNew();
+                    ap.ClickNew();
                     ap.ClickSupportRequestCategory();
                     ap.ProvideSupportRequestCat(adminSupport.supportRequestCategory);
                     ap.ClickPriorityDD();
                     ap.SelectPriority(adminSupport.priority);
                     ap.ProvideRemarks(adminSupport.remarks);
-                    ap.ClickOnSave();
+                    ap.ClickSave();
                     ClassicAssert.IsTrue(ap.IsTxnCreated(adminSupport.supportRequestCategory));
                 }
             }
@@ -407,13 +407,13 @@ namespace Enfinity.Hrms.Test.UI
                 foreach (var loan in loanRequestData)
                 {
                     lr.ClickLoanRequest();
-                    lr.ClickOnNew();
+                    lr.ClickNew();
                     lr.ClickPlusBtn();
                     lr.ProvideLoanAmt(loan.loanAmt);
                     lr.ProvideInstallmentAmt(loan.installmentAmt);
                     lr.SelectRepaymentStartPeriod(loan.repaymentStartPeriod);
                     lr.ProvideRemarks(loan.remarks);
-                    lr.ClickOnSave();                  
+                    lr.ClickSave();                  
 
                     ClassicAssert.IsTrue(lr.IsTxnCreated(loan.loanType, loan.loanAmt));
                 }
@@ -449,13 +449,13 @@ namespace Enfinity.Hrms.Test.UI
                 {
                     //bc.ScrollDownWebpage();
                     bc.ClickBenefitClaim();
-                    bc.ClickOnNew();
+                    bc.ClickNew();
                     bc.ProvideClaimDate(benefitClaim.claimDate);                   
                     bc.ProvideBenefitScheme(benefitClaim.benefitScheme);
                     bc.ProvideClaimAmt(benefitClaim.claimAmount);                   
                     bc.ProvidePaymentType(benefitClaim.paymentType);
                     bc.ProvideRemarks(benefitClaim.remarks);
-                    bc.ClickOnSave();
+                    bc.ClickSave();
 
                     ClassicAssert.IsTrue(bc.IsTxnCreated(benefitClaim.empName, benefitClaim.claimAmount));
                     //ClassicAssert.IsTrue(BasePage.IsTransactionCreated());
@@ -493,7 +493,7 @@ namespace Enfinity.Hrms.Test.UI
                 {
                     //tr.ScrollDownWebpage();
                     tr.ClickTravelRequest();
-                    tr.ClickOnNew();
+                    tr.ClickNew();
                     tr.ProvideFromDate(travelRequest.fromDate);
                     tr.ProvideUptoDate(travelRequest.uptoDate);
                     //tr.ClickCategoryDD();
@@ -507,7 +507,7 @@ namespace Enfinity.Hrms.Test.UI
                     tr.ProvidePurpose(travelRequest.purpose);
                     tr.ProvidePaymentType(travelRequest.paymentType);
                     tr.ProvideRemarks(travelRequest.remarks);
-                    tr.ClickOnSave();
+                    tr.ClickSave();
 
                     ClassicAssert.IsTrue(tr.IsTransactionCreated(travelRequest.empName, travelRequest.country));
                 }
@@ -540,7 +540,7 @@ namespace Enfinity.Hrms.Test.UI
                 PromotionRequestPage pr = new PromotionRequestPage(_driver);
                 pr.ScrollDownWebpage();
                 pr.ClickPromotionRequest();
-                pr.ClickOnNew();
+                pr.ClickNew();
 
                 int iteration = 1;
                 foreach (var promotionRequest in promotionRequestData)
@@ -568,7 +568,7 @@ namespace Enfinity.Hrms.Test.UI
 
                     pr.SaveAndBack();
                     ClassicAssert.IsTrue(pr.IsTxnCreated(promotionRequest.effectiveDate1));
-                    pr.ClickOnNew();
+                    pr.ClickNew();
                     //ClassicAssert.IsTrue(pr.IsTransactionCreated());
                     #region salaries section
                     //pr.ClickSalariesSection();
@@ -614,7 +614,7 @@ namespace Enfinity.Hrms.Test.UI
                 {
                     //or.ScrollDownWebpage();
                     or.ClickOvertimeRequest();
-                    or.ClickOnNew();
+                    or.ClickNew();
                     or.ProvideOvertimeDate(overtimeRequest.overtimeDate);
                     or.ProvideOvertimeType(overtimeRequest.overtimeType);
                     or.ProvideHrs(overtimeRequest.hrs);
@@ -622,7 +622,7 @@ namespace Enfinity.Hrms.Test.UI
                     //or.ClickOnSave();
 
                     #region additional code
-                    BasePage.ClickSave();
+                    BasePage.ClickOnSave();
                     if (BasePage.IsTxnCreated())
                     {
                         //or.ClickOnSaveAndBack();
@@ -667,7 +667,7 @@ namespace Enfinity.Hrms.Test.UI
                 {
                     //rp.ScrollDownWebpage();
                     rp.ClickResignation();
-                    rp.ClickOnNew();
+                    rp.ClickNew();
                     rp.ProvideSubmittedDate(resignation.submittedDate);
                     rp.ProvideRemarks(resignation.remarks);
                     rp.ClickOnSaveAndBack();
@@ -703,7 +703,7 @@ namespace Enfinity.Hrms.Test.UI
                 foreach(var src in supportRequestCategoryData)
                 {
                     sr.GlobalSearch1("support request category");
-                    sr.ClickOnNew();
+                    sr.ClickNew();
                     sr.ProvideCategoryname(src.categoryName);
                     sr.SelectRequestedTo(src.requestedTo);
                     sr.SelectPriority(src.priority);

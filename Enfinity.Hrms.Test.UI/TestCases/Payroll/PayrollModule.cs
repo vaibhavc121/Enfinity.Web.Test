@@ -190,7 +190,7 @@ namespace Enfinity.Hrms.Test.UI
                         continue;
                     }
                     
-                    sc.ClickOnEdit();
+                    sc.ClickEdit();
                     sc.ClickGeneral();
                     sc.SelectRestrictToCompany("Grand Stream Solutions");
                     sc.ClickViewBack();

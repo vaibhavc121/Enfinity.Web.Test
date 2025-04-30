@@ -30,10 +30,10 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
              Find(loanRequest).Click();
         }
-        public void ClickOnNew()
+        public void ClickNew()
         {
             WaitTS(3);
-            ClickNew();           
+            ClickOnNew();           
         }
         public void ClickPlusBtn()
         {            
@@ -59,7 +59,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             ProvideDescription(value);
         }
-        public void ClickOnSave()
+        public void ClickSave()
         {
              ClickSaveAndBack();
         }

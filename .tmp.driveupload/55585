@@ -35,7 +35,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             Find(iTSupportRequest).Click();
             WaitTS(3);
         }
-        public void ClickOnNew()
+        public void ClickNew()
         {
             ClickNew();
         }
@@ -69,21 +69,21 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             }
         }
        
-        public void ProvideDescription(string value)
+        public void ProvideDesc(string value)
         {
             Find(desc).SendKeys(value);
         }
-        public void ClickOnSave()
+        public void ClickSave()
         {
-            ClickSave();
+            ClickOnSave();
         }
-        public void ClickOnContextMenu()
+        public void ClickContextMenu()
         {
             Find(contextMenu).Click();
         }
-        public void ClickOnView()
+        public void ClickView()
         {
-            ClickView();
+            ClickOnView();
         }
         public void ClickOnApproveBack()
         {

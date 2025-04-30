@@ -16,6 +16,7 @@ namespace Enfinity.Hrms.Test.UI.Models.Attendance.Attendance
     {
         public string fromDate { get; set; }
         public string upToDate { get; set; }
+        public string timetable { get; set; }
         public string excludeDay { get; set; }
         public string applicableFor { get; set; }
     }

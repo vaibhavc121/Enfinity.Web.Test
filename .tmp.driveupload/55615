@@ -184,6 +184,7 @@
     <Compile Include="Pages\Attendance\AttendancePage.cs" />
     <Compile Include="Pages\Attendance\RosterPage.cs" />
     <Compile Include="Pages\Attendance\ShiftPage.cs" />
+    <Compile Include="Pages\Attendance\TimetablePage.cs" />
     <Compile Include="Pages\HrCore\AssetIssuePage.cs" />
     <Compile Include="Pages\HrCore\BankPage.cs" />
     <Compile Include="Pages\HrCore\CalendarPage.cs" />

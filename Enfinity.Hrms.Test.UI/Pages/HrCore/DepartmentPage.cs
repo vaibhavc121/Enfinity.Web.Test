@@ -27,9 +27,9 @@ namespace Enfinity.Hrms.Test.UI
         
         
 
-        public void ClickOnNew()
+        public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
         }
 
         public string deptNm = BasePage.RandomString();

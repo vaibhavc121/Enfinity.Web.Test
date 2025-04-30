@@ -31,9 +31,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(resignationApplication).Click();
         }
-        public void ClickOnNew()
+        public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
         }
         public void ProvideSubmittedDate(string value)
         {

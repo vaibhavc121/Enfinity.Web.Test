@@ -76,7 +76,7 @@ namespace Enfinity.Hrms.Test.UI
                 //ep.ProvideUserName(username);
                 //ep.ClickRoles();
                 ep.SelectRole(roles);
-                ep.ClickOnSave();
+                ep.ClickSave();
                 ep.ClickSettingButton();
                 ep.ClickResetPwd();
 
@@ -170,7 +170,7 @@ namespace Enfinity.Hrms.Test.UI
                 ep.SelectReligion(religion);
               
                 ep.SelectMaritalStatus(martitalStatus);
-                ep.ClickOnSave();
+                ep.ClickSave();
 
                 ClassicAssert.IsTrue(ep.IsEmployeeCreated(name));
 
@@ -238,7 +238,7 @@ namespace Enfinity.Hrms.Test.UI
                     ep.SelectReligion(employee.religion);
               
                     ep.SelectMaritalStatus(employee.maritalStatus);
-                    ep.ClickOnSave();
+                    ep.ClickSave();
                 }
 
 
@@ -330,7 +330,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach (var department in departmentData)
                 {
-                    dp.ClickOnNew();
+                    dp.ClickNew();
                     dp.ProvideDepartmentName(department.deptname);
                     //dp.ProvideDepartmentName();
                     //dp.SelfServiceDD();
@@ -428,7 +428,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach (var grade in gradeData)
                 {
-                    gp.ClickOnNew();
+                    gp.ClickNew();
                     gp.ProvideGradeName(grade.gradeName);
                     gp.ProvideMinSal(grade.minSal);
                     gp.ProvideMaxSal(grade.maxSal);
@@ -518,7 +518,7 @@ namespace Enfinity.Hrms.Test.UI
                 ReligionPage rp = new ReligionPage(_driver);
                 foreach (var religion in ReligionData)
                 {
-                    rp.ClickOnNew();
+                    rp.ClickNew();
                     rp.ProvideReligionName(religion.religionName);
                     rp.ClickSaveBack();
 
@@ -561,7 +561,7 @@ namespace Enfinity.Hrms.Test.UI
                 WorkLocationPage wl = new WorkLocationPage(_driver);
                 foreach (var workLocation in workLocationData)
                 {
-                    wl.ClickOnNew();
+                    wl.ClickNew();
                     wl.ProvideWorkLocName(workLocation.workLocationName);
                     wl.ClickSaveBack();
 
@@ -606,7 +606,7 @@ namespace Enfinity.Hrms.Test.UI
                 
                 foreach (var bank in bankData)
                 {
-                    bp.ClickOnNew();
+                    bp.ClickNew();
                     bp.provideBankName(bank.bankName);
                     bp.clickSaveBack();
 
@@ -649,7 +649,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach (var qualification in qualificationData)
                 {
-                    qp.ClickOnNew();
+                    qp.ClickNew();
                     qp.ProvideQualificationName(qualification.qualificationName);
                     qp.ClickSaveBack();
 
@@ -692,7 +692,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach (var document in documentTypeData)
                 {
-                    dt.ClickOnNew();
+                    dt.ClickNew();
                     dt.ProvideDocumentTypeName(document.documentTypeName);
                     dt.ClickSaveBack();
 
@@ -1021,7 +1021,7 @@ namespace Enfinity.Hrms.Test.UI
                     ep.SelectReligion(employee.religion);
                  
                     ep.SelectMaritalStatus(employee.maritalStatus);
-                    ep.ClickOnSave();
+                    ep.ClickSave();
 
                     ClassicAssert.IsTrue(ep.Validate(employee.name));
                    

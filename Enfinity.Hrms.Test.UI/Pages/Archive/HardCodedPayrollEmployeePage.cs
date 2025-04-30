@@ -74,7 +74,7 @@ namespace Enfinity.Hrms.Test.UI
 
         public void ClickNewBtn()
         {
-            BasePage.ClickNew(); 
+            BasePage.ClickOnNew(); 
             
             
             

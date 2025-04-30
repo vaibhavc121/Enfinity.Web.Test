@@ -46,9 +46,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Learning
         #endregion
 
         #region action methods
-        public void ClickOnNew()
+        public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
         }
         public void ProvideCourseName(string value)
         {

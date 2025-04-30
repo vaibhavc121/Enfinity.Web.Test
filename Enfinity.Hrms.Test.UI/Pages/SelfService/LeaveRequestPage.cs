@@ -38,7 +38,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             Find(leaveRequest).Click();
         }
 
-        public void ClickOnNew()
+        public void ClickNew()
         {
             //ClickNew();
             //Find(newBtn).Click();
@@ -65,7 +65,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(saveAndSubmit).Click();
         }
-        public void ClickOnSave()
+        public void ClickSave()
         {
             ClickSaveAndBack();
         }

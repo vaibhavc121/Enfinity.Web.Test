@@ -21,9 +21,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
         #endregion
 
         #region action methods
-        public void ClickOnNew()
+        public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
         }
 
         public void ProvideGradeName(string value)

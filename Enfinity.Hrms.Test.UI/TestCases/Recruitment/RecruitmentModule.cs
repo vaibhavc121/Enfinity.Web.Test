@@ -40,7 +40,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 foreach(var job in jobData)
                 {
-                    jp.ClickOnNew();
+                    jp.ClickNew();
                     jp.ProvideJobTitle(job.jobTitle);
                     jp.ProvideDepartment(job.department);
                     jp.ProvideDesignation(job.designation);
@@ -60,7 +60,7 @@ namespace Enfinity.Hrms.Test.UI
                     jp.ProvideGender(job.gender);
                     jp.ProvideMaritalStatus(job.maritalStatus);
                     jp.ProvideNationality(job.nationality);
-                    jp.ClickOnSave();
+                    jp.ClickSave();
 
                     ClassicAssert.IsTrue(jp.IsTxnCreated(job.jobTitle));
 

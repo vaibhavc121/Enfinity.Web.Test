@@ -40,9 +40,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(travelRequest).Click();
         }
-        public void ClickOnNew()
+        public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
         }
         public void ProvideFromDate(string value)
         {
@@ -96,7 +96,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(remarks).SendKeys(value);
         }
-        public void ClickOnSave()
+        public void ClickSave()
         {
             ClickSaveAndBack();               
         }

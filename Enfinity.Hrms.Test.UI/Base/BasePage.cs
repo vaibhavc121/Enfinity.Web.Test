@@ -17,10 +17,14 @@ namespace Enfinity.Hrms.Test.UI
 {
      public class BasePage
     {
-        public static IWebDriver driver;
+        public static IWebDriver driver= BaseTest._driver;
         public BasePage(IWebDriver _driver)
         {
-            driver = _driver;
+            //comment below statement bcos to access basepage method in testclass I need to create object of pageobject class to pass the driver instance, to avoid this issue i am taking driver instance directly from baseTest
+            //driver = _driver;
+
+            driver = BaseTest._driver;           
+
         }
         public static IWebElement Find(By locator) => driver.FindElement(locator);
 
@@ -148,11 +152,11 @@ namespace Enfinity.Hrms.Test.UI
                 SelectRow();
                 if(mode.Contains("view"))
                 {
-                    ClickView();
+                    ClickOnView();
                 }
                 else
                 {
-                    ClickEdit();
+                    ClickOnEdit();
                 }
                 
             }
@@ -299,11 +303,11 @@ namespace Enfinity.Hrms.Test.UI
 
         #region Transaction form related Action Methods
 
-        public static void ClickOk()
+        public static void ClickOnOk()
         {
             WaitForElement(By.XPath("//span[normalize-space()='OK']")).Click(); 
         }
-        public static void ClickSave()
+        public static void ClickOnSave()
         {
             WaitForElement(By.XPath("//span[normalize-space()='Save']")).Click();
            
@@ -317,7 +321,7 @@ namespace Enfinity.Hrms.Test.UI
             WaitForElement(By.XPath("//span[normalize-space()='Save']")).Click();         
             driver.Navigate().Back();
         }
-        public static void ClickView()
+        public static void ClickOnView()
         {
             WaitForElement(By.XPath("//span[normalize-space()='View']")).Click();         
         }
@@ -325,11 +329,11 @@ namespace Enfinity.Hrms.Test.UI
         {
             WaitForElement(By.XPath("//span[normalize-space()='View']")).Click();           
             Thread.Sleep(2000);
-            ClickEdit();
-            ClickView();
+            ClickOnEdit();
+            ClickOnView();
             driver.Navigate().Back();
         }
-        public static void ClickEdit()
+        public static void ClickOnEdit()
         {
             WaitForElement(By.XPath("//span[normalize-space()='Edit']")).Click();            
         }
@@ -338,7 +342,7 @@ namespace Enfinity.Hrms.Test.UI
             WaitForElement(By.XPath("//span[normalize-space()='Approve']")).Click();           
             driver.Navigate().Back();
         }
-        public static void ClickNew()
+        public static void ClickOnNew()
         {
             WaitForElement(By.XPath("//span[normalize-space()='New']")).Click();            
         }
@@ -504,7 +508,7 @@ namespace Enfinity.Hrms.Test.UI
             IWebElement element = WaitForElement(locator);
             jsExecutor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
         }
-        public static void ClickNewLine()
+        public static void ClickOnNewLine()
         {
             //driver.FindElement(By.XPath("//i[@class='dx-icon dx-icon-new-icon']")).Click();
             WaitForElement(By.XPath("//i[@class='dx-icon dx-icon-new-icon']")).Click();
@@ -545,11 +549,11 @@ namespace Enfinity.Hrms.Test.UI
 
             try
             {
-                ClickView();
+                ClickOnView();
             }
             catch (Exception)
             {
-                ClickEdit();
+                ClickOnEdit();
             }
             Thread.Sleep(5000);
             //driver.FindElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
@@ -590,11 +594,11 @@ namespace Enfinity.Hrms.Test.UI
             }
             try
             {
-                ClickView();
+                ClickOnView();
             }
             catch (Exception)
             {
-                ClickEdit();
+                ClickOnEdit();
             }
 
             Thread.Sleep(5000);
@@ -607,7 +611,7 @@ namespace Enfinity.Hrms.Test.UI
             PressKey("enter");
             driver.Navigate().Back();
         }
-        public static void ClickContextMenu()
+        public static void ClickOnContextMenu()
         {
             WaitForElement(By.Id("MainMenu_DXI11_P")).Click();
         }
@@ -663,7 +667,7 @@ namespace Enfinity.Hrms.Test.UI
             if (employee.Contains(value))
             {
                 SelectRow();
-                ClickView();
+                ClickOnView();
             }
             else
             {

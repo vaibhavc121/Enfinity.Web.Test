@@ -49,9 +49,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Recruitment
         #endregion
 
         #region action methods
-        public void ClickOnNew()
+        public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
         }
         public void ProvideJobTitle(string value)
         {
@@ -130,7 +130,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Recruitment
         {
             ProvideAndEnter(nationality, value);
         }
-        public void ClickOnSave()
+        public void ClickSave()
         {
             ClickSaveAndBack();
         }

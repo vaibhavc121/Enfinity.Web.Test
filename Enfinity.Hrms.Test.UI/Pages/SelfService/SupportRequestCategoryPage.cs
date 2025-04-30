@@ -41,9 +41,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             driver.FindElement(By.XPath("//i[normalize-space()='Support Request Category']")).Click();
         }
 
-        public void ClickOnNew()
+        public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
         }
         public void ProvideCategoryname(string value)
         {
@@ -168,7 +168,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
                 Environment.Exit(1);  // Exits the application with a non-zero status
             }
 
-            ClickEdit();
+            ClickOnEdit();
             Thread.Sleep(5000);
             //driver.FindElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
             WaitForElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();

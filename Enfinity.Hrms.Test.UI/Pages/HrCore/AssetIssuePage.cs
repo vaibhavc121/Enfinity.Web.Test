@@ -40,7 +40,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
         {
             SwitchToFrameByElement(iframe);
             Find(actualReturnDt).SendKeys(value);
-            ClickSave();
+            ClickOnSave();
             SwitchToDefaultContent();
         }        
         public bool ReturnDate()

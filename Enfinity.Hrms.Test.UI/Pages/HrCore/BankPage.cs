@@ -17,9 +17,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.HrCore
 
         private By  bankName= By.XPath("//input[@id='Bank.Name_I']");
 
-        public void ClickOnNew()
+        public void ClickNew()
         {
-           ClickNew();
+           ClickOnNew();
         }
 
         public void provideBankName(string value)

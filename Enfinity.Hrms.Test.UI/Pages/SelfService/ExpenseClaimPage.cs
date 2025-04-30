@@ -35,14 +35,14 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             Find(expenseClaim).Click();
         }
 
-        public void ClickOnNew()
+        public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
         }
 
-        public void ClickOnSave()
+        public void ClickSave()
         {
-            ClickSave();
+            ClickOnSave();
         }
         
         public void ScrollDownWebPage()
@@ -50,7 +50,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             ScrollDownWebPage(newLine);
         }
 
-        public void ClickOnNewLine()
+        public void ClickNewLine()
         {
             Find(newLine).Click();
         }

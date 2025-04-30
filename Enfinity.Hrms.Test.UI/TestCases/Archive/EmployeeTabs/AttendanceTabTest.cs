@@ -59,7 +59,7 @@ namespace Enfinity.Hrms.Test.UI
                     ep.SelectPolicy(attendance.policy);
                     ep.ClickShiftPreference();
                     ep.SelectShiftPreference(attendance.shiftPreference);
-                    BasePage.ClickSave();
+                    BasePage.ClickOnSave();
                 }
             }
             catch (Exception e)

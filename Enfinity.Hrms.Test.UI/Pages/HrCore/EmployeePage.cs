@@ -402,7 +402,7 @@ namespace Enfinity.Hrms.Test.UI
         #region Create Employee Action Methods
         public void ClickNewBtn()
         {
-            ClickNew();
+            ClickOnNew();
         }
 
         public void ProvideWorkEmail(string email)
@@ -509,9 +509,9 @@ namespace Enfinity.Hrms.Test.UI
             //SelectDropdownOption(role);
             ProvideAndEnter(roles, value);
         }
-        public void ClickOnSave()
+        public void ClickSave()
         {
-            ClickSave();
+            ClickOnSave();
         }
         public bool Validate(string value)
         {

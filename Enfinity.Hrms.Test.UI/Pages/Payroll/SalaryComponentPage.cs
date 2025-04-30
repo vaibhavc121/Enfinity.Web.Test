@@ -33,9 +33,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Payroll
         {
             Find(selectRow).Click();
         }
-        public void ClickOnEdit()
+        public void ClickEdit()
         {
-            ClickEdit();
+            ClickOnEdit();
         }
         public void ClickGeneral()
         {

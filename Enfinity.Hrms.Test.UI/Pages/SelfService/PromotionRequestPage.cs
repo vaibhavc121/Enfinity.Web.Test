@@ -45,9 +45,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(promotionRequest).Click();
         }
-        public void ClickOnNew()
+        public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
         }
         public void ProvideTxnDate(string value)
         {
@@ -77,7 +77,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             ClearAndProvide1(newProject, value);
         }
-        public void ProvideDescription(string value)
+        public void ProvideDesc(string value)
         {
             ClearAndProvide1(description, value);
         }
@@ -85,14 +85,14 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(salariesSection).Click();
         }
-        public void ClickOnSave()
+        public void ClickSave()
         {
-            ClickSave();
+            ClickOnSave();
             Thread.Sleep(2000);
         }
         public void ClickPlusBtn()
         {
-            ClickNewLine();
+            ClickOnNewLine();
         }
         public void ProvideSalaryComponent(string value)
         {
@@ -122,9 +122,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public bool IsTransactionCreated()
         {
-            ClickSave();
+            ClickOnSave();
             return IsTxnCreated();
-            Thread.Sleep(2000);
+            //Thread.Sleep(2000);
         }
         public bool IsTxnCreated(string effectiveDate)
         {
