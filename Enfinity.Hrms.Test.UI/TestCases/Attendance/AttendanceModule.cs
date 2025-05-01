@@ -132,21 +132,34 @@ namespace Enfinity.Hrms.Test.UI
         }
         #endregion
 
-        #region Create Timetable
+        #region Create Strict DayShift Timetable
         [Test]        
-        public void CreateTimetable()
+        public void CreateStrictDayShiftTimetable()
         {
             try
             {
-                var selfServiceFile = FileUtils.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
-                var supportRequestCategoryData = JsonUtils.ConvertJsonListDataModel<ShiftModel>(selfServiceFile, "createCategory");
+                var attendanceFile = FileUtils.GetDataFile("Hrms", "Attendance", "Attendance", "AttendanceData");
+                var attendanceData = JsonUtils.ConvertJsonListDataModel<StrictDayShiftModel>(attendanceFile, "createStrictDayShiftTimetable");
 
                 //TimetablePage tp = new TimetablePage(_driver);
                 //tp.SearchTimetable();
                 BasePage.GlobalSearch("Timetable");
-                
 
+                TimetablePage tp = new TimetablePage(_driver);
 
+                foreach(var strict in attendanceData)
+                {
+                    tp.ClickNew();
+                    tp.ProvideTimetableName(strict.name);
+                    tp.SelectDayType(strict.dayType);
+                    tp.SelectMode(strict.mode);
+                    tp.ProvideMaximumWorkedHourPerDay(strict.maximumWorkedHourPerDay);
+                    tp.ProvideFirstInTime(strict.firstInTime);
+                    tp.ProvideFirstOutTime(strict.firstOutTime);
+                    tp.ClickViewBack();
+
+                    ClassicAssert.IsTrue(BasePage.ValidateListing(strict.name, 2, 1));
+                }
             }
             catch (Exception e)
             {
@@ -157,13 +170,251 @@ namespace Enfinity.Hrms.Test.UI
         }
         #endregion
 
-        #region 
-        [Test]       
-        public void DeleteTimetable()
+        #region Delete Strict DayShift Timetable
+        [Test]
+        public void DeleteStrictDayShiftTimetable()
         {
+            var attendanceFile = FileUtils.GetDataFile("Hrms", "Attendance", "Attendance", "AttendanceData");
+            var attendanceData = JsonUtils.ConvertJsonListDataModel<StrictDayShiftModel>(attendanceFile, "createStrictDayShiftTimetable");
 
+            BasePage.GlobalSearch("Timetable");
+            BasePage.WaitTS(3);
+
+            foreach (var strict in attendanceData)
+            {
+                BasePage.DeleteTxn(2, strict.name);
+                ClassicAssert.IsFalse(BasePage.ValidateListing(strict.name, 2, 1));
+            }
+        }
+        #endregion        
+
+        #region Create LenientShif tTimetable
+        [Test]
+        public void CreateLenientShiftTimetable()
+        {
+            try
+            {
+                var attendanceFile = FileUtils.GetDataFile("Hrms", "Attendance", "Attendance", "AttendanceData");
+                var attendanceData = JsonUtils.ConvertJsonListDataModel<LenientShiftModel>(attendanceFile, "createLenientShiftTimetable");
+
+                //TimetablePage tp = new TimetablePage(_driver);
+                //tp.SearchTimetable();
+                BasePage.GlobalSearch("Timetable");
+
+                TimetablePage tp = new TimetablePage(_driver);
+
+                foreach (var strict in attendanceData)
+                {
+                    tp.ClickNew();
+                    tp.ProvideTimetableName(strict.name);
+                    tp.SelectDayType(strict.dayType);
+                    tp.SelectMode(strict.mode);
+                    tp.ProvideMaximumWorkedHourPerDay(strict.maximumWorkedHourPerDay);
+                    tp.ProvideWorkedHourPerDay(strict.workedHourPerDay);
+                    tp.ProvideHourlyMinCheckInTime(strict.hourlyMinCheckInTime);
+                    tp.ProvideHourlyMaxCheckOutTime(strict.hourlyMaxCheckOutTime);
+                    tp.ClickViewBack();
+
+                    ClassicAssert.IsTrue(BasePage.ValidateListing(strict.name, 2, 1));
+                }
+            }
+            catch (Exception e)
+            {
+
+                ClassicAssert.Fail("VRC- Test case failed: " + e);
+
+            }
         }
         #endregion
+
+        #region Delete Lenient Shift Timetable
+        [Test]
+        public void DeleteLenientShiftTimetable()
+        {
+            var attendanceFile = FileUtils.GetDataFile("Hrms", "Attendance", "Attendance", "AttendanceData");
+            var attendanceData = JsonUtils.ConvertJsonListDataModel<LenientShiftModel>(attendanceFile, "createLenientShiftTimetable");
+
+            BasePage.GlobalSearch("Timetable");
+            BasePage.WaitTS(3);
+
+            foreach (var strict in attendanceData)
+            {
+                BasePage.DeleteTxn(2, strict.name);
+                ClassicAssert.IsFalse(BasePage.ValidateListing(strict.name, 2, 1));
+            }
+        }
+        #endregion        
+
+        #region Create Strict TwoShift DayShift Timetable
+        [Test]
+        public void CreateTwoShiftDayShiftTimetable()
+        {
+            try
+            {
+                var attendanceFile = FileUtils.GetDataFile("Hrms", "Attendance", "Attendance", "AttendanceData");
+                var attendanceData = JsonUtils.ConvertJsonListDataModel<TwoShiftDayShiftModel>(attendanceFile, "createTwoShiftDayShiftTimetable");
+                               
+                BasePage.GlobalSearch("Timetable");
+
+                TimetablePage tp = new TimetablePage(_driver);
+
+                foreach (var strict in attendanceData)
+                {
+                    tp.ClickNew();
+                    tp.ProvideTimetableName(strict.name);
+                    tp.SelectDayType(strict.dayType);
+                    tp.SelectMode(strict.mode);
+                    tp.ProvideMaximumWorkedHourPerDay(strict.maximumWorkedHourPerDay);
+                    tp.ClickWorkInTwoShift();
+                    tp.ProvideFirstInTime(strict.firstInTime);
+                    tp.ProvideFirstOutTime(strict.firstOutTime);
+                    tp.ProvideSecondInTime(strict.secondInTime);
+                    tp.ProvideSecondOutTime(strict.secondOutTime);
+                    tp.ClickViewBack();
+
+                    ClassicAssert.IsTrue(BasePage.ValidateListing(strict.name, 2, 1));
+                }
+            }
+            catch (Exception e)
+            {
+
+                ClassicAssert.Fail("VRC- Test case failed: " + e);
+
+            }
+        }
+        #endregion
+
+        #region Delete TwoShift DayShift Timetable
+        [Test]
+        public void DeleteTwoShiftDayShiftTimetable()
+        {
+            var attendanceFile = FileUtils.GetDataFile("Hrms", "Attendance", "Attendance", "AttendanceData");
+            var attendanceData = JsonUtils.ConvertJsonListDataModel<TwoShiftDayShiftModel>(attendanceFile, "createTwoShiftDayShiftTimetable");
+
+            BasePage.GlobalSearch("Timetable");
+            BasePage.WaitTS(3);
+
+            foreach (var strict in attendanceData)
+            {
+                BasePage.DeleteTxn(2, strict.name);
+                ClassicAssert.IsFalse(BasePage.ValidateListing(strict.name, 2, 1));
+            }
+        }
+        #endregion        
+
+        #region Create Night Shift Timetable
+        [Test]
+        public void CreateNightShiftTimetable()
+        {
+            try
+            {
+                var attendanceFile = FileUtils.GetDataFile("Hrms", "Attendance", "Attendance", "AttendanceData");
+                var attendanceData = JsonUtils.ConvertJsonListDataModel<NightShiftModel>(attendanceFile, "createNightShiftTimetable");
+                               
+                BasePage.GlobalSearch("Timetable");
+
+                TimetablePage tp = new TimetablePage(_driver);
+
+                foreach (var shift in attendanceData)
+                {
+                    tp.ClickNew();
+                    tp.ProvideTimetableName(shift.name);
+                    tp.SelectDayType(shift.dayType);
+                    tp.ClickNightShift();
+                    tp.SelectMode(shift.mode);
+                    tp.ProvideMaximumWorkedHourPerDay(shift.maximumWorkedHourPerDay);
+                    tp.ProvideFirstInTime(shift.firstInTime);
+                    tp.ProvideFirstOutTime(shift.firstOutTime);
+                    tp.ClickViewBack();
+
+                    ClassicAssert.IsTrue(BasePage.ValidateListing(shift.name, 2, 1));
+                }
+            }
+            catch (Exception e)
+            {
+
+                ClassicAssert.Fail("VRC- Test case failed: " + e);
+
+            }
+        }
+        #endregion
+
+        #region Delete NightShift Timetable
+        [Test]
+        public void DeleteNightShiftTimetable()
+        {
+            var attendanceFile = FileUtils.GetDataFile("Hrms", "Attendance", "Attendance", "AttendanceData");
+            var attendanceData = JsonUtils.ConvertJsonListDataModel<NightShiftModel>(attendanceFile, "createNightShiftTimetable");
+
+            BasePage.GlobalSearch("Timetable");
+            BasePage.WaitTS(3);
+
+            foreach (var strict in attendanceData)
+            {
+                BasePage.DeleteTxn(2, strict.name);
+                ClassicAssert.IsFalse(BasePage.ValidateListing(strict.name, 2, 1));
+            }
+        }
+        #endregion
+
+        #region Create TwoShift NightShift Timetable
+        [Test]
+        public void CreateTwoShiftNightShiftTimetable()
+        {
+            try
+            {
+                var attendanceFile = FileUtils.GetDataFile("Hrms", "Attendance", "Attendance", "AttendanceData");
+                var attendanceData = JsonUtils.ConvertJsonListDataModel<TwoShiftNightShiftModel>(attendanceFile, "createTwoShiftNightShiftTimetable");
+
+                BasePage.GlobalSearch("Timetable");
+
+                TimetablePage tp = new TimetablePage(_driver);
+
+                foreach (var strict in attendanceData)
+                {
+                    tp.ClickNew();
+                    tp.ProvideTimetableName(strict.name);
+                    tp.SelectDayType(strict.dayType);
+                    tp.ClickNightShift();
+                    tp.SelectMode(strict.mode);
+                    tp.ProvideMaximumWorkedHourPerDay(strict.maximumWorkedHourPerDay);
+                    tp.ClickWorkInTwoShift();
+                    tp.ProvideFirstInTime(strict.firstInTime);
+                    tp.ProvideFirstOutTime(strict.firstOutTime);
+                    tp.ProvideSecondInTime(strict.secondInTime);
+                    tp.ProvideSecondOutTime(strict.secondOutTime);
+                    tp.SelectShiftNextDayStartFrom(strict.shiftNextDayStartFrom);
+                    tp.ClickViewBack();
+
+                    ClassicAssert.IsTrue(BasePage.ValidateListing(strict.name, 2, 1));
+                }
+            }
+            catch (Exception e)
+            {
+
+                ClassicAssert.Fail("VRC- Test case failed: " + e);
+
+            }
+        }
+        #endregion
+
+        #region Delete TwoShift NightShift Timetable
+        [Test]
+        public void DeleteTwoShiftNightShiftTimetable()
+        {
+            var attendanceFile = FileUtils.GetDataFile("Hrms", "Attendance", "Attendance", "AttendanceData");
+            var attendanceData = JsonUtils.ConvertJsonListDataModel<TwoShiftNightShiftModel>(attendanceFile, "createTwoShiftNightShiftTimetable");
+
+            BasePage.GlobalSearch("Timetable");
+            BasePage.WaitTS(3);
+
+            foreach (var strict in attendanceData)
+            {
+                BasePage.DeleteTxn(2, strict.name);
+                ClassicAssert.IsFalse(BasePage.ValidateListing(strict.name, 2, 1));
+            }
+        }
+        #endregion        
 
         #region 
         [Test]
