@@ -18,13 +18,51 @@
       "Description": "Markup Price List",
       "EffectiveFromDate": "",
       "EffectiveToDate": "",
-      "PercentageType": "Markup",
-      "Percentage": "10"
+      "Markup": "Markup",
+      "Percentage": "10",
+      "MinUnitPricePercent": "10",
+      "MaxUnitPricePercent": "15",
+      "DefaultDiscountPercent": "10",
+      "MaxDiscountPrecent": "15",
+      "ItemGroup1": "Electronics",
+      "ItemGroup2": "Plastic",
+      "ItemCategory1": "Electronics",
+      "ItemCategory2": "Consumables",
+      "ItemBrand1": "Whirlpool",
+      "ItemBrand2": "HP"
+    }
+  ],
+  "markdown": [
+    {
+      "Code": "PL005",
+      "Name": "Markdown Price List",
+      "ArabicName": "Markdown Price List",
+      "Description": "Markdown Price List",
+      "EffectiveFromDate": "",
+      "EffectiveToDate": "",
+      "Markdown": "Markdown",
+      "Percentage": "10",
+      "MinUnitPricePercent": "10",
+      "MaxUnitPricePercent": "15",
+      "DefaultDiscountPercent": "10",
+      "MaxDiscountPrecent": "15",
+      "ItemGroup1": "Electronics",
+      "ItemGroup2": "Plastic",
+      "ItemCategory1": "Electronics",
+      "ItemCategory2": "Consumables",
+      "ItemBrand1": "Whirlpool",
+      "ItemBrand2": "HP"
     }
   ],
   "delete": [
     {
       "Name": "Pricetopia"
+    },
+    {
+      "Name": "Markup Price List"
+    },
+    {
+      "Name": "Markdown Price List"
     }
   ]
 }

@@ -10,22 +10,48 @@
       "EffectiveToDate": ""
     }
   ],
-  "mark": [
+  "markup": [
     {
       "Code": "PL004",
       "Name": "Markup Price List",
-      "Name2":"Markdown Price List",
       "ArabicName": "Markup Price List",
       "Description": "Markup Price List",
       "EffectiveFromDate": "",
       "EffectiveToDate": "",
       "Markup": "Markup",
+      "Percentage": "10",
+      "MinUnitPricePercent": "10",
+      "MaxUnitPricePercent": "15",
+      "DefaultDiscountPercent": "10",
+      "MaxDiscountPrecent": "15",
+      "ItemGroup1": "Electronics",
+      "ItemGroup2": "Plastic",
+      "ItemCategory1": "Electronics",
+      "ItemCategory2": "Consumables",
+      "ItemBrand1": "Whirlpool",
+      "ItemBrand2": "HP"
+    }
+  ],
+  "markdown": [
+    {
+      "Code": "PL005",
+      "Name": "Markdown Price List",
+      "ArabicName": "Markdown Price List",
+      "Description": "Markdown Price List",
+      "EffectiveFromDate": "",
+      "EffectiveToDate": "",
       "Markdown": "Markdown",
       "Percentage": "10",
       "MinUnitPricePercent": "10",
       "MaxUnitPricePercent": "15",
       "DefaultDiscountPercent": "10",
-      "MaxDiscountPrecent": "15"
+      "MaxDiscountPrecent": "15",
+      "ItemGroup1": "Electronics",
+      "ItemGroup2": "Plastic",
+      "ItemCategory1": "Electronics",
+      "ItemCategory2": "Consumables",
+      "ItemBrand1": "Whirlpool",
+      "ItemBrand2": "HP"
     }
   ],
   "delete": [

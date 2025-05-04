@@ -45,7 +45,7 @@ namespace Enfinity.Erp.Test.UI
                     CommonPageActions.ClickOnNew();
                     await WaitHelper.WaitForSeconds(1);
 
-                    CommonPageActions.ProvideCode(priceList.Code);
+                    //CommonPageActions.ProvideCode(priceList.Code);
                     CommonPageActions.ProvideName(priceList.Name);
                     CommonPageActions.ProvideArabicName(priceList.ArabicName);
                     CommonPageActions.ProvideDescription(priceList.Description);
@@ -58,8 +58,8 @@ namespace Enfinity.Erp.Test.UI
                     #region Validate the created price list name
                     IWebElement priceListNameElement = _driver.FindElement(By.CssSelector("input[name='Name']"));
                     string actualName = priceListNameElement.GetAttribute("value");
-                    ClassicAssert.IsTrue(false);
-                    //StringAssert.Contains(priceList.Name, actualName);
+                    //ClassicAssert.IsTrue(false);
+                    StringAssert.Contains(priceList.Name, actualName);
                     #endregion
 
                     plp.ClickOnPriceList();
@@ -68,12 +68,12 @@ namespace Enfinity.Erp.Test.UI
             }
             catch (Exception ex)
             {
-                throw new Exception($"Test case failed at: {MethodBase.GetCurrentMethod().Name}", ex);
+                throw new Exception($"Test case failed : CreatePriceList", ex);
             }
         }
         #endregion
 
-        #region Create New Price List
+        #region Create New Price List With MarkUp
         [Test, Category("Sales"), Order(2)]
         public async Task CreatePriceListWithMarkup()
         {
@@ -99,26 +99,196 @@ namespace Enfinity.Erp.Test.UI
                     CommonPageActions.ClickOnNew();
                     await WaitHelper.WaitForSeconds(1);
 
-                    CommonPageActions.ProvideCode(priceList.Code);
+                    //CommonPageActions.ProvideCode(priceList.Code);
                     CommonPageActions.ProvideName(priceList.Name);
                     CommonPageActions.ProvideArabicName(priceList.ArabicName);
                     CommonPageActions.ProvideDescription(priceList.Description);
                     await WaitHelper.WaitForSeconds(1);
 
                     plp.ClickOnPercentageType();
-                    //CommonPageActions.SelectDropDownOption(priceList.PercentageType);
+                    CommonPageActions.SelectDropDownOption(priceList.Markup);
                     plp.ProvidePercentage(priceList.Percentage);
 
-                    //CommonPageActions.ClickOnSave();
+                    plp.ClickOnApplyMinMaxLimit();
+                    plp.ProvideMinUnitPricePercent(priceList.MinUnitPricePercent);
+                    plp.ProvideMaxUnitPricePercent(priceList.MaxUnitPricePercent);
+
+                    plp.ClickOnApplyDiscountPercent();
+                    plp.ProvideDefaultDiscountPercent(priceList.DefaultDiscountPercent);
+                    plp.ProvideMaxDiscountPrecent(priceList.MaxDiscountPrecent);
+
+                    #region All Items (Including multi UOM)
+                    CommonPageActions.ClickOnSave();
                     await WaitHelper.WaitForSeconds(3);
-                                        
-                    //plp.ClickOnPriceList();
-                    //await WaitHelper.WaitForSeconds(2);
+                    #endregion
+
+                    //#region Items with Base UOM
+                    //plp.ClickOnAllItemsWithBaseUom();
+                    //CommonPageActions.ClickOnSave();
+                    //await WaitHelper.WaitForSeconds(3);
+                    //#endregion
+
+                    //#region Items with selected group
+                    //plp.ClickOnSelectedItems();
+                    //plp.ClickOnSelectedBox();
+                    //await WaitHelper.WaitForSeconds(1);
+                    //plp.ClickOnSelectAll();
+                    ////CommonPageActions.SelectDropDownOption(priceList.ItemGroup1);
+                    ////CommonPageActions.SelectDropDownOption(priceList.ItemGroup2);
+
+                    //CommonPageActions.ClickOnSave();
+                    //await WaitHelper.WaitForSeconds(3);
+                    //#endregion
+
+                    //#region Items with selected category
+                    //plp.ClickOnSelectedItems();
+                    //plp.ClickOnByItemCategory();
+                    //plp.ClickOnSelectedBox();
+                    //await WaitHelper.WaitForSeconds(1);
+                    //plp.ClickOnSelectAll();
+                    ////CommonPageActions.SelectDropDownOption(priceList.ItemCategory1);
+                    ////CommonPageActions.SelectDropDownOption(priceList.ItemCategory2);
+
+                    //CommonPageActions.ClickOnSave();
+                    //await WaitHelper.WaitForSeconds(3);
+                    //#endregion
+
+                    //#region Items with selected brand
+                    //plp.ClickOnSelectedItems();
+                    //plp.ClickOnByBrand();
+                    //plp.ClickOnSelectedBox();
+                    //await WaitHelper.WaitForSeconds(1);
+                    //plp.ClickOnSelectAll();
+                    ////CommonPageActions.SelectDropDownOption(priceList.ItemBrand1);
+                    ////CommonPageActions.SelectDropDownOption(priceList.ItemBrand2);
+
+                    //CommonPageActions.ClickOnSave();
+                    //await WaitHelper.WaitForSeconds(3);
+                    //#endregion
+
+                    #region Validate the created price list name
+                    IWebElement priceListNameElement = _driver.FindElement(By.CssSelector("input[name='Name']"));
+                    string actualName = priceListNameElement.GetAttribute("value");
+                    StringAssert.Contains(priceList.Name, actualName);
+                    #endregion
+
+                    plp.ClickOnPriceList();
+                    await WaitHelper.WaitForSeconds(2);
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception($"Test case failed at: {MethodBase.GetCurrentMethod().Name}", ex);
+                throw new Exception($"Test case failed : CreatePriceListWithMarkup", ex);
+            }
+        }
+        #endregion
+
+        #region Create New Price List With MarkDown
+        [Test, Category("Sales"), Order(2)]
+        public async Task CreatePriceListWithMarkdown()
+        {
+            try
+            {
+                #region MyRegion
+                Login(ErpProduct);
+                #endregion
+
+                var priceListFile = FileHelper.GetDataFile("Erp", "Sales", "PriceList", "PriceListData");
+                var priceListDM = JsonHelper.ConvertJsonListDataModel<PriceListModel>(priceListFile, "markdown");
+
+                var ssp = new SalesSetupPage(_driver);
+                var plp = new PriceListPage(_driver);
+
+                foreach (var priceList in priceListDM)
+                {
+                    CommonPageActions.ClickOnSalesModule();
+                    await WaitHelper.WaitForSeconds(2);
+
+                    CommonPageActions.ClickOnSetups();
+                    ssp.ClickOnPriceList();
+                    CommonPageActions.ClickOnNew();
+                    await WaitHelper.WaitForSeconds(1);
+
+                    //CommonPageActions.ProvideCode(priceList.Code);
+                    CommonPageActions.ProvideName(priceList.Name);
+                    CommonPageActions.ProvideArabicName(priceList.ArabicName);
+                    CommonPageActions.ProvideDescription(priceList.Description);
+                    await WaitHelper.WaitForSeconds(1);
+
+                    plp.ClickOnPercentageType();
+                    CommonPageActions.SelectDropDownOption(priceList.Markdown);
+                    plp.ProvidePercentage(priceList.Percentage);
+
+                    plp.ClickOnApplyMinMaxLimit();
+                    plp.ProvideMinUnitPricePercent(priceList.MinUnitPricePercent);
+                    plp.ProvideMaxUnitPricePercent(priceList.MaxUnitPricePercent);
+
+                    plp.ClickOnApplyDiscountPercent();
+                    plp.ProvideDefaultDiscountPercent(priceList.DefaultDiscountPercent);
+                    plp.ProvideMaxDiscountPrecent(priceList.MaxDiscountPrecent);
+
+                    #region All Items (Including multi UOM)
+                    CommonPageActions.ClickOnSave();
+                    await WaitHelper.WaitForSeconds(3);
+                    #endregion
+
+                    //#region Items with Base UOM
+                    //plp.ClickOnAllItemsWithBaseUom();
+                    //CommonPageActions.ClickOnSave();
+                    //await WaitHelper.WaitForSeconds(3);
+                    //#endregion
+
+                    //#region Items with selected group
+                    //plp.ClickOnSelectedItems();
+                    //plp.ClickOnSelectedBox();
+                    //await WaitHelper.WaitForSeconds(1);
+                    //plp.ClickOnSelectAll();
+                    ////CommonPageActions.SelectDropDownOption(priceList.ItemGroup1);
+                    ////CommonPageActions.SelectDropDownOption(priceList.ItemGroup2);
+
+                    //CommonPageActions.ClickOnSave();
+                    //await WaitHelper.WaitForSeconds(3);
+                    //#endregion
+
+                    //#region Items with selected category
+                    //plp.ClickOnSelectedItems();
+                    //plp.ClickOnByItemCategory();
+                    //plp.ClickOnSelectedBox();
+                    //await WaitHelper.WaitForSeconds(1);
+                    //plp.ClickOnSelectAll();
+                    ////CommonPageActions.SelectDropDownOption(priceList.ItemCategory1);
+                    ////CommonPageActions.SelectDropDownOption(priceList.ItemCategory2);
+
+                    //CommonPageActions.ClickOnSave();
+                    //await WaitHelper.WaitForSeconds(3);
+                    //#endregion
+
+                    //#region Items with selected brand
+                    //plp.ClickOnSelectedItems();
+                    //plp.ClickOnByBrand();
+                    //plp.ClickOnSelectedBox();
+                    //await WaitHelper.WaitForSeconds(1);
+                    //plp.ClickOnSelectAll();
+                    ////CommonPageActions.SelectDropDownOption(priceList.ItemBrand1);
+                    ////CommonPageActions.SelectDropDownOption(priceList.ItemBrand2);
+
+                    //CommonPageActions.ClickOnSave();
+                    //await WaitHelper.WaitForSeconds(3);
+                    //#endregion
+
+                    #region Validate the created price list name
+                    IWebElement priceListNameElement = _driver.FindElement(By.CssSelector("input[name='Name']"));
+                    string actualName = priceListNameElement.GetAttribute("value");
+                    StringAssert.Contains(priceList.Name, actualName);
+                    #endregion
+
+                    plp.ClickOnPriceList();
+                    await WaitHelper.WaitForSeconds(2);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Test case failed : CreatePriceListWithMarkdown", ex);
             }
         }
         #endregion
@@ -150,6 +320,7 @@ namespace Enfinity.Erp.Test.UI
                     CommonPageActions.ClickOnContextMenu();
                     CommonPageActions.ClickOnDelete();
                     CommonPageActions.ClickOnOk();
+                    await WaitHelper.WaitForSeconds(1);
 
                     #region Validate deleted message
                     CommonPageActions.ValidateMessage("Record deleted successfully!");
@@ -158,7 +329,7 @@ namespace Enfinity.Erp.Test.UI
             }
             catch (Exception ex)
             {
-                throw new Exception($"Test case failed at: {MethodBase.GetCurrentMethod().Name}", ex);
+                throw new Exception($"Test case failed : DeletePriceList", ex);
             }
         }
         #endregion

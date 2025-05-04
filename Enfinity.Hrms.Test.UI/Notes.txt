@@ -1,0 +1,18 @@
+﻿errors-
+>integration tab- Default Cost Allocation section
+>dependents tab- locators issue- use axes xpath
+>dropdown scroll
+>in salary component, edit sal component action is not working properly so used delete sal component action
+
+
+--
+todo-
+file upload
+basic salary edit in create test
+--
+Note-
+If u want run multiple test methods in single class then follow below rule
+//[SetUp]
+[OneTimeSetUp]
+--
+//test

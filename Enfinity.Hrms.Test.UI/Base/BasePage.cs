@@ -20,7 +20,7 @@ namespace Enfinity.Hrms.Test.UI
         public static IWebDriver driver= BaseTest._driver;
         public BasePage(IWebDriver _driver)
         {
-            //comment below statement bcos to access basepage method in testclass I need to create object of pageobject class to pass the driver instance, to avoid this issue i am taking driver instance directly from baseTest
+            //Commenting out the below statement because accessing BasePage methods in the test class requires creating an object of the PageObject class to pass the driver instance. To avoid this, I am now directly using the driver instance from BaseTest.
             //driver = _driver;
 
             driver = BaseTest._driver;           
@@ -124,20 +124,20 @@ namespace Enfinity.Hrms.Test.UI
         public static void FilterByIndex(int ColumnIndex, string value)
         {
             string xpath = $"(//input[@class='dx-texteditor-input'])[{ColumnIndex}]";
-            driver.FindElement(By.XPath(xpath)).Clear();
-            driver.FindElement(By.XPath(xpath)).SendKeys(value);
+            WaitForElement(By.XPath(xpath)).Clear();
+            WaitForElement(By.XPath(xpath)).SendKeys(value);
         }
         //other approach
         public static void FilterValue(int columnIndex, string value)
         {
             string xpath = $"(//tbody//tr)[11]//td[{columnIndex}]";
-            driver.FindElement(By.XPath(xpath)).SendKeys(value);
+            WaitForElement(By.XPath(xpath)).SendKeys(value);
         }
         public static void FilterDateByIndex(int ColumnIndex, string value)
         {
             string xpath = $"(//input[@class='dx-texteditor-input'])[{ColumnIndex}]";
-            driver.FindElement(By.XPath(xpath)).Clear();
-            driver.FindElement(By.XPath(xpath)).SendKeys(value);
+            WaitForElement(By.XPath(xpath)).Clear();
+            WaitForElement(By.XPath(xpath)).SendKeys(value);
             PressEnter();
         }
         public static void FilterAndOpenTransaction(int filterIndex, int resultIndex, string expValue, string mode)
@@ -251,12 +251,20 @@ namespace Enfinity.Hrms.Test.UI
             //string result = driver.FindElement(By.XPath("(//tbody//tr)[12]//td[2]")).Text;
             //return result;
             string xpath = $"(//tbody//tr)[12]//td[{columnIndex}]";
-            string result = driver.FindElement(By.XPath(xpath)).Text;
-            return result;
+            try
+            {
+                string result = WaitForElement(By.XPath(xpath)).Text;
+                return result;
+            }
+            catch (Exception)
+            {
+                throw new Exception("VRC- No matching record found");
+            }
+           
         }
         public static String Result55()
         {
-            string result = driver.FindElement(By.XPath(
+            string result = WaitForElement(By.XPath(
                     "(//td[@aria-describedby='dx-col-4' and @role='gridcell' and @aria-colindex='1'])[2]")).Text;
             return result;
         }
@@ -618,7 +626,7 @@ namespace Enfinity.Hrms.Test.UI
 
         #endregion
 
-        #region Written for employee listing
+        #region Employee listing
 
         public static void FilterEmployee(string value)
         {
@@ -746,7 +754,6 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Waits
-
         public static void WaitUntil(By locator)
         {
             DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(driver)
@@ -779,12 +786,10 @@ namespace Enfinity.Hrms.Test.UI
                 return (el.Displayed && el.Enabled) ? el : null;
             });
         }
-
         public static async Task Wait(int seconds)
         {
             await Task.Delay(seconds * 1000);
         }
-
         public static void WaitTS(int seconds)
         {
             Thread.Sleep(seconds * 1000);
@@ -937,17 +942,7 @@ namespace Enfinity.Hrms.Test.UI
             driver.SwitchTo().Alert().SendKeys(text);
         }
 
-        #endregion
-
-        #region Dropdown Handling
-
-
-        #endregion
-
-        #region Textbox Handling
-
-
-        #endregion
+        #endregion               
 
         #region JavaScript Executor
         public void ExecuteScript(IWebDriver driver, string script, params object[] args)
@@ -1111,6 +1106,16 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Element Interaction Methods
+
+        #endregion
+
+        #region Dropdown Handling
+
+
+        #endregion
+
+        #region Textbox Handling
+
 
         #endregion
 

@@ -23,8 +23,11 @@ namespace Enfinity.Erp.Test.UI
         public string MaxUnitPricePercent { get; set; }           
         public string DefaultDiscountPercent { get; set; }
         public string MaxDiscountPrecent { get; set; }
-        public string ItemGroup { get; set; }
-        public string ItemCategory { get; set; }
-        public string ItemBrand { get; set; }
+        public string ItemGroup1 { get; set; }
+        public string ItemGroup2 { get; set; }
+        public string ItemCategory1 { get; set; }
+        public string ItemCategory2 { get; set; }
+        public string ItemBrand1 { get; set; }
+        public string ItemBrand2 { get; set; }
     }
 }

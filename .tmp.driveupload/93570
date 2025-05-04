@@ -1,0 +1,16 @@
+{
+  "new": [
+    {
+      "Code": "005",
+      "Name": "Brand1",
+      "ArabicName": "Brand1",
+      "SearchText": "Brand"
+    }
+  ],
+  "delete": [
+    {
+      "Name": "Brand1",
+      "SearchText": "Brand"
+    }
+  ]
+}

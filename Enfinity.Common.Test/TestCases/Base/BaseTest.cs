@@ -54,7 +54,7 @@ namespace Enfinity.Common.Test
             ExtentReportsUtility.SetDriver(_driver); // Set driver for screenshot capture
             ExtentReportsUtility.CreateTest(TestContext.CurrentContext.Test.Name);
 
-            Login(HrmsProduct);
+            //Login(HrmsProduct);
         }
 
         [TearDown]
@@ -65,8 +65,8 @@ namespace Enfinity.Common.Test
             if (_driver != null)
             {
                 ExtentReportsUtility.LogTestResult();
-                //_driver.Quit();
-                //_driver.Dispose();
+                _driver.Quit();
+                _driver.Dispose();
                 ExtentReportsUtility.FlushReport();
             }
         }

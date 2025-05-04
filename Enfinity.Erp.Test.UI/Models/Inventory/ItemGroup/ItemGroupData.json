@@ -1,0 +1,25 @@
+{
+  "new": [
+    {
+      "Code": "004",
+      "Name": "Group1",
+      "ArabicName": "Group1",
+      "ParentGroup": "",
+      "Description": "Group Description",
+      "SearchText": "Item Group"
+    }
+  ],
+  "delete": [
+    {
+      "Name": "Group1",
+      "SearchText": "Item Group"
+    }
+  ],
+  "update": [
+    {
+      "Code": "004",
+      "Name": "Group2"
+    }
+  ]
+
+}

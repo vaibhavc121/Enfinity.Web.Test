@@ -1,0 +1,35 @@
+{
+  "new": [
+    {
+      "Code": "007",
+      "Name": "Square Meter",
+      "ArabicName": "Square Meter",
+      "Description": "Square Meter UOM",
+      "SearchText": "Unit of Measure"
+    },
+    {
+      "Code": "008",
+      "Name": "Feet",
+      "ArabicName": "Feet",
+      "Description": "Feet UOM",
+      "SearchText": "Unit of Measure"
+    }
+  ],
+  "duplicate": [
+    {
+      "Code": "001",
+      "Name": "Piece",
+      "SearchText": "Unit of Measure"
+    }
+  ],
+  "delete": [
+    {
+      "Name": "Square Meter",
+      "SearchText": "Unit of Measure"
+    },
+    {
+      "Name": "Feet",
+      "SearchText": "Unit of Measure"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "new": [
+    {
+      "Code": "IC001",
+      "Name": "Category1",
+      "ArabicName": "Category1",
+      "ParentCategory": "",
+      "Description": "Category Description",
+      "SearchText": "Item Category"
+    }
+  ],
+  "delete": [
+    {
+      "Name": "Category1",
+      "SearchText": "Item Category"
+    }
+  ],
+  "update": [
+    {
+      "Code": "Category1",
+      "Name": "Category2"
+    }
+  ]
+
+}

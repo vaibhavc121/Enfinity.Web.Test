@@ -10,19 +10,24 @@ namespace Enfinity.Erp.Test.UI
     {
         public string Code { get; set; }
         public string Name { get; set; }
+        public string Name2 { get; set; }
         public string ArabicName { get; set; }
         public string Description { get; set; }
         public string Currency { get; set; }
         public string EffectiveFromDate { get; set; }
         public string EffectiveToDate { get; set; }
-        public string PercentageType { get; set; }
+        public string Markup { get; set; }
+        public string Markdown { get; set; }
         public string Percentage { get; set; }         
-        public string MinUnitPrice { get; set; }
-        public string MaxUnitPrice { get; set; }           
-        public string DefaultDiscount { get; set; }
-        public string MaxDiscount { get; set; }
-        public string ItemGroup { get; set; }
-        public string ItemCategory { get; set; }
-        public string ItemBrand { get; set; }
+        public string MinUnitPricePercent { get; set; }
+        public string MaxUnitPricePercent { get; set; }           
+        public string DefaultDiscountPercent { get; set; }
+        public string MaxDiscountPrecent { get; set; }
+        public string ItemGroup1 { get; set; }
+        public string ItemGroup2 { get; set; }
+        public string ItemCategory1 { get; set; }
+        public string ItemCategory2 { get; set; }
+        public string ItemBrand1 { get; set; }
+        public string ItemBrand2 { get; set; }
     }
 }

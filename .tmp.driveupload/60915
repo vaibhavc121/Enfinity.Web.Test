@@ -220,6 +220,33 @@ namespace Enfinity.Hrms.Test.UI
         }
         #endregion
 
+        #region Create Exception Request
+        [Test]
+        public void CreateExceptionRequest()
+        {
+            try
+            {
+                var selfServiceFile = FileUtils.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
+                var supportRequestCategoryData = JsonUtils.ConvertJsonListDataModel<CategoryModel>(selfServiceFile, "createCategory");
+
+                //self service page
+                SelfServicePage ss = new SelfServicePage(_driver);
+                ss.ClickSelfService();
+                ss.ClickTransactions();
+
+                //ExceptionRequest page                
+                HRAssetRequestPage ar = new HRAssetRequestPage(_driver);
+
+            }
+            catch (Exception e)
+            {
+
+                ClassicAssert.Fail("VRC- Test case failed: " + e);
+
+            }
+        }
+        #endregion
+
         #region Create hr asset return
         [Test]
         public void CreateHRAssetReturn()
