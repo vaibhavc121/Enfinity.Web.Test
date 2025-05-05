@@ -120,10 +120,10 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             ClickSaveAndBack();
         }
-        public bool IsTransactionCreated()
+        public bool IsTxnCreated()
         {
             ClickOnSave();
-            return IsTxnCreated();
+            return IsTransactionCreated();
             //Thread.Sleep(2000);
         }
         public bool IsTxnCreated(string effectiveDate)

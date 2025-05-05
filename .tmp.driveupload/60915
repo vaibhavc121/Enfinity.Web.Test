@@ -9,6 +9,7 @@ using Enfinity.Hrms.Test.UI.Models.SelfService.ITSupport;
 using Enfinity.Hrms.Test.UI.Models.SelfService.TimeOff;
 using Enfinity.Hrms.Test.UI.PageObjects.HrCore;
 using Enfinity.Hrms.Test.UI.PageObjects.SelfService;
+using Enfinity.Hrms.Test.UI.Pages.SelfService;
 using Enfinity.Hrms.Test.UI.Utilities;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
@@ -64,7 +65,7 @@ namespace Enfinity.Hrms.Test.UI
                     ec.ProvideAmount(ExpenseClaim.amount);
                 }
 
-                ClassicAssert.IsTrue(ec.IsTransactionCreated());
+                ClassicAssert.IsTrue(ec.IsTxnCreated());
             }
             catch (Exception e)
             {
@@ -111,7 +112,7 @@ namespace Enfinity.Hrms.Test.UI
                     ec.ProvideAmount(BusinessTripClaim.amount);
                 }
 
-                ClassicAssert.IsTrue(ec.IsTransactionCreated());
+                ClassicAssert.IsTrue(ec.IsTxnCreated());
             }
             catch (Exception e)
             {
@@ -227,7 +228,7 @@ namespace Enfinity.Hrms.Test.UI
             try
             {
                 var selfServiceFile = FileUtils.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
-                var supportRequestCategoryData = JsonUtils.ConvertJsonListDataModel<CategoryModel>(selfServiceFile, "createCategory");
+                var exceptionRequestData = JsonUtils.ConvertJsonListDataModel<ExceptionRequestModel>(selfServiceFile, "createExceptionRequest");
 
                 //self service page
                 SelfServicePage ss = new SelfServicePage(_driver);
@@ -235,7 +236,22 @@ namespace Enfinity.Hrms.Test.UI
                 ss.ClickTransactions();
 
                 //ExceptionRequest page                
-                HRAssetRequestPage ar = new HRAssetRequestPage(_driver);
+                ExceptionRequestPage er = new ExceptionRequestPage(_driver);
+
+                foreach(var exception in exceptionRequestData)
+                {
+                    er.CreateExceptionRequest();
+                    er.ClickNew();
+                    er.ProvideExceptionDate(exception.exceptionDate);
+                    er.ProvideLoginTime(exception.loginTime);
+                    er.ProvideLogoutTime(exception.loginTime);
+                    er.ProvideRemarks(exception.remarks);
+                    er.ClickSaveBack();
+
+                    ClassicAssert.IsTrue(er.IsTxnCreated(exception.exceptionDate));
+
+                }
+
 
             }
             catch (Exception e)
@@ -650,7 +666,7 @@ namespace Enfinity.Hrms.Test.UI
 
                     #region additional code
                     BasePage.ClickOnSave();
-                    if (BasePage.IsTxnCreated())
+                    if (BasePage.IsTransactionCreated())
                     {
                         //or.ClickOnSaveAndBack();
                         BasePage.ClickSaveAndBack();

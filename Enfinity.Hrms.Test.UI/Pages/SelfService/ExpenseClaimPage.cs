@@ -111,9 +111,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             ClearAndProvide1(amount, value);
         }
 
-        public bool IsTransactionCreated()
+        public bool IsTxnCreated()
         {
-           return IsTxnCreated();
+           return IsTransactionCreated();
         }
         #endregion
 

@@ -47,9 +47,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             ClickSaveAndBack();
         }
-        public bool IsTransactionCreated()
+        public bool IsTxnCreated()
         {
-           return IsTxnCreated();
+           return IsTransactionCreated();
         }
         public bool IsTransactionCreated1()
         {

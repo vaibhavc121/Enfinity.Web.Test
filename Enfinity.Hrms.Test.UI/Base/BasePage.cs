@@ -813,7 +813,7 @@ namespace Enfinity.Hrms.Test.UI
             }
             return false;
         }
-        public static bool IsTxnCreated()
+        public static bool IsTransactionCreated()
         {
             //string message = driver.FindElement(By.XPath("//div[@class='dx-toast-message']")).Text;
             string message = WaitForElement(By.XPath("//div[@class='dx-toast-message']")).Text;

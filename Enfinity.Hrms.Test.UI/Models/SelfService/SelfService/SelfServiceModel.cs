@@ -75,6 +75,14 @@ namespace Enfinity.Hrms.Test.UI.Models.SelfService
         public string remarks { get; set; }
 
     }
+    public class ExceptionRequestModel
+    {
+        public string exceptionDate { get; set; }
+        public string loginTime { get; set; }
+        public string logotTime { get; set; }
+        public string remarks { get; set; }
+
+    }
     public class SupportRequestCategoryModel
     {
         public string categoryName { get; set; }

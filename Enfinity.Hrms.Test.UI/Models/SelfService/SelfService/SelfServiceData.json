@@ -20,6 +20,16 @@
       "empName": "Vaibhav Chavan"
     }
   ],
+
+  "createExceptionRequest": [
+    {
+      "exceptionDate": "01-01-2025",
+      "loginTime": "1000am",
+      "logotTime": "0200pm",
+      "remarks": "test"
+    }
+  ],
+
   "createTravelRequest": [
     {
       "fromDate": "01-01-2025",
@@ -119,7 +129,7 @@
   "deleteSupportRequestCategory": [
     {
       "categoryName": "Performance Issue"
-      
+
     }
   ]
 
