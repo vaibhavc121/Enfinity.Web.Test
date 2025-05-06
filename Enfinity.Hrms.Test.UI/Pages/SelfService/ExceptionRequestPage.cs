@@ -39,12 +39,15 @@ namespace Enfinity.Hrms.Test.UI.Pages.SelfService
         public void ProvideLoginTime(string value)
         {
             ClearAndProvide1(loginTime, value);
-            Find(loginCal).Click();
+            WaitTS(2);
+            //ClickOnOk();
+            //Find(loginCal).Click();
         }        
         public void ProvideLogoutTime(string value)
         {
             ClearAndProvide1(logotTime, value);
-            Find(logoutCal).Click();
+            ClickOnOk();
+            //Find(logoutCal).Click();
         }       
         public void ProvideRemarks(string value)
         {

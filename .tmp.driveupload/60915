@@ -222,7 +222,7 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Create Exception Request
-        [Test]
+        [Test]        
         public void CreateExceptionRequest()
         {
             try
@@ -241,10 +241,10 @@ namespace Enfinity.Hrms.Test.UI
                 foreach(var exception in exceptionRequestData)
                 {
                     er.CreateExceptionRequest();
-                    er.ClickNew();
+                    er.ClickNew();                   
                     er.ProvideExceptionDate(exception.exceptionDate);
                     er.ProvideLoginTime(exception.loginTime);
-                    er.ProvideLogoutTime(exception.loginTime);
+                    //er.ProvideLogoutTime(exception.loginTime);
                     er.ProvideRemarks(exception.remarks);
                     er.ClickSaveBack();
 
@@ -875,8 +875,19 @@ namespace Enfinity.Hrms.Test.UI
 
         #region Delete Exception Request
         [Test]
-        public void test4()
+        public void DeleteExceptionRequest()
         {
+            //self service page
+            SelfServicePage ss = new SelfServicePage(_driver);
+            ss.ClickSelfService();
+            ss.ClickTransactions();
+
+            //ExceptionRequest page                
+            ExceptionRequestPage er = new ExceptionRequestPage(_driver);
+            er.CreateExceptionRequest();
+
+            BasePage.DeleteTxn(6, "001");
+            ClassicAssert.IsFalse(BasePage.ValidateListing("001", 6, 6));
         }
         #endregion
 

@@ -251,16 +251,17 @@ namespace Enfinity.Hrms.Test.UI
             //string result = driver.FindElement(By.XPath("(//tbody//tr)[12]//td[2]")).Text;
             //return result;
             string xpath = $"(//tbody//tr)[12]//td[{columnIndex}]";
-            try
-            {
-                string result = WaitForElement(By.XPath(xpath)).Text;
-                return result;
-            }
-            catch (Exception)
-            {
-                throw new Exception("VRC- No matching record found");
-            }
-           
+            //don't use WaitForElement() here bocos test case gets failed
+            string result = driver.FindElement(By.XPath(xpath)).Text;
+            return result;
+            //try
+            //{
+            //}
+            //catch (Exception)
+            //{
+            //    throw new Exception("VRC- No matching record found");
+            //}
+
         }
         public static String Result55()
         {

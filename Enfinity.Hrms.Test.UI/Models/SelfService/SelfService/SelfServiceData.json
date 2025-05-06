@@ -23,7 +23,7 @@
 
   "createExceptionRequest": [
     {
-      "exceptionDate": "01-01-2025",
+      "exceptionDate": "01-Jan-2025",
       "loginTime": "1000am",
       "logotTime": "0200pm",
       "remarks": "test"
