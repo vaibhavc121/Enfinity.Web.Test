@@ -17,7 +17,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         #region page objects
         private By profileUpdate = By.XPath("//a[@id='TxnInstanceView_I0i19_T']//span[@class='dx-vam'][normalize-space()='Profile Update']");
-        private By promotionRequest = By.XPath("//a[@id='TxnInstanceView_I0i16_T']//span[@class='dx-vam'][normalize-space()='Promotion Request']");
+        private By promotionRequest = By.XPath("(//span[text()='Promotion Request'])[2]");
         private By txnDate = By.XPath("//input[@id='EmployeePromotionRequest.TxnDate_I']");
         private By effectiveDate = By.XPath("//input[@id='EmployeePromotionRequest.EffectiveDate_I']");
         private By type = By.XPath("//input[@id='EmployeePromotionRequest.Type_I']");

@@ -566,7 +566,8 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create Promotion Request
         [Test, Order(10)]
-        public void CreatePromotionRequest()
+        [Ignore ("do create separate txn for each promotion type")]
+        public void CreatePromotionReq()
         {
             try
             {
@@ -581,7 +582,7 @@ namespace Enfinity.Hrms.Test.UI
 
                 //Promotion Request page                
                 PromotionRequestPage pr = new PromotionRequestPage(_driver);
-                pr.ScrollDownWebpage();
+                //pr.ScrollDownWebpage();
                 pr.ClickPromotionRequest();
                 pr.ClickNew();
 
@@ -630,6 +631,50 @@ namespace Enfinity.Hrms.Test.UI
             {
 
                 ClassicAssert.Fail("Test case failed: " + e);
+
+            }
+        }
+        #endregion
+
+        #region Create Promotion Request
+        [Test]
+        public void CreatePromotionRequest()
+        {
+            try
+            {
+                var selfServiceFile = FileUtils.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
+                var promotionRequestData = JsonUtils.ConvertJsonListDataModel<PromotionRequestModel>(selfServiceFile, "createPromotionRequest");
+
+                //self service page
+                SelfServicePage ss = new SelfServicePage(_driver);
+                ss.ClickSelfService();
+                ss.ClickTransactions();
+
+                //Promotion Request page                
+                PromotionRequestPage pr = new PromotionRequestPage(_driver);
+                //pr.ScrollDownWebpage();
+                pr.ClickPromotionRequest();
+                pr.ClickNew();
+               
+                foreach (var promotionRequest in promotionRequestData)
+                {
+                    pr.ProvideTxnDate(promotionRequest.txnDate);
+                    pr.ProvideEffectiveDate(promotionRequest.effectiveDate);
+                    pr.ProvideType(promotionRequest.type);
+                    pr.ProvideNewDepartment(promotionRequest.newDepartment);
+                    pr.ProvideNewDesignation(promotionRequest.newDesignation);
+                    pr.ProvideNewWorkLocation(promotionRequest.newWorkLocation);
+                    pr.ProvideNewProject(promotionRequest.newProject);
+                    pr.ProvideDescription(promotionRequest.description);
+                    pr.SaveAndBack();
+                    ClassicAssert.IsTrue(pr.IsTxnCreated(promotionRequest.effectiveDate1));
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                ClassicAssert.Fail("VRC- Test case failed: " + e);
 
             }
         }
