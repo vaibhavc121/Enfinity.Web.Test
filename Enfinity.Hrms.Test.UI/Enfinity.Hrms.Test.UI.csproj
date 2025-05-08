@@ -230,6 +230,9 @@
     <Compile Include="Pages\SuccessionPlanning\SuccessionPage.cs" />
     <Compile Include="Pages\SuccessionPlanning\SuccessionPlanPage.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="TestCases\Archive\CreateInvoice\CreateInvoiceTest.cs" />
+    <Compile Include="TestCases\Archive\CreateInvoice\InvoiceModel.cs" />
+    <Compile Include="TestCases\Archive\CreateInvoice\InvoicePage.cs" />
     <Compile Include="TestCases\Archive\EmployeeTabs\AttendanceTabTest.cs" />
     <Compile Include="TestCases\Attendance\AttendanceModule.cs" />
     <Compile Include="TestCases\HrCore\CreateFullEmployeeTest.cs" />
@@ -302,6 +305,7 @@
     <None Include="Models\SelfService\TimeOff\TimeOffData.json" />
     <None Include="Models\SuccessionPlanning\SuccessionPlanning\SuccessionData.json" />
     <None Include="packages.config" />
+    <None Include="TestCases\Archive\CreateInvoice\InvoiceData.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\Performance\" />

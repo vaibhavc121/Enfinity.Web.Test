@@ -1071,9 +1071,24 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Delete Promotion Request
-        [Test]
-        public void test14()
+        [Test]        
+        public void DeletePromotionRequest()
         {
+            var selfServiceFile = FileUtils.GetDataFile("Hrms", "SelfService", "SelfService", "SelfServiceData");
+            var promotionRequestData = JsonUtils.ConvertJsonListDataModel<PromotionRequestModel>(selfServiceFile, "createPromotionRequest");
+
+            //self service page
+            SelfServicePage ss = new SelfServicePage(_driver);
+            ss.ClickSelfService();
+            ss.ClickTransactions();
+
+            //Promotion Request page                
+            PromotionRequestPage pr = new PromotionRequestPage(_driver);
+            //pr.ScrollDownWebpage();
+            pr.ClickPromotionRequest();
+
+            BasePage.DeleteTxn(6, "001");
+            ClassicAssert.IsFalse(BasePage.ValidateListing("001", 6, 6));
         }
         #endregion
 
