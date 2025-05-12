@@ -37,7 +37,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public void ClickNew()
         {
-            ClickNew();
+            ClickOnNew();
         }
         public void ClickPlusBtn()
         {
@@ -73,9 +73,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             Find(desc).SendKeys(value);
         }
-        public void ClickSave()
+        public void ClickSaveBack()
         {
-            ClickOnSave();
+            ClickSaveAndBack();
         }
         public void ClickContextMenu()
         {
@@ -92,7 +92,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public bool IsTxnCreated(string emp, string desc)
         {
-            if (ResultValue(5).Contains(emp) && ResultValue(7).Contains(desc))
+            if (ResultValue(5).Contains(emp) && ResultValue(6).Contains(desc))
             {
                 return true;
             }

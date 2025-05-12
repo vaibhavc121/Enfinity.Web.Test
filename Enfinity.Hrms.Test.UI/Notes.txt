@@ -16,3 +16,25 @@ If u want run multiple test methods in single class then follow below rule
 [OneTimeSetUp]
 --
 //test
+--
+Actions actions = new Actions(driver);
+            actions.MoveToElement(inputField)
+                   .Click()
+                   .DoubleClick()
+                   .SendKeys(value)
+                   .Build()
+                   .Perform();
+--
+correct code-
+ public static void ClearAndProvide2(By locator, string value)
+        {
+            var element = WaitForElement(locator);          
+            Actions actions = new Actions(driver);            
+            actions.MoveToElement(element)
+                   .Click()
+                   .DoubleClick()                  
+                   .SendKeys(value)                  
+                   .Build()
+                   .Perform();
+            Thread.Sleep(1000);            
+        }

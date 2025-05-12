@@ -150,7 +150,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
 
         public bool IsTxnCreated(string value)
         {            
-            if(Result7().Contains(value))
+            if(ResultValue(9).Contains(value))
             {
                 return true;
             }

@@ -9,6 +9,7 @@ namespace Enfinity.Hrms.Test.UI.Models.SelfService.TimeOff
     public class TimeOffModel
     {
         public string permisionDate { get; set; }
+        public string expPermisionDate { get; set; }
         public string hrs { get; set; }
         public string minutes { get; set; }
         public string upTohrs { get; set; }

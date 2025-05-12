@@ -432,6 +432,8 @@ namespace Enfinity.Hrms.Test.UI
             Thread.Sleep(1000);
             element.SendKeys(value);
         }
+       
+        
         public static void ProvideAndEnter(By locator, string value)
         {           
             var element = WaitForElement(locator);
@@ -721,6 +723,21 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Keyboard Actions
+        public static void Pause(string key)
+        {
+            Actions actions = new Actions(driver);
+            actions.Pause(TimeSpan.FromSeconds(2));  // wait for 2 seconds      
+        }
+        public static void EnterKey(string key)
+        {
+            Actions actions = new Actions(driver);
+            actions.SendKeys(key).Perform();
+        }
+        public static void EnterCapitalKey(string key)
+        {
+            Actions actions = new Actions(driver);
+            actions.KeyDown(Keys.Shift).SendKeys(key).KeyUp(Keys.Shift).Perform();
+        }
         public static void PressKey(string key)
         {
             Actions actions = new Actions(driver);
@@ -729,29 +746,137 @@ namespace Enfinity.Hrms.Test.UI
         private static string GetKeyFromString(string key)
         {
             switch (key.ToLower())  // Traditional switch to avoid "recursive pattern" error
-            {
+            {                
+                //Editing keys
                 case "enter": return Keys.Enter;
-                case "tab": return Keys.Tab;
-                case "control": return Keys.Control;
-                case "shift": return Keys.Shift;
-                case "alt": return Keys.Alt;
+                case "tab": return Keys.Tab; 
                 case "escape": return Keys.Escape;
                 case "backspace": return Keys.Backspace;
                 case "delete": return Keys.Delete;
+                case "insert": return Keys.Insert;
                 case "space": return Keys.Space;
+
+                //Modifier keys
+                case "shift": return Keys.Shift;
+                case "control": return Keys.Control;
+                case "alt": return Keys.Alt;
+
+                //Navigation keys
+                case "arrowUp": return Keys.ArrowUp;
+                case "arrowDown": return Keys.ArrowDown;
+                case "arrowLeft": return Keys.ArrowLeft;
+                case "arrowRight": return Keys.ArrowRight;
+                case "home": return Keys.Home;
+                case "end": return Keys.End;
+                case "pageUp": return Keys.PageUp;
+                case "pageDown": return Keys.PageDown;
+
+                //Function keys
+                case "f1": return Keys.F1;
+                case "f2": return Keys.F2;
+                case "f3": return Keys.F3;
+                case "f4": return Keys.F4;
+
+                //Separator and control keys
+                case "add ": return Keys.Add;
+                case "subtract": return Keys.Subtract;
+                case "multiply": return Keys.Multiply;
+                case "divide": return Keys.Divide;
+                case "decimal": return Keys.Decimal;
                 default: throw new ArgumentException("Invalid key name");
             }
         }
         public static void PressTab()
         {
             Actions actions = new Actions(driver);
-            actions.SendKeys(Keys.Tab).Perform();
+            actions.SendKeys(Keys.Tab).Perform();            
         }
         public static void PressEnter()
         {
             Actions actions = new Actions(driver);
             actions.SendKeys(Keys.Enter).Perform();
         }
+        #endregion
+
+        #region Mouse Actions 
+        public void HoverOverElement(By locator)
+        {
+            Actions actions = new Actions(driver);
+            actions.MoveToElement(Find(locator)).Perform();
+        }
+        public void DragAndDrop(By sourceLocator, By targetLocator)
+        {
+            Actions actions = new Actions(driver);
+            actions.DragAndDrop(Find(sourceLocator), Find(targetLocator)).Perform();
+        }
+        public static void MoveToElement(IWebElement element)
+        {
+            Actions actions = new Actions(driver);
+            actions.MoveToElement(element).Perform();
+        }
+        public static void ClickAndHold(IWebElement element)
+        {
+            Actions actions = new Actions(driver);
+            actions.ClickAndHold(element).Perform();
+        }
+
+        public static void Release()
+        {
+            Actions actions = new Actions(driver);
+            actions.Release().Perform();
+        }
+
+        public static void Click(IWebElement element)
+        {
+            Actions actions = new Actions(driver);
+            actions.Click(element).Perform();
+        }
+
+        public static void DoubleClick(IWebElement element)
+        {
+            Actions actions = new Actions(driver);
+            actions.DoubleClick(element).Perform();
+        }
+
+        public static void ContextClick(IWebElement element)
+        {
+            Actions actions = new Actions(driver);
+            actions.ContextClick(element).Perform();
+        }
+
+        public static void DragAndDrop(IWebElement source, IWebElement target)
+        {
+            Actions actions = new Actions(driver);
+            actions.DragAndDrop(source, target).Perform();
+        }
+
+        public static void DragAndDropByOffset(IWebElement element, int xOffset, int yOffset)
+        {
+            Actions actions = new Actions(driver);
+            actions.DragAndDropToOffset(element, xOffset, yOffset).Perform();
+        }
+
+        public static void MoveSliderByOffset(By locator, int xOffset)
+        {
+            Actions move = new Actions(driver);
+
+            move.ClickAndHold(Find(locator))
+                .MoveByOffset(xOffset, 0) // Move right horizontally; adjust pixel value as per your slider
+                .Release()
+                .Perform();
+        }
+        public void MoveToLocation(IWebDriver driver, int x, int y)
+        {
+            var actions = new Actions(driver);
+            actions.MoveByOffset(x, y).Perform();
+        }
+        
+        public void ScrollFromOrigin(IWebDriver driver, WheelInputDevice.ScrollOrigin scrollOrigin, int deltaX, int deltaY)
+        {
+            var actions = new Actions(driver);
+            actions.ScrollFromOrigin(scrollOrigin, deltaX, deltaY).Perform();
+        }        
+
         #endregion
 
         #region Waits
@@ -1032,72 +1157,7 @@ namespace Enfinity.Hrms.Test.UI
             driver.SwitchTo().ParentFrame();
         }
 
-        #endregion
-
-        #region Mouse Actions 
-        public void HoverOverElement(By locator)
-        {
-            Actions actions = new Actions(driver);
-            actions.MoveToElement(Find(locator)).Perform();
-        }
-        public void DragAndDrop(By sourceLocator, By targetLocator)
-        {
-            Actions actions = new Actions(driver);
-            actions.DragAndDrop(Find(sourceLocator), Find(targetLocator)).Perform();
-        }
-        public static void MoveToElement(IWebElement element)
-        {
-            Actions actions = new Actions(driver);
-            actions.MoveToElement(element).Perform();
-        }
-
-        public static void ClickAndHold(IWebElement element)
-        {
-            Actions actions = new Actions(driver);
-            actions.ClickAndHold(element).Perform();
-        }
-
-        public static void Release()
-        {
-            Actions actions = new Actions(driver);
-            actions.Release().Perform();
-        }
-
-        public static void DoubleClick(IWebElement element)
-        {
-            Actions actions = new Actions(driver);
-            actions.DoubleClick(element).Perform();
-        }
-
-        public static void ContextClick(IWebElement element)
-        {
-            Actions actions = new Actions(driver);
-            actions.ContextClick(element).Perform();
-        }
-
-        public static void DragAndDrop(IWebElement source, IWebElement target)
-        {
-            Actions actions = new Actions(driver);
-            actions.DragAndDrop(source, target).Perform();
-        }
-
-        public static void DragAndDropByOffset(IWebElement element, int xOffset, int yOffset)
-        {
-            Actions actions = new Actions(driver);
-            actions.DragAndDropToOffset(element, xOffset, yOffset).Perform();
-        }
-
-        public static void MoveSliderByOffset(By locator, int xOffset)
-        {
-            Actions move = new Actions(driver);
-            
-            move.ClickAndHold(Find(locator))
-                .MoveByOffset(xOffset, 0) // Move right horizontally; adjust pixel value as per your slider
-                .Release()
-                .Perform();
-        }
-
-        #endregion
+        #endregion        
 
         #region File Upload
         public void UploadFile(By locator, string filePath)

@@ -33,7 +33,8 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         public void ClickNew()
         {
             WaitTS(3);
-            ClickOnNew();           
+            ClickOnNew();
+            WaitTS(5);
         }
         public void ClickPlusBtn()
         {            

@@ -16,7 +16,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
 
         #region page objects
-        private By leaveRequest = By.XPath("//a[@id='TxnInstanceView_I0i6_T']//span[@class='dx-vam'][normalize-space()='Exception Request']//following::span[@class='dx-vam'][normalize-space()='Leave Request']");
+        private By leaveRequest = By.XPath("(//span[text()='Leave Request'])[2]");
         //private By leaveRequest = By.XPath("a[id='TxnInstanceView_I0i7_T'] span[class='dx-vam']");           
         private By sickLeave = By.XPath("//p[@title='Sick Leave']");
         private By plusBtn = By.XPath("(//i[@class='dx-icon dx-icon-new-icon'])[2]");
@@ -69,10 +69,10 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         {
             ClickSaveAndBack();
         }
-        public bool IsTxnCreate(string fromDate, string toDate)
+        public bool IsTxnCreated(string fromDate, string toDate)
         {
-            if(Result10().Contains(fromDate) &&
-            Result10().Contains(toDate))              
+            if(ResultValue(7).Contains(fromDate) &&
+            ResultValue(7).Contains(toDate))              
             {
                 return true;
             }
