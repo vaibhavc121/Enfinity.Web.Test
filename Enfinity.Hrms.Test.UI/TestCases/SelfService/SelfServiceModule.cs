@@ -215,6 +215,7 @@ namespace Enfinity.Hrms.Test.UI
 
         #region Delete HR Asset Request
         [Test, Order(4)]
+        [Ignore ("dont check delete bcos i am checking asset return so txn cannot keep active for delete")]
         public void DeleteHRAssetRequest()
         {
 
@@ -230,7 +231,7 @@ namespace Enfinity.Hrms.Test.UI
             HRAssetRequestPage ar = new HRAssetRequestPage(_driver);
             ar.ClickHRAssetRequest();
             ar.Test();
-            BasePage.DeleteTxn(6, "active");
+            BasePage.DeleteTxn(7, "active");
         }
         #endregion
 
@@ -467,9 +468,9 @@ namespace Enfinity.Hrms.Test.UI
         }
         #endregion
 
-        #region create IT support request
+        #region create support request
         [Test, Order(12)]
-        public void CreateITSupportRequest()
+        public void CreateSupportRequest()
         {
             try
             {              
@@ -958,13 +959,57 @@ namespace Enfinity.Hrms.Test.UI
         }
 
         #endregion
-        
 
-       
+        #region Verify Workflow
+        [Test]
+        public void VerifyWorkflow()
+        {
+            try
+            {
 
-       
 
-       
+                var LeaveRequestFile = FileUtils.GetDataFile("Hrms", "SelfService", "LeaveRequest", "LeaveRequestData");
+                var LeaveRequestData = JsonUtils.ConvertJsonListDataModel<LeaveRequestModel>(LeaveRequestFile, "createLeaveRequest");
+
+                BasePage.LogoutAndLogin("rohitc@test.com","123");
+
+                //self service page
+                SelfServicePage ss = new SelfServicePage(_driver);
+                ss.ClickSelfService();
+                ss.ClickTransactions();
+
+                //Leave Request page                
+                LeaveRequestPage lr = new LeaveRequestPage(_driver);
+
+                foreach (var leaveRequest in LeaveRequestData)
+                {
+                    lr.ClickLeaveRequest();
+                    Thread.Sleep(5000);
+                    lr.ClickNew();
+                    lr.HoverAndClick();
+                    lr.ProvideFromDate(leaveRequest.fromDate);
+                    lr.ProvideToDate(leaveRequest.toDate);
+                    //lr.ClickOnSaveSubmit();
+                    lr.ClickSave();
+
+                    ClassicAssert.IsTrue(lr.IsTxnCreated(leaveRequest.expFromDate, leaveRequest.expToDate));
+
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                ClassicAssert.Fail("Test case failed: " + e);
+
+            }
+        }
+        #endregion
+
+
+
+
+
 
 
 

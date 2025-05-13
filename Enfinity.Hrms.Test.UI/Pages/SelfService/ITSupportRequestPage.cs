@@ -16,7 +16,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
 
         #region page objects
-        private By iTSupportRequest = By.XPath("//span[normalize-space()='IT Support Request']");
+        private By iTSupportRequest = By.XPath("//span[normalize-space()='Support Request']");
         private By subject = By.XPath("//input[contains(@id,'Title')]");
         private By supportRequest = By.XPath("//input[@id='SupportRequest.SupportRequestCategoryIdLookup_I']");
         private By priority = By.Id("SupportRequest.Priority_B-1Img");

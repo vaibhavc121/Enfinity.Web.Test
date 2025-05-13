@@ -1,5 +1,6 @@
 ﻿using Bogus;
 using Enfinity.Hrms.Test.UI.Base;
+using Enfinity.Hrms.Test.UI.PageObjects.Login;
 using Enfinity.Hrms.Test.UI.Utilities;
 using NUnit.Framework.Legacy;
 using OpenQA.Selenium;
@@ -719,6 +720,21 @@ namespace Enfinity.Hrms.Test.UI
                 }
             }
         }
+
+        #endregion
+
+        #region Common Actions
+
+        #region Logout And Login
+        public static void LogoutAndLogin(string username, string pwd)
+        {
+            EmployeePage ep = new EmployeePage(driver);
+            ep.ClickRightAreaMenu();
+            ep.ClicklogOff();
+            LoginPage lp=new LoginPage(driver);
+            lp.Login(username, pwd);
+        }
+        #endregion
 
         #endregion
 
