@@ -1,13 +1,21 @@
 ﻿{
   "createLeaveRequest": [
     {
+      "leaveType": "Sick Leave",
       "fromDate": "01-Jan-2025",
       "toDate": "01-Jan-2025",
       "expFromDate": "01-Jan-25",
       "expToDate": "01-Jan-25"
-
-
-
+    }
+  ],
+  "checkWorkflow": [
+    {
+      "leaveType": "Sick Leave",
+      "expEmpName": "Rohit Chavan",
+      "fromDate": "01-Jan-2025",
+      "toDate": "01-Jan-2025",
+      "expFromDate": "01-Jan-25",
+      "expToDate": "01-Jan-25"
     }
   ]
 }

@@ -46,9 +46,10 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             Thread.Sleep(5000);
         }
 
-        public void HoverAndClick()
+        public void HoverAndClick(string leaveType)
         {
-            HoverAndClick(sickLeave, plusBtn);
+            By dynamicLeaveType = By.XPath($"//p[@title='{leaveType}']");
+            HoverAndClick(dynamicLeaveType, plusBtn);
         }
         public void ProvideFromDate(string value)
         {

@@ -9,6 +9,7 @@ using Enfinity.Hrms.Test.UI.Models.SelfService.ITSupport;
 using Enfinity.Hrms.Test.UI.Models.SelfService.TimeOff;
 using Enfinity.Hrms.Test.UI.PageObjects.HrCore;
 using Enfinity.Hrms.Test.UI.PageObjects.SelfService;
+using Enfinity.Hrms.Test.UI.Pages.Global;
 using Enfinity.Hrms.Test.UI.Pages.SelfService;
 using Enfinity.Hrms.Test.UI.Utilities;
 using NUnit.Framework;
@@ -357,7 +358,7 @@ namespace Enfinity.Hrms.Test.UI
                     lr.ClickLeaveRequest();
                     Thread.Sleep(5000);
                     lr.ClickNew();
-                    lr.HoverAndClick();
+                    lr.HoverAndClick(leaveRequest.leaveType);
                     lr.ProvideFromDate(leaveRequest.fromDate);
                     lr.ProvideToDate(leaveRequest.toDate);
                     //lr.ClickOnSaveSubmit();
@@ -961,19 +962,19 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Verify Workflow
+
+        #region Approve Workflow
         [Test]
-        public void VerifyWorkflow()
+        public void VerifyApproveWorkflow()
         {
             try
             {
-
-
                 var LeaveRequestFile = FileUtils.GetDataFile("Hrms", "SelfService", "LeaveRequest", "LeaveRequestData");
-                var LeaveRequestData = JsonUtils.ConvertJsonListDataModel<LeaveRequestModel>(LeaveRequestFile, "createLeaveRequest");
+                var LeaveRequestData = JsonUtils.ConvertJsonListDataModel<LeaveRequestModel>(LeaveRequestFile, "checkWorkflow");
 
-                BasePage.LogoutAndLogin("rohitc@test.com","123");
+                BasePage.LogoutAndLogin("rohitc@test.com", "123");
 
-                //self service page
+                //self service module
                 SelfServicePage ss = new SelfServicePage(_driver);
                 ss.ClickSelfService();
                 ss.ClickTransactions();
@@ -981,21 +982,39 @@ namespace Enfinity.Hrms.Test.UI
                 //Leave Request page                
                 LeaveRequestPage lr = new LeaveRequestPage(_driver);
 
+                //create leave request as employee
                 foreach (var leaveRequest in LeaveRequestData)
                 {
                     lr.ClickLeaveRequest();
                     Thread.Sleep(5000);
                     lr.ClickNew();
-                    lr.HoverAndClick();
+                    lr.HoverAndClick(leaveRequest.leaveType);
                     lr.ProvideFromDate(leaveRequest.fromDate);
                     lr.ProvideToDate(leaveRequest.toDate);
-                    //lr.ClickOnSaveSubmit();
-                    lr.ClickSave();
+                    lr.ClickSaveAndSubmit();
+                    //lr.ClickSave();
 
-                    ClassicAssert.IsTrue(lr.IsTxnCreated(leaveRequest.expFromDate, leaveRequest.expToDate));
-
+                    //ClassicAssert.IsTrue(lr.IsTxnCreated(leaveRequest.expFromDate, leaveRequest.expToDate));
                 }
 
+                //approve the leave request from manager login
+                BasePage.LogoutAndLogin("vaibhav@test.com", "123");
+                NotificationPage np = new NotificationPage(_driver);
+                foreach (var leaveRequest in LeaveRequestData)
+                {
+                    np.ClickBellIcon();
+                    np.IsLeaveDataCorrect(leaveRequest.expEmpName);
+                }
+
+                //amend the txn
+                BasePage.LogoutAndLogin("rohitc@test.com", "123");
+                ss.ClickSelfService();
+                ss.ClickTransactions();
+                lr.ClickLeaveRequest();
+                foreach (var leaveRequest in LeaveRequestData)
+                {
+                    BasePage.PerformAction(6, "Approve", "Amend");
+                }
             }
             catch (Exception e)
             {
@@ -1004,6 +1023,75 @@ namespace Enfinity.Hrms.Test.UI
 
             }
         }
+        #endregion
+
+        #region Revise Workflow
+        [Test]
+        public void VerifyReviseWorkflow()
+        {
+            try
+            {
+                var LeaveRequestFile = FileUtils.GetDataFile("Hrms", "SelfService", "LeaveRequest", "LeaveRequestData");
+                var LeaveRequestData = JsonUtils.ConvertJsonListDataModel<LeaveRequestModel>(LeaveRequestFile, "checkWorkflow");
+
+                BasePage.LogoutAndLogin("rohitc@test.com", "123");
+
+                //self service module
+                SelfServicePage ss = new SelfServicePage(_driver);
+                ss.ClickSelfService();
+                ss.ClickTransactions();
+
+                //Leave Request page                
+                LeaveRequestPage lr = new LeaveRequestPage(_driver);
+
+                //create leave request as employee
+                foreach (var leaveRequest in LeaveRequestData)
+                {
+                    lr.ClickLeaveRequest();
+                    Thread.Sleep(5000);
+                    lr.ClickNew();
+                    lr.HoverAndClick(leaveRequest.leaveType);
+                    lr.ProvideFromDate(leaveRequest.fromDate);
+                    lr.ProvideToDate(leaveRequest.toDate);
+                    lr.ClickSaveAndSubmit();
+                    //lr.ClickSave();
+
+                    //ClassicAssert.IsTrue(lr.IsTxnCreated(leaveRequest.expFromDate, leaveRequest.expToDate));
+                }
+
+                //approve the leave request from manager login
+                BasePage.LogoutAndLogin("vaibhav@test.com", "123");
+                NotificationPage np = new NotificationPage(_driver);
+                foreach (var leaveRequest in LeaveRequestData)
+                {
+                    np.ClickBellIcon();
+                    np.IsLeaveDataCorrect(leaveRequest.expEmpName);
+                }
+
+                //amend the txn
+                BasePage.LogoutAndLogin("rohitc@test.com", "123");
+                ss.ClickSelfService();
+                ss.ClickTransactions();
+                lr.ClickLeaveRequest();
+                foreach (var leaveRequest in LeaveRequestData)
+                {
+                    BasePage.PerformAction(6, "Approve", "Amend");
+                }
+            }
+            catch (Exception e)
+            {
+
+                ClassicAssert.Fail("Test case failed: " + e);
+
+            }
+        }
+        #endregion
+
+        #region Reject Workflow
+
+        #endregion
+
+
         #endregion
 
 

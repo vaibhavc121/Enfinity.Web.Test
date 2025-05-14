@@ -76,7 +76,7 @@ namespace Enfinity.Hrms.Test.UI
                     cp.ProvideWorkProfile(candidate.workProfile);
                     cp.ClickSave();
 
-                    ClassicAssert.IsTrue(cp.IsTransactionCreated());
+                    ClassicAssert.IsTrue(cp.IsTxnCreated());
                 }
             }
             catch (Exception e)

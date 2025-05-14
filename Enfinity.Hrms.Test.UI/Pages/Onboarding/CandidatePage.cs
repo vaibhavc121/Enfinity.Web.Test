@@ -242,7 +242,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.Onboarding
             ClickOnSave();
             Thread.Sleep(2000);
         }
-        public bool IsTransactionCreated()
+        public bool IsTxnCreated()
         {
             String actualCandidateName= driver.FindElement(By.XPath("//span[@class='bCardHover']")).Text;
             if(actualCandidateName.Equals(candidateName))

@@ -347,6 +347,10 @@ namespace Enfinity.Hrms.Test.UI
         {
             WaitForElement(By.XPath("//span[normalize-space()='Edit']")).Click();            
         }
+        public static void ClickApprove()
+        {
+            WaitForElement(By.XPath("//span[normalize-space()='Approve']")).Click();            
+        }
         public static void ClickApproveAndBack()
         {
             WaitForElement(By.XPath("//span[normalize-space()='Approve']")).Click();           
@@ -576,6 +580,55 @@ namespace Enfinity.Hrms.Test.UI
 
             PressKey("enter");
             driver.Navigate().Back();
+
+
+        }
+        public static void PerformAction(int index, string value, string action)
+        {
+            FilterByIndex(index, value);
+            //IWebElement status= driver.FindElement(By.XPath("(//tr)[11]//td[8]"));
+            //status.Click();
+            //status.SendKeys("active");
+            //driver.FindElement(By.XPath("/html[1]/body[1]/div[6]/div[2]/div[1]/div[1]/div[1]/div[6]/div[1]/table[1]/tbody[1]/tr[2]/td[8]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]")).SendKeys("active");
+            //driver.FindElement(By.XPath("(//input[@class='dx-texteditor-input'])[8]")).SendKeys("active");
+
+            Thread.Sleep(2000);
+            try
+            {
+                //need to select row to click on view
+                //driver.FindElement(By.XPath("(//tr)[12]//td[2]")).Click();
+                WaitForElement(By.XPath("(//tr)[12]//td[2]")).Click();
+            }
+            catch (Exception)
+            {
+                ClassicAssert.Fail("Vaibhav- There is no active records..");
+                //Console.WriteLine("There is no active records: " + e);
+                Environment.Exit(1);  // Exits the application with a non-zero status
+            }
+
+            try
+            {
+                ClickOnView();
+            }
+            catch (Exception)
+            {
+                ClickOnEdit();
+            }
+            Thread.Sleep(5000);
+            //driver.FindElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
+            WaitForElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
+            //driver.FindElement(By.XPath("//span[normalize-space()='Delete']")).Click();
+            WaitForElement(By.XPath($"//span[normalize-space()='{action}']")).Click();
+            Thread.Sleep(1000);
+
+            PressKey("enter");
+
+            //delete the txn
+            WaitForElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
+            driver.FindElement(By.XPath("//span[normalize-space()='Delete']")).Click();
+            Thread.Sleep(1000);
+            PressKey("enter");
+            //driver.Navigate().Back();
 
 
         }

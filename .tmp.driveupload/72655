@@ -133,7 +133,7 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Create Strict DayShift Timetable
-        [Test]        
+        [Test, Order(5)]        
         public void CreateStrictDayShiftTimetable()
         {
             try
@@ -171,7 +171,7 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Delete Strict DayShift Timetable
-        [Test]
+        [Test, Order(6)]
         public void DeleteStrictDayShiftTimetable()
         {
             var attendanceFile = FileUtils.GetDataFile("Hrms", "Attendance", "Attendance", "AttendanceData");
@@ -189,7 +189,7 @@ namespace Enfinity.Hrms.Test.UI
         #endregion        
 
         #region Create LenientShif tTimetable
-        [Test]
+        [Test, Order(7)]
         public void CreateLenientShiftTimetable()
         {
             try
@@ -228,7 +228,7 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Delete Lenient Shift Timetable
-        [Test]
+        [Test, Order(8)]
         public void DeleteLenientShiftTimetable()
         {
             var attendanceFile = FileUtils.GetDataFile("Hrms", "Attendance", "Attendance", "AttendanceData");
@@ -246,7 +246,7 @@ namespace Enfinity.Hrms.Test.UI
         #endregion        
 
         #region Create Strict TwoShift DayShift Timetable
-        [Test]
+        [Test, Order(9)]
         public void CreateTwoShiftDayShiftTimetable()
         {
             try
@@ -285,7 +285,7 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Delete TwoShift DayShift Timetable
-        [Test]
+        [Test, Order(10)]
         public void DeleteTwoShiftDayShiftTimetable()
         {
             var attendanceFile = FileUtils.GetDataFile("Hrms", "Attendance", "Attendance", "AttendanceData");
@@ -303,7 +303,7 @@ namespace Enfinity.Hrms.Test.UI
         #endregion        
 
         #region Create Night Shift Timetable
-        [Test]
+        [Test, Order(11)]
         public void CreateNightShiftTimetable()
         {
             try
@@ -340,7 +340,7 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Delete NightShift Timetable
-        [Test]
+        [Test, Order(12)]
         public void DeleteNightShiftTimetable()
         {
             var attendanceFile = FileUtils.GetDataFile("Hrms", "Attendance", "Attendance", "AttendanceData");
@@ -358,7 +358,7 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Create TwoShift NightShift Timetable
-        [Test]
+        [Test, Order(13)]
         public void CreateTwoShiftNightShiftTimetable()
         {
             try
@@ -399,7 +399,7 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Delete TwoShift NightShift Timetable
-        [Test]
+        [Test, Order(14)]
         public void DeleteTwoShiftNightShiftTimetable()
         {
             var attendanceFile = FileUtils.GetDataFile("Hrms", "Attendance", "Attendance", "AttendanceData");
