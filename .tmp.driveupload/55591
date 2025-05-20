@@ -1,4 +1,4 @@
-﻿using Enfinity.Common.Test;
+﻿
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
 
         #region page objects
-        private By leaveRequest = By.XPath("//a[@id='TxnInstanceView_I0i6_T']//span[@class='dx-vam'][normalize-space()='Exception Request']//following::span[@class='dx-vam'][normalize-space()='Leave Request']");
+        private By leaveRequest = By.XPath("(//span[text()='Leave Request'])[2]");
         //private By leaveRequest = By.XPath("a[id='TxnInstanceView_I0i7_T'] span[class='dx-vam']");           
         private By sickLeave = By.XPath("//p[@title='Sick Leave']");
         private By plusBtn = By.XPath("(//i[@class='dx-icon dx-icon-new-icon'])[2]");
@@ -26,6 +26,10 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         private By saveAndSubmit = By.XPath("//span[normalize-space()='Save and Submit']");
         private By newBtn = By.XPath("/html[1]/body[1]/div[6]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]");
         private By plusBtn1 = By.XPath("//img[@id='MainMenu_DXI0_Img']");
+        private By attachFiles = By.XPath("//span[text()='Attach Files']");
+        private By uploadFile = By.XPath("//span[text()='Upload File']");
+
+        
 
 
 
@@ -38,7 +42,7 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             Find(leaveRequest).Click();
         }
 
-        public void ClickOnNew()
+        public void ClickNew()
         {
             //ClickNew();
             //Find(newBtn).Click();
@@ -46,9 +50,10 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             Thread.Sleep(5000);
         }
 
-        public void HoverAndClick()
+        public void HoverAndClick(string leaveType)
         {
-            HoverAndClick(sickLeave, plusBtn);
+            By dynamicLeaveType = By.XPath($"//p[@title='{leaveType}']");
+            HoverAndClick(dynamicLeaveType, plusBtn);
         }
         public void ProvideFromDate(string value)
         {
@@ -61,18 +66,25 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
             ClearAndProvide1(toDate, value);
         }
 
-        public void ClickSaveSubmit()
+        public void ClickSaveAndSubmit()
         {
             Find(saveAndSubmit).Click();
         }
-        public void ClickOnSave()
+        public void ClickSave()
         {
             ClickSaveAndBack();
         }
-        public bool IsTxnCreate(string fromDate, string toDate)
+
+        public void AttachFile()
         {
-            if(Result10().Contains(fromDate) &&
-            Result10().Contains(toDate))              
+            Find(attachFiles).Click();
+            Find(uploadFile).SendKeys("C:\\Users\\Vaibhav\\Downloads\\universe.png");
+
+        }
+        public bool IsTxnCreated(string fromDate, string toDate)
+        {
+            if(ResultValue(7).Contains(fromDate) &&
+            ResultValue(7).Contains(toDate))              
             {
                 return true;
             }

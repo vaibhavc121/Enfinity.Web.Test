@@ -114,6 +114,10 @@ namespace Enfinity.Common.Test
         {
             BaseTest._driver.FindElement(By.XPath("//div//span[contains(@class, 'dx-vam') and text()='Edit']")).Click();
         }
+        public static void ClickOnApprove()
+        {
+            BaseTest._driver.FindElement(By.XPath("//div//span[contains(@class, 'dx-vam') and text()='Approve']")).Click();
+        }
         public static void ProvideNameOnListing(string name)
         {
             BaseTest._driver.FindElement(By.XPath("//input[@aria-describedby='dx-col-3']")).SendKeys(name);
@@ -190,6 +194,7 @@ namespace Enfinity.Common.Test
         {
             IWebElement element = BaseTest._driver.FindElement(By.ClassName("dx-toast-message"));
             string actualMessage = element.Text;
+            Thread.Sleep(500);
             StringAssert.Contains(expectedMessage, actualMessage);
         }
         public static void ValidateSummary(string expectedMessage)
@@ -201,6 +206,22 @@ namespace Enfinity.Common.Test
         #endregion
 
         #region Common methods
+        public static void SelectOption(string option)
+        {
+            Thread.Sleep(1000);
+            var options = BaseTest._driver.FindElements(By.XPath($"//div[normalize-space(text())='{option}']"));
+
+            foreach (var valueElement in options)
+            {
+                string actualValue = valueElement.Text.Trim();
+                if (actualValue.Contains(option))
+                {
+                    valueElement.Click();                    
+                    return;
+                }
+            }
+            throw new NoSuchElementException($"Dropdown option containing '{option}' was not found.");
+        }
         public static void SelectDropDownOption(string option)
         {
             Thread.Sleep(1000);
@@ -288,18 +309,23 @@ namespace Enfinity.Common.Test
                    .Perform();
             element.SendKeys(value);
         }
+        public static void PressTabKey() 
+        {
+            Actions actions = new Actions(BaseTest._driver);
+            actions.SendKeys(Keys.Tab).Perform();
+        }
+        public static void PressEnterKey()
+        {
+            Actions actions = new Actions(BaseTest._driver);
+            actions.SendKeys(Keys.Enter).Perform();
+        }
+        public static void ClickOnPopUpSave()
+        {
+            BaseTest._driver.FindElement(By.XPath("(//span[@class='dx-button-text'][normalize-space()='Save'])")).Click();
+        }
         #endregion
 
         #endregion
-
-
-
-        
-
-
-
-
-
     }
 }
 

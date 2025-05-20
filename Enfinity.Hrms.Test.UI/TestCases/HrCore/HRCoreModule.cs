@@ -28,8 +28,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 namespace Enfinity.Hrms.Test.UI
 {
     [TestFixture]
-
-
+    //[Parallelizable(ParallelScope.All)]
     public class HRCoreModule : BaseTest
     {
         #region Employee Test

@@ -1,0 +1,18 @@
+{
+  "header": [
+    {
+      "Reference": "Reference",
+      "Remarks": "Remarks"
+    }
+  ],
+  "new": [
+    {
+      "Account": "Cash-in-Hand",
+      "Debit": "Debit",
+      "Credit":  "Credit",
+      "EnteredAmount": "100",
+      "AccountedAmount": "100",
+      "LineRemarks": "Ok"
+    }
+  ]
+}

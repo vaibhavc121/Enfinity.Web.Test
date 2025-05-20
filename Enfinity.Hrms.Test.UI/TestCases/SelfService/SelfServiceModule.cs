@@ -29,8 +29,7 @@ namespace Enfinity.Hrms.Test.UI
 {
     [TestFixture]
     public class SelfServiceModule : BaseTest
-    {
-        
+    {       
 
         #region Create Business Trip Claim
         [Test]
@@ -1097,7 +1096,51 @@ namespace Enfinity.Hrms.Test.UI
 
 
 
+        #region create leave request
+        [Test]
+        //[Ignore("issue in create new btn")]
+        public void FileUpload()
+        {
+            try
+            {
 
+
+                var LeaveRequestFile = FileUtils.GetDataFile("Hrms", "SelfService", "LeaveRequest", "LeaveRequestData");
+                var LeaveRequestData = JsonUtils.ConvertJsonListDataModel<LeaveRequestModel>(LeaveRequestFile, "createLeaveRequest");
+
+                //self service page
+                SelfServicePage ss = new SelfServicePage(_driver);
+                ss.ClickSelfService();
+                ss.ClickTransactions();
+
+                //Leave Request page                
+                LeaveRequestPage lr = new LeaveRequestPage(_driver);
+
+                foreach (var leaveRequest in LeaveRequestData)
+                {
+                    lr.ClickLeaveRequest();
+                    Thread.Sleep(5000);
+                    lr.ClickNew();
+                    lr.HoverAndClick(leaveRequest.leaveType);
+                    lr.ProvideFromDate(leaveRequest.fromDate);
+                    lr.ProvideToDate(leaveRequest.toDate);
+                    //lr.ClickOnSaveSubmit();
+                    lr.ClickSave();
+                    //lr.AttachFile();
+
+                    ClassicAssert.IsTrue(lr.IsTxnCreated(leaveRequest.expFromDate, leaveRequest.expToDate));
+
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                ClassicAssert.Fail("Test case failed: " + e);
+
+            }
+        }
+        #endregion
 
 
 

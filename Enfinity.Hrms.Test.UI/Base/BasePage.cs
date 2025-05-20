@@ -1065,6 +1065,28 @@ namespace Enfinity.Hrms.Test.UI
             }             
 
         }
+        public static bool ValidateListing2Fields(string value1, int filterIndex1, int resultIndex1,
+                                   string value2, int filterIndex2, int resultIndex2)
+        {
+            // Apply first filter
+            FilterByIndex(filterIndex1, value1);
+            WaitTS(2);
+
+            // Apply second filter
+            FilterByIndex(filterIndex2, value2);
+            WaitTS(2);
+
+            // Get results
+            string actualValue1 = ResultValue(resultIndex1);
+            string actualValue2 = ResultValue(resultIndex2);
+
+            // Validate results
+            bool isValid1 = actualValue1.Contains(value1);
+            bool isValid2 = actualValue2.Contains(value2);
+
+            return isValid1 && isValid2;
+        }
+
         //written for to check multiple validations
         public static bool ValidateListing1(string expDate = null, string expEmp = null, string expStatus = null)
         {

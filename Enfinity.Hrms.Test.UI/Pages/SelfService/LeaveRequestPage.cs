@@ -26,6 +26,10 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         private By saveAndSubmit = By.XPath("//span[normalize-space()='Save and Submit']");
         private By newBtn = By.XPath("/html[1]/body[1]/div[6]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/img[1]");
         private By plusBtn1 = By.XPath("//img[@id='MainMenu_DXI0_Img']");
+        private By attachFiles = By.XPath("//span[text()='Attach Files']");
+        private By uploadFile = By.XPath("//span[text()='Upload File']");
+
+        
 
 
 
@@ -69,6 +73,13 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         public void ClickSave()
         {
             ClickSaveAndBack();
+        }
+
+        public void AttachFile()
+        {
+            Find(attachFiles).Click();
+            Find(uploadFile).SendKeys("C:\\Users\\Vaibhav\\Downloads\\universe.png");
+
         }
         public bool IsTxnCreated(string fromDate, string toDate)
         {
