@@ -1,17 +1,16 @@
 ﻿using Bogus;
-
+using Enfinity.Hrms.Test.UI.Models.Login;
+using Enfinity.Hrms.Test.UI.TestData.CredentialProvider;
+using Enfinity.Hrms.Test.UI.Utilities;
 using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
-using OpenQA.Selenium;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Enfinity.Hrms.Test.UI.Utilities;
-using Enfinity.Hrms.Test.UI.Models.Login;
 
 namespace Enfinity.Hrms.Test.UI.Base
 {
@@ -88,8 +87,17 @@ namespace Enfinity.Hrms.Test.UI.Base
             var passwordField = WaitUtils.WaitForElement((By.Name("Password")));
             var loginButton = WaitUtils.WaitForElement((By.ClassName("login-btn")));
 
-            usernameField.SendKeys(loginModel.Username);
-            passwordField.SendKeys(loginModel.Password);
+            #region Get cCredentials from DB
+            var credentials = new CredentialProvider().GetCredentials();
+
+            string username = credentials.Username;
+            string password = credentials.Password;
+            #endregion
+
+            //usernameField.SendKeys(loginModel.Username);
+            //passwordField.SendKeys(loginModel.Password);
+            usernameField.SendKeys(username);
+            passwordField.SendKeys(password);
             loginButton.Click();
         }
         #endregion
