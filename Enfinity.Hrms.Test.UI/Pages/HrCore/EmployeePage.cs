@@ -90,7 +90,6 @@ namespace Enfinity.Hrms.Test.UI
         //private By job = By.XPath("//span[normalize-space()='Job']");
         //private By job = By.XPath("/html[1]/body[1]/div[6]/div[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]");
         private By job = By.XPath("//span[contains(text(),'Job')]");
-
         private By payroll = By.XPath("//a[@id='employeeProfileMenu_DXI2_T']//span[@class='dx-vam dxm-contentText'][normalize-space()='Payroll']");
         private By timeOff = By.XPath("//span[normalize-space()='Time Off']");
         private By attendance = By.XPath("//a[@id='employeeProfileMenu_DXI4_T']//span[@class='dx-vam dxm-contentText'][normalize-space()='Attendance']");

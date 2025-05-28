@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenQA.Selenium;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,6 +43,19 @@ namespace Enfinity.Hrms.Test.UI.Utilities
             return new string(Enumerable.Range(0, 10).Select(_ => digits[random.Next(digits.Length)]).ToArray());
         }
 
-        #endregion
-    }
+        public static double ExtractNumericValueFromText(By locator)
+        {
+          var element = WaitUtils.WaitForElement(locator);
+          String bal = element.Text;
+          // String number = bal.replaceAll("[^0-9.]", "").trim();
+          String numberPart = bal.Substring(0, 5);
+          double expBal = Convert.ToDouble(numberPart);
+          // expBal += 1;
+           return expBal;
+
+        }
+
+
+    #endregion
+  }
 }
