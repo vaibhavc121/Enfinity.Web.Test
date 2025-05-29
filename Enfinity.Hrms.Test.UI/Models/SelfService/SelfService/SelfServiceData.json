@@ -12,7 +12,7 @@
 
   "createBenefitClaim": [
     {
-      "claimDate": "01-01-2025",
+      "claimDate": "02-01-2025",
       "benefitScheme": "Self | Health Insurance",
       "claimAmount": "20",
       "paymentType": "Pay Out Side Payroll",

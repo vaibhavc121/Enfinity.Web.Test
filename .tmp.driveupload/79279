@@ -351,6 +351,18 @@ namespace Enfinity.Hrms.Test.UI
         {
             WaitForElement(By.XPath("//span[normalize-space()='Approve']")).Click();            
         }
+        public static void ClickReject()
+        {
+            WaitForElement(By.XPath("//span[normalize-space()='Reject']")).Click();
+        }
+        public static void ClickRevise()
+        {
+            WaitForElement(By.XPath("//span[normalize-space()='Revise']")).Click();
+        }        
+        public static void ClickAttachFile()
+        {
+            WaitForElement(By.XPath("//span[normalize-space()='Attach Files']")).Click();
+        }
         public static void ClickApproveAndBack()
         {
             WaitForElement(By.XPath("//span[normalize-space()='Approve']")).Click();           
@@ -585,6 +597,7 @@ namespace Enfinity.Hrms.Test.UI
         }
         public static void PerformAction(int index, string value, string action)
         {
+            
             FilterByIndex(index, value);
             //IWebElement status= driver.FindElement(By.XPath("(//tr)[11]//td[8]"));
             //status.Click();
@@ -622,13 +635,20 @@ namespace Enfinity.Hrms.Test.UI
             Thread.Sleep(1000);
 
             PressKey("enter");
+            driver.Navigate().Back();
 
-            //delete the txn
-            WaitForElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
-            driver.FindElement(By.XPath("//span[normalize-space()='Delete']")).Click();
-            Thread.Sleep(1000);
-            PressKey("enter");
-            //driver.Navigate().Back();
+            if (action.Equals("Delete"))
+            {
+                return;
+                //delete the txn
+                WaitForElement(By.XPath("(//img[@class='dxWeb_mAdaptiveMenu_Office365 dxm-pImage'])[8]")).Click();
+                driver.FindElement(By.XPath("//span[normalize-space()='Delete']")).Click();
+                Thread.Sleep(1000);
+                PressKey("enter");
+                //driver.Navigate().Back();
+            }
+
+
 
 
         }
@@ -755,6 +775,8 @@ namespace Enfinity.Hrms.Test.UI
                     break;
                 }
             }
+            //driver.SwitchTo().Window(driver.WindowHandles[0]);
+            //driver.Close();
         }
         public static void CloseTab()
         {
@@ -772,6 +794,10 @@ namespace Enfinity.Hrms.Test.UI
                     break;
                 }
             }
+        }
+        public static void CloseCurrentTab()
+        {
+            driver.Close();
         }
 
         #endregion
@@ -1139,22 +1165,22 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Alert Handling
-        public void AcceptAlert(IWebDriver driver)
+        public static void AcceptAlert(IWebDriver driver)
         {
             driver.SwitchTo().Alert().Accept();
         }
 
-        public void DismissAlert(IWebDriver driver)
+        public static void DismissAlert(IWebDriver driver)
         {
             driver.SwitchTo().Alert().Dismiss();
         }
 
-        public string GetAlertText(IWebDriver driver)
+        public static string GetAlertText(IWebDriver driver)
         {
             return driver.SwitchTo().Alert().Text;
         }
 
-        public void SendKeysToAlert(IWebDriver driver, string text)
+        public static void SendKeysToAlert(IWebDriver driver, string text)
         {
             driver.SwitchTo().Alert().SendKeys(text);
         }

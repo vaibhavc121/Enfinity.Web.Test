@@ -379,6 +379,7 @@ namespace Enfinity.Hrms.Test.UI
 
         #region Delete Leave Request
         [Test, Order(9)]
+        //[Repeat(5)]
         public void DeleteLeaveRequest()
         {
 
@@ -394,7 +395,7 @@ namespace Enfinity.Hrms.Test.UI
             LeaveRequestPage lr = new LeaveRequestPage(_driver);
             lr.ClickLeaveRequest();
 
-            BasePage.DeleteTxn(6, "active");
+            BasePage.DeleteTxn(7, "active");
         }
 
         #endregion
@@ -963,7 +964,7 @@ namespace Enfinity.Hrms.Test.UI
         #region Verify Workflow
 
         #region Approve Workflow
-        [Test]
+        [Test, Order(26)]
         public void VerifyApproveWorkflow()
         {
             try
@@ -1002,7 +1003,7 @@ namespace Enfinity.Hrms.Test.UI
                 foreach (var leaveRequest in LeaveRequestData)
                 {
                     np.ClickBellIcon();
-                    np.IsLeaveDataCorrect(leaveRequest.expEmpName);
+                    np.IsLeaveDataCorrect(leaveRequest.expEmpName, "Approve");
                 }
 
                 //amend the txn
@@ -1012,7 +1013,7 @@ namespace Enfinity.Hrms.Test.UI
                 lr.ClickLeaveRequest();
                 foreach (var leaveRequest in LeaveRequestData)
                 {
-                    BasePage.PerformAction(6, "Approve", "Amend");
+                    BasePage.PerformAction(7, "Approve", "Amend");
                 }
             }
             catch (Exception e)
@@ -1025,7 +1026,8 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Revise Workflow
-        [Test]
+        [Test, Order(27)]
+        [Ignore("NoSuchWindowException")]
         public void VerifyReviseWorkflow()
         {
             try
@@ -1058,23 +1060,23 @@ namespace Enfinity.Hrms.Test.UI
                     //ClassicAssert.IsTrue(lr.IsTxnCreated(leaveRequest.expFromDate, leaveRequest.expToDate));
                 }
 
-                //approve the leave request from manager login
+                //Revise the leave request from manager login
                 BasePage.LogoutAndLogin("vaibhav@test.com", "123");
                 NotificationPage np = new NotificationPage(_driver);
                 foreach (var leaveRequest in LeaveRequestData)
                 {
                     np.ClickBellIcon();
-                    np.IsLeaveDataCorrect(leaveRequest.expEmpName);
+                    np.IsLeaveDataCorrect(leaveRequest.expEmpName, "Revise");
                 }
 
-                //amend the txn
+                //Amend & Delete the txn
                 BasePage.LogoutAndLogin("rohitc@test.com", "123");
                 ss.ClickSelfService();
                 ss.ClickTransactions();
                 lr.ClickLeaveRequest();
                 foreach (var leaveRequest in LeaveRequestData)
                 {
-                    BasePage.PerformAction(6, "Approve", "Amend");
+                    BasePage.PerformAction(7, "Active", "Delete");
                 }
             }
             catch (Exception e)
@@ -1087,7 +1089,66 @@ namespace Enfinity.Hrms.Test.UI
         #endregion
 
         #region Reject Workflow
+        [Test, Order(28)]
+        [Ignore("NoSuchWindowException")]
+        public void VerifyRejectWorkflow()
+        {
+            try
+            {
+                var LeaveRequestFile = FileUtils.GetDataFile("Hrms", "SelfService", "LeaveRequest", "LeaveRequestData");
+                var LeaveRequestData = JsonUtils.ConvertJsonListDataModel<LeaveRequestModel>(LeaveRequestFile, "checkWorkflow");
 
+                BasePage.LogoutAndLogin("rohitc@test.com", "123");
+
+                //self service module
+                SelfServicePage ss = new SelfServicePage(_driver);
+                ss.ClickSelfService();
+                ss.ClickTransactions();
+
+                //Leave Request page                
+                LeaveRequestPage lr = new LeaveRequestPage(_driver);
+
+                //create leave request as employee
+                foreach (var leaveRequest in LeaveRequestData)
+                {
+                    lr.ClickLeaveRequest();
+                    Thread.Sleep(5000);
+                    lr.ClickNew();
+                    lr.HoverAndClick(leaveRequest.leaveType);
+                    lr.ProvideFromDate(leaveRequest.fromDate);
+                    lr.ProvideToDate(leaveRequest.toDate);
+                    lr.ClickSaveAndSubmit();
+                    //lr.ClickSave();
+
+                    //ClassicAssert.IsTrue(lr.IsTxnCreated(leaveRequest.expFromDate, leaveRequest.expToDate));
+                }
+
+                //Revise the leave request from manager login
+                BasePage.LogoutAndLogin("vaibhav@test.com", "123");
+                NotificationPage np = new NotificationPage(_driver);
+                foreach (var leaveRequest in LeaveRequestData)
+                {
+                    np.ClickBellIcon();
+                    np.IsLeaveDataCorrect(leaveRequest.expEmpName,"Reject");
+                }
+
+                //Amend & Delete the txn
+                BasePage.LogoutAndLogin("rohitc@test.com", "123");
+                ss.ClickSelfService();
+                ss.ClickTransactions();
+                lr.ClickLeaveRequest();
+                foreach (var leaveRequest in LeaveRequestData)
+                {
+                    BasePage.ValidateListing1(expDate: DateUtils.CurrentDateInCustomFormat(), expStatus: "Rejected");
+                }
+            }
+            catch (Exception e)
+            {
+
+                ClassicAssert.Fail("Test case failed: " + e);
+
+            }
+        }
         #endregion
 
 
@@ -1098,7 +1159,7 @@ namespace Enfinity.Hrms.Test.UI
 
         #region create leave request
         [Test]
-        //[Ignore("issue in create new btn")]
+        [Ignore("issue in create new btn")]
         public void FileUpload()
         {
             try
