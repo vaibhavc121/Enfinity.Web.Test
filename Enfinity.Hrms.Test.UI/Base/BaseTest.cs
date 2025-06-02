@@ -87,17 +87,17 @@ namespace Enfinity.Hrms.Test.UI.Base
             var passwordField = WaitUtils.WaitForElement((By.Name("Password")));
             var loginButton = WaitUtils.WaitForElement((By.ClassName("login-btn")));
 
-            #region Get cCredentials from DB
-            var credentials = new CredentialProvider().GetCredentials();
+            #region Get Credentials from DB
+            //var credentials = new CredentialProvider().GetCredentials();
 
-            string username = credentials.Username;
-            string password = credentials.Password;
+            //string username = credentials.Username;
+            //string password = credentials.Password;
             #endregion
 
-            //usernameField.SendKeys(loginModel.Username);
-            //passwordField.SendKeys(loginModel.Password);
-            usernameField.SendKeys(username);
-            passwordField.SendKeys(password);
+            usernameField.SendKeys(loginModel.Username);
+            passwordField.SendKeys(loginModel.Password);
+            //usernameField.SendKeys(username);
+            //passwordField.SendKeys(password);
             loginButton.Click();
         }
         #endregion
