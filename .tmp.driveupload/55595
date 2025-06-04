@@ -31,7 +31,9 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public void ClickTransactions()
         {
-            Find(transactions).Click();
+            //Find(transactions).Click();
+            bool status= Find(transactions).Displayed;
+            Console.WriteLine(status);
         }
 
         #endregion
