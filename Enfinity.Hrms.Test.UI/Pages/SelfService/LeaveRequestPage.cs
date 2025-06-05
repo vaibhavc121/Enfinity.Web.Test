@@ -83,8 +83,8 @@ namespace Enfinity.Hrms.Test.UI.PageObjects.SelfService
         }
         public bool IsTxnCreated(string fromDate, string toDate)
         {
-            if(ResultValue(7).Contains(fromDate) &&
-            ResultValue(7).Contains(toDate))              
+            if(ResultValue(8).Contains(fromDate) &&
+            ResultValue(8).Contains(toDate))              
             {
                 return true;
             }

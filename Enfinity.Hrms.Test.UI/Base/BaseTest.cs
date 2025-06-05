@@ -37,7 +37,7 @@ namespace Enfinity.Hrms.Test.UI.Base
             options.AddUserProfilePreference("profile.password_manager_enabled", false);
 
             // Add Headless Mode
-            options.AddArgument("--headless");
+            //options.AddArgument("--headless");
             #endregion
 
             // Initialize the Chrome WebDriver
